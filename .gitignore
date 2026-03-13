@@ -1,0 +1,14 @@
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Environment
+.env
+.env.*
+
+# JSON data (опционально - если не хотите хранить данные в репозитории)
+*.json
+
+# Logs
+*.log
