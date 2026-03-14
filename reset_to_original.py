@@ -8,6 +8,7 @@ import json
 import copy
 from datetime import datetime
 import os
+from utils import DATA_DIR
 import shutil
 from typing import Dict
 
@@ -36,7 +37,7 @@ except ImportError:
     }
 
 # Файлы с данными
-STATES_FILE = 'states.json'
+STATES_FILE = os.path.join(DATA_DIR, 'states.json')
 PRODUCTION_QUEUE_FILE = 'production_queue.json'
 CIVIL_PRODUCTION_QUEUE_FILE = 'civil_production_queue.json'
 CONSTRUCTION_QUEUE_FILE = 'infra_construction.json'
