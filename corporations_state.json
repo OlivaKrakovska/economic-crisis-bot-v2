@@ -1,0 +1,3985 @@
+{
+    "corporations": {
+        "civ_us_001": {
+            "id": "civ_us_001",
+            "name": "General Motors",
+            "country": "Неизвестно",
+            "city": "",
+            "description": "",
+            "specialization": [],
+            "products": {},
+            "founded": null,
+            "website": null,
+            "service_type": "manufacturing",
+            "inventory": {
+                "cars": 8500,
+                "trucks": 3200,
+                "auto_parts": 15000
+            },
+            "budget": 85000000000,
+            "popularity": 72,
+            "market_share": {
+                "cars": 17.5,
+                "trucks": 22.0
+            },
+            "employees": 155000,
+            "last_update": "2026-03-13 22:11:34.587315"
+        },
+        "civ_us_001b": {
+            "id": "civ_us_001b",
+            "name": "Ford Motor Company",
+            "country": "Неизвестно",
+            "city": "",
+            "description": "",
+            "specialization": [],
+            "products": {},
+            "founded": null,
+            "website": null,
+            "service_type": "manufacturing",
+            "inventory": {
+                "cars": 7800,
+                "trucks": 4100,
+                "auto_parts": 12000
+            },
+            "budget": 72000000000,
+            "popularity": 75,
+            "market_share": {
+                "cars": 14.8,
+                "trucks": 28.5
+            },
+            "employees": 173000,
+            "last_update": "2026-03-13 22:11:34.587352"
+        },
+        "civ_us_001c": {
+            "id": "civ_us_001c",
+            "name": "Tesla, Inc.",
+            "country": "Неизвестно",
+            "city": "",
+            "description": "",
+            "specialization": [],
+            "products": {},
+            "founded": null,
+            "website": null,
+            "service_type": "manufacturing",
+            "inventory": {
+                "cars": 2800,
+                "energy_equipment": 950
+            },
+            "budget": 68000000000,
+            "popularity": 89,
+            "market_share": {
+                "cars": 4.2,
+                "energy_equipment": 12.5
+            },
+            "employees": 127000,
+            "last_update": "2026-03-13 22:11:34.587365"
+        },
+        "civ_us_002": {
+            "id": "civ_us_002",
+            "name": "Caterpillar Inc.",
+            "country": "Неизвестно",
+            "city": "",
+            "description": "",
+            "specialization": [],
+            "products": {},
+            "founded": null,
+            "website": null,
+            "service_type": "manufacturing",
+            "inventory": {
+                "construction_machinery": 1850,
+                "industrial_equipment": 3200,
+                "energy_equipment": 780
+            },
+            "budget": 52000000000,
+            "popularity": 68,
+            "market_share": {
+                "construction_machinery": 19.0,
+                "industrial_equipment": 8.5
+            },
+            "employees": 104000,
+            "last_update": "2026-03-13 22:11:34.587375"
+        },
+        "civ_us_003": {
+            "id": "civ_us_003",
+            "name": "Boeing",
+            "country": "Неизвестно",
+            "city": "",
+            "description": "",
+            "specialization": [],
+            "products": {},
+            "founded": null,
+            "website": null,
+            "service_type": "manufacturing",
+            "inventory": {
+                "aerospace_equipment": 120,
+                "drones": 180
+            },
+            "budget": 68000000000,
+            "popularity": 45,
+            "market_share": {
+                "aerospace_equipment": 42.0
+            },
+            "employees": 141000,
+            "last_update": "2026-03-13 22:11:34.587384"
+        },
+        "civ_us_004": {
+            "id": "civ_us_004",
+            "name": "IBM",
+            "country": "Неизвестно",
+            "city": "",
+            "description": "",
+            "specialization": [],
+            "products": {},
+            "founded": null,
+            "website": null,
+            "service_type": "manufacturing",
+            "inventory": {
+                "tech_equipment": 3400,
+                "software": 15000,
+                "cloud_services": 25000
+            },
+            "budget": 65000000000,
+            "popularity": 58,
+            "market_share": {
+                "software": 5.2,
+                "cloud_services": 3.8
+            },
+            "employees": 282000,
+            "last_update": "2026-03-13 22:11:34.587393"
+        },
+        "civ_us_004b": {
+            "id": "civ_us_004b",
+            "name": "Microsoft Corporation",
+            "country": "Неизвестно",
+            "city": "",
+            "description": "",
+            "specialization": [],
+            "products": {},
+            "founded": null,
+            "website": null,
+            "service_type": "manufacturing",
+            "inventory": {
+                "software": 45000,
+                "cloud_services": 52000,
+                "computers": 950,
+                "gaming": 3200
+            },
+            "budget": 184000000000,
+            "popularity": 86,
+            "market_share": {
+                "software": 22.5,
+                "cloud_services": 21.0
+            },
+            "employees": 221000,
+            "last_update": "2026-03-13 22:11:34.587402"
+        },
+        "civ_us_004c": {
+            "id": "civ_us_004c",
+            "name": "Apple Inc.",
+            "country": "Неизвестно",
+            "city": "",
+            "description": "",
+            "specialization": [],
+            "products": {},
+            "founded": null,
+            "website": null,
+            "service_type": "manufacturing",
+            "inventory": {
+                "smartphones": 8500,
+                "computers": 1850,
+                "tablets": 4200,
+                "software": 35000,
+                "streaming": 15000
+            },
+            "budget": 162000000000,
+            "popularity": 91,
+            "market_share": {
+                "smartphones": 18.0,
+                "computers": 8.5,
+                "tablets": 32.0
+            },
+            "employees": 164000,
+            "last_update": "2026-03-13 22:11:34.587411"
+        },
+        "civ_us_004d": {
+            "id": "civ_us_004d",
+            "name": "Google LLC",
+            "country": "Неизвестно",
+            "city": "",
+            "description": "",
+            "specialization": [],
+            "products": {},
+            "founded": null,
+            "website": null,
+            "service_type": "manufacturing",
+            "inventory": {
+                "internet_services": 65000,
+                "software": 28000,
+                "cloud_services": 34000,
+                "smartphones": 1850
+            },
+            "budget": 158000000000,
+            "popularity": 88,
+            "market_share": {
+                "internet_services": 28.5,
+                "cloud_services": 9.0
+            },
+            "employees": 156000,
+            "last_update": "2026-03-13 22:11:34.587420"
+        },
+        "civ_us_004e": {
+            "id": "civ_us_004e",
+            "name": "Amazon.com, Inc.",
+            "country": "Неизвестно",
+            "city": "",
+            "description": "",
+            "specialization": [],
+            "products": {},
+            "founded": null,
+            "website": null,
+            "service_type": "manufacturing",
+            "inventory": {
+                "ecommerce": 125000,
+                "cloud_services": 48000,
+                "streaming": 35000,
+                "logistics": 28000
+            },
+            "budget": 201000000000,
+            "popularity": 82,
+            "market_share": {
+                "ecommerce": 38.0,
+                "cloud_services": 32.0
+            },
+            "employees": 1540000,
+            "last_update": "2026-03-13 22:11:34.587429"
+        },
+        "civ_us_005": {
+            "id": "civ_us_005",
+            "name": "Johnson & Johnson",
+            "country": "Неизвестно",
+            "city": "",
+            "description": "",
+            "specialization": [],
+            "products": {},
+            "founded": null,
+            "website": null,
+            "service_type": "manufacturing",
+            "inventory": {
+                "medical_equipment": 1850,
+                "medical_supplies": 12500,
+                "pharmaceuticals": 5800,
+                "sanitary_products": 18500,
+                "cosmetics": 9200
+            },
+            "budget": 74000000000,
+            "popularity": 76,
+            "market_share": {
+                "medical_supplies": 14.0,
+                "pharmaceuticals": 5.5
+            },
+            "employees": 135000,
+            "last_update": "2026-03-13 22:11:34.587437"
+        },
+        "civ_us_005b": {
+            "id": "civ_us_005b",
+            "name": "Pfizer Inc.",
+            "country": "Неизвестно",
+            "city": "",
+            "description": "",
+            "specialization": [],
+            "products": {},
+            "founded": null,
+            "website": null,
+            "service_type": "manufacturing",
+            "inventory": {
+                "pharmaceuticals": 7200
+            },
+            "budget": 82000000000,
+            "popularity": 71,
+            "market_share": {
+                "pharmaceuticals": 7.8
+            },
+            "employees": 79000,
+            "last_update": "2026-03-13 22:11:34.587446"
+        },
+        "civ_us_005c": {
+            "id": "civ_us_005c",
+            "name": "Merck & Co.",
+            "country": "Неизвестно",
+            "city": "",
+            "description": "",
+            "specialization": [],
+            "products": {},
+            "founded": null,
+            "website": null,
+            "service_type": "manufacturing",
+            "inventory": {
+                "pharmaceuticals": 5400
+            },
+            "budget": 48000000000,
+            "popularity": 68,
+            "market_share": {
+                "pharmaceuticals": 5.2
+            },
+            "employees": 68000,
+            "last_update": "2026-03-13 22:11:34.587455"
+        },
+        "civ_us_006": {
+            "id": "civ_us_006",
+            "name": "AT&T Inc.",
+            "country": "Неизвестно",
+            "city": "",
+            "description": "",
+            "specialization": [],
+            "products": {},
+            "founded": null,
+            "website": null,
+            "service_type": "manufacturing",
+            "inventory": {
+                "telecom_services": 85000,
+                "mobile_services": 72000,
+                "internet_services": 48000,
+                "media": 35000
+            },
+            "budget": 124000000000,
+            "popularity": 52,
+            "market_share": {
+                "mobile_services": 24.0,
+                "internet_services": 18.5
+            },
+            "employees": 203000,
+            "last_update": "2026-03-13 22:11:34.587463"
+        },
+        "civ_us_006b": {
+            "id": "civ_us_006b",
+            "name": "Verizon Communications",
+            "country": "Неизвестно",
+            "city": "",
+            "description": "",
+            "specialization": [],
+            "products": {},
+            "founded": null,
+            "website": null,
+            "service_type": "manufacturing",
+            "inventory": {
+                "mobile_services": 78000,
+                "internet_services": 42000,
+                "telecom_services": 38000
+            },
+            "budget": 115000000000,
+            "popularity": 58,
+            "market_share": {
+                "mobile_services": 22.0,
+                "internet_services": 16.0
+            },
+            "employees": 118000,
+            "last_update": "2026-03-13 22:11:34.587472"
+        },
+        "civ_us_006c": {
+            "id": "civ_us_006c",
+            "name": "Comcast Corporation",
+            "country": "Неизвестно",
+            "city": "",
+            "description": "",
+            "specialization": [],
+            "products": {},
+            "founded": null,
+            "website": null,
+            "service_type": "manufacturing",
+            "inventory": {
+                "internet_services": 52000,
+                "media": 68000,
+                "telecom_services": 22000
+            },
+            "budget": 89000000000,
+            "popularity": 41,
+            "market_share": {
+                "internet_services": 20.0,
+                "media": 15.0
+            },
+            "employees": 186000,
+            "last_update": "2026-03-13 22:11:34.587480"
+        },
+        "civ_us_007": {
+            "id": "civ_us_007",
+            "name": "JPMorgan Chase & Co.",
+            "country": "Неизвестно",
+            "city": "",
+            "description": "",
+            "specialization": [],
+            "products": {},
+            "founded": null,
+            "website": null,
+            "service_type": "manufacturing",
+            "inventory": {
+                "banking": 125000,
+                "investments": 38000,
+                "fintech": 22000
+            },
+            "budget": 335000000000,
+            "popularity": 64,
+            "market_share": {
+                "banking": 12.5,
+                "investments": 8.0
+            },
+            "employees": 293000,
+            "last_update": "2026-03-13 22:11:34.587488"
+        },
+        "civ_us_007b": {
+            "id": "civ_us_007b",
+            "name": "Goldman Sachs",
+            "country": "Неизвестно",
+            "city": "",
+            "description": "",
+            "specialization": [],
+            "products": {},
+            "founded": null,
+            "website": null,
+            "service_type": "manufacturing",
+            "inventory": {
+                "investments": 42000,
+                "banking": 28000
+            },
+            "budget": 142000000000,
+            "popularity": 62,
+            "market_share": {
+                "investments": 6.5
+            },
+            "employees": 48500,
+            "last_update": "2026-03-13 22:11:34.587496"
+        },
+        "civ_us_007c": {
+            "id": "civ_us_007c",
+            "name": "Visa Inc.",
+            "country": "Неизвестно",
+            "city": "",
+            "description": "",
+            "specialization": [],
+            "products": {},
+            "founded": null,
+            "website": null,
+            "service_type": "manufacturing",
+            "inventory": {
+                "fintech": 95000,
+                "banking": 65000
+            },
+            "budget": 82000000000,
+            "popularity": 79,
+            "market_share": {
+                "fintech": 24.0
+            },
+            "employees": 26500,
+            "last_update": "2026-03-13 22:11:34.587504"
+        },
+        "civ_us_007d": {
+            "id": "civ_us_007d",
+            "name": "Mastercard Inc.",
+            "country": "Неизвестно",
+            "city": "",
+            "description": "",
+            "specialization": [],
+            "products": {},
+            "founded": null,
+            "website": null,
+            "service_type": "manufacturing",
+            "inventory": {
+                "fintech": 88000,
+                "banking": 58000
+            },
+            "budget": 71000000000,
+            "popularity": 77,
+            "market_share": {
+                "fintech": 21.0
+            },
+            "employees": 24000,
+            "last_update": "2026-03-13 22:11:34.587513"
+        },
+        "civ_us_008": {
+            "id": "civ_us_008",
+            "name": "Walmart Inc.",
+            "country": "Неизвестно",
+            "city": "",
+            "description": "",
+            "specialization": [],
+            "products": {},
+            "founded": null,
+            "website": null,
+            "service_type": "manufacturing",
+            "inventory": {
+                "retail": 185000,
+                "supermarkets": 158000,
+                "ecommerce": 45000
+            },
+            "budget": 185000000000,
+            "popularity": 73,
+            "market_share": {
+                "retail": 18.0,
+                "supermarkets": 22.0
+            },
+            "employees": 2100000,
+            "last_update": "2026-03-13 22:11:34.587539"
+        },
+        "civ_us_008b": {
+            "id": "civ_us_008b",
+            "name": "Costco Wholesale",
+            "country": "Неизвестно",
+            "city": "",
+            "description": "",
+            "specialization": [],
+            "products": {},
+            "founded": null,
+            "website": null,
+            "service_type": "manufacturing",
+            "inventory": {
+                "retail": 85000,
+                "supermarkets": 72000
+            },
+            "budget": 52000000000,
+            "popularity": 85,
+            "market_share": {
+                "retail": 5.5,
+                "supermarkets": 7.0
+            },
+            "employees": 304000,
+            "last_update": "2026-03-13 22:11:34.587549"
+        },
+        "civ_us_008c": {
+            "id": "civ_us_008c",
+            "name": "Target Corporation",
+            "country": "Неизвестно",
+            "city": "",
+            "description": "",
+            "specialization": [],
+            "products": {},
+            "founded": null,
+            "website": null,
+            "service_type": "manufacturing",
+            "inventory": {
+                "retail": 72000,
+                "clothing": 35000,
+                "household_goods": 42000
+            },
+            "budget": 41000000000,
+            "popularity": 78,
+            "market_share": {
+                "retail": 4.5,
+                "clothing": 3.0
+            },
+            "employees": 440000,
+            "last_update": "2026-03-13 22:11:34.587560"
+        },
+        "civ_us_009": {
+            "id": "civ_us_009",
+            "name": "McDonald's Corporation",
+            "country": "Неизвестно",
+            "city": "",
+            "description": "",
+            "specialization": [],
+            "products": {},
+            "founded": null,
+            "website": null,
+            "service_type": "manufacturing",
+            "inventory": {
+                "fast_food": 125000,
+                "restaurants": 85000
+            },
+            "budget": 48000000000,
+            "popularity": 82,
+            "market_share": {
+                "fast_food": 21.0
+            },
+            "employees": 2000000,
+            "last_update": "2026-03-13 22:11:34.587568"
+        },
+        "civ_us_009b": {
+            "id": "civ_us_009b",
+            "name": "Starbucks Corporation",
+            "country": "Неизвестно",
+            "city": "",
+            "description": "",
+            "specialization": [],
+            "products": {},
+            "founded": null,
+            "website": null,
+            "service_type": "manufacturing",
+            "inventory": {
+                "restaurants": 95000,
+                "food_products": 28000
+            },
+            "budget": 32000000000,
+            "popularity": 84,
+            "market_share": {
+                "restaurants": 8.5
+            },
+            "employees": 383000,
+            "last_update": "2026-03-13 22:11:34.587576"
+        },
+        "civ_us_009c": {
+            "id": "civ_us_009c",
+            "name": "Yum! Brands",
+            "country": "Неизвестно",
+            "city": "",
+            "description": "",
+            "specialization": [],
+            "products": {},
+            "founded": null,
+            "website": null,
+            "service_type": "manufacturing",
+            "inventory": {
+                "fast_food": 85000,
+                "restaurants": 42000
+            },
+            "budget": 18000000000,
+            "popularity": 71,
+            "market_share": {
+                "fast_food": 9.0
+            },
+            "employees": 360000,
+            "last_update": "2026-03-13 22:11:34.587584"
+        },
+        "civ_us_010": {
+            "id": "civ_us_010",
+            "name": "John Deere",
+            "country": "Неизвестно",
+            "city": "",
+            "description": "",
+            "specialization": [],
+            "products": {},
+            "founded": null,
+            "website": null,
+            "service_type": "manufacturing",
+            "inventory": {
+                "agricultural_machinery": 1850,
+                "construction_machinery": 950
+            },
+            "budget": 42000000000,
+            "popularity": 74,
+            "market_share": {
+                "agricultural_machinery": 24.0,
+                "construction_machinery": 8.0
+            },
+            "employees": 82000,
+            "last_update": "2026-03-13 22:11:34.587593"
+        },
+        "civ_us_011": {
+            "id": "civ_us_011",
+            "name": "PepsiCo",
+            "country": "Неизвестно",
+            "city": "",
+            "description": "",
+            "specialization": [],
+            "products": {},
+            "founded": null,
+            "website": null,
+            "service_type": "manufacturing",
+            "inventory": {
+                "food_products": 125000,
+                "beverages": 185000
+            },
+            "budget": 68000000000,
+            "popularity": 76,
+            "market_share": {
+                "food_products": 12.0,
+                "beverages": 18.0
+            },
+            "employees": 291000,
+            "last_update": "2026-03-13 22:11:34.587601"
+        },
+        "civ_us_011b": {
+            "id": "civ_us_011b",
+            "name": "The Coca-Cola Company",
+            "country": "Неизвестно",
+            "city": "",
+            "description": "",
+            "specialization": [],
+            "products": {},
+            "founded": null,
+            "website": null,
+            "service_type": "manufacturing",
+            "inventory": {
+                "beverages": 220000
+            },
+            "budget": 74000000000,
+            "popularity": 85,
+            "market_share": {
+                "beverages": 24.0
+            },
+            "employees": 82000,
+            "last_update": "2026-03-13 22:11:34.587610"
+        },
+        "civ_us_012": {
+            "id": "civ_us_012",
+            "name": "General Electric",
+            "country": "Неизвестно",
+            "city": "",
+            "description": "",
+            "specialization": [],
+            "products": {},
+            "founded": null,
+            "website": null,
+            "service_type": "manufacturing",
+            "inventory": {
+                "electrical_equipment": 3200,
+                "energy_equipment": 850,
+                "aerospace_equipment": 95
+            },
+            "budget": 52000000000,
+            "popularity": 48,
+            "market_share": {
+                "electrical_equipment": 12.0,
+                "energy_equipment": 7.0
+            },
+            "employees": 168000,
+            "last_update": "2026-03-13 22:11:34.587618"
+        },
+        "civ_us_013": {
+            "id": "civ_us_013",
+            "name": "Delta Air Lines",
+            "country": "Неизвестно",
+            "city": "",
+            "description": "",
+            "specialization": [],
+            "products": {},
+            "founded": null,
+            "website": null,
+            "service_type": "manufacturing",
+            "inventory": {
+                "airlines": 850,
+                "passenger_transport": 3200,
+                "logistics": 1800
+            },
+            "budget": 28000000000,
+            "popularity": 71,
+            "market_share": {
+                "airlines": 15.0
+            },
+            "employees": 83000,
+            "last_update": "2026-03-13 22:11:34.587627"
+        },
+        "civ_us_013b": {
+            "id": "civ_us_013b",
+            "name": "American Airlines",
+            "country": "Неизвестно",
+            "city": "",
+            "description": "",
+            "specialization": [],
+            "products": {},
+            "founded": null,
+            "website": null,
+            "service_type": "manufacturing",
+            "inventory": {
+                "airlines": 780,
+                "passenger_transport": 2900
+            },
+            "budget": 24000000000,
+            "popularity": 62,
+            "market_share": {
+                "airlines": 14.0
+            },
+            "employees": 130000,
+            "last_update": "2026-03-13 22:11:34.587635"
+        },
+        "civ_us_013c": {
+            "id": "civ_us_013c",
+            "name": "United Airlines",
+            "country": "Неизвестно",
+            "city": "",
+            "description": "",
+            "specialization": [],
+            "products": {},
+            "founded": null,
+            "website": null,
+            "service_type": "manufacturing",
+            "inventory": {
+                "airlines": 820,
+                "passenger_transport": 3100
+            },
+            "budget": 26000000000,
+            "popularity": 65,
+            "market_share": {
+                "airlines": 13.5
+            },
+            "employees": 96000,
+            "last_update": "2026-03-13 22:11:34.587643"
+        },
+        "civ_us_014": {
+            "id": "civ_us_014",
+            "name": "United Parcel Service (UPS)",
+            "country": "Неизвестно",
+            "city": "",
+            "description": "",
+            "specialization": [],
+            "products": {},
+            "founded": null,
+            "website": null,
+            "service_type": "manufacturing",
+            "inventory": {
+                "logistics": 45000,
+                "freight": 12500
+            },
+            "budget": 71000000000,
+            "popularity": 79,
+            "market_share": {
+                "logistics": 22.0
+            },
+            "employees": 534000,
+            "last_update": "2026-03-13 22:11:34.587651"
+        },
+        "civ_us_014b": {
+            "id": "civ_us_014b",
+            "name": "FedEx Corporation",
+            "country": "Неизвестно",
+            "city": "",
+            "description": "",
+            "specialization": [],
+            "products": {},
+            "founded": null,
+            "website": null,
+            "service_type": "manufacturing",
+            "inventory": {
+                "logistics": 38000,
+                "freight": 11200
+            },
+            "budget": 65000000000,
+            "popularity": 77,
+            "market_share": {
+                "logistics": 19.0
+            },
+            "employees": 547000,
+            "last_update": "2026-03-13 22:11:34.587659"
+        },
+        "civ_us_015": {
+            "id": "civ_us_015",
+            "name": "The Walt Disney Company",
+            "country": "Неизвестно",
+            "city": "",
+            "description": "",
+            "specialization": [],
+            "products": {},
+            "founded": null,
+            "website": null,
+            "service_type": "manufacturing",
+            "inventory": {
+                "entertainment": 25000,
+                "media": 45000,
+                "streaming": 32000
+            },
+            "budget": 158000000000,
+            "popularity": 83,
+            "market_share": {
+                "entertainment": 18.0,
+                "streaming": 12.0
+            },
+            "employees": 223000,
+            "last_update": "2026-03-13 22:11:34.587667"
+        },
+        "civ_us_015b": {
+            "id": "civ_us_015b",
+            "name": "Netflix, Inc.",
+            "country": "Неизвестно",
+            "city": "",
+            "description": "",
+            "specialization": [],
+            "products": {},
+            "founded": null,
+            "website": null,
+            "service_type": "manufacturing",
+            "inventory": {
+                "streaming": 68000,
+                "entertainment": 12000
+            },
+            "budget": 42000000000,
+            "popularity": 86,
+            "market_share": {
+                "streaming": 21.0
+            },
+            "employees": 12800,
+            "last_update": "2026-03-13 22:11:34.587675"
+        },
+        "civ_us_015c": {
+            "id": "civ_us_015c",
+            "name": "Warner Bros. Discovery",
+            "country": "Неизвестно",
+            "city": "",
+            "description": "",
+            "specialization": [],
+            "products": {},
+            "founded": null,
+            "website": null,
+            "service_type": "manufacturing",
+            "inventory": {
+                "media": 52000,
+                "entertainment": 18500,
+                "streaming": 24000
+            },
+            "budget": 52000000000,
+            "popularity": 58,
+            "market_share": {
+                "media": 12.0,
+                "streaming": 8.0
+            },
+            "employees": 38000,
+            "last_update": "2026-03-13 22:11:34.587683"
+        },
+        "civ_us_016": {
+            "id": "civ_us_016",
+            "name": "Chegg, Inc.",
+            "country": "Неизвестно",
+            "city": "",
+            "description": "",
+            "specialization": [],
+            "products": {},
+            "founded": null,
+            "website": null,
+            "service_type": "manufacturing",
+            "inventory": {
+                "education": 25000,
+                "online_courses": 18000
+            },
+            "budget": 3800000000,
+            "popularity": 67,
+            "market_share": {
+                "online_courses": 4.5
+            },
+            "employees": 3200,
+            "last_update": "2026-03-13 22:11:34.587691"
+        },
+        "civ_us_016b": {
+            "id": "civ_us_016b",
+            "name": "Coursera, Inc.",
+            "country": "Неизвестно",
+            "city": "",
+            "description": "",
+            "specialization": [],
+            "products": {},
+            "founded": null,
+            "website": null,
+            "service_type": "manufacturing",
+            "inventory": {
+                "online_courses": 22000,
+                "education": 15000
+            },
+            "budget": 2800000000,
+            "popularity": 72,
+            "market_share": {
+                "online_courses": 5.0
+            },
+            "employees": 1400,
+            "last_update": "2026-03-13 22:11:34.587699"
+        },
+        "civ_ru_001": {
+            "id": "civ_ru_001",
+            "name": "АвтоВАЗ",
+            "country": "Неизвестно",
+            "city": "",
+            "description": "",
+            "specialization": [],
+            "products": {},
+            "founded": null,
+            "website": null,
+            "service_type": "manufacturing",
+            "inventory": {
+                "cars": 4500,
+                "auto_parts": 8500
+            },
+            "budget": 5200000000,
+            "popularity": 58,
+            "market_share": {
+                "cars": 21.0
+            },
+            "employees": 32000,
+            "last_update": "2026-03-13 22:11:34.587706"
+        },
+        "civ_ru_001b": {
+            "id": "civ_ru_001b",
+            "name": "Группа ГАЗ",
+            "country": "Неизвестно",
+            "city": "",
+            "description": "",
+            "specialization": [],
+            "products": {},
+            "founded": null,
+            "website": null,
+            "service_type": "manufacturing",
+            "inventory": {
+                "trucks": 1850,
+                "buses": 420,
+                "auto_parts": 6200
+            },
+            "budget": 3800000000,
+            "popularity": 56,
+            "market_share": {
+                "trucks": 18.0,
+                "buses": 35.0
+            },
+            "employees": 25000,
+            "last_update": "2026-03-13 22:11:34.587715"
+        },
+        "civ_ru_002": {
+            "id": "civ_ru_002",
+            "name": "КАМАЗ",
+            "country": "Неизвестно",
+            "city": "",
+            "description": "",
+            "specialization": [],
+            "products": {},
+            "founded": null,
+            "website": null,
+            "service_type": "manufacturing",
+            "inventory": {
+                "trucks": 2100,
+                "buses": 380,
+                "auto_parts": 7200
+            },
+            "budget": 6200000000,
+            "popularity": 62,
+            "market_share": {
+                "trucks": 32.0,
+                "buses": 15.0
+            },
+            "employees": 35000,
+            "last_update": "2026-03-13 22:11:34.587723"
+        },
+        "civ_ru_003": {
+            "id": "civ_ru_003",
+            "name": "МТС",
+            "country": "Неизвестно",
+            "city": "",
+            "description": "",
+            "specialization": [],
+            "products": {},
+            "founded": null,
+            "website": null,
+            "service_type": "manufacturing",
+            "inventory": {
+                "mobile_services": 42000,
+                "telecom_services": 28000,
+                "internet_services": 32000,
+                "media": 15000
+            },
+            "budget": 8500000000,
+            "popularity": 68,
+            "market_share": {
+                "mobile_services": 28.0,
+                "internet_services": 22.0
+            },
+            "employees": 62000,
+            "last_update": "2026-03-13 22:11:34.587734"
+        },
+        "civ_ru_003b": {
+            "id": "civ_ru_003b",
+            "name": "МегаФон",
+            "country": "Неизвестно",
+            "city": "",
+            "description": "",
+            "specialization": [],
+            "products": {},
+            "founded": null,
+            "website": null,
+            "service_type": "manufacturing",
+            "inventory": {
+                "mobile_services": 38000,
+                "telecom_services": 22000,
+                "internet_services": 28000
+            },
+            "budget": 5800000000,
+            "popularity": 64,
+            "market_share": {
+                "mobile_services": 23.0,
+                "internet_services": 18.0
+            },
+            "employees": 28000,
+            "last_update": "2026-03-13 22:11:34.587742"
+        },
+        "civ_ru_003c": {
+            "id": "civ_ru_003c",
+            "name": "ВымпелКом (Билайн)",
+            "country": "Неизвестно",
+            "city": "",
+            "description": "",
+            "specialization": [],
+            "products": {},
+            "founded": null,
+            "website": null,
+            "service_type": "manufacturing",
+            "inventory": {
+                "mobile_services": 35000,
+                "telecom_services": 20000,
+                "internet_services": 25000
+            },
+            "budget": 5200000000,
+            "popularity": 59,
+            "market_share": {
+                "mobile_services": 21.0,
+                "internet_services": 16.0
+            },
+            "employees": 26000,
+            "last_update": "2026-03-13 22:11:34.587750"
+        },
+        "civ_ru_004": {
+            "id": "civ_ru_004",
+            "name": "Яндекс",
+            "country": "Неизвестно",
+            "city": "",
+            "description": "",
+            "specialization": [],
+            "products": {},
+            "founded": null,
+            "website": null,
+            "service_type": "manufacturing",
+            "inventory": {
+                "internet_services": 55000,
+                "software": 28000,
+                "cloud_services": 15000,
+                "ecommerce": 25000,
+                "passenger_transport": 18000
+            },
+            "budget": 9200000000,
+            "popularity": 82,
+            "market_share": {
+                "internet_services": 58.0,
+                "cloud_services": 12.0,
+                "passenger_transport": 35.0
+            },
+            "employees": 20000,
+            "last_update": "2026-03-13 22:11:34.587758"
+        },
+        "civ_ru_004b": {
+            "id": "civ_ru_004b",
+            "name": "VK",
+            "country": "Неизвестно",
+            "city": "",
+            "description": "",
+            "specialization": [],
+            "products": {},
+            "founded": null,
+            "website": null,
+            "service_type": "manufacturing",
+            "inventory": {
+                "internet_services": 45000,
+                "software": 15000,
+                "gaming": 12000,
+                "media": 22000
+            },
+            "budget": 4800000000,
+            "popularity": 75,
+            "market_share": {
+                "internet_services": 42.0,
+                "gaming": 15.0
+            },
+            "employees": 12000,
+            "last_update": "2026-03-13 22:11:34.587766"
+        },
+        "civ_ru_004c": {
+            "id": "civ_ru_004c",
+            "name": "Лаборатория Касперского",
+            "country": "Неизвестно",
+            "city": "",
+            "description": "",
+            "specialization": [],
+            "products": {},
+            "founded": null,
+            "website": null,
+            "service_type": "manufacturing",
+            "inventory": {
+                "cybersecurity": 25000,
+                "software": 18000
+            },
+            "budget": 2200000000,
+            "popularity": 78,
+            "market_share": {
+                "cybersecurity": 18.0
+            },
+            "employees": 4000,
+            "last_update": "2026-03-13 22:11:34.587774"
+        },
+        "civ_ru_005": {
+            "id": "civ_ru_005",
+            "name": "Сбербанк",
+            "country": "Неизвестно",
+            "city": "",
+            "description": "",
+            "specialization": [],
+            "products": {},
+            "founded": null,
+            "website": null,
+            "service_type": "manufacturing",
+            "inventory": {
+                "banking": 95000,
+                "investments": 28000,
+                "fintech": 35000,
+                "insurance": 18000
+            },
+            "budget": 152000000000,
+            "popularity": 71,
+            "market_share": {
+                "banking": 42.0,
+                "fintech": 35.0
+            },
+            "employees": 281000,
+            "last_update": "2026-03-13 22:11:34.587782"
+        },
+        "civ_ru_005b": {
+            "id": "civ_ru_005b",
+            "name": "ВТБ",
+            "country": "Неизвестно",
+            "city": "",
+            "description": "",
+            "specialization": [],
+            "products": {},
+            "founded": null,
+            "website": null,
+            "service_type": "manufacturing",
+            "inventory": {
+                "banking": 62000,
+                "investments": 18000
+            },
+            "budget": 68000000000,
+            "popularity": 54,
+            "market_share": {
+                "banking": 18.0
+            },
+            "employees": 85000,
+            "last_update": "2026-03-13 22:11:34.587791"
+        },
+        "civ_ru_005c": {
+            "id": "civ_ru_005c",
+            "name": "Т-Банк",
+            "country": "Неизвестно",
+            "city": "",
+            "description": "",
+            "specialization": [],
+            "products": {},
+            "founded": null,
+            "website": null,
+            "service_type": "manufacturing",
+            "inventory": {
+                "fintech": 48000,
+                "banking": 35000,
+                "insurance": 12000
+            },
+            "budget": 22000000000,
+            "popularity": 79,
+            "market_share": {
+                "fintech": 28.0,
+                "banking": 8.0
+            },
+            "employees": 22000,
+            "last_update": "2026-03-13 22:11:34.587799"
+        },
+        "civ_ru_006": {
+            "id": "civ_ru_006",
+            "name": "Магнит",
+            "country": "Неизвестно",
+            "city": "",
+            "description": "",
+            "specialization": [],
+            "products": {},
+            "founded": null,
+            "website": null,
+            "service_type": "manufacturing",
+            "inventory": {
+                "retail": 75000,
+                "supermarkets": 62000
+            },
+            "budget": 18500000000,
+            "popularity": 68,
+            "market_share": {
+                "retail": 12.0,
+                "supermarkets": 15.0
+            },
+            "employees": 316000,
+            "last_update": "2026-03-13 22:11:34.587808"
+        },
+        "civ_ru_006b": {
+            "id": "civ_ru_006b",
+            "name": "X5 Group",
+            "country": "Неизвестно",
+            "city": "",
+            "description": "",
+            "specialization": [],
+            "products": {},
+            "founded": null,
+            "website": null,
+            "service_type": "manufacturing",
+            "inventory": {
+                "retail": 82000,
+                "supermarkets": 71000,
+                "ecommerce": 15000
+            },
+            "budget": 21000000000,
+            "popularity": 67,
+            "market_share": {
+                "retail": 14.0,
+                "supermarkets": 18.0
+            },
+            "employees": 340000,
+            "last_update": "2026-03-13 22:11:34.587816"
+        },
+        "civ_ru_006c": {
+            "id": "civ_ru_006c",
+            "name": "Wildberries",
+            "country": "Неизвестно",
+            "city": "",
+            "description": "",
+            "specialization": [],
+            "products": {},
+            "founded": null,
+            "website": null,
+            "service_type": "manufacturing",
+            "inventory": {
+                "ecommerce": 85000,
+                "retail": 62000,
+                "logistics": 25000
+            },
+            "budget": 12500000000,
+            "popularity": 81,
+            "market_share": {
+                "ecommerce": 28.0
+            },
+            "employees": 30000,
+            "last_update": "2026-03-13 22:11:34.587825"
+        },
+        "civ_ru_006d": {
+            "id": "civ_ru_006d",
+            "name": "Ozon",
+            "country": "Неизвестно",
+            "city": "",
+            "description": "",
+            "specialization": [],
+            "products": {},
+            "founded": null,
+            "website": null,
+            "service_type": "manufacturing",
+            "inventory": {
+                "ecommerce": 58000,
+                "retail": 42000,
+                "logistics": 18000
+            },
+            "budget": 8200000000,
+            "popularity": 75,
+            "market_share": {
+                "ecommerce": 18.0
+            },
+            "employees": 18000,
+            "last_update": "2026-03-13 22:11:34.587833"
+        },
+        "civ_ru_007": {
+            "id": "civ_ru_007",
+            "name": "Газпром",
+            "country": "Неизвестно",
+            "city": "",
+            "description": "",
+            "specialization": [],
+            "products": {},
+            "founded": null,
+            "website": null,
+            "service_type": "manufacturing",
+            "inventory": {
+                "gas_supply": 95000,
+                "energy_equipment": 1850
+            },
+            "budget": 245000000000,
+            "popularity": 55,
+            "market_share": {
+                "gas_supply": 65.0
+            },
+            "employees": 468000,
+            "last_update": "2026-03-13 22:11:34.587841"
+        },
+        "civ_ru_007b": {
+            "id": "civ_ru_007b",
+            "name": "Роснефть",
+            "country": "Неизвестно",
+            "city": "",
+            "description": "",
+            "specialization": [],
+            "products": {},
+            "founded": null,
+            "website": null,
+            "service_type": "manufacturing",
+            "inventory": {
+                "oil": 125000,
+                "energy_equipment": 1200
+            },
+            "budget": 168000000000,
+            "popularity": 52,
+            "market_share": {
+                "oil": 38.0
+            },
+            "employees": 325000,
+            "last_update": "2026-03-13 22:11:34.587849"
+        },
+        "civ_ru_007c": {
+            "id": "civ_ru_007c",
+            "name": "Лукойл",
+            "country": "Неизвестно",
+            "city": "",
+            "description": "",
+            "specialization": [],
+            "products": {},
+            "founded": null,
+            "website": null,
+            "service_type": "manufacturing",
+            "inventory": {
+                "oil": 82000,
+                "gas_supply": 35000,
+                "retail": 18000
+            },
+            "budget": 95000000000,
+            "popularity": 58,
+            "market_share": {
+                "oil": 16.0,
+                "gas_supply": 12.0
+            },
+            "employees": 102000,
+            "last_update": "2026-03-13 22:11:34.587857"
+        },
+        "civ_ru_007d": {
+            "id": "civ_ru_007d",
+            "name": "Росатом",
+            "country": "Неизвестно",
+            "city": "",
+            "description": "",
+            "specialization": [],
+            "products": {},
+            "founded": null,
+            "website": null,
+            "service_type": "manufacturing",
+            "inventory": {
+                "energy_equipment": 950,
+                "electricity": 28000
+            },
+            "budget": 85000000000,
+            "popularity": 61,
+            "market_share": {
+                "energy_equipment": 45.0,
+                "electricity": 18.0
+            },
+            "employees": 256000,
+            "last_update": "2026-03-13 22:11:34.587865"
+        },
+        "civ_ru_008": {
+            "id": "civ_ru_008",
+            "name": "Ростсельмаш",
+            "country": "Неизвестно",
+            "city": "",
+            "description": "",
+            "specialization": [],
+            "products": {},
+            "founded": null,
+            "website": null,
+            "service_type": "manufacturing",
+            "inventory": {
+                "agricultural_machinery": 1250
+            },
+            "budget": 2800000000,
+            "popularity": 64,
+            "market_share": {
+                "agricultural_machinery": 42.0
+            },
+            "employees": 10000,
+            "last_update": "2026-03-13 22:11:34.587873"
+        },
+        "civ_ru_009": {
+            "id": "civ_ru_009",
+            "name": "Силовые машины",
+            "country": "Неизвестно",
+            "city": "",
+            "description": "",
+            "specialization": [],
+            "products": {},
+            "founded": null,
+            "website": null,
+            "service_type": "manufacturing",
+            "inventory": {
+                "energy_equipment": 580
+            },
+            "budget": 3500000000,
+            "popularity": 58,
+            "market_share": {
+                "energy_equipment": 28.0
+            },
+            "employees": 18000,
+            "last_update": "2026-03-13 22:11:34.587881"
+        },
+        "civ_ru_010": {
+            "id": "civ_ru_010",
+            "name": "ОАК",
+            "country": "Неизвестно",
+            "city": "",
+            "description": "",
+            "specialization": [],
+            "products": {},
+            "founded": null,
+            "website": null,
+            "service_type": "manufacturing",
+            "inventory": {
+                "aerospace_equipment": 85,
+                "drones": 120
+            },
+            "budget": 6200000000,
+            "popularity": 51,
+            "market_share": {
+                "aerospace_equipment": 18.0
+            },
+            "employees": 98000,
+            "last_update": "2026-03-13 22:11:34.587889"
+        },
+        "civ_ru_011": {
+            "id": "civ_ru_011",
+            "name": "Русагро",
+            "country": "Неизвестно",
+            "city": "",
+            "description": "",
+            "specialization": [],
+            "products": {},
+            "founded": null,
+            "website": null,
+            "service_type": "manufacturing",
+            "inventory": {
+                "food_products": 35000
+            },
+            "budget": 1800000000,
+            "popularity": 63,
+            "market_share": {
+                "food_products": 5.0
+            },
+            "employees": 15000,
+            "last_update": "2026-03-13 22:11:34.587897"
+        },
+        "civ_ru_012": {
+            "id": "civ_ru_012",
+            "name": "Фармстандарт",
+            "country": "Неизвестно",
+            "city": "",
+            "description": "",
+            "specialization": [],
+            "products": {},
+            "founded": null,
+            "website": null,
+            "service_type": "manufacturing",
+            "inventory": {
+                "pharmaceuticals": 4200
+            },
+            "budget": 1200000000,
+            "popularity": 61,
+            "market_share": {
+                "pharmaceuticals": 6.0
+            },
+            "employees": 8000,
+            "last_update": "2026-03-13 22:11:34.587905"
+        },
+        "civ_ru_013": {
+            "id": "civ_ru_013",
+            "name": "Уралкалий",
+            "country": "Неизвестно",
+            "city": "",
+            "description": "",
+            "specialization": [],
+            "products": {},
+            "founded": null,
+            "website": null,
+            "service_type": "manufacturing",
+            "inventory": {
+                "chemicals": 18500,
+                "fertilizers": 22000
+            },
+            "budget": 5800000000,
+            "popularity": 56,
+            "market_share": {
+                "fertilizers": 22.0
+            },
+            "employees": 20000,
+            "last_update": "2026-03-13 22:11:34.587914"
+        },
+        "civ_ru_014": {
+            "id": "civ_ru_014",
+            "name": "РЖД",
+            "country": "Неизвестно",
+            "city": "",
+            "description": "",
+            "specialization": [],
+            "products": {},
+            "founded": null,
+            "website": null,
+            "service_type": "manufacturing",
+            "inventory": {
+                "logistics": 45000,
+                "freight": 32000,
+                "passenger_transport": 25000
+            },
+            "budget": 42000000000,
+            "popularity": 54,
+            "market_share": {
+                "logistics": 42.0,
+                "passenger_transport": 38.0
+            },
+            "employees": 711000,
+            "last_update": "2026-03-13 22:11:34.587922"
+        },
+        "civ_ru_015": {
+            "id": "civ_ru_015",
+            "name": "Росинтер",
+            "country": "Неизвестно",
+            "city": "",
+            "description": "",
+            "specialization": [],
+            "products": {},
+            "founded": null,
+            "website": null,
+            "service_type": "manufacturing",
+            "inventory": {
+                "restaurants": 8500,
+                "fast_food": 6200
+            },
+            "budget": 280000000,
+            "popularity": 59,
+            "market_share": {
+                "restaurants": 2.5
+            },
+            "employees": 5000,
+            "last_update": "2026-03-13 22:11:34.587931"
+        },
+        "civ_ru_016": {
+            "id": "civ_ru_016",
+            "name": "Медси",
+            "country": "Неизвестно",
+            "city": "",
+            "description": "",
+            "specialization": [],
+            "products": {},
+            "founded": null,
+            "website": null,
+            "service_type": "manufacturing",
+            "inventory": {
+                "healthcare_services": 15000,
+                "hospital_services": 3200
+            },
+            "budget": 420000000,
+            "popularity": 68,
+            "market_share": {
+                "healthcare_services": 4.0
+            },
+            "employees": 6000,
+            "last_update": "2026-03-13 22:11:34.587939"
+        },
+        "civ_ru_017": {
+            "id": "civ_ru_017",
+            "name": "Группа ПИК",
+            "country": "Неизвестно",
+            "city": "",
+            "description": "",
+            "specialization": [],
+            "products": {},
+            "founded": null,
+            "website": null,
+            "service_type": "manufacturing",
+            "inventory": {
+                "construction": 1850,
+                "real_estate": 950,
+                "property_management": 3200
+            },
+            "budget": 5800000000,
+            "popularity": 62,
+            "market_share": {
+                "construction": 8.0,
+                "real_estate": 6.0
+            },
+            "employees": 12000,
+            "last_update": "2026-03-13 22:11:34.587947"
+        },
+        "civ_cn_001": {
+            "id": "civ_cn_001",
+            "name": "SAIC Motor",
+            "country": "Неизвестно",
+            "city": "",
+            "description": "",
+            "specialization": [],
+            "products": {},
+            "founded": null,
+            "website": null,
+            "service_type": "manufacturing",
+            "inventory": {
+                "cars": 12500,
+                "trucks": 3800,
+                "auto_parts": 18500
+            },
+            "budget": 85000000000,
+            "popularity": 65,
+            "market_share": {
+                "cars": 22.0,
+                "trucks": 18.0
+            },
+            "employees": 204000,
+            "last_update": "2026-03-13 22:11:34.587956"
+        },
+        "civ_cn_001b": {
+            "id": "civ_cn_001b",
+            "name": "BYD Company",
+            "country": "Неизвестно",
+            "city": "",
+            "description": "",
+            "specialization": [],
+            "products": {},
+            "founded": null,
+            "website": null,
+            "service_type": "manufacturing",
+            "inventory": {
+                "cars": 7200,
+                "energy_equipment": 3200,
+                "buses": 850
+            },
+            "budget": 52000000000,
+            "popularity": 78,
+            "market_share": {
+                "cars": 8.5,
+                "energy_equipment": 15.0
+            },
+            "employees": 288000,
+            "last_update": "2026-03-13 22:11:34.587964"
+        },
+        "civ_cn_002": {
+            "id": "civ_cn_002",
+            "name": "Huawei",
+            "country": "Неизвестно",
+            "city": "",
+            "description": "",
+            "specialization": [],
+            "products": {},
+            "founded": null,
+            "website": null,
+            "service_type": "manufacturing",
+            "inventory": {
+                "telecom_equipment": 12500,
+                "tech_equipment": 8500,
+                "consumer_electronics": 32000,
+                "smartphones": 18500
+            },
+            "budget": 98000000000,
+            "popularity": 58,
+            "market_share": {
+                "telecom_equipment": 28.0,
+                "smartphones": 12.0
+            },
+            "employees": 195000,
+            "last_update": "2026-03-13 22:11:34.587973"
+        },
+        "civ_cn_007": {
+            "id": "civ_cn_007",
+            "name": "Xiaomi",
+            "country": "Неизвестно",
+            "city": "",
+            "description": "",
+            "specialization": [],
+            "products": {},
+            "founded": null,
+            "website": null,
+            "service_type": "manufacturing",
+            "inventory": {
+                "consumer_electronics": 45000,
+                "tech_equipment": 8500,
+                "smartphones": 28000
+            },
+            "budget": 32000000000,
+            "popularity": 76,
+            "market_share": {
+                "smartphones": 13.0,
+                "consumer_electronics": 8.0
+            },
+            "employees": 33000,
+            "last_update": "2026-03-13 22:11:34.587981"
+        },
+        "civ_cn_002b": {
+            "id": "civ_cn_002b",
+            "name": "Lenovo Group",
+            "country": "Неизвестно",
+            "city": "",
+            "description": "",
+            "specialization": [],
+            "products": {},
+            "founded": null,
+            "website": null,
+            "service_type": "manufacturing",
+            "inventory": {
+                "computers": 12500,
+                "tech_equipment": 6200,
+                "smartphones": 8500
+            },
+            "budget": 48000000000,
+            "popularity": 68,
+            "market_share": {
+                "computers": 22.0,
+                "smartphones": 3.5
+            },
+            "employees": 71000,
+            "last_update": "2026-03-13 22:11:34.587989"
+        },
+        "civ_cn_002c": {
+            "id": "civ_cn_002c",
+            "name": "Tencent Holdings",
+            "country": "Неизвестно",
+            "city": "",
+            "description": "",
+            "specialization": [],
+            "products": {},
+            "founded": null,
+            "website": null,
+            "service_type": "manufacturing",
+            "inventory": {
+                "internet_services": 85000,
+                "gaming": 45000,
+                "media": 38000,
+                "fintech": 52000
+            },
+            "budget": 152000000000,
+            "popularity": 72,
+            "market_share": {
+                "gaming": 18.0,
+                "internet_services": 35.0
+            },
+            "employees": 113000,
+            "last_update": "2026-03-13 22:11:34.587998"
+        },
+        "civ_cn_002d": {
+            "id": "civ_cn_002d",
+            "name": "Alibaba Group",
+            "country": "Неизвестно",
+            "city": "",
+            "description": "",
+            "specialization": [],
+            "products": {},
+            "founded": null,
+            "website": null,
+            "service_type": "manufacturing",
+            "inventory": {
+                "ecommerce": 125000,
+                "cloud_services": 45000,
+                "fintech": 62000,
+                "logistics": 35000
+            },
+            "budget": 185000000000,
+            "popularity": 74,
+            "market_share": {
+                "ecommerce": 42.0,
+                "cloud_services": 12.0
+            },
+            "employees": 245000,
+            "last_update": "2026-03-13 22:11:34.588006"
+        },
+        "civ_cn_002e": {
+            "id": "civ_cn_002e",
+            "name": "Baidu, Inc.",
+            "country": "Неизвестно",
+            "city": "",
+            "description": "",
+            "specialization": [],
+            "products": {},
+            "founded": null,
+            "website": null,
+            "service_type": "manufacturing",
+            "inventory": {
+                "internet_services": 62000,
+                "cloud_services": 18000,
+                "tech_equipment": 2500
+            },
+            "budget": 42000000000,
+            "popularity": 62,
+            "market_share": {
+                "internet_services": 28.0,
+                "cloud_services": 4.0
+            },
+            "employees": 41000,
+            "last_update": "2026-03-13 22:11:34.588014"
+        },
+        "civ_cn_003": {
+            "id": "civ_cn_003",
+            "name": "China Mobile",
+            "country": "Неизвестно",
+            "city": "",
+            "description": "",
+            "specialization": [],
+            "products": {},
+            "founded": null,
+            "website": null,
+            "service_type": "manufacturing",
+            "inventory": {
+                "mobile_services": 125000,
+                "telecom_services": 85000,
+                "internet_services": 72000
+            },
+            "budget": 185000000000,
+            "popularity": 68,
+            "market_share": {
+                "mobile_services": 42.0,
+                "internet_services": 35.0
+            },
+            "employees": 452000,
+            "last_update": "2026-03-13 22:11:34.588022"
+        },
+        "civ_cn_003b": {
+            "id": "civ_cn_003b",
+            "name": "China Telecom",
+            "country": "Неизвестно",
+            "city": "",
+            "description": "",
+            "specialization": [],
+            "products": {},
+            "founded": null,
+            "website": null,
+            "service_type": "manufacturing",
+            "inventory": {
+                "telecom_services": 72000,
+                "internet_services": 58000,
+                "cloud_services": 15000
+            },
+            "budget": 82000000000,
+            "popularity": 62,
+            "market_share": {
+                "telecom_services": 28.0,
+                "internet_services": 22.0
+            },
+            "employees": 281000,
+            "last_update": "2026-03-13 22:11:34.588030"
+        },
+        "civ_cn_004": {
+            "id": "civ_cn_004",
+            "name": "SANY Group",
+            "country": "Неизвестно",
+            "city": "",
+            "description": "",
+            "specialization": [],
+            "products": {},
+            "founded": null,
+            "website": null,
+            "service_type": "manufacturing",
+            "inventory": {
+                "construction_machinery": 3200
+            },
+            "budget": 25000000000,
+            "popularity": 67,
+            "market_share": {
+                "construction_machinery": 18.0
+            },
+            "employees": 45000,
+            "last_update": "2026-03-13 22:11:34.588038"
+        },
+        "civ_cn_005": {
+            "id": "civ_cn_005",
+            "name": "Goldwind",
+            "country": "Неизвестно",
+            "city": "",
+            "description": "",
+            "specialization": [],
+            "products": {},
+            "founded": null,
+            "website": null,
+            "service_type": "manufacturing",
+            "inventory": {
+                "energy_equipment": 1850
+            },
+            "budget": 12000000000,
+            "popularity": 64,
+            "market_share": {
+                "energy_equipment": 12.0
+            },
+            "employees": 9000,
+            "last_update": "2026-03-13 22:11:34.588046"
+        },
+        "civ_cn_006": {
+            "id": "civ_cn_006",
+            "name": "CRRC Corporation",
+            "country": "Неизвестно",
+            "city": "",
+            "description": "",
+            "specialization": [],
+            "products": {},
+            "founded": null,
+            "website": null,
+            "service_type": "manufacturing",
+            "inventory": {
+                "industrial_equipment": 850
+            },
+            "budget": 42000000000,
+            "popularity": 66,
+            "market_share": {
+                "industrial_equipment": 42.0
+            },
+            "employees": 168000,
+            "last_update": "2026-03-13 22:11:34.588054"
+        },
+        "civ_cn_008": {
+            "id": "civ_cn_008",
+            "name": "DJI",
+            "country": "Неизвестно",
+            "city": "",
+            "description": "",
+            "specialization": [],
+            "products": {},
+            "founded": null,
+            "website": null,
+            "service_type": "manufacturing",
+            "inventory": {
+                "fpv_drones": 8500,
+                "drones": 3200,
+                "consumer_electronics": 12500
+            },
+            "budget": 15000000000,
+            "popularity": 84,
+            "market_share": {
+                "drones": 68.0,
+                "fpv_drones": 42.0
+            },
+            "employees": 14000,
+            "last_update": "2026-03-13 22:11:34.588062"
+        },
+        "civ_cn_009": {
+            "id": "civ_cn_009",
+            "name": "ICBC",
+            "country": "Неизвестно",
+            "city": "",
+            "description": "",
+            "specialization": [],
+            "products": {},
+            "founded": null,
+            "website": null,
+            "service_type": "manufacturing",
+            "inventory": {
+                "banking": 185000,
+                "investments": 45000
+            },
+            "budget": 420000000000,
+            "popularity": 66,
+            "market_share": {
+                "banking": 18.0
+            },
+            "employees": 434000,
+            "last_update": "2026-03-13 22:11:34.588071"
+        },
+        "civ_cn_009b": {
+            "id": "civ_cn_009b",
+            "name": "Ping An Insurance",
+            "country": "Неизвестно",
+            "city": "",
+            "description": "",
+            "specialization": [],
+            "products": {},
+            "founded": null,
+            "website": null,
+            "service_type": "manufacturing",
+            "inventory": {
+                "insurance": 125000,
+                "banking": 62000,
+                "fintech": 28000
+            },
+            "budget": 185000000000,
+            "popularity": 68,
+            "market_share": {
+                "insurance": 22.0
+            },
+            "employees": 362000,
+            "last_update": "2026-03-13 22:11:34.588079"
+        },
+        "civ_cn_010": {
+            "id": "civ_cn_010",
+            "name": "JD.com",
+            "country": "Неизвестно",
+            "city": "",
+            "description": "",
+            "specialization": [],
+            "products": {},
+            "founded": null,
+            "website": null,
+            "service_type": "manufacturing",
+            "inventory": {
+                "ecommerce": 85000,
+                "logistics": 35000,
+                "retail": 42000
+            },
+            "budget": 52000000000,
+            "popularity": 72,
+            "market_share": {
+                "ecommerce": 16.0
+            },
+            "employees": 385000,
+            "last_update": "2026-03-13 22:11:34.588091"
+        },
+        "civ_cn_011": {
+            "id": "civ_cn_011",
+            "name": "CNPC",
+            "country": "Неизвестно",
+            "city": "",
+            "description": "",
+            "specialization": [],
+            "products": {},
+            "founded": null,
+            "website": null,
+            "service_type": "manufacturing",
+            "inventory": {
+                "oil": 185000,
+                "gas_supply": 95000,
+                "energy_equipment": 3200
+            },
+            "budget": 320000000000,
+            "popularity": 58,
+            "market_share": {
+                "oil": 22.0,
+                "gas_supply": 18.0
+            },
+            "employees": 1380000,
+            "last_update": "2026-03-13 22:11:34.588099"
+        },
+        "civ_cn_011b": {
+            "id": "civ_cn_011b",
+            "name": "State Grid Corporation",
+            "country": "Неизвестно",
+            "city": "",
+            "description": "",
+            "specialization": [],
+            "products": {},
+            "founded": null,
+            "website": null,
+            "service_type": "manufacturing",
+            "inventory": {
+                "electricity": 250000,
+                "energy_equipment": 5800
+            },
+            "budget": 380000000000,
+            "popularity": 65,
+            "market_share": {
+                "electricity": 42.0
+            },
+            "employees": 917000,
+            "last_update": "2026-03-13 22:11:34.588107"
+        },
+        "civ_de_001": {
+            "id": "civ_de_001",
+            "name": "Volkswagen Group",
+            "country": "Неизвестно",
+            "city": "",
+            "description": "",
+            "specialization": [],
+            "products": {},
+            "founded": null,
+            "website": null,
+            "service_type": "manufacturing",
+            "inventory": {
+                "cars": 12500,
+                "trucks": 3200,
+                "auto_parts": 18500
+            },
+            "budget": 185000000000,
+            "popularity": 74,
+            "market_share": {
+                "cars": 18.0,
+                "trucks": 15.0
+            },
+            "employees": 668000,
+            "last_update": "2026-03-13 22:11:34.588116"
+        },
+        "civ_de_002": {
+            "id": "civ_de_002",
+            "name": "BMW Group",
+            "country": "Неизвестно",
+            "city": "",
+            "description": "",
+            "specialization": [],
+            "products": {},
+            "founded": null,
+            "website": null,
+            "service_type": "manufacturing",
+            "inventory": {
+                "cars": 8500,
+                "auto_parts": 12000
+            },
+            "budget": 142000000000,
+            "popularity": 79,
+            "market_share": {
+                "cars": 8.5
+            },
+            "employees": 118000,
+            "last_update": "2026-03-13 22:11:34.588124"
+        },
+        "civ_de_003": {
+            "id": "civ_de_003",
+            "name": "Mercedes-Benz Group",
+            "country": "Неизвестно",
+            "city": "",
+            "description": "",
+            "specialization": [],
+            "products": {},
+            "founded": null,
+            "website": null,
+            "service_type": "manufacturing",
+            "inventory": {
+                "cars": 9200,
+                "trucks": 2800,
+                "buses": 650,
+                "auto_parts": 15000
+            },
+            "budget": 158000000000,
+            "popularity": 78,
+            "market_share": {
+                "cars": 9.0,
+                "trucks": 12.0,
+                "buses": 18.0
+            },
+            "employees": 172000,
+            "last_update": "2026-03-13 22:11:34.588132"
+        },
+        "civ_de_004": {
+            "id": "civ_de_004",
+            "name": "Siemens",
+            "country": "Неизвестно",
+            "city": "",
+            "description": "",
+            "specialization": [],
+            "products": {},
+            "founded": null,
+            "website": null,
+            "service_type": "manufacturing",
+            "inventory": {
+                "industrial_equipment": 5800,
+                "electrical_equipment": 7200,
+                "energy_equipment": 1850,
+                "medical_equipment": 950
+            },
+            "budget": 89000000000,
+            "popularity": 72,
+            "market_share": {
+                "industrial_equipment": 12.0,
+                "medical_equipment": 8.0
+            },
+            "employees": 311000,
+            "last_update": "2026-03-13 22:11:34.588141"
+        },
+        "civ_de_005": {
+            "id": "civ_de_005",
+            "name": "BASF",
+            "country": "Неизвестно",
+            "city": "",
+            "description": "",
+            "specialization": [],
+            "products": {},
+            "founded": null,
+            "website": null,
+            "service_type": "manufacturing",
+            "inventory": {
+                "chemicals": 25000,
+                "pharmaceuticals": 5800,
+                "fertilizers": 18500
+            },
+            "budget": 72000000000,
+            "popularity": 68,
+            "market_share": {
+                "chemicals": 15.0,
+                "fertilizers": 12.0
+            },
+            "employees": 111000,
+            "last_update": "2026-03-13 22:11:34.588149"
+        },
+        "civ_de_006": {
+            "id": "civ_de_006",
+            "name": "Trumpf",
+            "country": "Неизвестно",
+            "city": "",
+            "description": "",
+            "specialization": [],
+            "products": {},
+            "founded": null,
+            "website": null,
+            "service_type": "manufacturing",
+            "inventory": {
+                "machine_tools": 1850,
+                "industrial_robots": 950
+            },
+            "budget": 4200000000,
+            "popularity": 71,
+            "market_share": {
+                "machine_tools": 8.0
+            },
+            "employees": 15000,
+            "last_update": "2026-03-13 22:11:34.588157"
+        },
+        "civ_de_007": {
+            "id": "civ_de_007",
+            "name": "Bayer",
+            "country": "Неизвестно",
+            "city": "",
+            "description": "",
+            "specialization": [],
+            "products": {},
+            "founded": null,
+            "website": null,
+            "service_type": "manufacturing",
+            "inventory": {
+                "pharmaceuticals": 7200,
+                "chemicals": 12000,
+                "fertilizers": 8500
+            },
+            "budget": 48000000000,
+            "popularity": 58,
+            "market_share": {
+                "pharmaceuticals": 5.5,
+                "chemicals": 6.0
+            },
+            "employees": 101000,
+            "last_update": "2026-03-13 22:11:34.588166"
+        },
+        "civ_de_008": {
+            "id": "civ_de_008",
+            "name": "SAP",
+            "country": "Неизвестно",
+            "city": "",
+            "description": "",
+            "specialization": [],
+            "products": {},
+            "founded": null,
+            "website": null,
+            "service_type": "manufacturing",
+            "inventory": {
+                "software": 35000,
+                "cloud_services": 28000,
+                "it_services": 15000
+            },
+            "budget": 52000000000,
+            "popularity": 76,
+            "market_share": {
+                "software": 12.0,
+                "cloud_services": 5.0
+            },
+            "employees": 107000,
+            "last_update": "2026-03-13 22:11:34.588174"
+        },
+        "civ_de_009": {
+            "id": "civ_de_009",
+            "name": "Deutsche Telekom",
+            "country": "Неизвестно",
+            "city": "",
+            "description": "",
+            "specialization": [],
+            "products": {},
+            "founded": null,
+            "website": null,
+            "service_type": "manufacturing",
+            "inventory": {
+                "telecom_services": 72000,
+                "mobile_services": 58000,
+                "internet_services": 45000
+            },
+            "budget": 95000000000,
+            "popularity": 64,
+            "market_share": {
+                "mobile_services": 28.0,
+                "internet_services": 22.0
+            },
+            "employees": 216000,
+            "last_update": "2026-03-13 22:11:34.588181"
+        },
+        "civ_de_010": {
+            "id": "civ_de_010",
+            "name": "Allianz",
+            "country": "Неизвестно",
+            "city": "",
+            "description": "",
+            "specialization": [],
+            "products": {},
+            "founded": null,
+            "website": null,
+            "service_type": "manufacturing",
+            "inventory": {
+                "insurance": 85000,
+                "investments": 35000
+            },
+            "budget": 112000000000,
+            "popularity": 71,
+            "market_share": {
+                "insurance": 12.0
+            },
+            "employees": 155000,
+            "last_update": "2026-03-13 22:11:34.588190"
+        },
+        "civ_de_011": {
+            "id": "civ_de_011",
+            "name": "Deutsche Bank",
+            "country": "Неизвестно",
+            "city": "",
+            "description": "",
+            "specialization": [],
+            "products": {},
+            "founded": null,
+            "website": null,
+            "service_type": "manufacturing",
+            "inventory": {
+                "banking": 62000,
+                "investments": 28000
+            },
+            "budget": 82000000000,
+            "popularity": 48,
+            "market_share": {
+                "banking": 6.0
+            },
+            "employees": 85000,
+            "last_update": "2026-03-13 22:11:34.588197"
+        },
+        "civ_de_012": {
+            "id": "civ_de_012",
+            "name": "Adidas",
+            "country": "Неизвестно",
+            "city": "",
+            "description": "",
+            "specialization": [],
+            "products": {},
+            "founded": null,
+            "website": null,
+            "service_type": "manufacturing",
+            "inventory": {
+                "clothing": 45000,
+                "footwear": 32000
+            },
+            "budget": 21000000000,
+            "popularity": 79,
+            "market_share": {
+                "footwear": 12.0,
+                "clothing": 5.0
+            },
+            "employees": 59000,
+            "last_update": "2026-03-13 22:11:34.588206"
+        },
+        "civ_de_012b": {
+            "id": "civ_de_012b",
+            "name": "Puma",
+            "country": "Неизвестно",
+            "city": "",
+            "description": "",
+            "specialization": [],
+            "products": {},
+            "founded": null,
+            "website": null,
+            "service_type": "manufacturing",
+            "inventory": {
+                "clothing": 28000,
+                "footwear": 21000
+            },
+            "budget": 8200000000,
+            "popularity": 72,
+            "market_share": {
+                "footwear": 5.0,
+                "clothing": 2.5
+            },
+            "employees": 15000,
+            "last_update": "2026-03-13 22:11:34.588249"
+        },
+        "civ_de_013": {
+            "id": "civ_de_013",
+            "name": "Lufthansa",
+            "country": "Неизвестно",
+            "city": "",
+            "description": "",
+            "specialization": [],
+            "products": {},
+            "founded": null,
+            "website": null,
+            "service_type": "manufacturing",
+            "inventory": {
+                "airlines": 580,
+                "passenger_transport": 3200,
+                "logistics": 1800
+            },
+            "budget": 28000000000,
+            "popularity": 68,
+            "market_share": {
+                "airlines": 8.0
+            },
+            "employees": 110000,
+            "last_update": "2026-03-13 22:11:34.588261"
+        },
+        "civ_de_014": {
+            "id": "civ_de_014",
+            "name": "DHL Group",
+            "country": "Неизвестно",
+            "city": "",
+            "description": "",
+            "specialization": [],
+            "products": {},
+            "founded": null,
+            "website": null,
+            "service_type": "manufacturing",
+            "inventory": {
+                "logistics": 52000,
+                "freight": 28000
+            },
+            "budget": 68000000000,
+            "popularity": 78,
+            "market_share": {
+                "logistics": 18.0
+            },
+            "employees": 580000,
+            "last_update": "2026-03-13 22:11:34.588270"
+        },
+        "civ_de_015": {
+            "id": "civ_de_015",
+            "name": "Bosch",
+            "country": "Неизвестно",
+            "city": "",
+            "description": "",
+            "specialization": [],
+            "products": {},
+            "founded": null,
+            "website": null,
+            "service_type": "manufacturing",
+            "inventory": {
+                "auto_parts": 25000,
+                "industrial_equipment": 8500,
+                "household_goods": 18000
+            },
+            "budget": 78000000000,
+            "popularity": 76,
+            "market_share": {
+                "auto_parts": 15.0,
+                "household_goods": 8.0
+            },
+            "employees": 402000,
+            "last_update": "2026-03-13 22:11:34.588292"
+        },
+        "civ_uk_001": {
+            "id": "civ_uk_001",
+            "name": "BP",
+            "country": "Неизвестно",
+            "city": "",
+            "description": "",
+            "specialization": [],
+            "products": {},
+            "founded": null,
+            "website": null,
+            "service_type": "manufacturing",
+            "inventory": {
+                "oil": 125000,
+                "gas_supply": 62000,
+                "energy_equipment": 1850
+            },
+            "budget": 142000000000,
+            "popularity": 62,
+            "market_share": {
+                "oil": 8.0,
+                "gas_supply": 6.0
+            },
+            "employees": 68000,
+            "last_update": "2026-03-13 22:11:34.588301"
+        },
+        "civ_uk_001b": {
+            "id": "civ_uk_001b",
+            "name": "Shell",
+            "country": "Неизвестно",
+            "city": "",
+            "description": "",
+            "specialization": [],
+            "products": {},
+            "founded": null,
+            "website": null,
+            "service_type": "manufacturing",
+            "inventory": {
+                "oil": 142000,
+                "gas_supply": 72000,
+                "chemicals": 15000
+            },
+            "budget": 185000000000,
+            "popularity": 64,
+            "market_share": {
+                "oil": 9.0,
+                "gas_supply": 7.0
+            },
+            "employees": 87000,
+            "last_update": "2026-03-13 22:11:34.588309"
+        },
+        "civ_uk_002": {
+            "id": "civ_uk_002",
+            "name": "Vodafone",
+            "country": "Неизвестно",
+            "city": "",
+            "description": "",
+            "specialization": [],
+            "products": {},
+            "founded": null,
+            "website": null,
+            "service_type": "manufacturing",
+            "inventory": {
+                "mobile_services": 72000,
+                "telecom_services": 45000,
+                "internet_services": 38000
+            },
+            "budget": 62000000000,
+            "popularity": 68,
+            "market_share": {
+                "mobile_services": 12.0,
+                "internet_services": 8.0
+            },
+            "employees": 104000,
+            "last_update": "2026-03-13 22:11:34.588316"
+        },
+        "civ_uk_002b": {
+            "id": "civ_uk_002b",
+            "name": "BT Group",
+            "country": "Неизвестно",
+            "city": "",
+            "description": "",
+            "specialization": [],
+            "products": {},
+            "founded": null,
+            "website": null,
+            "service_type": "manufacturing",
+            "inventory": {
+                "telecom_services": 52000,
+                "internet_services": 42000,
+                "media": 18000
+            },
+            "budget": 28000000000,
+            "popularity": 58,
+            "market_share": {
+                "telecom_services": 15.0,
+                "internet_services": 12.0
+            },
+            "employees": 88000,
+            "last_update": "2026-03-13 22:11:34.588324"
+        },
+        "civ_uk_003": {
+            "id": "civ_uk_003",
+            "name": "GSK",
+            "country": "Неизвестно",
+            "city": "",
+            "description": "",
+            "specialization": [],
+            "products": {},
+            "founded": null,
+            "website": null,
+            "service_type": "manufacturing",
+            "inventory": {
+                "pharmaceuticals": 8500,
+                "medical_supplies": 18000
+            },
+            "budget": 72000000000,
+            "popularity": 66,
+            "market_share": {
+                "pharmaceuticals": 5.0,
+                "medical_supplies": 4.0
+            },
+            "employees": 94000,
+            "last_update": "2026-03-13 22:11:34.588331"
+        },
+        "civ_uk_003b": {
+            "id": "civ_uk_003b",
+            "name": "AstraZeneca",
+            "country": "Неизвестно",
+            "city": "",
+            "description": "",
+            "specialization": [],
+            "products": {},
+            "founded": null,
+            "website": null,
+            "service_type": "manufacturing",
+            "inventory": {
+                "pharmaceuticals": 7200
+            },
+            "budget": 68000000000,
+            "popularity": 69,
+            "market_share": {
+                "pharmaceuticals": 4.5
+            },
+            "employees": 76000,
+            "last_update": "2026-03-13 22:11:34.588339"
+        },
+        "civ_uk_004": {
+            "id": "civ_uk_004",
+            "name": "HSBC",
+            "country": "Неизвестно",
+            "city": "",
+            "description": "",
+            "specialization": [],
+            "products": {},
+            "founded": null,
+            "website": null,
+            "service_type": "manufacturing",
+            "inventory": {
+                "banking": 125000,
+                "investments": 45000,
+                "insurance": 28000
+            },
+            "budget": 245000000000,
+            "popularity": 62,
+            "market_share": {
+                "banking": 8.0,
+                "investments": 5.0
+            },
+            "employees": 220000,
+            "last_update": "2026-03-13 22:11:34.588347"
+        },
+        "civ_uk_004b": {
+            "id": "civ_uk_004b",
+            "name": "Barclays",
+            "country": "Неизвестно",
+            "city": "",
+            "description": "",
+            "specialization": [],
+            "products": {},
+            "founded": null,
+            "website": null,
+            "service_type": "manufacturing",
+            "inventory": {
+                "banking": 82000,
+                "investments": 32000
+            },
+            "budget": 112000000000,
+            "popularity": 58,
+            "market_share": {
+                "banking": 5.0,
+                "investments": 3.5
+            },
+            "employees": 83000,
+            "last_update": "2026-03-13 22:11:34.588354"
+        },
+        "civ_uk_004c": {
+            "id": "civ_uk_004c",
+            "name": "Lloyds",
+            "country": "Неизвестно",
+            "city": "",
+            "description": "",
+            "specialization": [],
+            "products": {},
+            "founded": null,
+            "website": null,
+            "service_type": "manufacturing",
+            "inventory": {
+                "banking": 72000,
+                "insurance": 18000
+            },
+            "budget": 68000000000,
+            "popularity": 64,
+            "market_share": {
+                "banking": 6.0,
+                "insurance": 2.5
+            },
+            "employees": 63000,
+            "last_update": "2026-03-13 22:11:34.588361"
+        },
+        "civ_uk_005": {
+            "id": "civ_uk_005",
+            "name": "Unilever",
+            "country": "Неизвестно",
+            "city": "",
+            "description": "",
+            "specialization": [],
+            "products": {},
+            "founded": null,
+            "website": null,
+            "service_type": "manufacturing",
+            "inventory": {
+                "food_products": 52000,
+                "cosmetics": 38000,
+                "household_goods": 45000,
+                "sanitary_products": 28000
+            },
+            "budget": 95000000000,
+            "popularity": 76,
+            "market_share": {
+                "food_products": 7.0,
+                "cosmetics": 8.0,
+                "household_goods": 9.0
+            },
+            "employees": 148000,
+            "last_update": "2026-03-13 22:11:34.588371"
+        },
+        "civ_uk_006": {
+            "id": "civ_uk_006",
+            "name": "British American Tobacco",
+            "country": "Неизвестно",
+            "city": "",
+            "description": "",
+            "specialization": [],
+            "products": {},
+            "founded": null,
+            "website": null,
+            "service_type": "manufacturing",
+            "inventory": {
+                "consumer_electronics": 15000
+            },
+            "budget": 42000000000,
+            "popularity": 48,
+            "market_share": {
+                "consumer_electronics": 3.0
+            },
+            "employees": 53000,
+            "last_update": "2026-03-13 22:11:34.588379"
+        },
+        "civ_uk_007": {
+            "id": "civ_uk_007",
+            "name": "Rolls-Royce",
+            "country": "Неизвестно",
+            "city": "",
+            "description": "",
+            "specialization": [],
+            "products": {},
+            "founded": null,
+            "website": null,
+            "service_type": "manufacturing",
+            "inventory": {
+                "aerospace_equipment": 120,
+                "energy_equipment": 320
+            },
+            "budget": 18000000000,
+            "popularity": 65,
+            "market_share": {
+                "aerospace_equipment": 12.0
+            },
+            "employees": 52000,
+            "last_update": "2026-03-13 22:11:34.588387"
+        },
+        "civ_uk_008": {
+            "id": "civ_uk_008",
+            "name": "BAE Systems",
+            "country": "Неизвестно",
+            "city": "",
+            "description": "",
+            "specialization": [],
+            "products": {},
+            "founded": null,
+            "website": null,
+            "service_type": "manufacturing",
+            "inventory": {
+                "aerospace_equipment": 95,
+                "drones": 180,
+                "industrial_equipment": 850
+            },
+            "budget": 28000000000,
+            "popularity": 58,
+            "market_share": {
+                "aerospace_equipment": 8.0,
+                "drones": 5.0
+            },
+            "employees": 85000,
+            "last_update": "2026-03-13 22:11:34.588395"
+        },
+        "civ_uk_009": {
+            "id": "civ_uk_009",
+            "name": "Tesco",
+            "country": "Неизвестно",
+            "city": "",
+            "description": "",
+            "specialization": [],
+            "products": {},
+            "founded": null,
+            "website": null,
+            "service_type": "manufacturing",
+            "inventory": {
+                "retail": 95000,
+                "supermarkets": 82000,
+                "ecommerce": 25000
+            },
+            "budget": 52000000000,
+            "popularity": 71,
+            "market_share": {
+                "retail": 12.0,
+                "supermarkets": 15.0
+            },
+            "employees": 330000,
+            "last_update": "2026-03-13 22:11:34.588402"
+        },
+        "civ_uk_009b": {
+            "id": "civ_uk_009b",
+            "name": "Sainsbury",
+            "country": "Неизвестно",
+            "city": "",
+            "description": "",
+            "specialization": [],
+            "products": {},
+            "founded": null,
+            "website": null,
+            "service_type": "manufacturing",
+            "inventory": {
+                "retail": 62000,
+                "supermarkets": 58000
+            },
+            "budget": 28000000000,
+            "popularity": 67,
+            "market_share": {
+                "retail": 7.0,
+                "supermarkets": 8.0
+            },
+            "employees": 180000,
+            "last_update": "2026-03-13 22:11:34.588411"
+        },
+        "civ_fr_001": {
+            "id": "civ_fr_001",
+            "name": "TotalEnergies",
+            "country": "Неизвестно",
+            "city": "",
+            "description": "",
+            "specialization": [],
+            "products": {},
+            "founded": null,
+            "website": null,
+            "service_type": "manufacturing",
+            "inventory": {
+                "oil": 125000,
+                "gas_supply": 72000,
+                "energy_equipment": 2100
+            },
+            "budget": 158000000000,
+            "popularity": 60,
+            "market_share": {
+                "oil": 7.0,
+                "gas_supply": 6.0
+            },
+            "employees": 101000,
+            "last_update": "2026-03-13 22:11:34.588421"
+        },
+        "civ_fr_002": {
+            "id": "civ_fr_002",
+            "name": "LVMH",
+            "country": "Неизвестно",
+            "city": "",
+            "description": "",
+            "specialization": [],
+            "products": {},
+            "founded": null,
+            "website": null,
+            "service_type": "manufacturing",
+            "inventory": {
+                "clothing": 25000,
+                "footwear": 15000,
+                "cosmetics": 32000,
+                "beverages": 28000
+            },
+            "budget": 142000000000,
+            "popularity": 82,
+            "market_share": {
+                "clothing": 5.0,
+                "cosmetics": 8.0,
+                "beverages": 4.0
+            },
+            "employees": 150000,
+            "last_update": "2026-03-13 22:11:34.588430"
+        },
+        "civ_fr_003": {
+            "id": "civ_fr_003",
+            "name": "Sanofi",
+            "country": "Неизвестно",
+            "city": "",
+            "description": "",
+            "specialization": [],
+            "products": {},
+            "founded": null,
+            "website": null,
+            "service_type": "manufacturing",
+            "inventory": {
+                "pharmaceuticals": 8500,
+                "medical_supplies": 15000
+            },
+            "budget": 82000000000,
+            "popularity": 67,
+            "market_share": {
+                "pharmaceuticals": 5.5
+            },
+            "employees": 100000,
+            "last_update": "2026-03-13 22:11:34.588439"
+        },
+        "civ_fr_004": {
+            "id": "civ_fr_004",
+            "name": "Orange",
+            "country": "Неизвестно",
+            "city": "",
+            "description": "",
+            "specialization": [],
+            "products": {},
+            "founded": null,
+            "website": null,
+            "service_type": "manufacturing",
+            "inventory": {
+                "mobile_services": 52000,
+                "telecom_services": 38000,
+                "internet_services": 42000
+            },
+            "budget": 42000000000,
+            "popularity": 64,
+            "market_share": {
+                "mobile_services": 22.0,
+                "internet_services": 18.0
+            },
+            "employees": 132000,
+            "last_update": "2026-03-13 22:11:34.588448"
+        },
+        "civ_fr_005": {
+            "id": "civ_fr_005",
+            "name": "Renault",
+            "country": "Неизвестно",
+            "city": "",
+            "description": "",
+            "specialization": [],
+            "products": {},
+            "founded": null,
+            "website": null,
+            "service_type": "manufacturing",
+            "inventory": {
+                "cars": 7200,
+                "trucks": 1500,
+                "auto_parts": 12000
+            },
+            "budget": 52000000000,
+            "popularity": 66,
+            "market_share": {
+                "cars": 6.5,
+                "trucks": 5.0
+            },
+            "employees": 170000,
+            "last_update": "2026-03-13 22:11:34.588462"
+        },
+        "civ_fr_005b": {
+            "id": "civ_fr_005b",
+            "name": "Peugeot",
+            "country": "Неизвестно",
+            "city": "",
+            "description": "",
+            "specialization": [],
+            "products": {},
+            "founded": null,
+            "website": null,
+            "service_type": "manufacturing",
+            "inventory": {
+                "cars": 6800,
+                "auto_parts": 10000
+            },
+            "budget": 48000000000,
+            "popularity": 65,
+            "market_share": {
+                "cars": 5.5
+            },
+            "employees": 120000,
+            "last_update": "2026-03-13 22:11:34.588471"
+        },
+        "civ_fr_006": {
+            "id": "civ_fr_006",
+            "name": "Airbus",
+            "country": "Неизвестно",
+            "city": "",
+            "description": "",
+            "specialization": [],
+            "products": {},
+            "founded": null,
+            "website": null,
+            "service_type": "manufacturing",
+            "inventory": {
+                "aerospace_equipment": 180,
+                "drones": 250
+            },
+            "budget": 95000000000,
+            "popularity": 71,
+            "market_share": {
+                "aerospace_equipment": 35.0,
+                "drones": 8.0
+            },
+            "employees": 134000,
+            "last_update": "2026-03-13 22:11:34.588480"
+        },
+        "civ_fr_007": {
+            "id": "civ_fr_007",
+            "name": "Carrefour",
+            "country": "Неизвестно",
+            "city": "",
+            "description": "",
+            "specialization": [],
+            "products": {},
+            "founded": null,
+            "website": null,
+            "service_type": "manufacturing",
+            "inventory": {
+                "retail": 85000,
+                "supermarkets": 72000,
+                "ecommerce": 18000
+            },
+            "budget": 42000000000,
+            "popularity": 68,
+            "market_share": {
+                "retail": 10.0,
+                "supermarkets": 12.0
+            },
+            "employees": 320000,
+            "last_update": "2026-03-13 22:11:34.588488"
+        },
+        "civ_fr_008": {
+            "id": "civ_fr_008",
+            "name": "BNP Paribas",
+            "country": "Неизвестно",
+            "city": "",
+            "description": "",
+            "specialization": [],
+            "products": {},
+            "founded": null,
+            "website": null,
+            "service_type": "manufacturing",
+            "inventory": {
+                "banking": 95000,
+                "investments": 42000,
+                "insurance": 28000
+            },
+            "budget": 185000000000,
+            "popularity": 65,
+            "market_share": {
+                "banking": 7.5,
+                "investments": 4.5
+            },
+            "employees": 190000,
+            "last_update": "2026-03-13 22:11:34.588497"
+        },
+        "civ_fr_008b": {
+            "id": "civ_fr_008b",
+            "name": "Société Générale",
+            "country": "Неизвестно",
+            "city": "",
+            "description": "",
+            "specialization": [],
+            "products": {},
+            "founded": null,
+            "website": null,
+            "service_type": "manufacturing",
+            "inventory": {
+                "banking": 72000,
+                "investments": 32000
+            },
+            "budget": 112000000000,
+            "popularity": 60,
+            "market_share": {
+                "banking": 5.0,
+                "investments": 3.0
+            },
+            "employees": 117000,
+            "last_update": "2026-03-13 22:11:34.588506"
+        },
+        "civ_fr_009": {
+            "id": "civ_fr_009",
+            "name": "AXA",
+            "country": "Неизвестно",
+            "city": "",
+            "description": "",
+            "specialization": [],
+            "products": {},
+            "founded": null,
+            "website": null,
+            "service_type": "manufacturing",
+            "inventory": {
+                "insurance": 68000,
+                "investments": 25000
+            },
+            "budget": 82000000000,
+            "popularity": 69,
+            "market_share": {
+                "insurance": 8.0
+            },
+            "employees": 91000,
+            "last_update": "2026-03-13 22:11:34.588515"
+        },
+        "civ_fr_010": {
+            "id": "civ_fr_010",
+            "name": "Danone",
+            "country": "Неизвестно",
+            "city": "",
+            "description": "",
+            "specialization": [],
+            "products": {},
+            "founded": null,
+            "website": null,
+            "service_type": "manufacturing",
+            "inventory": {
+                "food_products": 52000,
+                "beverages": 35000
+            },
+            "budget": 32000000000,
+            "popularity": 73,
+            "market_share": {
+                "food_products": 6.0,
+                "beverages": 4.5
+            },
+            "employees": 100000,
+            "last_update": "2026-03-13 22:11:34.588535"
+        },
+        "civ_fr_011": {
+            "id": "civ_fr_011",
+            "name": "Hermès",
+            "country": "Неизвестно",
+            "city": "",
+            "description": "",
+            "specialization": [],
+            "products": {},
+            "founded": null,
+            "website": null,
+            "service_type": "manufacturing",
+            "inventory": {
+                "clothing": 4500,
+                "footwear": 2800,
+                "cosmetics": 6200
+            },
+            "budget": 18000000000,
+            "popularity": 88,
+            "market_share": {
+                "clothing": 1.2,
+                "cosmetics": 1.5
+            },
+            "employees": 17000,
+            "last_update": "2026-03-13 22:11:34.588545"
+        },
+        "civ_ua_001": {
+            "id": "civ_ua_001",
+            "name": "ДП «Антонов»",
+            "country": "Неизвестно",
+            "city": "",
+            "description": "",
+            "specialization": [],
+            "products": {},
+            "founded": null,
+            "website": null,
+            "service_type": "manufacturing",
+            "inventory": {
+                "aerospace_equipment": 8,
+                "drones": 35
+            },
+            "budget": 420000000,
+            "popularity": 62,
+            "market_share": {
+                "aerospace_equipment": 1.5
+            },
+            "employees": 12000,
+            "last_update": "2026-03-13 22:11:34.588552"
+        },
+        "civ_ua_002": {
+            "id": "civ_ua_002",
+            "name": "НКМЗ",
+            "country": "Неизвестно",
+            "city": "",
+            "description": "",
+            "specialization": [],
+            "products": {},
+            "founded": null,
+            "website": null,
+            "service_type": "manufacturing",
+            "inventory": {
+                "industrial_equipment": 150,
+                "construction_machinery": 45
+            },
+            "budget": 380000000,
+            "popularity": 58,
+            "market_share": {
+                "industrial_equipment": 2.0
+            },
+            "employees": 11000,
+            "last_update": "2026-03-13 22:11:34.588560"
+        },
+        "civ_ua_003": {
+            "id": "civ_ua_003",
+            "name": "Украгрозапчастина",
+            "country": "Неизвестно",
+            "city": "",
+            "description": "",
+            "specialization": [],
+            "products": {},
+            "founded": null,
+            "website": null,
+            "service_type": "manufacturing",
+            "inventory": {
+                "agricultural_machinery": 180,
+                "auto_parts": 3500
+            },
+            "budget": 120000000,
+            "popularity": 61,
+            "market_share": {
+                "agricultural_machinery": 3.5
+            },
+            "employees": 3000,
+            "last_update": "2026-03-13 22:11:34.588567"
+        },
+        "civ_ua_004": {
+            "id": "civ_ua_004",
+            "name": "Турбоатом",
+            "country": "Неизвестно",
+            "city": "",
+            "description": "",
+            "specialization": [],
+            "products": {},
+            "founded": null,
+            "website": null,
+            "service_type": "manufacturing",
+            "inventory": {
+                "energy_equipment": 45
+            },
+            "budget": 250000000,
+            "popularity": 60,
+            "market_share": {
+                "energy_equipment": 2.5
+            },
+            "employees": 5000,
+            "last_update": "2026-03-13 22:11:34.588575"
+        },
+        "civ_ua_005": {
+            "id": "civ_ua_005",
+            "name": "ЗАЗ",
+            "country": "Неизвестно",
+            "city": "",
+            "description": "",
+            "specialization": [],
+            "products": {},
+            "founded": null,
+            "website": null,
+            "service_type": "manufacturing",
+            "inventory": {
+                "cars": 450,
+                "auto_parts": 1800
+            },
+            "budget": 85000000,
+            "popularity": 52,
+            "market_share": {
+                "cars": 1.2
+            },
+            "employees": 4000,
+            "last_update": "2026-03-13 22:11:34.588582"
+        },
+        "civ_ua_006": {
+            "id": "civ_ua_006",
+            "name": "Kernel",
+            "country": "Неизвестно",
+            "city": "",
+            "description": "",
+            "specialization": [],
+            "products": {},
+            "founded": null,
+            "website": null,
+            "service_type": "manufacturing",
+            "inventory": {
+                "food_products": 8500
+            },
+            "budget": 320000000,
+            "popularity": 66,
+            "market_share": {
+                "food_products": 4.0
+            },
+            "employees": 8000,
+            "last_update": "2026-03-13 22:11:34.588589"
+        },
+        "civ_ua_007": {
+            "id": "civ_ua_007",
+            "name": "EPAM Systems",
+            "country": "Неизвестно",
+            "city": "",
+            "description": "",
+            "specialization": [],
+            "products": {},
+            "founded": null,
+            "website": null,
+            "service_type": "manufacturing",
+            "inventory": {
+                "software": 8500,
+                "it_services": 6200,
+                "cloud_services": 2800
+            },
+            "budget": 580000000,
+            "popularity": 78,
+            "market_share": {
+                "software": 1.8,
+                "it_services": 1.5
+            },
+            "employees": 13000,
+            "last_update": "2026-03-13 22:11:34.588596"
+        },
+        "civ_ua_008": {
+            "id": "civ_ua_008",
+            "name": "АТБ-Маркет",
+            "country": "Неизвестно",
+            "city": "",
+            "description": "",
+            "specialization": [],
+            "products": {},
+            "founded": null,
+            "website": null,
+            "service_type": "manufacturing",
+            "inventory": {
+                "retail": 25000,
+                "supermarkets": 32000
+            },
+            "budget": 420000000,
+            "popularity": 72,
+            "market_share": {
+                "retail": 8.0,
+                "supermarkets": 10.0
+            },
+            "employees": 60000,
+            "last_update": "2026-03-13 22:11:34.588603"
+        },
+        "civ_ua_009": {
+            "id": "civ_ua_009",
+            "name": "ДТЕК",
+            "country": "Неизвестно",
+            "city": "",
+            "description": "",
+            "specialization": [],
+            "products": {},
+            "founded": null,
+            "website": null,
+            "service_type": "manufacturing",
+            "inventory": {
+                "energy_equipment": 120,
+                "electricity": 15000
+            },
+            "budget": 1850000000,
+            "popularity": 55,
+            "market_share": {
+                "electricity": 12.0
+            },
+            "employees": 70000,
+            "last_update": "2026-03-13 22:11:34.588611"
+        },
+        "civ_ua_010": {
+            "id": "civ_ua_010",
+            "name": "Київстар",
+            "country": "Неизвестно",
+            "city": "",
+            "description": "",
+            "specialization": [],
+            "products": {},
+            "founded": null,
+            "website": null,
+            "service_type": "manufacturing",
+            "inventory": {
+                "mobile_services": 15000,
+                "telecom_services": 8500,
+                "internet_services": 12000
+            },
+            "budget": 820000000,
+            "popularity": 74,
+            "market_share": {
+                "mobile_services": 28.0,
+                "internet_services": 22.0
+            },
+            "employees": 4000,
+            "last_update": "2026-03-13 22:11:34.588618"
+        },
+        "civ_ua_011": {
+            "id": "civ_ua_011",
+            "name": "ПриватБанк",
+            "country": "Неизвестно",
+            "city": "",
+            "description": "",
+            "specialization": [],
+            "products": {},
+            "founded": null,
+            "website": null,
+            "service_type": "manufacturing",
+            "inventory": {
+                "banking": 25000,
+                "fintech": 15000
+            },
+            "budget": 3200000000,
+            "popularity": 64,
+            "market_share": {
+                "banking": 18.0,
+                "fintech": 22.0
+            },
+            "employees": 19000,
+            "last_update": "2026-03-13 22:11:34.588625"
+        },
+        "civ_ua_012": {
+            "id": "civ_ua_012",
+            "name": "Клініка Борис",
+            "country": "Неизвестно",
+            "city": "",
+            "description": "",
+            "specialization": [],
+            "products": {},
+            "founded": null,
+            "website": null,
+            "service_type": "manufacturing",
+            "inventory": {
+                "healthcare_services": 4500,
+                "hospital_services": 850
+            },
+            "budget": 85000000,
+            "popularity": 76,
+            "market_share": {
+                "healthcare_services": 2.5
+            },
+            "employees": 1500,
+            "last_update": "2026-03-13 22:11:34.588632"
+        },
+        "civ_il_001": {
+            "id": "civ_il_001",
+            "name": "Teva Pharmaceuticals",
+            "country": "Неизвестно",
+            "city": "",
+            "description": "",
+            "specialization": [],
+            "products": {},
+            "founded": null,
+            "website": null,
+            "service_type": "manufacturing",
+            "inventory": {
+                "pharmaceuticals": 7200,
+                "medical_supplies": 12000
+            },
+            "budget": 38000000000,
+            "popularity": 68,
+            "market_share": {
+                "pharmaceuticals": 4.5,
+                "medical_supplies": 3.0
+            },
+            "employees": 43000,
+            "last_update": "2026-03-13 22:11:34.588639"
+        },
+        "civ_il_002": {
+            "id": "civ_il_002",
+            "name": "Check Point",
+            "country": "Неизвестно",
+            "city": "",
+            "description": "",
+            "specialization": [],
+            "products": {},
+            "founded": null,
+            "website": null,
+            "service_type": "manufacturing",
+            "inventory": {
+                "tech_equipment": 850,
+                "cybersecurity": 5200,
+                "software": 3800
+            },
+            "budget": 6200000000,
+            "popularity": 79,
+            "market_share": {
+                "cybersecurity": 5.0
+            },
+            "employees": 5500,
+            "last_update": "2026-03-13 22:11:34.588647"
+        },
+        "civ_il_003": {
+            "id": "civ_il_003",
+            "name": "IAI",
+            "country": "Неизвестно",
+            "city": "",
+            "description": "",
+            "specialization": [],
+            "products": {},
+            "founded": null,
+            "website": null,
+            "service_type": "manufacturing",
+            "inventory": {
+                "aerospace_equipment": 25,
+                "drones": 120
+            },
+            "budget": 5200000000,
+            "popularity": 67,
+            "market_share": {
+                "aerospace_equipment": 2.0,
+                "drones": 4.0
+            },
+            "employees": 15000,
+            "last_update": "2026-03-13 22:11:34.588654"
+        },
+        "civ_il_004": {
+            "id": "civ_il_004",
+            "name": "Netafim",
+            "country": "Неизвестно",
+            "city": "",
+            "description": "",
+            "specialization": [],
+            "products": {},
+            "founded": null,
+            "website": null,
+            "service_type": "manufacturing",
+            "inventory": {
+                "agricultural_machinery": 1200,
+                "industrial_equipment": 450
+            },
+            "budget": 850000000,
+            "popularity": 74,
+            "market_share": {
+                "agricultural_machinery": 8.0
+            },
+            "employees": 4000,
+            "last_update": "2026-03-13 22:11:34.588661"
+        },
+        "civ_il_005": {
+            "id": "civ_il_005",
+            "name": "Philips Israel",
+            "country": "Неизвестно",
+            "city": "",
+            "description": "",
+            "specialization": [],
+            "products": {},
+            "founded": null,
+            "website": null,
+            "service_type": "manufacturing",
+            "inventory": {
+                "medical_equipment": 320
+            },
+            "budget": 1800000000,
+            "popularity": 71,
+            "market_share": {
+                "medical_equipment": 2.5
+            },
+            "employees": 3000,
+            "last_update": "2026-03-13 22:11:34.588668"
+        },
+        "civ_il_006": {
+            "id": "civ_il_006",
+            "name": "Wix",
+            "country": "Неизвестно",
+            "city": "",
+            "description": "",
+            "specialization": [],
+            "products": {},
+            "founded": null,
+            "website": null,
+            "service_type": "manufacturing",
+            "inventory": {
+                "software": 8500,
+                "cloud_services": 6200,
+                "it_services": 3800
+            },
+            "budget": 2800000000,
+            "popularity": 81,
+            "market_share": {
+                "software": 2.5,
+                "cloud_services": 1.5
+            },
+            "employees": 5000,
+            "last_update": "2026-03-13 22:11:34.588675"
+        },
+        "civ_il_007": {
+            "id": "civ_il_007",
+            "name": "Mobileye",
+            "country": "Неизвестно",
+            "city": "",
+            "description": "",
+            "specialization": [],
+            "products": {},
+            "founded": null,
+            "website": null,
+            "service_type": "manufacturing",
+            "inventory": {
+                "auto_parts": 850,
+                "software": 3200,
+                "tech_equipment": 450
+            },
+            "budget": 5200000000,
+            "popularity": 77,
+            "market_share": {
+                "auto_parts": 3.0
+            },
+            "employees": 3000,
+            "last_update": "2026-03-13 22:11:34.588686"
+        },
+        "civ_il_008": {
+            "id": "civ_il_008",
+            "name": "Israel Discount Bank",
+            "country": "Неизвестно",
+            "city": "",
+            "description": "",
+            "specialization": [],
+            "products": {},
+            "founded": null,
+            "website": null,
+            "service_type": "manufacturing",
+            "inventory": {
+                "banking": 25000,
+                "investments": 8500
+            },
+            "budget": 82000000000,
+            "popularity": 62,
+            "market_share": {
+                "banking": 5.0
+            },
+            "employees": 7000,
+            "last_update": "2026-03-13 22:11:34.588693"
+        },
+        "civ_il_009": {
+            "id": "civ_il_009",
+            "name": "שופרסל",
+            "country": "Неизвестно",
+            "city": "",
+            "description": "",
+            "specialization": [],
+            "products": {},
+            "founded": null,
+            "website": null,
+            "service_type": "manufacturing",
+            "inventory": {
+                "retail": 15000,
+                "supermarkets": 18000,
+                "food_products": 8500
+            },
+            "budget": 3800000000,
+            "popularity": 71,
+            "market_share": {
+                "retail": 12.0,
+                "supermarkets": 15.0
+            },
+            "employees": 12000,
+            "last_update": "2026-03-13 22:11:34.588700"
+        },
+        "civ_ir_001": {
+            "id": "civ_ir_001",
+            "name": "Iran Khodro",
+            "country": "Неизвестно",
+            "city": "",
+            "description": "",
+            "specialization": [],
+            "products": {},
+            "founded": null,
+            "website": null,
+            "service_type": "manufacturing",
+            "inventory": {
+                "cars": 3200,
+                "trucks": 850,
+                "auto_parts": 4500
+            },
+            "budget": 5200000000,
+            "popularity": 58,
+            "market_share": {
+                "cars": 42.0,
+                "trucks": 35.0
+            },
+            "employees": 28000,
+            "last_update": "2026-03-13 22:11:34.588708"
+        },
+        "civ_ir_001b": {
+            "id": "civ_ir_001b",
+            "name": "SAIPA",
+            "country": "Неизвестно",
+            "city": "",
+            "description": "",
+            "specialization": [],
+            "products": {},
+            "founded": null,
+            "website": null,
+            "service_type": "manufacturing",
+            "inventory": {
+                "cars": 2500,
+                "auto_parts": 3200
+            },
+            "budget": 2800000000,
+            "popularity": 55,
+            "market_share": {
+                "cars": 28.0
+            },
+            "employees": 15000,
+            "last_update": "2026-03-13 22:11:34.588715"
+        },
+        "civ_ir_002": {
+            "id": "civ_ir_002",
+            "name": "Sadra",
+            "country": "Неизвестно",
+            "city": "",
+            "description": "",
+            "specialization": [],
+            "products": {},
+            "founded": null,
+            "website": null,
+            "service_type": "manufacturing",
+            "inventory": {
+                "industrial_equipment": 180,
+                "energy_equipment": 45
+            },
+            "budget": 1200000000,
+            "popularity": 60,
+            "market_share": {
+                "industrial_equipment": 4.0,
+                "energy_equipment": 3.0
+            },
+            "employees": 5000,
+            "last_update": "2026-03-13 22:11:34.588722"
+        },
+        "civ_ir_003": {
+            "id": "civ_ir_003",
+            "name": "Kalleh",
+            "country": "Неизвестно",
+            "city": "",
+            "description": "",
+            "specialization": [],
+            "products": {},
+            "founded": null,
+            "website": null,
+            "service_type": "manufacturing",
+            "inventory": {
+                "food_products": 8500,
+                "beverages": 6200
+            },
+            "budget": 850000000,
+            "popularity": 68,
+            "market_share": {
+                "food_products": 8.0,
+                "beverages": 6.0
+            },
+            "employees": 8000,
+            "last_update": "2026-03-13 22:11:34.588729"
+        },
+        "civ_ir_004": {
+            "id": "civ_ir_004",
+            "name": "Machine Sazi Arak",
+            "country": "Неизвестно",
+            "city": "",
+            "description": "",
+            "specialization": [],
+            "products": {},
+            "founded": null,
+            "website": null,
+            "service_type": "manufacturing",
+            "inventory": {
+                "machine_tools": 180,
+                "industrial_equipment": 250
+            },
+            "budget": 620000000,
+            "popularity": 61,
+            "market_share": {
+                "machine_tools": 5.0
+            },
+            "employees": 3000,
+            "last_update": "2026-03-13 22:11:34.588737"
+        },
+        "civ_ir_005": {
+            "id": "civ_ir_005",
+            "name": "Darou Pakhsh",
+            "country": "Неизвестно",
+            "city": "",
+            "description": "",
+            "specialization": [],
+            "products": {},
+            "founded": null,
+            "website": null,
+            "service_type": "manufacturing",
+            "inventory": {
+                "pharmaceuticals": 1200
+            },
+            "budget": 380000000,
+            "popularity": 64,
+            "market_share": {
+                "pharmaceuticals": 4.0
+            },
+            "employees": 2000,
+            "last_update": "2026-03-13 22:11:34.588744"
+        },
+        "civ_ir_006": {
+            "id": "civ_ir_006",
+            "name": "Talyaie",
+            "country": "Неизвестно",
+            "city": "",
+            "description": "",
+            "specialization": [],
+            "products": {},
+            "founded": null,
+            "website": null,
+            "service_type": "manufacturing",
+            "inventory": {
+                "mobile_services": 12000,
+                "telecom_services": 8500,
+                "internet_services": 6200
+            },
+            "budget": 850000000,
+            "popularity": 60,
+            "market_share": {
+                "mobile_services": 18.0,
+                "internet_services": 15.0
+            },
+            "employees": 4000,
+            "last_update": "2026-03-13 22:11:34.588750"
+        },
+        "civ_ir_007": {
+            "id": "civ_ir_007",
+            "name": "Pishgaman",
+            "country": "Неизвестно",
+            "city": "",
+            "description": "",
+            "specialization": [],
+            "products": {},
+            "founded": null,
+            "website": null,
+            "service_type": "manufacturing",
+            "inventory": {
+                "software": 2500,
+                "it_services": 1800,
+                "cloud_services": 950
+            },
+            "budget": 280000000,
+            "popularity": 63,
+            "market_share": {
+                "software": 2.5,
+                "it_services": 2.0
+            },
+            "employees": 1500,
+            "last_update": "2026-03-13 22:11:34.588758"
+        },
+        "civ_ir_008": {
+            "id": "civ_ir_008",
+            "name": "Bank Melli Iran",
+            "country": "Неизвестно",
+            "city": "",
+            "description": "",
+            "specialization": [],
+            "products": {},
+            "founded": null,
+            "website": null,
+            "service_type": "manufacturing",
+            "inventory": {
+                "banking": 32000,
+                "investments": 8500
+            },
+            "budget": 52000000000,
+            "popularity": 59,
+            "market_share": {
+                "banking": 22.0
+            },
+            "employees": 45000,
+            "last_update": "2026-03-13 22:11:34.588765"
+        },
+        "civ_ir_009": {
+            "id": "civ_ir_009",
+            "name": "Refaah",
+            "country": "Неизвестно",
+            "city": "",
+            "description": "",
+            "specialization": [],
+            "products": {},
+            "founded": null,
+            "website": null,
+            "service_type": "manufacturing",
+            "inventory": {
+                "retail": 8500,
+                "supermarkets": 7200
+            },
+            "budget": 620000000,
+            "popularity": 62,
+            "market_share": {
+                "retail": 5.0,
+                "supermarkets": 6.0
+            },
+            "employees": 8000,
+            "last_update": "2026-03-13 22:11:34.588773"
+        },
+        "civ_ir_010": {
+            "id": "civ_ir_010",
+            "name": "Kayson",
+            "country": "Неизвестно",
+            "city": "",
+            "description": "",
+            "specialization": [],
+            "products": {},
+            "founded": null,
+            "website": null,
+            "service_type": "manufacturing",
+            "inventory": {
+                "construction": 150,
+                "real_estate": 85
+            },
+            "budget": 380000000,
+            "popularity": 61,
+            "market_share": {
+                "construction": 2.5,
+                "real_estate": 1.8
+            },
+            "employees": 3000,
+            "last_update": "2026-03-13 22:11:34.588784"
+        }
+    }
+}

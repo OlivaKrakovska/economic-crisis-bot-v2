@@ -1,0 +1,787 @@
+{
+    "tariffs": {
+        "США": {
+            "base_tariff": 3.4,
+            "specific_tariffs": {
+                "Китай": 19.3,
+                "Россия": 0.0,
+                "Германия": 0.0,
+                "Великобритания": 0.0,
+                "Япония": 0.0,
+                "Израиль": 0.0
+            },
+            "product_tariffs": {
+                "steel": 25.0,
+                "aluminum": 10.0,
+                "uranium": 0.0,
+                "electronics": 2.5,
+                "rare_metals": 0.0,
+                "oil": 0.5,
+                "gas": 0.0,
+                "coal": 0.0,
+                "food": 2.5,
+                "cars": 2.5,
+                "trucks": 25.0,
+                "agricultural_machinery": 0.0,
+                "food_products": 3.0,
+                "pharmaceuticals": 0.0,
+                "chemicals": 2.8,
+                "clothing": 12.0,
+                "consumer_electronics": 2.0,
+                "aerospace_equipment": 1.5,
+                "medical_equipment": 0.0,
+                "drones": 8.5,
+                "fpv_drones": 8.5,
+                "tanks": 5.0,
+                "fighters": 5.0,
+                "missiles": 5.0,
+                "small_arms": 3.5
+            },
+            "export_tariffs": {},
+            "trade_agreements": [
+                "Канада",
+                "Мексика",
+                "Израиль",
+                "Австралия",
+                "Южная Корея",
+                "Япония"
+            ],
+            "trade_wars": {
+                "Китай": 7.5
+            },
+            "embargoes": {
+                "Иран": [
+                    "all"
+                ],
+                "Северная Корея": [
+                    "all"
+                ],
+                "Сирия": [
+                    "all"
+                ],
+                "Куба": [
+                    "all"
+                ],
+                "Венесуэла": [
+                    "military",
+                    "oil"
+                ]
+            },
+            "sanctions": {},
+            "last_updated": "2022-02-23"
+        },
+        "Россия": {
+            "base_tariff": 5.8,
+            "specific_tariffs": {
+                "США": 0.0,
+                "Германия": 0.0,
+                "Великобритания": 0.0,
+                "Япония": 0.0,
+                "Китай": 0.0,
+                "Индия": 0.0,
+                "Турция": 0.0,
+                "Израиль": 0.0,
+                "Украина": 0.0,
+                "Беларусь": 0.0,
+                "Казахстан": 0.0
+            },
+            "product_tariffs": {
+                "cars": 15.0,
+                "trucks": 10.0,
+                "agricultural_machinery": 5.0,
+                "pharmaceuticals": 3.0,
+                "electronics": 8.0,
+                "clothing": 12.0,
+                "food_products": 8.0,
+                "chemicals": 5.0,
+                "steel": 5.0,
+                "aluminum": 5.0,
+                "uranium": 0.0,
+                "oil": 0.0,
+                "gas": 0.0,
+                "coal": 0.0,
+                "food": 5.0,
+                "consumer_electronics": 10.0,
+                "medical_equipment": 3.0,
+                "aerospace_equipment": 5.0,
+                "drones": 10.0,
+                "fpv_drones": 12.0,
+                "tanks": 0.0,
+                "btr": 0.0,
+                "fighters": 0.0,
+                "missiles": 0.0,
+                "small_arms": 0.0
+            },
+            "export_tariffs": {
+                "oil": 30.0,
+                "gas": 30.0,
+                "coal": 15.0,
+                "uranium": 10.0,
+                "steel": 5.0,
+                "aluminum": 5.0,
+                "rare_metals": 10.0,
+                "tanks": 15.0,
+                "fighters": 20.0,
+                "missiles": 25.0,
+                "small_arms": 8.0,
+                "fpv_drones": 15.0
+            },
+            "trade_agreements": [
+                "Беларусь",
+                "Казахстан",
+                "Армения",
+                "Кыргызстан",
+                "Вьетнам",
+                "Сербия",
+                "Иран",
+                "Китай",
+                "Индия"
+            ],
+            "trade_wars": {},
+            "embargoes": {
+                "Грузия": [
+                    "military"
+                ],
+                "Украина": [
+                    "military"
+                ],
+                "Албания": [
+                    "all"
+                ],
+                "Черногория": [
+                    "all"
+                ],
+                "Северная Македония": [
+                    "all"
+                ]
+            },
+            "sanctions": {},
+            "last_updated": "2022-02-23"
+        },
+        "Китай": {
+            "base_tariff": 7.5,
+            "specific_tariffs": {
+                "США": 12.5,
+                "Австралия": 5.0,
+                "Япония": 2.0,
+                "Южная Корея": 2.0,
+                "Индия": 2.5,
+                "Россия": 0.0,
+                "Германия": 0.0,
+                "Великобритания": 0.0,
+                "Израиль": 0.0,
+                "Иран": 0.0
+            },
+            "product_tariffs": {
+                "cars": 15.0,
+                "trucks": 15.0,
+                "electronics": 10.0,
+                "steel": 7.0,
+                "aluminum": 7.0,
+                "chemicals": 5.5,
+                "uranium": 0.0,
+                "rare_metals": 0.0,
+                "oil": 1.0,
+                "gas": 0.0,
+                "coal": 3.0,
+                "food": 5.0,
+                "agricultural_machinery": 5.0,
+                "pharmaceuticals": 3.0,
+                "medical_equipment": 2.0,
+                "aerospace_equipment": 8.0,
+                "drones": 12.0,
+                "fpv_drones": 15.0,
+                "tanks": 8.0,
+                "fighters": 12.0,
+                "missiles": 15.0,
+                "small_arms": 4.0,
+                "ships": 8.0
+            },
+            "export_tariffs": {
+                "rare_metals": 20.0,
+                "electronics": 5.0,
+                "drones": 8.0,
+                "fpv_drones": 10.0
+            },
+            "trade_agreements": [
+                "Россия",
+                "Пакистан",
+                "Новая Зеландия",
+                "Сингапур",
+                "Чили",
+                "Перу",
+                "Иран",
+                "Вьетнам",
+                "Таиланд",
+                "Индонезия"
+            ],
+            "trade_wars": {
+                "США": 7.5
+            },
+            "embargoes": {
+                "Северная Корея": [
+                    "military",
+                    "nuclear"
+                ],
+                "Тайвань": [
+                    "military"
+                ]
+            },
+            "sanctions": {},
+            "last_updated": "2022-02-23"
+        },
+        "Германия": {
+            "base_tariff": 4.2,
+            "specific_tariffs": {
+                "Китай": 5.0,
+                "Россия": 0.0,
+                "США": 0.0,
+                "Великобритания": 0.0,
+                "Япония": 0.0,
+                "Израиль": 0.0,
+                "Украина": 0.0,
+                "Турция": 2.0,
+                "Индия": 1.5
+            },
+            "product_tariffs": {
+                "cars": 10.0,
+                "trucks": 12.0,
+                "agricultural_machinery": 5.0,
+                "electronics": 4.0,
+                "chemicals": 3.0,
+                "pharmaceuticals": 2.0,
+                "steel": 3.0,
+                "aluminum": 3.0,
+                "uranium": 0.0,
+                "rare_metals": 2.0,
+                "oil": 0.0,
+                "gas": 0.0,
+                "coal": 0.0,
+                "food": 2.0,
+                "aerospace_equipment": 4.0,
+                "medical_equipment": 1.0,
+                "drones": 6.0,
+                "fpv_drones": 8.0,
+                "tanks": 5.0,
+                "fighters": 8.0,
+                "missiles": 8.0,
+                "small_arms": 3.0
+            },
+            "export_tariffs": {},
+            "trade_agreements": [
+                "Франция",
+                "Италия",
+                "Нидерланды",
+                "Бельгия",
+                "Испания",
+                "Польша",
+                "Чехия",
+                "Австрия",
+                "Швеция",
+                "Дания",
+                "Финляндия",
+                "Великобритания",
+                "Швейцария",
+                "Норвегия"
+            ],
+            "trade_wars": {},
+            "embargoes": {
+                "Северная Корея": [
+                    "all"
+                ],
+                "Иран": [
+                    "military",
+                    "nuclear"
+                ],
+                "Сирия": [
+                    "all"
+                ],
+                "Венесуэла": [
+                    "military"
+                ]
+            },
+            "sanctions": {},
+            "last_updated": "2022-02-23"
+        },
+        "Великобритания": {
+            "base_tariff": 4.0,
+            "specific_tariffs": {
+                "Китай": 5.0,
+                "Россия": 0.0,
+                "США": 0.0,
+                "Германия": 0.0,
+                "Япония": 0.0,
+                "Израиль": 0.0,
+                "Индия": 2.0,
+                "Турция": 1.5
+            },
+            "product_tariffs": {
+                "cars": 10.0,
+                "trucks": 12.0,
+                "agricultural_machinery": 5.0,
+                "electronics": 3.0,
+                "chemicals": 3.5,
+                "pharmaceuticals": 2.0,
+                "steel": 3.0,
+                "aluminum": 3.0,
+                "uranium": 0.0,
+                "rare_metals": 2.0,
+                "oil": 0.0,
+                "gas": 0.0,
+                "coal": 0.0,
+                "food": 2.0,
+                "aerospace_equipment": 4.0,
+                "medical_equipment": 1.0,
+                "drones": 6.0,
+                "fpv_drones": 8.0,
+                "tanks": 5.0,
+                "fighters": 8.0,
+                "missiles": 8.0,
+                "small_arms": 3.0,
+                "ships": 2.0
+            },
+            "export_tariffs": {},
+            "trade_agreements": [
+                "США",
+                "Канада",
+                "Австралия",
+                "Новая Зеландия",
+                "Япония",
+                "Сингапур",
+                "Южная Корея",
+                "Израиль",
+                "Европейский Союз"
+            ],
+            "trade_wars": {},
+            "embargoes": {
+                "Северная Корея": [
+                    "all"
+                ],
+                "Иран": [
+                    "military",
+                    "nuclear"
+                ],
+                "Сирия": [
+                    "all"
+                ],
+                "Венесуэла": [
+                    "military"
+                ]
+            },
+            "sanctions": {},
+            "last_updated": "2022-02-23"
+        },
+        "Франция": {
+            "base_tariff": 4.2,
+            "specific_tariffs": {
+                "Китай": 5.0,
+                "Россия": 0.0,
+                "США": 0.0,
+                "Великобритания": 0.0,
+                "Германия": 0.0,
+                "Израиль": 0.0,
+                "Индия": 2.0,
+                "Турция": 2.0
+            },
+            "product_tariffs": {
+                "cars": 10.0,
+                "trucks": 12.0,
+                "agricultural_machinery": 5.0,
+                "electronics": 3.0,
+                "chemicals": 3.5,
+                "pharmaceuticals": 2.0,
+                "steel": 3.0,
+                "aluminum": 3.0,
+                "uranium": 0.0,
+                "rare_metals": 2.0,
+                "oil": 0.0,
+                "gas": 0.0,
+                "coal": 0.0,
+                "food": 2.0,
+                "aerospace_equipment": 4.0,
+                "medical_equipment": 1.0,
+                "drones": 6.0,
+                "fpv_drones": 8.0,
+                "tanks": 5.0,
+                "fighters": 8.0,
+                "missiles": 8.0,
+                "small_arms": 3.0,
+                "ships": 2.0
+            },
+            "export_tariffs": {},
+            "trade_agreements": [
+                "Германия",
+                "Италия",
+                "Испания",
+                "Португалия",
+                "Бельгия",
+                "Нидерланды",
+                "Польша",
+                "Великобритания",
+                "Швейцария"
+            ],
+            "trade_wars": {},
+            "embargoes": {
+                "Северная Корея": [
+                    "all"
+                ],
+                "Иран": [
+                    "military",
+                    "nuclear"
+                ],
+                "Сирия": [
+                    "all"
+                ]
+            },
+            "sanctions": {},
+            "last_updated": "2022-02-23"
+        },
+        "Япония": {
+            "base_tariff": 3.8,
+            "specific_tariffs": {
+                "Китай": 4.5,
+                "США": 0.0,
+                "Россия": 0.0,
+                "Германия": 0.0,
+                "Великобритания": 0.0,
+                "Австралия": 0.0,
+                "Израиль": 0.0,
+                "Индия": 3.0,
+                "Южная Корея": 0.0,
+                "Вьетнам": 1.0
+            },
+            "product_tariffs": {
+                "electronics": 0.0,
+                "cars": 0.0,
+                "trucks": 0.0,
+                "steel": 2.0,
+                "aluminum": 2.0,
+                "rare_metals": 0.0,
+                "uranium": 0.0,
+                "oil": 0.5,
+                "gas": 0.0,
+                "coal": 0.0,
+                "food": 5.0,
+                "chemicals": 2.0,
+                "pharmaceuticals": 1.0,
+                "medical_equipment": 0.0,
+                "aerospace_equipment": 2.0,
+                "drones": 5.0,
+                "fpv_drones": 8.0,
+                "tanks": 3.0,
+                "fighters": 5.0,
+                "missiles": 6.0,
+                "small_arms": 2.0,
+                "ships": 1.0
+            },
+            "export_tariffs": {},
+            "trade_agreements": [
+                "США",
+                "Мексика",
+                "Канада",
+                "Чили",
+                "Перу",
+                "Австралия",
+                "Новая Зеландия",
+                "Сингапур",
+                "Малайзия",
+                "Вьетнам",
+                "Таиланд",
+                "Индонезия",
+                "Филиппины",
+                "Индия",
+                "Европейский Союз",
+                "Великобритания"
+            ],
+            "trade_wars": {},
+            "embargoes": {
+                "Северная Корея": [
+                    "all"
+                ],
+                "Иран": [
+                    "military",
+                    "nuclear"
+                ],
+                "Сирия": [
+                    "all"
+                ],
+                "Россия": [
+                    "southern_kurils"
+                ]
+            },
+            "sanctions": {},
+            "last_updated": "2022-02-23"
+        },
+        "Израиль": {
+            "base_tariff": 4.5,
+            "specific_tariffs": {
+                "США": 0.0,
+                "Германия": 0.0,
+                "Великобритания": 0.0,
+                "Китай": 3.0,
+                "Индия": 2.5,
+                "Турция": 1.5,
+                "Россия": 1.0,
+                "Украина": 0.5,
+                "Япония": 0.0,
+                "Франция": 0.0
+            },
+            "product_tariffs": {
+                "agricultural_machinery": 8.0,
+                "chemicals": 4.0,
+                "electronics": 3.0,
+                "pharmaceuticals": 2.0,
+                "medical_equipment": 1.0,
+                "aerospace_equipment": 3.0,
+                "drones": 5.0,
+                "fpv_drones": 8.0,
+                "uranium": 0.0,
+                "rare_metals": 2.0,
+                "steel": 3.0,
+                "aluminum": 3.0,
+                "oil": 0.0,
+                "gas": 0.0,
+                "food": 5.0,
+                "tanks": 4.0,
+                "fighters": 6.0,
+                "missiles": 7.0,
+                "small_arms": 2.0,
+                "ships": 1.0
+            },
+            "export_tariffs": {},
+            "trade_agreements": [
+                "США",
+                "Канада",
+                "Мексика",
+                "Европейский Союз",
+                "Великобритания",
+                "Турция",
+                "Иордания",
+                "Египет",
+                "ОАЭ",
+                "Украина"
+            ],
+            "trade_wars": {},
+            "embargoes": {
+                "Иран": [
+                    "all"
+                ],
+                "Сирия": [
+                    "all"
+                ],
+                "Ливан": [
+                    "military"
+                ],
+                "Саудовская Аравия": [
+                    "military"
+                ],
+                "Ирак": [
+                    "military"
+                ]
+            },
+            "sanctions": {},
+            "last_updated": "2022-02-23"
+        },
+        "Украина": {
+            "base_tariff": 4.6,
+            "specific_tariffs": {
+                "Россия": 0.0,
+                "Германия": 0.0,
+                "Франция": 0.0,
+                "Польша": 0.0,
+                "США": 0.0,
+                "Великобритания": 0.0,
+                "Канада": 0.0,
+                "Китай": 2.5,
+                "Турция": 1.5,
+                "Израиль": 0.0,
+                "Беларусь": 2.5,
+                "Грузия": 0.0,
+                "Молдова": 0.0
+            },
+            "product_tariffs": {
+                "agricultural_machinery": 5.0,
+                "food_products": 10.0,
+                "chemicals": 3.0,
+                "electronics": 5.0,
+                "cars": 10.0,
+                "trucks": 8.0,
+                "steel": 2.0,
+                "aluminum": 2.0,
+                "uranium": 0.0,
+                "rare_metals": 2.0,
+                "oil": 0.0,
+                "gas": 0.0,
+                "coal": 0.0,
+                "food": 5.0,
+                "pharmaceuticals": 2.0,
+                "medical_equipment": 1.0,
+                "aerospace_equipment": 4.0,
+                "drones": 5.0,
+                "fpv_drones": 8.0,
+                "tanks": 3.0,
+                "fighters": 5.0,
+                "missiles": 5.0,
+                "small_arms": 2.0,
+                "ships": 1.0
+            },
+            "export_tariffs": {
+                "food_products": 10.0,
+                "steel": 3.0,
+                "uranium": 5.0,
+                "tanks": 5.0,
+                "missiles": 5.0,
+                "small_arms": 2.0
+            },
+            "trade_agreements": [
+                "Грузия",
+                "Молдова",
+                "Азербайджан",
+                "Казахстан",
+                "Канада",
+                "Израиль",
+                "Турция",
+                "Польша",
+                "Литва",
+                "Латвия",
+                "Эстония"
+            ],
+            "trade_wars": {},
+            "embargoes": {
+                "Россия": [
+                    "military"
+                ],
+                "Северная Корея": [
+                    "all"
+                ],
+                "Сирия": [
+                    "all"
+                ]
+            },
+            "sanctions": {},
+            "last_updated": "2022-02-23"
+        },
+        "Иран": {
+            "base_tariff": 12.0,
+            "specific_tariffs": {
+                "Россия": 0.0,
+                "Китай": 0.0,
+                "Индия": 2.0,
+                "Турция": 1.5,
+                "Пакистан": 2.0,
+                "Ирак": 0.5,
+                "Сирия": 0.0,
+                "Венесуэла": 0.0,
+                "США": 0.0,
+                "Германия": 5.0,
+                "Великобритания": 5.0,
+                "Франция": 5.0,
+                "Япония": 5.0,
+                "Израиль": 0.0
+            },
+            "product_tariffs": {
+                "cars": 40.0,
+                "trucks": 30.0,
+                "electronics": 25.0,
+                "pharmaceuticals": 5.0,
+                "medical_equipment": 4.0,
+                "food_products": 15.0,
+                "agricultural_machinery": 20.0,
+                "steel": 10.0,
+                "aluminum": 10.0,
+                "uranium": 0.0,
+                "oil": 0.0,
+                "gas": 0.0,
+                "coal": 5.0,
+                "food": 10.0,
+                "chemicals": 8.0,
+                "aerospace_equipment": 15.0,
+                "drones": 10.0,
+                "fpv_drones": 15.0,
+                "tanks": 5.0,
+                "fighters": 7.0,
+                "missiles": 5.0,
+                "small_arms": 3.0,
+                "ships": 2.0
+            },
+            "export_tariffs": {
+                "oil": 50.0,
+                "gas": 30.0,
+                "uranium": 100.0,
+                "missiles": 15.0,
+                "drones": 10.0,
+                "fpv_drones": 15.0
+            },
+            "trade_agreements": [
+                "Россия",
+                "Китай",
+                "Индия",
+                "Пакистан",
+                "Турция",
+                "Ирак",
+                "Сирия",
+                "Венесуэла",
+                "Армения",
+                "Азербайджан"
+            ],
+            "trade_wars": {},
+            "embargoes": {
+                "США": [
+                    "military",
+                    "nuclear"
+                ],
+                "Израиль": [
+                    "all"
+                ],
+                "Саудовская Аравия": [
+                    "all"
+                ],
+                "ОАЭ": [
+                    "all"
+                ],
+                "Бахрейн": [
+                    "all"
+                ],
+                "Кувейт": [
+                    "all"
+                ],
+                "Катар": [
+                    "all"
+                ],
+                "Канада": [
+                    "military"
+                ],
+                "Великобритания": [
+                    "military"
+                ],
+                "Германия": [
+                    "military"
+                ],
+                "Франция": [
+                    "military"
+                ],
+                "Япония": [
+                    "military"
+                ]
+            },
+            "sanctions": {
+                "США": {
+                    "penalty": 50,
+                    "reason": "Американские санкции против Ирана",
+                    "date": "2022-02-23"
+                },
+                "Израиль": {
+                    "penalty": 100,
+                    "reason": "Враждебные отношения",
+                    "date": "2022-02-23"
+                },
+                "Европейский Союз": {
+                    "penalty": 40,
+                    "reason": "Санкции ЕС против Ирана",
+                    "date": "2022-02-23"
+                }
+            },
+            "last_updated": "2022-02-23"
+        }
+    }
+}

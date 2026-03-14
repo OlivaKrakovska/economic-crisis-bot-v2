@@ -1,0 +1,134 @@
+{
+    "satellites": {
+        "США": {
+            "military": 187,
+            "civilian": 293,
+            "launch_history": [
+                {
+                    "type": "initial",
+                    "date": "2022-12-01",
+                    "game_date": "2022-12-01",
+                    "count": 480
+                }
+            ],
+            "last_maintenance": "2026-03-13 22:11:17.739943"
+        },
+        "Россия": {
+            "military": 112,
+            "civilian": 85,
+            "launch_history": [
+                {
+                    "type": "initial",
+                    "date": "2022-12-01",
+                    "game_date": "2022-12-01",
+                    "count": 197
+                }
+            ],
+            "last_maintenance": "2026-03-13 22:11:17.739949"
+        },
+        "Китай": {
+            "military": 156,
+            "civilian": 214,
+            "launch_history": [
+                {
+                    "type": "initial",
+                    "date": "2022-12-01",
+                    "game_date": "2022-12-01",
+                    "count": 370
+                }
+            ],
+            "last_maintenance": "2026-03-13 22:11:17.739955"
+        },
+        "Германия": {
+            "military": 8,
+            "civilian": 47,
+            "launch_history": [
+                {
+                    "type": "initial",
+                    "date": "2022-12-01",
+                    "game_date": "2022-12-01",
+                    "count": 55
+                }
+            ],
+            "last_maintenance": "2026-03-13 22:11:17.739960"
+        },
+        "Великобритания": {
+            "military": 7,
+            "civilian": 43,
+            "launch_history": [
+                {
+                    "type": "initial",
+                    "date": "2022-12-01",
+                    "game_date": "2022-12-01",
+                    "count": 50
+                }
+            ],
+            "last_maintenance": "2026-03-13 22:11:17.739965"
+        },
+        "Франция": {
+            "military": 12,
+            "civilian": 38,
+            "launch_history": [
+                {
+                    "type": "initial",
+                    "date": "2022-12-01",
+                    "game_date": "2022-12-01",
+                    "count": 50
+                }
+            ],
+            "last_maintenance": "2026-03-13 22:11:17.739969"
+        },
+        "Япония": {
+            "military": 9,
+            "civilian": 78,
+            "launch_history": [
+                {
+                    "type": "initial",
+                    "date": "2022-12-01",
+                    "game_date": "2022-12-01",
+                    "count": 87
+                }
+            ],
+            "last_maintenance": "2026-03-13 22:11:17.739974"
+        },
+        "Израиль": {
+            "military": 14,
+            "civilian": 8,
+            "launch_history": [
+                {
+                    "type": "initial",
+                    "date": "2022-12-01",
+                    "game_date": "2022-12-01",
+                    "count": 22
+                }
+            ],
+            "last_maintenance": "2026-03-13 22:11:17.739979"
+        },
+        "Украина": {
+            "military": 0,
+            "civilian": 1,
+            "launch_history": [
+                {
+                    "type": "initial",
+                    "date": "2022-12-01",
+                    "game_date": "2022-12-01",
+                    "count": 1
+                }
+            ],
+            "last_maintenance": "2026-03-13 22:11:17.739983"
+        },
+        "Иран": {
+            "military": 3,
+            "civilian": 2,
+            "launch_history": [
+                {
+                    "type": "initial",
+                    "date": "2022-12-01",
+                    "game_date": "2022-12-01",
+                    "count": 5
+                }
+            ],
+            "last_maintenance": "2026-03-13 22:11:17.739988"
+        }
+    }
+}

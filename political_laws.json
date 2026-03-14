@@ -1,0 +1,23 @@
+{
+    "active_laws": [],
+    "passed_laws": [
+        {
+            "id": 1,
+            "user_id": "1056458599045541890",
+            "law_id": "healthcare_increase",
+            "law_name": "Увеличение финансирования здравоохранения",
+            "pp_cost": 40,
+            "submitted_at": "2026-03-12 21:38:40.805668",
+            "vote_result": "Закон принят! За: 68%, Против: 32%",
+            "passed": true,
+            "effects": {
+                "healthcare_budget_increase": 20,
+                "happiness_bonus": 3,
+                "population_growth_bonus": 0.2
+            },
+            "status": "passed",
+            "passed_at": "2026-03-12 21:38:40.805731"
+        }
+    ],
+    "failed_laws": []
+}

@@ -1,0 +1,100 @@
+{
+    "players": {
+        "1037028831606865970": {
+            "research_projects": {},
+            "completed_techs": {},
+            "sector_funding": {
+                "aerospace": 2000000000,
+                "military": 3500000000,
+                "electronics": 800000000,
+                "energy": 1500000000,
+                "metallurgy": 1000000000,
+                "uav": 1500000000,
+                "engineering": 1200000000,
+                "oil_gas": 2000000000,
+                "medical": 600000000,
+                "chemical": 700000000,
+                "machine_tools": 400000000,
+                "automotive": 500000000,
+                "agriculture": 400000000,
+                "construction": 300000000,
+                "light_industry": 200000000,
+                "shipbuilding": 600000000
+            },
+            "total_spent": 0,
+            "last_update": "2026-03-13 22:11:34.356281"
+        },
+        "813456610570928129": {
+            "research_projects": {},
+            "completed_techs": {},
+            "sector_funding": {
+                "electronics": 6000000000,
+                "aerospace": 3500000000,
+                "military": 4500000000,
+                "automotive": 2500000000,
+                "uav": 2000000000,
+                "energy": 2000000000,
+                "engineering": 3000000000,
+                "machine_tools": 1500000000,
+                "metallurgy": 1200000000,
+                "chemical": 1000000000,
+                "medical": 800000000,
+                "oil_gas": 800000000,
+                "shipbuilding": 2500000000,
+                "construction": 1500000000,
+                "agriculture": 600000000,
+                "light_industry": 1000000000
+            },
+            "total_spent": 0,
+            "last_update": "2026-03-13 22:11:34.356319"
+        },
+        "735068036607901736": {
+            "research_projects": {},
+            "completed_techs": {},
+            "sector_funding": {
+                "automotive": 4000000000,
+                "engineering": 3000000000,
+                "chemical": 2000000000,
+                "machine_tools": 1800000000,
+                "energy": 1200000000,
+                "medical": 1500000000,
+                "aerospace": 800000000,
+                "military": 600000000,
+                "electronics": 1000000000,
+                "metallurgy": 500000000,
+                "construction": 400000000,
+                "uav": 300000000,
+                "oil_gas": 200000000,
+                "agriculture": 300000000,
+                "light_industry": 400000000,
+                "shipbuilding": 300000000
+            },
+            "total_spent": 0,
+            "last_update": "2026-03-13 22:11:34.356335"
+        },
+        "1056458599045541890": {
+            "research_projects": {},
+            "completed_techs": {},
+            "sector_funding": {
+                "aerospace": 400000000,
+                "military": 600000000,
+                "uav": 500000000,
+                "engineering": 350000000,
+                "agriculture": 450000000,
+                "metallurgy": 300000000,
+                "energy": 250000000,
+                "chemical": 200000000,
+                "automotive": 150000000,
+                "machine_tools": 150000000,
+                "electronics": 200000000,
+                "medical": 150000000,
+                "construction": 150000000,
+                "oil_gas": 100000000,
+                "light_industry": 120000000,
+                "shipbuilding": 200000000
+            },
+            "total_spent": 0,
+            "last_update": "2026-03-13 22:11:34.356351"
+        }
+    }
+}

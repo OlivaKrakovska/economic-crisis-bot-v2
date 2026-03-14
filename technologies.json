@@ -1,0 +1,480 @@
+{
+    "metadata": {
+        "start_year": 2022,
+        "description": "Технологическое дерево. Технологии становятся доступны в указанный год."
+    },
+    
+    "sectors": {
+        "agriculture": {
+            "name": "Сельское хозяйство",
+            "description": "Агротехнологии, генная инженерия, вертикальные фермы"
+        },
+        "oil_gas": {
+            "name": "Нефтяная промышленность",
+            "description": "Добыча, переработка, новые методы извлечения"
+        },
+        "metallurgy": {
+            "name": "Металлургия",
+            "description": "Новые сплавы, композитные материалы, нанометаллы"
+        },
+        "engineering": {
+            "name": "Машиностроение",
+            "description": "Промышленное оборудование, двигатели, механизмы"
+        },
+        "machine_tools": {
+            "name": "Станкостроение",
+            "description": "Станки с ЧПУ, обрабатывающие центры, прецизионное оборудование"
+        },
+        "chemical": {
+            "name": "Химическая промышленность",
+            "description": "Полимеры, удобрения, катализаторы, новые материалы"
+        },
+        "light_industry": {
+            "name": "Лёгкая промышленность",
+            "description": "Текстиль, одежда, потребительские товары"
+        },
+        "energy": {
+            "name": "Энергетика",
+            "description": "Термоядерный синтез, сверхпроводимость, новые источники энергии"
+        },
+        "construction": {
+            "name": "Строительство",
+            "description": "Новые материалы, 3D-печать зданий, умные города"
+        },
+        "electronics": {
+            "name": "Электроника",
+            "description": "Полупроводники, квантовые вычисления, фотоника"
+        },
+        "aerospace": {
+            "name": "Авиастроение",
+            "description": "Гиперзвук, новые композиты, электрические самолёты"
+        },
+        "military": {
+            "name": "Военная промышленность",
+            "description": "Новые виды вооружений, системы защиты, военные технологии"
+        },
+        "medical": {
+            "name": "Медицинская промышленность",
+            "description": "Биотехнологии, генная терапия, медицинское оборудование"
+        },
+        "shipbuilding": {
+            "name": "Судостроение",
+            "description": "Автономные суда, подводные технологии, арктический флот"
+        },
+        "automotive": {
+            "name": "Автомобилестроение",
+            "description": "Электромобили, автономное вождение, новые материалы"
+        },
+        "uav": {
+            "name": "БПЛА",
+            "description": "Беспилотные системы, роевой интеллект, новые типы дронов"
+        }
+    },
+    
+    "technologies": [
+        {
+            "id": "agri_gene_editing_1",
+            "name": "Генное редактирование культур I",
+            "sector": "agriculture",
+            "year": 2022,
+            "description": "Целевое редактирование генома сельскохозяйственных культур для повышения урожайности и устойчивости к болезням и засухе.",
+            "prerequisites": [],
+            "effects": {
+                "crop_yield": 1.05,
+                "drought_resistance": 1.03,
+                "pesticide_reduction": 0.9
+            },
+            "scientists_required": 5000,
+            "research_cost": 1000000000,
+            "duration_months": 24
+        },
+        {
+            "id": "agri_vertical_farming",
+            "name": "Вертикальные фермы",
+            "sector": "agriculture",
+            "year": 2023,
+            "description": "Многоярусные автоматизированные фермы в городских условиях с контролируемым климатом и LED-освещением.",
+            "prerequisites": ["agri_gene_editing_1"],
+            "effects": {
+                "urban_farming": true,
+                "land_efficiency": 10.0,
+                "water_consumption": 0.05,
+                "year_round_production": true
+            },
+            "scientists_required": 8000,
+            "research_cost": 2000000000,
+            "duration_months": 36
+        },
+        {
+            "id": "agri_cellular_agriculture",
+            "name": "Клеточное сельское хозяйство",
+            "sector": "agriculture",
+            "year": 2025,
+            "description": "Выращивание мяса, молока и других продуктов из клеточных культур без содержания животных.",
+            "prerequisites": ["agri_vertical_farming"],
+            "effects": {
+                "meat_production": true,
+                "land_use_reduction": 0.95,
+                "water_use_reduction": 0.9,
+                "emissions_reduction": 0.8
+            },
+            "scientists_required": 15000,
+            "research_cost": 5000000000,
+            "duration_months": 48
+        },
+        {
+            "id": "oil_enhanced_recovery",
+            "name": "Увеличение нефтеотдачи",
+            "sector": "oil_gas",
+            "year": 2022,
+            "description": "Новые методы извлечения, позволяющие добывать до 60% нефти из месторождений вместо стандартных 30-40%.",
+            "prerequisites": [],
+            "effects": {
+                "oil_extraction_rate": 1.2,
+                "field_lifetime": 1.15,
+                "recoverable_reserves": 1.5
+            },
+            "scientists_required": 3000,
+            "research_cost": 800000000,
+            "duration_months": 18
+        },
+        {
+            "id": "oil_arctic_drilling",
+            "name": "Арктическое бурение",
+            "sector": "oil_gas",
+            "year": 2024,
+            "description": "Технологии безопасной добычи в арктических условиях, включая защиту от льда и низких температур.",
+            "prerequisites": ["oil_enhanced_recovery"],
+            "effects": {
+                "arctic_access": true,
+                "extraction_cost_reduction": 0.85,
+                "new_reserves": true
+            },
+            "scientists_required": 6000,
+            "research_cost": 2000000000,
+            "duration_months": 30
+        },
+        {
+            "id": "oil_gas_to_liquids",
+            "name": "GTL технологии",
+            "sector": "oil_gas",
+            "year": 2025,
+            "description": "Конверсия природного газа в жидкие углеводороды (синтетическая нефть, дизельное топливо).",
+            "prerequisites": ["oil_arctic_drilling"],
+            "effects": {
+                "gas_to_fuel": true,
+                "fuel_quality": 1.1,
+                "stranded_gas_utilization": true
+            },
+            "scientists_required": 9000,
+            "research_cost": 3000000000,
+            "duration_months": 36
+        },
+        {
+            "id": "metal_alloys_1",
+            "name": "Высокопрочные сплавы I",
+            "sector": "metallurgy",
+            "year": 2022,
+            "description": "Новые алюминиевые и титановые сплавы с улучшенными характеристиками для авиации и космоса.",
+            "prerequisites": [],
+            "effects": {
+                "material_strength": 1.15,
+                "weight_reduction": 0.9,
+                "corrosion_resistance": 1.2
+            },
+            "scientists_required": 4000,
+            "research_cost": 600000000,
+            "duration_months": 20
+        },
+        {
+            "id": "metal_nanostructured",
+            "name": "Наноструктурированные металлы",
+            "sector": "metallurgy",
+            "year": 2024,
+            "description": "Металлы с наноразмерной структурой для экстремальных свойств - сверхпрочность, сверхпластичность.",
+            "prerequisites": ["metal_alloys_1"],
+            "effects": {
+                "material_strength": 1.5,
+                "heat_resistance": 1.3,
+                "wear_resistance": 1.4
+            },
+            "scientists_required": 10000,
+            "research_cost": 4000000000,
+            "duration_months": 40
+        },
+        {
+            "id": "eng_advanced_cnc",
+            "name": "Передовые системы ЧПУ",
+            "sector": "machine_tools",
+            "year": 2022,
+            "description": "Системы числового программного управления нового поколения с адаптивными алгоритмами и самодиагностикой.",
+            "prerequisites": [],
+            "effects": {
+                "machining_precision": 1.2,
+                "setup_time_reduction": 0.7,
+                "automation_level": 1.1
+            },
+            "scientists_required": 3000,
+            "research_cost": 500000000,
+            "duration_months": 18
+        },
+        {
+            "id": "eng_multi_axis",
+            "name": "Многоосевые обрабатывающие центры",
+            "sector": "machine_tools",
+            "year": 2023,
+            "description": "Станки с 5 и более осями обработки для сложных деталей в авиакосмической и automotive промышленности.",
+            "prerequisites": ["eng_advanced_cnc"],
+            "effects": {
+                "complex_parts": true,
+                "setup_reduction": 0.5,
+                "precision": 1.3
+            },
+            "scientists_required": 5000,
+            "research_cost": 1200000000,
+            "duration_months": 24
+        },
+        {
+            "id": "chemical_catalysts_1",
+            "name": "Новые катализаторы I",
+            "sector": "chemical",
+            "year": 2022,
+            "description": "Высокоэффективные катализаторы для нефтепереработки и основного органического синтеза.",
+            "prerequisites": [],
+            "effects": {
+                "reaction_rate": 1.2,
+                "energy_consumption": 0.85,
+                "selectivity": 1.1
+            },
+            "scientists_required": 4000,
+            "research_cost": 700000000,
+            "duration_months": 20
+        },
+        {
+            "id": "chemical_polymers",
+            "name": "Специализированные полимеры",
+            "sector": "chemical",
+            "year": 2023,
+            "description": "Полимеры с заданными свойствами для медицинских применений, электроники и аэрокосмической отрасли.",
+            "prerequisites": ["chemical_catalysts_1"],
+            "effects": {
+                "biocompatible": true,
+                "high_temp_resistance": 1.3,
+                "electrical_properties": true
+            },
+            "scientists_required": 6000,
+            "research_cost": 1500000000,
+            "duration_months": 28
+        },
+        {
+            "id": "light_smart_textiles",
+            "name": "Умный текстиль",
+            "sector": "light_industry",
+            "year": 2022,
+            "description": "Ткани со встроенными датчиками, проводящими нитями и адаптивными свойствами.",
+            "prerequisites": [],
+            "effects": {
+                "wearable_tech": true,
+                "new_markets": true,
+                "value_added": 5.0
+            },
+            "scientists_required": 2000,
+            "research_cost": 300000000,
+            "duration_months": 16
+        },
+        {
+            "id": "energy_solar_advanced",
+            "name": "Высокоэффективные солнечные панели",
+            "sector": "energy",
+            "year": 2022,
+            "description": "Перовскитные и тандемные солнечные элементы с КПД выше 30%.",
+            "prerequisites": [],
+            "effects": {
+                "solar_efficiency": 1.3,
+                "cost_per_watt": 0.6,
+                "new_applications": true
+            },
+            "scientists_required": 5000,
+            "research_cost": 1200000000,
+            "duration_months": 24
+        },
+        {
+            "id": "energy_battery_1",
+            "name": "Твердотельные аккумуляторы",
+            "sector": "energy",
+            "year": 2023,
+            "description": "Аккумуляторы с твердым электролитом, безопасные и с высокой плотностью энергии.",
+            "prerequisites": ["energy_solar_advanced"],
+            "effects": {
+                "energy_density": 2.0,
+                "safety": 1.5,
+                "cycle_life": 3.0
+            },
+            "scientists_required": 8000,
+            "research_cost": 2500000000,
+            "duration_months": 30
+        },
+        {
+            "id": "construction_3d_printing",
+            "name": "3D-печать зданий",
+            "sector": "construction",
+            "year": 2022,
+            "description": "Строительство зданий методом послойной печати бетоном и другими материалами.",
+            "prerequisites": [],
+            "effects": {
+                "construction_speed": 3.0,
+                "labor_reduction": 0.5,
+                "material_waste": 0.3
+            },
+            "scientists_required": 3000,
+            "research_cost": 400000000,
+            "duration_months": 18
+        },
+        {
+            "id": "electronics_2nm",
+            "name": "2 нм техпроцесс",
+            "sector": "electronics",
+            "year": 2022,
+            "description": "Технология производства чипов с нормами 2 нанометра с транзисторами GAAFET.",
+            "prerequisites": [],
+            "effects": {
+                "transistor_density": 1.8,
+                "power_efficiency": 1.3,
+                "performance": 1.4
+            },
+            "scientists_required": 15000,
+            "research_cost": 10000000000,
+            "duration_months": 36
+        },
+        {
+            "id": "aerospace_hypersonic",
+            "name": "Гиперзвуковые технологии",
+            "sector": "aerospace",
+            "year": 2022,
+            "description": "Летательные аппараты, способные длительно летать на скоростях выше 5 Махов.",
+            "prerequisites": [],
+            "effects": {
+                "hypersonic_flight": true,
+                "new_markets": true,
+                "military_supremacy": true
+            },
+            "scientists_required": 12000,
+            "research_cost": 8000000000,
+            "duration_months": 40
+        },
+        {
+            "id": "military_directed_energy",
+            "name": "Оружие направленной энергии",
+            "sector": "military",
+            "year": 2022,
+            "description": "Лазерное и микроволновое оружие для поражения БПЛА, ракет и других целей.",
+            "prerequisites": [],
+            "effects": {
+                "laser_weapons": true,
+                "cost_per_shot": 0.01,
+                "magazine_depth": "infinite"
+            },
+            "scientists_required": 8000,
+            "research_cost": 5000000000,
+            "duration_months": 36
+        },
+        {
+            "id": "medical_gene_therapy",
+            "name": "Генная терапия",
+            "sector": "medical",
+            "year": 2022,
+            "description": "Лечение генетических заболеваний путем редактирования генома пациента.",
+            "prerequisites": [],
+            "effects": {
+                "genetic_disease_cure": true,
+                "new_treatments": true,
+                "healthcare_quality": 1.2
+            },
+            "scientists_required": 6000,
+            "research_cost": 2000000000,
+            "duration_months": 30
+        },
+        {
+            "id": "shipbuilding_autonomous",
+            "name": "Автономные суда",
+            "sector": "shipbuilding",
+            "year": 2022,
+            "description": "Морские суда с системами автономной навигации и управления без экипажа.",
+            "prerequisites": [],
+            "effects": {
+                "unmanned_vessels": true,
+                "operating_cost": 0.4,
+                "safety": 1.5
+            },
+            "scientists_required": 5000,
+            "research_cost": 1500000000,
+            "duration_months": 30
+        },
+        {
+            "id": "automotive_solid_state_battery",
+            "name": "Твердотельные батареи для авто",
+            "sector": "automotive",
+            "year": 2022,
+            "description": "Твердотельные аккумуляторы, адаптированные для электромобилей с запасом хода 1000+ км.",
+            "prerequisites": [],
+            "effects": {
+                "range": 2.0,
+                "charging_time": 0.2,
+                "safety": 1.5
+            },
+            "scientists_required": 8000,
+            "research_cost": 3000000000,
+            "duration_months": 32
+        },
+        {
+            "id": "uav_swarm_intelligence",
+            "name": "Роевой интеллект",
+            "sector": "uav",
+            "year": 2022,
+            "description": "Алгоритмы коллективного поведения для больших групп дронов.",
+            "prerequisites": [],
+            "effects": {
+                "coordinated_action": true,
+                "fault_tolerance": true,
+                "mission_complexity": 5.0
+            },
+            "scientists_required": 6000,
+            "research_cost": 2000000000,
+            "duration_months": 28
+        },
+        {
+            "id": "electronics_quantum",
+            "name": "Квантовые компьютеры",
+            "sector": "electronics",
+            "year": 2025,
+            "description": "Практические квантовые компьютеры с тысячами кубитов для решения реальных задач.",
+            "prerequisites": ["electronics_2nm"],
+            "effects": {
+                "quantum_supremacy": true,
+                "cryptography": true,
+                "simulation_capability": true,
+                "optimization": true
+            },
+            "scientists_required": 40000,
+            "research_cost": 30000000000,
+            "duration_months": 60
+        },
+        {
+            "id": "energy_fusion",
+            "name": "Управляемый термоядерный синтез",
+            "sector": "energy",
+            "year": 2028,
+            "description": "Коммерческий термоядерный реактор с положительным энергетическим выходом.",
+            "prerequisites": ["energy_battery_1"],
+            "effects": {
+                "unlimited_clean_energy": true,
+                "fuel_abundant": true,
+                "zero_emissions": true,
+                "base_load_power": true
+            },
+            "scientists_required": 50000,
+            "research_cost": 50000000000,
+            "duration_months": 72
+        }
+    ]
+}
