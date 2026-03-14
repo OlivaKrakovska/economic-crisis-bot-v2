@@ -8,7 +8,26 @@ __pycache__/
 .env.*
 
 # JSON data (опционально - если не хотите хранить данные в репозитории)
-*.json
+# Игровые данные (не хранить в репозитории)
+states.json
+corporations_state.json
+trades.json
+transfers.json
+research_data.json
+central_bank.json
+game_time.json
+satellites.json
+military_doctrines.json
+mobilization.json
+strikes.json
+strike_queue.json
+infrastructure.json
+infra_construction.json
+production_queue.json
+civil_production_queue.json
+conflicts.json
+political_laws.json
+last_extraction.json
 
 # Logs
 *.log
