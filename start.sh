@@ -1,16 +1,9 @@
+# Временно измените start.sh на:
 #!/bin/bash
-echo "Starting bot with volume support..."
+echo "Copying JSON files to volume..."
+cp /*.json /app/ 2>/dev/null || true
+cp /app/source/*.json /app/ 2>/dev/null || true
 
-# Volume смонтирован в /app, в нём уже должны быть JSON файлы
-# Но .py файлов в Volume нет, они лежат в исходной директории
-SOURCE_DIR="/app/source"
-
-# Если исходные файлы не там, ищем их
-if [ ! -d "$SOURCE_DIR" ]; then
-    # Файлы могут быть в корне контейнера
-    SOURCE_DIR="/"
-fi
-
-# Запускаем бота из исходной директории, но с рабочей директорией /app (Volume)
+echo "Starting bot..."
 cd /app
-python $SOURCE_DIR/bot.py
+python /app/source/bot.py
