@@ -5,6 +5,7 @@ os.makedirs(DATA_DIR, exist_ok=True)
 
 import discord
 from datetime import datetime
+import os
 import json
 
 # Файлы для хранения данных
