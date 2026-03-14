@@ -1,12 +1,12 @@
 # utils.py - Вспомогательные функции
 
-DATA_DIR = os.environ.get('DATA_DIR', '/app/data')
-os.makedirs(DATA_DIR, exist_ok=True)
-
 import discord
 import os
 from datetime import datetime
 import json
+
+DATA_DIR = os.environ.get('DATA_DIR', '/app/data')
+os.makedirs(DATA_DIR, exist_ok=True)
 
 # Файлы для хранения данных
 STATES_FILE = 'states.json'
