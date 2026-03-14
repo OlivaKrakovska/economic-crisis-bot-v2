@@ -1,9 +1,11 @@
-# Временно измените start.sh на:
 #!/bin/bash
-echo "Copying JSON files to volume..."
-cp /*.json /app/ 2>/dev/null || true
-cp /app/source/*.json /app/ 2>/dev/null || true
+echo "Starting bot with persistent storage..."
 
-echo "Starting bot..."
+# Проверяем, есть ли JSON файлы в Volume
+if [ ! -f /app/states.json ]; then
+    echo "WARNING: Volume appears empty. JSON files may be missing."
+fi
+
+# Запускаем бота
 cd /app
 python /app/source/bot.py
