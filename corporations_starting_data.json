@@ -1,0 +1,2335 @@
+{
+  "corporations": {
+    "civ_us_001": {
+      "name": "General Motors",
+      "budget": 85000000000,
+      "popularity": 72,
+      "inventory": {
+        "cars": 8500,
+        "trucks": 3200,
+        "auto_parts": 15000
+      },
+      "employees": 155000,
+      "market_share": {
+        "cars": 17.5,
+        "trucks": 22.0
+      }
+    },
+    "civ_us_001b": {
+      "name": "Ford Motor Company",
+      "budget": 72000000000,
+      "popularity": 75,
+      "inventory": {
+        "cars": 7800,
+        "trucks": 4100,
+        "auto_parts": 12000
+      },
+      "employees": 173000,
+      "market_share": {
+        "cars": 14.8,
+        "trucks": 28.5
+      }
+    },
+    "civ_us_001c": {
+      "name": "Tesla, Inc.",
+      "budget": 68000000000,
+      "popularity": 89,
+      "inventory": {
+        "cars": 2800,
+        "energy_equipment": 950
+      },
+      "employees": 127000,
+      "market_share": {
+        "cars": 4.2,
+        "energy_equipment": 12.5
+      }
+    },
+    "civ_us_002": {
+      "name": "Caterpillar Inc.",
+      "budget": 52000000000,
+      "popularity": 68,
+      "inventory": {
+        "construction_machinery": 1850,
+        "industrial_equipment": 3200,
+        "energy_equipment": 780
+      },
+      "employees": 104000,
+      "market_share": {
+        "construction_machinery": 19.0,
+        "industrial_equipment": 8.5
+      }
+    },
+    "civ_us_003": {
+      "name": "Boeing",
+      "budget": 68000000000,
+      "popularity": 45,
+      "inventory": {
+        "aerospace_equipment": 120,
+        "drones": 180
+      },
+      "employees": 141000,
+      "market_share": {
+        "aerospace_equipment": 42.0
+      }
+    },
+    "civ_us_004": {
+      "name": "IBM",
+      "budget": 65000000000,
+      "popularity": 58,
+      "inventory": {
+        "tech_equipment": 3400,
+        "software": 15000,
+        "cloud_services": 25000
+      },
+      "employees": 282000,
+      "market_share": {
+        "software": 5.2,
+        "cloud_services": 3.8
+      }
+    },
+    "civ_us_004b": {
+      "name": "Microsoft Corporation",
+      "budget": 184000000000,
+      "popularity": 86,
+      "inventory": {
+        "software": 45000,
+        "cloud_services": 52000,
+        "computers": 950,
+        "gaming": 3200
+      },
+      "employees": 221000,
+      "market_share": {
+        "software": 22.5,
+        "cloud_services": 21.0
+      }
+    },
+    "civ_us_004c": {
+      "name": "Apple Inc.",
+      "budget": 162000000000,
+      "popularity": 91,
+      "inventory": {
+        "smartphones": 8500,
+        "computers": 1850,
+        "tablets": 4200,
+        "software": 35000,
+        "streaming": 15000
+      },
+      "employees": 164000,
+      "market_share": {
+        "smartphones": 18.0,
+        "computers": 8.5,
+        "tablets": 32.0
+      }
+    },
+    "civ_us_004d": {
+      "name": "Google LLC",
+      "budget": 158000000000,
+      "popularity": 88,
+      "inventory": {
+        "internet_services": 65000,
+        "software": 28000,
+        "cloud_services": 34000,
+        "smartphones": 1850
+      },
+      "employees": 156000,
+      "market_share": {
+        "internet_services": 28.5,
+        "cloud_services": 9.0
+      }
+    },
+    "civ_us_004e": {
+      "name": "Amazon.com, Inc.",
+      "budget": 201000000000,
+      "popularity": 82,
+      "inventory": {
+        "ecommerce": 125000,
+        "cloud_services": 48000,
+        "streaming": 35000,
+        "logistics": 28000
+      },
+      "employees": 1540000,
+      "market_share": {
+        "ecommerce": 38.0,
+        "cloud_services": 32.0
+      }
+    },
+    "civ_us_005": {
+      "name": "Johnson & Johnson",
+      "budget": 74000000000,
+      "popularity": 76,
+      "inventory": {
+        "medical_equipment": 1850,
+        "medical_supplies": 12500,
+        "pharmaceuticals": 5800,
+        "sanitary_products": 18500,
+        "cosmetics": 9200
+      },
+      "employees": 135000,
+      "market_share": {
+        "medical_supplies": 14.0,
+        "pharmaceuticals": 5.5
+      }
+    },
+    "civ_us_005b": {
+      "name": "Pfizer Inc.",
+      "budget": 82000000000,
+      "popularity": 71,
+      "inventory": {
+        "pharmaceuticals": 7200
+      },
+      "employees": 79000,
+      "market_share": {
+        "pharmaceuticals": 7.8
+      }
+    },
+    "civ_us_005c": {
+      "name": "Merck & Co.",
+      "budget": 48000000000,
+      "popularity": 68,
+      "inventory": {
+        "pharmaceuticals": 5400
+      },
+      "employees": 68000,
+      "market_share": {
+        "pharmaceuticals": 5.2
+      }
+    },
+    "civ_us_006": {
+      "name": "AT&T Inc.",
+      "budget": 124000000000,
+      "popularity": 52,
+      "inventory": {
+        "telecom_services": 85000,
+        "mobile_services": 72000,
+        "internet_services": 48000,
+        "media": 35000
+      },
+      "employees": 203000,
+      "market_share": {
+        "mobile_services": 24.0,
+        "internet_services": 18.5
+      }
+    },
+    "civ_us_006b": {
+      "name": "Verizon Communications",
+      "budget": 115000000000,
+      "popularity": 58,
+      "inventory": {
+        "mobile_services": 78000,
+        "internet_services": 42000,
+        "telecom_services": 38000
+      },
+      "employees": 118000,
+      "market_share": {
+        "mobile_services": 22.0,
+        "internet_services": 16.0
+      }
+    },
+    "civ_us_006c": {
+      "name": "Comcast Corporation",
+      "budget": 89000000000,
+      "popularity": 41,
+      "inventory": {
+        "internet_services": 52000,
+        "media": 68000,
+        "telecom_services": 22000
+      },
+      "employees": 186000,
+      "market_share": {
+        "internet_services": 20.0,
+        "media": 15.0
+      }
+    },
+    "civ_us_007": {
+      "name": "JPMorgan Chase & Co.",
+      "budget": 335000000000,
+      "popularity": 64,
+      "inventory": {
+        "banking": 125000,
+        "investments": 38000,
+        "fintech": 22000
+      },
+      "employees": 293000,
+      "market_share": {
+        "banking": 12.5,
+        "investments": 8.0
+      }
+    },
+    "civ_us_007b": {
+      "name": "Goldman Sachs",
+      "budget": 142000000000,
+      "popularity": 62,
+      "inventory": {
+        "investments": 42000,
+        "banking": 28000
+      },
+      "employees": 48500,
+      "market_share": {
+        "investments": 6.5
+      }
+    },
+    "civ_us_007c": {
+      "name": "Visa Inc.",
+      "budget": 82000000000,
+      "popularity": 79,
+      "inventory": {
+        "fintech": 95000,
+        "banking": 65000
+      },
+      "employees": 26500,
+      "market_share": {
+        "fintech": 24.0
+      }
+    },
+    "civ_us_007d": {
+      "name": "Mastercard Inc.",
+      "budget": 71000000000,
+      "popularity": 77,
+      "inventory": {
+        "fintech": 88000,
+        "banking": 58000
+      },
+      "employees": 24000,
+      "market_share": {
+        "fintech": 21.0
+      }
+    },
+    "civ_us_008": {
+      "name": "Walmart Inc.",
+      "budget": 185000000000,
+      "popularity": 73,
+      "inventory": {
+        "retail": 185000,
+        "supermarkets": 158000,
+        "ecommerce": 45000
+      },
+      "employees": 2100000,
+      "market_share": {
+        "retail": 18.0,
+        "supermarkets": 22.0
+      }
+    },
+    "civ_us_008b": {
+      "name": "Costco Wholesale",
+      "budget": 52000000000,
+      "popularity": 85,
+      "inventory": {
+        "retail": 85000,
+        "supermarkets": 72000
+      },
+      "employees": 304000,
+      "market_share": {
+        "retail": 5.5,
+        "supermarkets": 7.0
+      }
+    },
+    "civ_us_008c": {
+      "name": "Target Corporation",
+      "budget": 41000000000,
+      "popularity": 78,
+      "inventory": {
+        "retail": 72000,
+        "clothing": 35000,
+        "household_goods": 42000
+      },
+      "employees": 440000,
+      "market_share": {
+        "retail": 4.5,
+        "clothing": 3.0
+      }
+    },
+    "civ_us_009": {
+      "name": "McDonald's Corporation",
+      "budget": 48000000000,
+      "popularity": 82,
+      "inventory": {
+        "fast_food": 125000,
+        "restaurants": 85000
+      },
+      "employees": 2000000,
+      "market_share": {
+        "fast_food": 21.0
+      }
+    },
+    "civ_us_009b": {
+      "name": "Starbucks Corporation",
+      "budget": 32000000000,
+      "popularity": 84,
+      "inventory": {
+        "restaurants": 95000,
+        "food_products": 28000
+      },
+      "employees": 383000,
+      "market_share": {
+        "restaurants": 8.5
+      }
+    },
+    "civ_us_009c": {
+      "name": "Yum! Brands",
+      "budget": 18000000000,
+      "popularity": 71,
+      "inventory": {
+        "fast_food": 85000,
+        "restaurants": 42000
+      },
+      "employees": 360000,
+      "market_share": {
+        "fast_food": 9.0
+      }
+    },
+    "civ_us_010": {
+      "name": "John Deere",
+      "budget": 42000000000,
+      "popularity": 74,
+      "inventory": {
+        "agricultural_machinery": 1850,
+        "construction_machinery": 950
+      },
+      "employees": 82000,
+      "market_share": {
+        "agricultural_machinery": 24.0,
+        "construction_machinery": 8.0
+      }
+    },
+    "civ_us_011": {
+      "name": "PepsiCo",
+      "budget": 68000000000,
+      "popularity": 76,
+      "inventory": {
+        "food_products": 125000,
+        "beverages": 185000
+      },
+      "employees": 291000,
+      "market_share": {
+        "food_products": 12.0,
+        "beverages": 18.0
+      }
+    },
+    "civ_us_011b": {
+      "name": "The Coca-Cola Company",
+      "budget": 74000000000,
+      "popularity": 85,
+      "inventory": {
+        "beverages": 220000
+      },
+      "employees": 82000,
+      "market_share": {
+        "beverages": 24.0
+      }
+    },
+    "civ_us_012": {
+      "name": "General Electric",
+      "budget": 52000000000,
+      "popularity": 48,
+      "inventory": {
+        "electrical_equipment": 3200,
+        "energy_equipment": 850,
+        "aerospace_equipment": 95
+      },
+      "employees": 168000,
+      "market_share": {
+        "electrical_equipment": 12.0,
+        "energy_equipment": 7.0
+      }
+    },
+    "civ_us_013": {
+      "name": "Delta Air Lines",
+      "budget": 28000000000,
+      "popularity": 71,
+      "inventory": {
+        "airlines": 850,
+        "passenger_transport": 3200,
+        "logistics": 1800
+      },
+      "employees": 83000,
+      "market_share": {
+        "airlines": 15.0
+      }
+    },
+    "civ_us_013b": {
+      "name": "American Airlines",
+      "budget": 24000000000,
+      "popularity": 62,
+      "inventory": {
+        "airlines": 780,
+        "passenger_transport": 2900
+      },
+      "employees": 130000,
+      "market_share": {
+        "airlines": 14.0
+      }
+    },
+    "civ_us_013c": {
+      "name": "United Airlines",
+      "budget": 26000000000,
+      "popularity": 65,
+      "inventory": {
+        "airlines": 820,
+        "passenger_transport": 3100
+      },
+      "employees": 96000,
+      "market_share": {
+        "airlines": 13.5
+      }
+    },
+    "civ_us_014": {
+      "name": "United Parcel Service (UPS)",
+      "budget": 71000000000,
+      "popularity": 79,
+      "inventory": {
+        "logistics": 45000,
+        "freight": 12500
+      },
+      "employees": 534000,
+      "market_share": {
+        "logistics": 22.0
+      }
+    },
+    "civ_us_014b": {
+      "name": "FedEx Corporation",
+      "budget": 65000000000,
+      "popularity": 77,
+      "inventory": {
+        "logistics": 38000,
+        "freight": 11200
+      },
+      "employees": 547000,
+      "market_share": {
+        "logistics": 19.0
+      }
+    },
+    "civ_us_015": {
+      "name": "The Walt Disney Company",
+      "budget": 158000000000,
+      "popularity": 83,
+      "inventory": {
+        "entertainment": 25000,
+        "media": 45000,
+        "streaming": 32000
+      },
+      "employees": 223000,
+      "market_share": {
+        "entertainment": 18.0,
+        "streaming": 12.0
+      }
+    },
+    "civ_us_015b": {
+      "name": "Netflix, Inc.",
+      "budget": 42000000000,
+      "popularity": 86,
+      "inventory": {
+        "streaming": 68000,
+        "entertainment": 12000
+      },
+      "employees": 12800,
+      "market_share": {
+        "streaming": 21.0
+      }
+    },
+    "civ_us_015c": {
+      "name": "Warner Bros. Discovery",
+      "budget": 52000000000,
+      "popularity": 58,
+      "inventory": {
+        "media": 52000,
+        "entertainment": 18500,
+        "streaming": 24000
+      },
+      "employees": 38000,
+      "market_share": {
+        "media": 12.0,
+        "streaming": 8.0
+      }
+    },
+    "civ_us_016": {
+      "name": "Chegg, Inc.",
+      "budget": 3800000000,
+      "popularity": 67,
+      "inventory": {
+        "education": 25000,
+        "online_courses": 18000
+      },
+      "employees": 3200,
+      "market_share": {
+        "online_courses": 4.5
+      }
+    },
+    "civ_us_016b": {
+      "name": "Coursera, Inc.",
+      "budget": 2800000000,
+      "popularity": 72,
+      "inventory": {
+        "online_courses": 22000,
+        "education": 15000
+      },
+      "employees": 1400,
+      "market_share": {
+        "online_courses": 5.0
+      }
+    },
+    "civ_ru_001": {
+      "name": "АвтоВАЗ",
+      "budget": 5200000000,
+      "popularity": 58,
+      "inventory": {
+        "cars": 4500,
+        "auto_parts": 8500
+      },
+      "employees": 32000,
+      "market_share": {
+        "cars": 21.0
+      }
+    },
+    "civ_ru_001b": {
+      "name": "Группа ГАЗ",
+      "budget": 3800000000,
+      "popularity": 56,
+      "inventory": {
+        "trucks": 1850,
+        "buses": 420,
+        "auto_parts": 6200
+      },
+      "employees": 25000,
+      "market_share": {
+        "trucks": 18.0,
+        "buses": 35.0
+      }
+    },
+    "civ_ru_002": {
+      "name": "КАМАЗ",
+      "budget": 6200000000,
+      "popularity": 62,
+      "inventory": {
+        "trucks": 2100,
+        "buses": 380,
+        "auto_parts": 7200
+      },
+      "employees": 35000,
+      "market_share": {
+        "trucks": 32.0,
+        "buses": 15.0
+      }
+    },
+    "civ_ru_003": {
+      "name": "МТС",
+      "budget": 8500000000,
+      "popularity": 68,
+      "inventory": {
+        "mobile_services": 42000,
+        "telecom_services": 28000,
+        "internet_services": 32000,
+        "media": 15000
+      },
+      "employees": 62000,
+      "market_share": {
+        "mobile_services": 28.0,
+        "internet_services": 22.0
+      }
+    },
+    "civ_ru_003b": {
+      "name": "МегаФон",
+      "budget": 5800000000,
+      "popularity": 64,
+      "inventory": {
+        "mobile_services": 38000,
+        "telecom_services": 22000,
+        "internet_services": 28000
+      },
+      "employees": 28000,
+      "market_share": {
+        "mobile_services": 23.0,
+        "internet_services": 18.0
+      }
+    },
+    "civ_ru_003c": {
+      "name": "ВымпелКом (Билайн)",
+      "budget": 5200000000,
+      "popularity": 59,
+      "inventory": {
+        "mobile_services": 35000,
+        "telecom_services": 20000,
+        "internet_services": 25000
+      },
+      "employees": 26000,
+      "market_share": {
+        "mobile_services": 21.0,
+        "internet_services": 16.0
+      }
+    },
+    "civ_ru_004": {
+      "name": "Яндекс",
+      "budget": 9200000000,
+      "popularity": 82,
+      "inventory": {
+        "internet_services": 55000,
+        "software": 28000,
+        "cloud_services": 15000,
+        "ecommerce": 25000,
+        "passenger_transport": 18000
+      },
+      "employees": 20000,
+      "market_share": {
+        "internet_services": 58.0,
+        "cloud_services": 12.0,
+        "passenger_transport": 35.0
+      }
+    },
+    "civ_ru_004b": {
+      "name": "VK",
+      "budget": 4800000000,
+      "popularity": 75,
+      "inventory": {
+        "internet_services": 45000,
+        "software": 15000,
+        "gaming": 12000,
+        "media": 22000
+      },
+      "employees": 12000,
+      "market_share": {
+        "internet_services": 42.0,
+        "gaming": 15.0
+      }
+    },
+    "civ_ru_004c": {
+      "name": "Лаборатория Касперского",
+      "budget": 2200000000,
+      "popularity": 78,
+      "inventory": {
+        "cybersecurity": 25000,
+        "software": 18000
+      },
+      "employees": 4000,
+      "market_share": {
+        "cybersecurity": 18.0
+      }
+    },
+    "civ_ru_005": {
+      "name": "Сбербанк",
+      "budget": 152000000000,
+      "popularity": 71,
+      "inventory": {
+        "banking": 95000,
+        "investments": 28000,
+        "fintech": 35000,
+        "insurance": 18000
+      },
+      "employees": 281000,
+      "market_share": {
+        "banking": 42.0,
+        "fintech": 35.0
+      }
+    },
+    "civ_ru_005b": {
+      "name": "ВТБ",
+      "budget": 68000000000,
+      "popularity": 54,
+      "inventory": {
+        "banking": 62000,
+        "investments": 18000
+      },
+      "employees": 85000,
+      "market_share": {
+        "banking": 18.0
+      }
+    },
+    "civ_ru_005c": {
+      "name": "Т-Банк",
+      "budget": 22000000000,
+      "popularity": 79,
+      "inventory": {
+        "fintech": 48000,
+        "banking": 35000,
+        "insurance": 12000
+      },
+      "employees": 22000,
+      "market_share": {
+        "fintech": 28.0,
+        "banking": 8.0
+      }
+    },
+    "civ_ru_006": {
+      "name": "Магнит",
+      "budget": 18500000000,
+      "popularity": 68,
+      "inventory": {
+        "retail": 75000,
+        "supermarkets": 62000
+      },
+      "employees": 316000,
+      "market_share": {
+        "retail": 12.0,
+        "supermarkets": 15.0
+      }
+    },
+    "civ_ru_006b": {
+      "name": "X5 Group",
+      "budget": 21000000000,
+      "popularity": 67,
+      "inventory": {
+        "retail": 82000,
+        "supermarkets": 71000,
+        "ecommerce": 15000
+      },
+      "employees": 340000,
+      "market_share": {
+        "retail": 14.0,
+        "supermarkets": 18.0
+      }
+    },
+    "civ_ru_006c": {
+      "name": "Wildberries",
+      "budget": 12500000000,
+      "popularity": 81,
+      "inventory": {
+        "ecommerce": 85000,
+        "retail": 62000,
+        "logistics": 25000
+      },
+      "employees": 30000,
+      "market_share": {
+        "ecommerce": 28.0
+      }
+    },
+    "civ_ru_006d": {
+      "name": "Ozon",
+      "budget": 8200000000,
+      "popularity": 75,
+      "inventory": {
+        "ecommerce": 58000,
+        "retail": 42000,
+        "logistics": 18000
+      },
+      "employees": 18000,
+      "market_share": {
+        "ecommerce": 18.0
+      }
+    },
+    "civ_ru_007": {
+      "name": "Газпром",
+      "budget": 245000000000,
+      "popularity": 55,
+      "inventory": {
+        "gas_supply": 95000,
+        "energy_equipment": 1850
+      },
+      "employees": 468000,
+      "market_share": {
+        "gas_supply": 65.0
+      }
+    },
+    "civ_ru_007b": {
+      "name": "Роснефть",
+      "budget": 168000000000,
+      "popularity": 52,
+      "inventory": {
+        "oil": 125000,
+        "energy_equipment": 1200
+      },
+      "employees": 325000,
+      "market_share": {
+        "oil": 38.0
+      }
+    },
+    "civ_ru_007c": {
+      "name": "Лукойл",
+      "budget": 95000000000,
+      "popularity": 58,
+      "inventory": {
+        "oil": 82000,
+        "gas_supply": 35000,
+        "retail": 18000
+      },
+      "employees": 102000,
+      "market_share": {
+        "oil": 16.0,
+        "gas_supply": 12.0
+      }
+    },
+    "civ_ru_007d": {
+      "name": "Росатом",
+      "budget": 85000000000,
+      "popularity": 61,
+      "inventory": {
+        "energy_equipment": 950,
+        "electricity": 28000
+      },
+      "employees": 256000,
+      "market_share": {
+        "energy_equipment": 45.0,
+        "electricity": 18.0
+      }
+    },
+    "civ_ru_008": {
+      "name": "Ростсельмаш",
+      "budget": 2800000000,
+      "popularity": 64,
+      "inventory": {
+        "agricultural_machinery": 1250
+      },
+      "employees": 10000,
+      "market_share": {
+        "agricultural_machinery": 42.0
+      }
+    },
+    "civ_ru_009": {
+      "name": "Силовые машины",
+      "budget": 3500000000,
+      "popularity": 58,
+      "inventory": {
+        "energy_equipment": 580
+      },
+      "employees": 18000,
+      "market_share": {
+        "energy_equipment": 28.0
+      }
+    },
+    "civ_ru_010": {
+      "name": "ОАК",
+      "budget": 6200000000,
+      "popularity": 51,
+      "inventory": {
+        "aerospace_equipment": 85,
+        "drones": 120
+      },
+      "employees": 98000,
+      "market_share": {
+        "aerospace_equipment": 18.0
+      }
+    },
+    "civ_ru_011": {
+      "name": "Русагро",
+      "budget": 1800000000,
+      "popularity": 63,
+      "inventory": {
+        "food_products": 35000
+      },
+      "employees": 15000,
+      "market_share": {
+        "food_products": 5.0
+      }
+    },
+    "civ_ru_012": {
+      "name": "Фармстандарт",
+      "budget": 1200000000,
+      "popularity": 61,
+      "inventory": {
+        "pharmaceuticals": 4200
+      },
+      "employees": 8000,
+      "market_share": {
+        "pharmaceuticals": 6.0
+      }
+    },
+    "civ_ru_013": {
+      "name": "Уралкалий",
+      "budget": 5800000000,
+      "popularity": 56,
+      "inventory": {
+        "chemicals": 18500,
+        "fertilizers": 22000
+      },
+      "employees": 20000,
+      "market_share": {
+        "fertilizers": 22.0
+      }
+    },
+    "civ_ru_014": {
+      "name": "РЖД",
+      "budget": 42000000000,
+      "popularity": 54,
+      "inventory": {
+        "logistics": 45000,
+        "freight": 32000,
+        "passenger_transport": 25000
+      },
+      "employees": 711000,
+      "market_share": {
+        "logistics": 42.0,
+        "passenger_transport": 38.0
+      }
+    },
+    "civ_ru_015": {
+      "name": "Росинтер",
+      "budget": 280000000,
+      "popularity": 59,
+      "inventory": {
+        "restaurants": 8500,
+        "fast_food": 6200
+      },
+      "employees": 5000,
+      "market_share": {
+        "restaurants": 2.5
+      }
+    },
+    "civ_ru_016": {
+      "name": "Медси",
+      "budget": 420000000,
+      "popularity": 68,
+      "inventory": {
+        "healthcare_services": 15000,
+        "hospital_services": 3200
+      },
+      "employees": 6000,
+      "market_share": {
+        "healthcare_services": 4.0
+      }
+    },
+    "civ_ru_017": {
+      "name": "Группа ПИК",
+      "budget": 5800000000,
+      "popularity": 62,
+      "inventory": {
+        "construction": 1850,
+        "real_estate": 950,
+        "property_management": 3200
+      },
+      "employees": 12000,
+      "market_share": {
+        "construction": 8.0,
+        "real_estate": 6.0
+      }
+    },
+    "civ_cn_001": {
+      "name": "SAIC Motor",
+      "budget": 85000000000,
+      "popularity": 65,
+      "inventory": {
+        "cars": 12500,
+        "trucks": 3800,
+        "auto_parts": 18500
+      },
+      "employees": 204000,
+      "market_share": {
+        "cars": 22.0,
+        "trucks": 18.0
+      }
+    },
+    "civ_cn_001b": {
+      "name": "BYD Company",
+      "budget": 52000000000,
+      "popularity": 78,
+      "inventory": {
+        "cars": 7200,
+        "energy_equipment": 3200,
+        "buses": 850
+      },
+      "employees": 288000,
+      "market_share": {
+        "cars": 8.5,
+        "energy_equipment": 15.0
+      }
+    },
+    "civ_cn_002": {
+      "name": "Huawei",
+      "budget": 98000000000,
+      "popularity": 58,
+      "inventory": {
+        "telecom_equipment": 12500,
+        "tech_equipment": 8500,
+        "consumer_electronics": 32000,
+        "smartphones": 18500
+      },
+      "employees": 195000,
+      "market_share": {
+        "telecom_equipment": 28.0,
+        "smartphones": 12.0
+      }
+    },
+    "civ_cn_007": {
+      "name": "Xiaomi",
+      "budget": 32000000000,
+      "popularity": 76,
+      "inventory": {
+        "consumer_electronics": 45000,
+        "tech_equipment": 8500,
+        "smartphones": 28000
+      },
+      "employees": 33000,
+      "market_share": {
+        "smartphones": 13.0,
+        "consumer_electronics": 8.0
+      }
+    },
+    "civ_cn_002b": {
+      "name": "Lenovo Group",
+      "budget": 48000000000,
+      "popularity": 68,
+      "inventory": {
+        "computers": 12500,
+        "tech_equipment": 6200,
+        "smartphones": 8500
+      },
+      "employees": 71000,
+      "market_share": {
+        "computers": 22.0,
+        "smartphones": 3.5
+      }
+    },
+    "civ_cn_002c": {
+      "name": "Tencent Holdings",
+      "budget": 152000000000,
+      "popularity": 72,
+      "inventory": {
+        "internet_services": 85000,
+        "gaming": 45000,
+        "media": 38000,
+        "fintech": 52000
+      },
+      "employees": 113000,
+      "market_share": {
+        "gaming": 18.0,
+        "internet_services": 35.0
+      }
+    },
+    "civ_cn_002d": {
+      "name": "Alibaba Group",
+      "budget": 185000000000,
+      "popularity": 74,
+      "inventory": {
+        "ecommerce": 125000,
+        "cloud_services": 45000,
+        "fintech": 62000,
+        "logistics": 35000
+      },
+      "employees": 245000,
+      "market_share": {
+        "ecommerce": 42.0,
+        "cloud_services": 12.0
+      }
+    },
+    "civ_cn_002e": {
+      "name": "Baidu, Inc.",
+      "budget": 42000000000,
+      "popularity": 62,
+      "inventory": {
+        "internet_services": 62000,
+        "cloud_services": 18000,
+        "tech_equipment": 2500
+      },
+      "employees": 41000,
+      "market_share": {
+        "internet_services": 28.0,
+        "cloud_services": 4.0
+      }
+    },
+    "civ_cn_003": {
+      "name": "China Mobile",
+      "budget": 185000000000,
+      "popularity": 68,
+      "inventory": {
+        "mobile_services": 125000,
+        "telecom_services": 85000,
+        "internet_services": 72000
+      },
+      "employees": 452000,
+      "market_share": {
+        "mobile_services": 42.0,
+        "internet_services": 35.0
+      }
+    },
+    "civ_cn_003b": {
+      "name": "China Telecom",
+      "budget": 82000000000,
+      "popularity": 62,
+      "inventory": {
+        "telecom_services": 72000,
+        "internet_services": 58000,
+        "cloud_services": 15000
+      },
+      "employees": 281000,
+      "market_share": {
+        "telecom_services": 28.0,
+        "internet_services": 22.0
+      }
+    },
+    "civ_cn_004": {
+      "name": "SANY Group",
+      "budget": 25000000000,
+      "popularity": 67,
+      "inventory": {
+        "construction_machinery": 3200
+      },
+      "employees": 45000,
+      "market_share": {
+        "construction_machinery": 18.0
+      }
+    },
+    "civ_cn_005": {
+      "name": "Goldwind",
+      "budget": 12000000000,
+      "popularity": 64,
+      "inventory": {
+        "energy_equipment": 1850
+      },
+      "employees": 9000,
+      "market_share": {
+        "energy_equipment": 12.0
+      }
+    },
+    "civ_cn_006": {
+      "name": "CRRC Corporation",
+      "budget": 42000000000,
+      "popularity": 66,
+      "inventory": {
+        "industrial_equipment": 850
+      },
+      "employees": 168000,
+      "market_share": {
+        "industrial_equipment": 42.0
+      }
+    },
+    "civ_cn_008": {
+      "name": "DJI",
+      "budget": 15000000000,
+      "popularity": 84,
+      "inventory": {
+        "fpv_drones": 8500,
+        "drones": 3200,
+        "consumer_electronics": 12500
+      },
+      "employees": 14000,
+      "market_share": {
+        "drones": 68.0,
+        "fpv_drones": 42.0
+      }
+    },
+    "civ_cn_009": {
+      "name": "ICBC",
+      "budget": 420000000000,
+      "popularity": 66,
+      "inventory": {
+        "banking": 185000,
+        "investments": 45000
+      },
+      "employees": 434000,
+      "market_share": {
+        "banking": 18.0
+      }
+    },
+    "civ_cn_009b": {
+      "name": "Ping An Insurance",
+      "budget": 185000000000,
+      "popularity": 68,
+      "inventory": {
+        "insurance": 125000,
+        "banking": 62000,
+        "fintech": 28000
+      },
+      "employees": 362000,
+      "market_share": {
+        "insurance": 22.0
+      }
+    },
+    "civ_cn_010": {
+      "name": "JD.com",
+      "budget": 52000000000,
+      "popularity": 72,
+      "inventory": {
+        "ecommerce": 85000,
+        "logistics": 35000,
+        "retail": 42000
+      },
+      "employees": 385000,
+      "market_share": {
+        "ecommerce": 16.0
+      }
+    },
+    "civ_cn_011": {
+      "name": "CNPC",
+      "budget": 320000000000,
+      "popularity": 58,
+      "inventory": {
+        "oil": 185000,
+        "gas_supply": 95000,
+        "energy_equipment": 3200
+      },
+      "employees": 1380000,
+      "market_share": {
+        "oil": 22.0,
+        "gas_supply": 18.0
+      }
+    },
+    "civ_cn_011b": {
+      "name": "State Grid Corporation",
+      "budget": 380000000000,
+      "popularity": 65,
+      "inventory": {
+        "electricity": 250000,
+        "energy_equipment": 5800
+      },
+      "employees": 917000,
+      "market_share": {
+        "electricity": 42.0
+      }
+    },
+    "civ_de_001": {
+      "name": "Volkswagen Group",
+      "budget": 185000000000,
+      "popularity": 74,
+      "inventory": {
+        "cars": 12500,
+        "trucks": 3200,
+        "auto_parts": 18500
+      },
+      "employees": 668000,
+      "market_share": {
+        "cars": 18.0,
+        "trucks": 15.0
+      }
+    },
+    "civ_de_002": {
+      "name": "BMW Group",
+      "budget": 142000000000,
+      "popularity": 79,
+      "inventory": {
+        "cars": 8500,
+        "auto_parts": 12000
+      },
+      "employees": 118000,
+      "market_share": {
+        "cars": 8.5
+      }
+    },
+    "civ_de_003": {
+      "name": "Mercedes-Benz Group",
+      "budget": 158000000000,
+      "popularity": 78,
+      "inventory": {
+        "cars": 9200,
+        "trucks": 2800,
+        "buses": 650,
+        "auto_parts": 15000
+      },
+      "employees": 172000,
+      "market_share": {
+        "cars": 9.0,
+        "trucks": 12.0,
+        "buses": 18.0
+      }
+    },
+    "civ_de_004": {
+      "name": "Siemens",
+      "budget": 89000000000,
+      "popularity": 72,
+      "inventory": {
+        "industrial_equipment": 5800,
+        "electrical_equipment": 7200,
+        "energy_equipment": 1850,
+        "medical_equipment": 950
+      },
+      "employees": 311000,
+      "market_share": {
+        "industrial_equipment": 12.0,
+        "medical_equipment": 8.0
+      }
+    },
+    "civ_de_005": {
+      "name": "BASF",
+      "budget": 72000000000,
+      "popularity": 68,
+      "inventory": {
+        "chemicals": 25000,
+        "pharmaceuticals": 5800,
+        "fertilizers": 18500
+      },
+      "employees": 111000,
+      "market_share": {
+        "chemicals": 15.0,
+        "fertilizers": 12.0
+      }
+    },
+    "civ_de_006": {
+      "name": "Trumpf",
+      "budget": 4200000000,
+      "popularity": 71,
+      "inventory": {
+        "machine_tools": 1850,
+        "industrial_robots": 950
+      },
+      "employees": 15000,
+      "market_share": {
+        "machine_tools": 8.0
+      }
+    },
+    "civ_de_007": {
+      "name": "Bayer",
+      "budget": 48000000000,
+      "popularity": 58,
+      "inventory": {
+        "pharmaceuticals": 7200,
+        "chemicals": 12000,
+        "fertilizers": 8500
+      },
+      "employees": 101000,
+      "market_share": {
+        "pharmaceuticals": 5.5,
+        "chemicals": 6.0
+      }
+    },
+    "civ_de_008": {
+      "name": "SAP",
+      "budget": 52000000000,
+      "popularity": 76,
+      "inventory": {
+        "software": 35000,
+        "cloud_services": 28000,
+        "it_services": 15000
+      },
+      "employees": 107000,
+      "market_share": {
+        "software": 12.0,
+        "cloud_services": 5.0
+      }
+    },
+    "civ_de_009": {
+      "name": "Deutsche Telekom",
+      "budget": 95000000000,
+      "popularity": 64,
+      "inventory": {
+        "telecom_services": 72000,
+        "mobile_services": 58000,
+        "internet_services": 45000
+      },
+      "employees": 216000,
+      "market_share": {
+        "mobile_services": 28.0,
+        "internet_services": 22.0
+      }
+    },
+    "civ_de_010": {
+      "name": "Allianz",
+      "budget": 112000000000,
+      "popularity": 71,
+      "inventory": {
+        "insurance": 85000,
+        "investments": 35000
+      },
+      "employees": 155000,
+      "market_share": {
+        "insurance": 12.0
+      }
+    },
+    "civ_de_011": {
+      "name": "Deutsche Bank",
+      "budget": 82000000000,
+      "popularity": 48,
+      "inventory": {
+        "banking": 62000,
+        "investments": 28000
+      },
+      "employees": 85000,
+      "market_share": {
+        "banking": 6.0
+      }
+    },
+    "civ_de_012": {
+      "name": "Adidas",
+      "budget": 21000000000,
+      "popularity": 79,
+      "inventory": {
+        "clothing": 45000,
+        "footwear": 32000
+      },
+      "employees": 59000,
+      "market_share": {
+        "footwear": 12.0,
+        "clothing": 5.0
+      }
+    },
+    "civ_de_012b": {
+      "name": "Puma",
+      "budget": 8200000000,
+      "popularity": 72,
+      "inventory": {
+        "clothing": 28000,
+        "footwear": 21000
+      },
+      "employees": 15000,
+      "market_share": {
+        "footwear": 5.0,
+        "clothing": 2.5
+      }
+    },
+    "civ_de_013": {
+      "name": "Lufthansa",
+      "budget": 28000000000,
+      "popularity": 68,
+      "inventory": {
+        "airlines": 580,
+        "passenger_transport": 3200,
+        "logistics": 1800
+      },
+      "employees": 110000,
+      "market_share": {
+        "airlines": 8.0
+      }
+    },
+    "civ_de_014": {
+      "name": "DHL Group",
+      "budget": 68000000000,
+      "popularity": 78,
+      "inventory": {
+        "logistics": 52000,
+        "freight": 28000
+      },
+      "employees": 580000,
+      "market_share": {
+        "logistics": 18.0
+      }
+    },
+    "civ_de_015": {
+      "name": "Bosch",
+      "budget": 78000000000,
+      "popularity": 76,
+      "inventory": {
+        "auto_parts": 25000,
+        "industrial_equipment": 8500,
+        "household_goods": 18000
+      },
+      "employees": 402000,
+      "market_share": {
+        "auto_parts": 15.0,
+        "household_goods": 8.0
+      }
+    },
+    "civ_uk_001": {
+      "name": "BP",
+      "budget": 142000000000,
+      "popularity": 62,
+      "inventory": {
+        "oil": 125000,
+        "gas_supply": 62000,
+        "energy_equipment": 1850
+      },
+      "employees": 68000,
+      "market_share": {
+        "oil": 8.0,
+        "gas_supply": 6.0
+      }
+    },
+    "civ_uk_001b": {
+      "name": "Shell",
+      "budget": 185000000000,
+      "popularity": 64,
+      "inventory": {
+        "oil": 142000,
+        "gas_supply": 72000,
+        "chemicals": 15000
+      },
+      "employees": 87000,
+      "market_share": {
+        "oil": 9.0,
+        "gas_supply": 7.0
+      }
+    },
+    "civ_uk_002": {
+      "name": "Vodafone",
+      "budget": 62000000000,
+      "popularity": 68,
+      "inventory": {
+        "mobile_services": 72000,
+        "telecom_services": 45000,
+        "internet_services": 38000
+      },
+      "employees": 104000,
+      "market_share": {
+        "mobile_services": 12.0,
+        "internet_services": 8.0
+      }
+    },
+    "civ_uk_002b": {
+      "name": "BT Group",
+      "budget": 28000000000,
+      "popularity": 58,
+      "inventory": {
+        "telecom_services": 52000,
+        "internet_services": 42000,
+        "media": 18000
+      },
+      "employees": 88000,
+      "market_share": {
+        "telecom_services": 15.0,
+        "internet_services": 12.0
+      }
+    },
+    "civ_uk_003": {
+      "name": "GSK",
+      "budget": 72000000000,
+      "popularity": 66,
+      "inventory": {
+        "pharmaceuticals": 8500,
+        "medical_supplies": 18000
+      },
+      "employees": 94000,
+      "market_share": {
+        "pharmaceuticals": 5.0,
+        "medical_supplies": 4.0
+      }
+    },
+    "civ_uk_003b": {
+      "name": "AstraZeneca",
+      "budget": 68000000000,
+      "popularity": 69,
+      "inventory": {
+        "pharmaceuticals": 7200
+      },
+      "employees": 76000,
+      "market_share": {
+        "pharmaceuticals": 4.5
+      }
+    },
+    "civ_uk_004": {
+      "name": "HSBC",
+      "budget": 245000000000,
+      "popularity": 62,
+      "inventory": {
+        "banking": 125000,
+        "investments": 45000,
+        "insurance": 28000
+      },
+      "employees": 220000,
+      "market_share": {
+        "banking": 8.0,
+        "investments": 5.0
+      }
+    },
+    "civ_uk_004b": {
+      "name": "Barclays",
+      "budget": 112000000000,
+      "popularity": 58,
+      "inventory": {
+        "banking": 82000,
+        "investments": 32000
+      },
+      "employees": 83000,
+      "market_share": {
+        "banking": 5.0,
+        "investments": 3.5
+      }
+    },
+    "civ_uk_004c": {
+      "name": "Lloyds",
+      "budget": 68000000000,
+      "popularity": 64,
+      "inventory": {
+        "banking": 72000,
+        "insurance": 18000
+      },
+      "employees": 63000,
+      "market_share": {
+        "banking": 6.0,
+        "insurance": 2.5
+      }
+    },
+    "civ_uk_005": {
+      "name": "Unilever",
+      "budget": 95000000000,
+      "popularity": 76,
+      "inventory": {
+        "food_products": 52000,
+        "cosmetics": 38000,
+        "household_goods": 45000,
+        "sanitary_products": 28000
+      },
+      "employees": 148000,
+      "market_share": {
+        "food_products": 7.0,
+        "cosmetics": 8.0,
+        "household_goods": 9.0
+      }
+    },
+    "civ_uk_006": {
+      "name": "British American Tobacco",
+      "budget": 42000000000,
+      "popularity": 48,
+      "inventory": {
+        "consumer_electronics": 15000
+      },
+      "employees": 53000,
+      "market_share": {
+        "consumer_electronics": 3.0
+      }
+    },
+    "civ_uk_007": {
+      "name": "Rolls-Royce",
+      "budget": 18000000000,
+      "popularity": 65,
+      "inventory": {
+        "aerospace_equipment": 120,
+        "energy_equipment": 320
+      },
+      "employees": 52000,
+      "market_share": {
+        "aerospace_equipment": 12.0
+      }
+    },
+    "civ_uk_008": {
+      "name": "BAE Systems",
+      "budget": 28000000000,
+      "popularity": 58,
+      "inventory": {
+        "aerospace_equipment": 95,
+        "drones": 180,
+        "industrial_equipment": 850
+      },
+      "employees": 85000,
+      "market_share": {
+        "aerospace_equipment": 8.0,
+        "drones": 5.0
+      }
+    },
+    "civ_uk_009": {
+      "name": "Tesco",
+      "budget": 52000000000,
+      "popularity": 71,
+      "inventory": {
+        "retail": 95000,
+        "supermarkets": 82000,
+        "ecommerce": 25000
+      },
+      "employees": 330000,
+      "market_share": {
+        "retail": 12.0,
+        "supermarkets": 15.0
+      }
+    },
+    "civ_uk_009b": {
+      "name": "Sainsbury",
+      "budget": 28000000000,
+      "popularity": 67,
+      "inventory": {
+        "retail": 62000,
+        "supermarkets": 58000
+      },
+      "employees": 180000,
+      "market_share": {
+        "retail": 7.0,
+        "supermarkets": 8.0
+      }
+    },
+    "civ_fr_001": {
+      "name": "TotalEnergies",
+      "budget": 158000000000,
+      "popularity": 60,
+      "inventory": {
+        "oil": 125000,
+        "gas_supply": 72000,
+        "energy_equipment": 2100
+      },
+      "employees": 101000,
+      "market_share": {
+        "oil": 7.0,
+        "gas_supply": 6.0
+      }
+    },
+    "civ_fr_002": {
+      "name": "LVMH",
+      "budget": 142000000000,
+      "popularity": 82,
+      "inventory": {
+        "clothing": 25000,
+        "footwear": 15000,
+        "cosmetics": 32000,
+        "beverages": 28000
+      },
+      "employees": 150000,
+      "market_share": {
+        "clothing": 5.0,
+        "cosmetics": 8.0,
+        "beverages": 4.0
+      }
+    },
+    "civ_fr_003": {
+      "name": "Sanofi",
+      "budget": 82000000000,
+      "popularity": 67,
+      "inventory": {
+        "pharmaceuticals": 8500,
+        "medical_supplies": 15000
+      },
+      "employees": 100000,
+      "market_share": {
+        "pharmaceuticals": 5.5
+      }
+    },
+    "civ_fr_004": {
+      "name": "Orange",
+      "budget": 42000000000,
+      "popularity": 64,
+      "inventory": {
+        "mobile_services": 52000,
+        "telecom_services": 38000,
+        "internet_services": 42000
+      },
+      "employees": 132000,
+      "market_share": {
+        "mobile_services": 22.0,
+        "internet_services": 18.0
+      }
+    },
+    "civ_fr_005": {
+      "name": "Renault",
+      "budget": 52000000000,
+      "popularity": 66,
+      "inventory": {
+        "cars": 7200,
+        "trucks": 1500,
+        "auto_parts": 12000
+      },
+      "employees": 170000,
+      "market_share": {
+        "cars": 6.5,
+        "trucks": 5.0
+      }
+    },
+    "civ_fr_005b": {
+      "name": "Peugeot",
+      "budget": 48000000000,
+      "popularity": 65,
+      "inventory": {
+        "cars": 6800,
+        "auto_parts": 10000
+      },
+      "employees": 120000,
+      "market_share": {
+        "cars": 5.5
+      }
+    },
+    "civ_fr_006": {
+      "name": "Airbus",
+      "budget": 95000000000,
+      "popularity": 71,
+      "inventory": {
+        "aerospace_equipment": 180,
+        "drones": 250
+      },
+      "employees": 134000,
+      "market_share": {
+        "aerospace_equipment": 35.0,
+        "drones": 8.0
+      }
+    },
+    "civ_fr_007": {
+      "name": "Carrefour",
+      "budget": 42000000000,
+      "popularity": 68,
+      "inventory": {
+        "retail": 85000,
+        "supermarkets": 72000,
+        "ecommerce": 18000
+      },
+      "employees": 320000,
+      "market_share": {
+        "retail": 10.0,
+        "supermarkets": 12.0
+      }
+    },
+    "civ_fr_008": {
+      "name": "BNP Paribas",
+      "budget": 185000000000,
+      "popularity": 65,
+      "inventory": {
+        "banking": 95000,
+        "investments": 42000,
+        "insurance": 28000
+      },
+      "employees": 190000,
+      "market_share": {
+        "banking": 7.5,
+        "investments": 4.5
+      }
+    },
+    "civ_fr_008b": {
+      "name": "Société Générale",
+      "budget": 112000000000,
+      "popularity": 60,
+      "inventory": {
+        "banking": 72000,
+        "investments": 32000
+      },
+      "employees": 117000,
+      "market_share": {
+        "banking": 5.0,
+        "investments": 3.0
+      }
+    },
+    "civ_fr_009": {
+      "name": "AXA",
+      "budget": 82000000000,
+      "popularity": 69,
+      "inventory": {
+        "insurance": 68000,
+        "investments": 25000
+      },
+      "employees": 91000,
+      "market_share": {
+        "insurance": 8.0
+      }
+    },
+    "civ_fr_010": {
+      "name": "Danone",
+      "budget": 32000000000,
+      "popularity": 73,
+      "inventory": {
+        "food_products": 52000,
+        "beverages": 35000
+      },
+      "employees": 100000,
+      "market_share": {
+        "food_products": 6.0,
+        "beverages": 4.5
+      }
+    },
+    "civ_fr_011": {
+      "name": "Hermès",
+      "budget": 18000000000,
+      "popularity": 88,
+      "inventory": {
+        "clothing": 4500,
+        "footwear": 2800,
+        "cosmetics": 6200
+      },
+      "employees": 17000,
+      "market_share": {
+        "clothing": 1.2,
+        "cosmetics": 1.5
+      }
+    },
+    "civ_ua_001": {
+      "name": "ДП «Антонов»",
+      "budget": 420000000,
+      "popularity": 62,
+      "inventory": {
+        "aerospace_equipment": 8,
+        "drones": 35
+      },
+      "employees": 12000,
+      "market_share": {
+        "aerospace_equipment": 1.5
+      }
+    },
+    "civ_ua_002": {
+      "name": "НКМЗ",
+      "budget": 380000000,
+      "popularity": 58,
+      "inventory": {
+        "industrial_equipment": 150,
+        "construction_machinery": 45
+      },
+      "employees": 11000,
+      "market_share": {
+        "industrial_equipment": 2.0
+      }
+    },
+    "civ_ua_003": {
+      "name": "Украгрозапчастина",
+      "budget": 120000000,
+      "popularity": 61,
+      "inventory": {
+        "agricultural_machinery": 180,
+        "auto_parts": 3500
+      },
+      "employees": 3000,
+      "market_share": {
+        "agricultural_machinery": 3.5
+      }
+    },
+    "civ_ua_004": {
+      "name": "Турбоатом",
+      "budget": 250000000,
+      "popularity": 60,
+      "inventory": {
+        "energy_equipment": 45
+      },
+      "employees": 5000,
+      "market_share": {
+        "energy_equipment": 2.5
+      }
+    },
+    "civ_ua_005": {
+      "name": "ЗАЗ",
+      "budget": 85000000,
+      "popularity": 52,
+      "inventory": {
+        "cars": 450,
+        "auto_parts": 1800
+      },
+      "employees": 4000,
+      "market_share": {
+        "cars": 1.2
+      }
+    },
+    "civ_ua_006": {
+      "name": "Kernel",
+      "budget": 320000000,
+      "popularity": 66,
+      "inventory": {
+        "food_products": 8500
+      },
+      "employees": 8000,
+      "market_share": {
+        "food_products": 4.0
+      }
+    },
+    "civ_ua_007": {
+      "name": "EPAM Systems",
+      "budget": 580000000,
+      "popularity": 78,
+      "inventory": {
+        "software": 8500,
+        "it_services": 6200,
+        "cloud_services": 2800
+      },
+      "employees": 13000,
+      "market_share": {
+        "software": 1.8,
+        "it_services": 1.5
+      }
+    },
+    "civ_ua_008": {
+      "name": "АТБ-Маркет",
+      "budget": 420000000,
+      "popularity": 72,
+      "inventory": {
+        "retail": 25000,
+        "supermarkets": 32000
+      },
+      "employees": 60000,
+      "market_share": {
+        "retail": 8.0,
+        "supermarkets": 10.0
+      }
+    },
+    "civ_ua_009": {
+      "name": "ДТЕК",
+      "budget": 1850000000,
+      "popularity": 55,
+      "inventory": {
+        "energy_equipment": 120,
+        "electricity": 15000
+      },
+      "employees": 70000,
+      "market_share": {
+        "electricity": 12.0
+      }
+    },
+    "civ_ua_010": {
+      "name": "Київстар",
+      "budget": 820000000,
+      "popularity": 74,
+      "inventory": {
+        "mobile_services": 15000,
+        "telecom_services": 8500,
+        "internet_services": 12000
+      },
+      "employees": 4000,
+      "market_share": {
+        "mobile_services": 28.0,
+        "internet_services": 22.0
+      }
+    },
+    "civ_ua_011": {
+      "name": "ПриватБанк",
+      "budget": 3200000000,
+      "popularity": 64,
+      "inventory": {
+        "banking": 25000,
+        "fintech": 15000
+      },
+      "employees": 19000,
+      "market_share": {
+        "banking": 18.0,
+        "fintech": 22.0
+      }
+    },
+    "civ_ua_012": {
+      "name": "Клініка Борис",
+      "budget": 85000000,
+      "popularity": 76,
+      "inventory": {
+        "healthcare_services": 4500,
+        "hospital_services": 850
+      },
+      "employees": 1500,
+      "market_share": {
+        "healthcare_services": 2.5
+      }
+    },
+    "civ_il_001": {
+      "name": "Teva Pharmaceuticals",
+      "budget": 38000000000,
+      "popularity": 68,
+      "inventory": {
+        "pharmaceuticals": 7200,
+        "medical_supplies": 12000
+      },
+      "employees": 43000,
+      "market_share": {
+        "pharmaceuticals": 4.5,
+        "medical_supplies": 3.0
+      }
+    },
+    "civ_il_002": {
+      "name": "Check Point",
+      "budget": 6200000000,
+      "popularity": 79,
+      "inventory": {
+        "tech_equipment": 850,
+        "cybersecurity": 5200,
+        "software": 3800
+      },
+      "employees": 5500,
+      "market_share": {
+        "cybersecurity": 5.0
+      }
+    },
+    "civ_il_003": {
+      "name": "IAI",
+      "budget": 5200000000,
+      "popularity": 67,
+      "inventory": {
+        "aerospace_equipment": 25,
+        "drones": 120
+      },
+      "employees": 15000,
+      "market_share": {
+        "aerospace_equipment": 2.0,
+        "drones": 4.0
+      }
+    },
+    "civ_il_004": {
+      "name": "Netafim",
+      "budget": 850000000,
+      "popularity": 74,
+      "inventory": {
+        "agricultural_machinery": 1200,
+        "industrial_equipment": 450
+      },
+      "employees": 4000,
+      "market_share": {
+        "agricultural_machinery": 8.0
+      }
+    },
+    "civ_il_005": {
+      "name": "Philips Israel",
+      "budget": 1800000000,
+      "popularity": 71,
+      "inventory": {
+        "medical_equipment": 320
+      },
+      "employees": 3000,
+      "market_share": {
+        "medical_equipment": 2.5
+      }
+    },
+    "civ_il_006": {
+      "name": "Wix",
+      "budget": 2800000000,
+      "popularity": 81,
+      "inventory": {
+        "software": 8500,
+        "cloud_services": 6200,
+        "it_services": 3800
+      },
+      "employees": 5000,
+      "market_share": {
+        "software": 2.5,
+        "cloud_services": 1.5
+      }
+    },
+    "civ_il_007": {
+      "name": "Mobileye",
+      "budget": 5200000000,
+      "popularity": 77,
+      "inventory": {
+        "auto_parts": 850,
+        "software": 3200,
+        "tech_equipment": 450
+      },
+      "employees": 3000,
+      "market_share": {
+        "auto_parts": 3.0
+      }
+    },
+    "civ_il_008": {
+      "name": "Israel Discount Bank",
+      "budget": 82000000000,
+      "popularity": 62,
+      "inventory": {
+        "banking": 25000,
+        "investments": 8500
+      },
+      "employees": 7000,
+      "market_share": {
+        "banking": 5.0
+      }
+    },
+    "civ_il_009": {
+      "name": "שופרסל",
+      "budget": 3800000000,
+      "popularity": 71,
+      "inventory": {
+        "retail": 15000,
+        "supermarkets": 18000,
+        "food_products": 8500
+      },
+      "employees": 12000,
+      "market_share": {
+        "retail": 12.0,
+        "supermarkets": 15.0
+      }
+    },
+    "civ_ir_001": {
+      "name": "Iran Khodro",
+      "budget": 5200000000,
+      "popularity": 58,
+      "inventory": {
+        "cars": 3200,
+        "trucks": 850,
+        "auto_parts": 4500
+      },
+      "employees": 28000,
+      "market_share": {
+        "cars": 42.0,
+        "trucks": 35.0
+      }
+    },
+    "civ_ir_001b": {
+      "name": "SAIPA",
+      "budget": 2800000000,
+      "popularity": 55,
+      "inventory": {
+        "cars": 2500,
+        "auto_parts": 3200
+      },
+      "employees": 15000,
+      "market_share": {
+        "cars": 28.0
+      }
+    },
+    "civ_ir_002": {
+      "name": "Sadra",
+      "budget": 1200000000,
+      "popularity": 60,
+      "inventory": {
+        "industrial_equipment": 180,
+        "energy_equipment": 45
+      },
+      "employees": 5000,
+      "market_share": {
+        "industrial_equipment": 4.0,
+        "energy_equipment": 3.0
+      }
+    },
+    "civ_ir_003": {
+      "name": "Kalleh",
+      "budget": 850000000,
+      "popularity": 68,
+      "inventory": {
+        "food_products": 8500,
+        "beverages": 6200
+      },
+      "employees": 8000,
+      "market_share": {
+        "food_products": 8.0,
+        "beverages": 6.0
+      }
+    },
+    "civ_ir_004": {
+      "name": "Machine Sazi Arak",
+      "budget": 620000000,
+      "popularity": 61,
+      "inventory": {
+        "machine_tools": 180,
+        "industrial_equipment": 250
+      },
+      "employees": 3000,
+      "market_share": {
+        "machine_tools": 5.0
+      }
+    },
+    "civ_ir_005": {
+      "name": "Darou Pakhsh",
+      "budget": 380000000,
+      "popularity": 64,
+      "inventory": {
+        "pharmaceuticals": 1200
+      },
+      "employees": 2000,
+      "market_share": {
+        "pharmaceuticals": 4.0
+      }
+    },
+    "civ_ir_006": {
+      "name": "Talyaie",
+      "budget": 850000000,
+      "popularity": 60,
+      "inventory": {
+        "mobile_services": 12000,
+        "telecom_services": 8500,
+        "internet_services": 6200
+      },
+      "employees": 4000,
+      "market_share": {
+        "mobile_services": 18.0,
+        "internet_services": 15.0
+      }
+    },
+    "civ_ir_007": {
+      "name": "Pishgaman",
+      "budget": 280000000,
+      "popularity": 63,
+      "inventory": {
+        "software": 2500,
+        "it_services": 1800,
+        "cloud_services": 950
+      },
+      "employees": 1500,
+      "market_share": {
+        "software": 2.5,
+        "it_services": 2.0
+      }
+    },
+    "civ_ir_008": {
+      "name": "Bank Melli Iran",
+      "budget": 52000000000,
+      "popularity": 59,
+      "inventory": {
+        "banking": 32000,
+        "investments": 8500
+      },
+      "employees": 45000,
+      "market_share": {
+        "banking": 22.0
+      }
+    },
+    "civ_ir_009": {
+      "name": "Refaah",
+      "budget": 620000000,
+      "popularity": 62,
+      "inventory": {
+        "retail": 8500,
+        "supermarkets": 7200
+      },
+      "employees": 8000,
+      "market_share": {
+        "retail": 5.0,
+        "supermarkets": 6.0
+      }
+    },
+    "civ_ir_010": {
+      "name": "Kayson",
+      "budget": 380000000,
+      "popularity": 61,
+      "inventory": {
+        "construction": 150,
+        "real_estate": 85
+      },
+      "employees": 3000,
+      "market_share": {
+        "construction": 2.5,
+        "real_estate": 1.8
+      }
+    }
+  }
+}
