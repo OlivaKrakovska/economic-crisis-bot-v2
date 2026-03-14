@@ -1,23 +1,16 @@
 #!/bin/bash
-echo "Current directory: $(pwd)"
-echo "Files in current directory:"
-ls -la
+echo "Starting bot with volume support..."
 
-echo "Looking for bot.py..."
-find / -name "bot.py" 2>/dev/null
+# Volume смонтирован в /app, в нём уже должны быть JSON файлы
+# Но .py файлов в Volume нет, они лежат в исходной директории
+SOURCE_DIR="/app/source"
 
-# Копируем файлы в Volume, если они не там
-if [ ! -f /app/bot.py ]; then
-    echo "Copying project files to /app..."
-    cp -r /app/* /app/ 2>/dev/null || true
-    # Если файлы в другом месте, ищем их
-    BOT_PATH=$(find / -name "bot.py" -type f 2>/dev/null | head -1)
-    if [ ! -z "$BOT_PATH" ]; then
-        echo "Found bot.py at: $BOT_PATH"
-        cp $(dirname $BOT_PATH)/* /app/ 2>/dev/null || true
-    fi
+# Если исходные файлы не там, ищем их
+if [ ! -d "$SOURCE_DIR" ]; then
+    # Файлы могут быть в корне контейнера
+    SOURCE_DIR="/"
 fi
 
-# Запускаем бота
+# Запускаем бота из исходной директории, но с рабочей директорией /app (Volume)
 cd /app
-python bot.py
+python $SOURCE_DIR/bot.py
