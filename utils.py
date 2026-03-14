@@ -1,5 +1,8 @@
 # utils.py - Вспомогательные функции
 
+DATA_DIR = os.environ.get('DATA_DIR', '/app/data')
+os.makedirs(DATA_DIR, exist_ok=True)
+
 import discord
 from datetime import datetime
 import json
@@ -209,8 +212,8 @@ def load_states():
 
 def save_states(data):
     """Сохранение данных государств"""
-    data["last_update"] = str(datetime.now())
-    with open(STATES_FILE, 'w', encoding='utf-8') as f:
+    filepath = os.path.join(DATA_DIR, 'states.json')
+    with open(filepath, 'w', encoding='utf-8') as f:
         json.dump(data, f, ensure_ascii=False, indent=4)
 
 def load_trades():
