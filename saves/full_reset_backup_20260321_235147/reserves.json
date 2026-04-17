@@ -1,0 +1,46 @@
+{
+    "activated": {},
+    "remaining_reserves": {
+        "США": {
+            "ground": {
+                "tanks": 2500,
+                "btr": 5000,
+                "bmp": 3000,
+                "armored_vehicles": 8000,
+                "self_propelled_artillery": 800,
+                "towed_artillery": 1000,
+                "mlrs": 400,
+                "atgm_complexes": 1500,
+                "short_range_air_defense": 600,
+                "long_range_air_defense": 200
+            },
+            "equipment": {
+                "small_arms": 500000,
+                "grenade_launchers": 30000,
+                "atgms": 8000,
+                "manpads": 6000
+            },
+            "air": {
+                "fighters": 400,
+                "attack_aircraft": 150,
+                "bombers": 80,
+                "transport_aircraft": 120,
+                "attack_helicopters": 200,
+                "transport_helicopters": 150,
+                "recon_uav": 100,
+                "attack_uav": 50
+            },
+            "navy": {
+                "boats": 100,
+                "corvettes": 10,
+                "destroyers": 15,
+                "cruisers": 5,
+                "submarines": 10
+            },
+            "missiles": {
+                "cruise_missiles": 800,
+                "ballistic_missiles": 300
+            }
+        }
+    }
+}

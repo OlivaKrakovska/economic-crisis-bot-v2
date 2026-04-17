@@ -1,0 +1,3042 @@
+{
+  "США": [
+    {
+      "timestamp": "2026-04-13T17:02:02.075921",
+      "ship_count": 40,
+      "cargo_value": 2101694.736842105
+    },
+    {
+      "timestamp": "2026-04-13T17:29:34.232402",
+      "ship_count": 40,
+      "cargo_value": 2099852.6315789474
+    },
+    {
+      "timestamp": "2026-04-13T18:34:56.082985",
+      "ship_count": 40,
+      "cargo_value": 2100089.4736842103
+    },
+    {
+      "timestamp": "2026-04-13T19:35:18.001830",
+      "ship_count": 40,
+      "cargo_value": 2100089.4736842103
+    },
+    {
+      "timestamp": "2026-04-13T19:56:03.484689",
+      "ship_count": 40,
+      "cargo_value": 2100089.4736842103
+    },
+    {
+      "timestamp": "2026-04-13T20:24:25.371497",
+      "ship_count": 40,
+      "cargo_value": 2120615.789473684
+    },
+    {
+      "timestamp": "2026-04-13T21:03:19.683131",
+      "ship_count": 40,
+      "cargo_value": 2119028.947368421
+    },
+    {
+      "timestamp": "2026-04-13T21:38:34.525079",
+      "ship_count": 40,
+      "cargo_value": 2122128.947368421
+    },
+    {
+      "timestamp": "2026-04-14T15:03:28.976743",
+      "ship_count": 115,
+      "cargo_value": 1587570.0
+    },
+    {
+      "timestamp": "2026-04-14T15:23:59.892651",
+      "ship_count": 115,
+      "cargo_value": 1743570.0
+    },
+    {
+      "timestamp": "2026-04-14T16:26:24.114742",
+      "ship_count": 115,
+      "cargo_value": 1743687.5
+    },
+    {
+      "timestamp": "2026-04-14T16:52:18.385306",
+      "ship_count": 115,
+      "cargo_value": 1743950.0
+    },
+    {
+      "timestamp": "2026-04-14T17:35:00.553678",
+      "ship_count": 115,
+      "cargo_value": 1743950.0
+    },
+    {
+      "timestamp": "2026-04-14T18:07:02.486041",
+      "ship_count": 115,
+      "cargo_value": 1743950.0
+    },
+    {
+      "timestamp": "2026-04-14T18:54:37.378777",
+      "ship_count": 115,
+      "cargo_value": 1743950.0
+    },
+    {
+      "timestamp": "2026-04-14T20:58:33.027148",
+      "ship_count": 115,
+      "cargo_value": 1743950.0
+    },
+    {
+      "timestamp": "2026-04-14T21:16:50.467901",
+      "ship_count": 115,
+      "cargo_value": 1743950.0
+    },
+    {
+      "timestamp": "2026-04-14T21:28:36.809157",
+      "ship_count": 115,
+      "cargo_value": 1743950.0
+    },
+    {
+      "timestamp": "2026-04-14T21:37:41.721673",
+      "ship_count": 115,
+      "cargo_value": 1743950.0
+    },
+    {
+      "timestamp": "2026-04-15T15:32:14.921689",
+      "ship_count": 65,
+      "cargo_value": 1783886.8421052631
+    },
+    {
+      "timestamp": "2026-04-15T18:34:19.772892",
+      "ship_count": 65,
+      "cargo_value": 1831728.9473684211
+    },
+    {
+      "timestamp": "2026-04-15T19:09:41.596085",
+      "ship_count": 65,
+      "cargo_value": 1831728.9473684211
+    },
+    {
+      "timestamp": "2026-04-15T20:11:03.864355",
+      "ship_count": 65,
+      "cargo_value": 1819886.8421052631
+    },
+    {
+      "timestamp": "2026-04-16T11:45:14.822173",
+      "ship_count": 65,
+      "cargo_value": 1945523.6842105263
+    },
+    {
+      "timestamp": "2026-04-16T18:04:57.066951",
+      "ship_count": 65,
+      "cargo_value": 2023376.3157894737
+    },
+    {
+      "timestamp": "2026-04-16T19:06:35.534925",
+      "ship_count": 65,
+      "cargo_value": 2020244.7368421052
+    },
+    {
+      "timestamp": "2026-04-16T20:53:30.390760",
+      "ship_count": 65,
+      "cargo_value": 2006876.3157894737
+    },
+    {
+      "timestamp": "2026-04-16T21:34:24.283257",
+      "ship_count": 65,
+      "cargo_value": 2038960.5263157894
+    },
+    {
+      "timestamp": "2026-04-16T21:59:22.632351",
+      "ship_count": 65,
+      "cargo_value": 2040307.894736842
+    },
+    {
+      "timestamp": "2026-04-17T14:48:21.795656",
+      "ship_count": 65,
+      "cargo_value": 1820423.6842105263
+    }
+  ],
+  "Россия": [
+    {
+      "timestamp": "2026-04-13T17:02:02.075932",
+      "ship_count": 44,
+      "cargo_value": 2101694.736842105
+    },
+    {
+      "timestamp": "2026-04-13T17:29:34.232414",
+      "ship_count": 44,
+      "cargo_value": 2099852.6315789474
+    },
+    {
+      "timestamp": "2026-04-13T18:34:56.082996",
+      "ship_count": 44,
+      "cargo_value": 2100089.4736842103
+    },
+    {
+      "timestamp": "2026-04-13T19:35:18.001840",
+      "ship_count": 44,
+      "cargo_value": 2100089.4736842103
+    },
+    {
+      "timestamp": "2026-04-13T19:56:03.484702",
+      "ship_count": 44,
+      "cargo_value": 2100089.4736842103
+    },
+    {
+      "timestamp": "2026-04-13T20:24:25.371508",
+      "ship_count": 44,
+      "cargo_value": 2120615.789473684
+    },
+    {
+      "timestamp": "2026-04-13T21:03:19.683143",
+      "ship_count": 44,
+      "cargo_value": 2119028.947368421
+    },
+    {
+      "timestamp": "2026-04-13T21:38:34.525091",
+      "ship_count": 44,
+      "cargo_value": 2122128.947368421
+    },
+    {
+      "timestamp": "2026-04-14T15:03:28.976762",
+      "ship_count": 60,
+      "cargo_value": 1587570.0
+    },
+    {
+      "timestamp": "2026-04-14T15:23:59.892679",
+      "ship_count": 60,
+      "cargo_value": 1743570.0
+    },
+    {
+      "timestamp": "2026-04-14T16:26:24.114760",
+      "ship_count": 60,
+      "cargo_value": 1743687.5
+    },
+    {
+      "timestamp": "2026-04-14T16:52:18.385327",
+      "ship_count": 60,
+      "cargo_value": 1743950.0
+    },
+    {
+      "timestamp": "2026-04-14T17:35:00.553701",
+      "ship_count": 60,
+      "cargo_value": 1743950.0
+    },
+    {
+      "timestamp": "2026-04-14T18:07:02.486061",
+      "ship_count": 60,
+      "cargo_value": 1743950.0
+    },
+    {
+      "timestamp": "2026-04-14T18:54:37.378803",
+      "ship_count": 60,
+      "cargo_value": 1743950.0
+    },
+    {
+      "timestamp": "2026-04-14T20:58:33.027182",
+      "ship_count": 60,
+      "cargo_value": 1743950.0
+    },
+    {
+      "timestamp": "2026-04-14T21:16:50.467922",
+      "ship_count": 60,
+      "cargo_value": 1743950.0
+    },
+    {
+      "timestamp": "2026-04-14T21:28:36.809176",
+      "ship_count": 60,
+      "cargo_value": 1743950.0
+    },
+    {
+      "timestamp": "2026-04-14T21:37:41.721699",
+      "ship_count": 60,
+      "cargo_value": 1743950.0
+    },
+    {
+      "timestamp": "2026-04-15T15:32:14.921722",
+      "ship_count": 33,
+      "cargo_value": 1783886.8421052631
+    },
+    {
+      "timestamp": "2026-04-15T18:34:19.772928",
+      "ship_count": 33,
+      "cargo_value": 1831728.9473684211
+    },
+    {
+      "timestamp": "2026-04-15T19:09:41.596119",
+      "ship_count": 33,
+      "cargo_value": 1831728.9473684211
+    },
+    {
+      "timestamp": "2026-04-15T20:11:03.864386",
+      "ship_count": 33,
+      "cargo_value": 1819886.8421052631
+    },
+    {
+      "timestamp": "2026-04-16T11:45:14.822210",
+      "ship_count": 30,
+      "cargo_value": 1945523.6842105263
+    },
+    {
+      "timestamp": "2026-04-16T18:04:57.066989",
+      "ship_count": 30,
+      "cargo_value": 2023376.3157894737
+    },
+    {
+      "timestamp": "2026-04-16T19:06:35.534959",
+      "ship_count": 30,
+      "cargo_value": 2020244.7368421052
+    },
+    {
+      "timestamp": "2026-04-16T20:53:30.390792",
+      "ship_count": 30,
+      "cargo_value": 2006876.3157894737
+    },
+    {
+      "timestamp": "2026-04-16T21:34:24.283289",
+      "ship_count": 30,
+      "cargo_value": 2038960.5263157894
+    },
+    {
+      "timestamp": "2026-04-16T21:59:22.632383",
+      "ship_count": 30,
+      "cargo_value": 2040307.894736842
+    },
+    {
+      "timestamp": "2026-04-17T14:48:21.795690",
+      "ship_count": 29,
+      "cargo_value": 1820423.6842105263
+    }
+  ],
+  "Китай": [
+    {
+      "timestamp": "2026-04-13T17:02:02.075926",
+      "ship_count": 74,
+      "cargo_value": 2101694.736842105
+    },
+    {
+      "timestamp": "2026-04-13T17:29:34.232409",
+      "ship_count": 74,
+      "cargo_value": 2099852.6315789474
+    },
+    {
+      "timestamp": "2026-04-13T18:34:56.082991",
+      "ship_count": 74,
+      "cargo_value": 2100089.4736842103
+    },
+    {
+      "timestamp": "2026-04-13T19:35:18.001835",
+      "ship_count": 74,
+      "cargo_value": 2100089.4736842103
+    },
+    {
+      "timestamp": "2026-04-13T19:56:03.484696",
+      "ship_count": 74,
+      "cargo_value": 2100089.4736842103
+    },
+    {
+      "timestamp": "2026-04-13T20:24:25.371503",
+      "ship_count": 74,
+      "cargo_value": 2120615.789473684
+    },
+    {
+      "timestamp": "2026-04-13T21:03:19.683138",
+      "ship_count": 74,
+      "cargo_value": 2119028.947368421
+    },
+    {
+      "timestamp": "2026-04-13T21:38:34.525085",
+      "ship_count": 74,
+      "cargo_value": 2122128.947368421
+    },
+    {
+      "timestamp": "2026-04-14T15:03:28.976769",
+      "ship_count": 61,
+      "cargo_value": 1587570.0
+    },
+    {
+      "timestamp": "2026-04-14T15:23:59.892688",
+      "ship_count": 61,
+      "cargo_value": 1743570.0
+    },
+    {
+      "timestamp": "2026-04-14T16:26:24.114767",
+      "ship_count": 61,
+      "cargo_value": 1743687.5
+    },
+    {
+      "timestamp": "2026-04-14T16:52:18.385335",
+      "ship_count": 61,
+      "cargo_value": 1743950.0
+    },
+    {
+      "timestamp": "2026-04-14T17:35:00.553708",
+      "ship_count": 61,
+      "cargo_value": 1743950.0
+    },
+    {
+      "timestamp": "2026-04-14T18:07:02.486069",
+      "ship_count": 61,
+      "cargo_value": 1743950.0
+    },
+    {
+      "timestamp": "2026-04-14T18:54:37.378812",
+      "ship_count": 61,
+      "cargo_value": 1743950.0
+    },
+    {
+      "timestamp": "2026-04-14T20:58:33.027192",
+      "ship_count": 61,
+      "cargo_value": 1743950.0
+    },
+    {
+      "timestamp": "2026-04-14T21:16:50.467930",
+      "ship_count": 61,
+      "cargo_value": 1743950.0
+    },
+    {
+      "timestamp": "2026-04-14T21:28:36.809183",
+      "ship_count": 61,
+      "cargo_value": 1743950.0
+    },
+    {
+      "timestamp": "2026-04-14T21:37:41.721708",
+      "ship_count": 61,
+      "cargo_value": 1743950.0
+    },
+    {
+      "timestamp": "2026-04-15T15:32:14.921727",
+      "ship_count": 34,
+      "cargo_value": 1783886.8421052631
+    },
+    {
+      "timestamp": "2026-04-15T18:34:19.772933",
+      "ship_count": 34,
+      "cargo_value": 1831728.9473684211
+    },
+    {
+      "timestamp": "2026-04-15T19:09:41.596123",
+      "ship_count": 34,
+      "cargo_value": 1831728.9473684211
+    },
+    {
+      "timestamp": "2026-04-15T20:11:03.864391",
+      "ship_count": 34,
+      "cargo_value": 1819886.8421052631
+    },
+    {
+      "timestamp": "2026-04-16T11:45:14.822220",
+      "ship_count": 34,
+      "cargo_value": 1945523.6842105263
+    },
+    {
+      "timestamp": "2026-04-16T18:04:57.066999",
+      "ship_count": 34,
+      "cargo_value": 2023376.3157894737
+    },
+    {
+      "timestamp": "2026-04-16T19:06:35.534968",
+      "ship_count": 34,
+      "cargo_value": 2020244.7368421052
+    },
+    {
+      "timestamp": "2026-04-16T20:53:30.390801",
+      "ship_count": 34,
+      "cargo_value": 2006876.3157894737
+    },
+    {
+      "timestamp": "2026-04-16T21:34:24.283298",
+      "ship_count": 34,
+      "cargo_value": 2038960.5263157894
+    },
+    {
+      "timestamp": "2026-04-16T21:59:22.632391",
+      "ship_count": 34,
+      "cargo_value": 2040307.894736842
+    },
+    {
+      "timestamp": "2026-04-17T14:48:21.795695",
+      "ship_count": 34,
+      "cargo_value": 1820423.6842105263
+    }
+  ],
+  "Германия": [
+    {
+      "timestamp": "2026-04-13T17:02:02.075867",
+      "ship_count": 54,
+      "cargo_value": 2101694.736842105
+    },
+    {
+      "timestamp": "2026-04-13T17:29:34.232355",
+      "ship_count": 54,
+      "cargo_value": 2099852.6315789474
+    },
+    {
+      "timestamp": "2026-04-13T18:34:56.082940",
+      "ship_count": 54,
+      "cargo_value": 2100089.4736842103
+    },
+    {
+      "timestamp": "2026-04-13T19:35:18.001803",
+      "ship_count": 54,
+      "cargo_value": 2100089.4736842103
+    },
+    {
+      "timestamp": "2026-04-13T19:56:03.484645",
+      "ship_count": 54,
+      "cargo_value": 2100089.4736842103
+    },
+    {
+      "timestamp": "2026-04-13T20:24:25.371464",
+      "ship_count": 54,
+      "cargo_value": 2120615.789473684
+    },
+    {
+      "timestamp": "2026-04-13T21:03:19.682963",
+      "ship_count": 54,
+      "cargo_value": 2119028.947368421
+    },
+    {
+      "timestamp": "2026-04-13T21:38:34.525030",
+      "ship_count": 54,
+      "cargo_value": 2122128.947368421
+    },
+    {
+      "timestamp": "2026-04-14T15:03:28.976774",
+      "ship_count": 49,
+      "cargo_value": 1587570.0
+    },
+    {
+      "timestamp": "2026-04-14T15:23:59.892692",
+      "ship_count": 49,
+      "cargo_value": 1743570.0
+    },
+    {
+      "timestamp": "2026-04-14T16:26:24.114772",
+      "ship_count": 49,
+      "cargo_value": 1743687.5
+    },
+    {
+      "timestamp": "2026-04-14T16:52:18.385340",
+      "ship_count": 49,
+      "cargo_value": 1743950.0
+    },
+    {
+      "timestamp": "2026-04-14T17:35:00.553714",
+      "ship_count": 49,
+      "cargo_value": 1743950.0
+    },
+    {
+      "timestamp": "2026-04-14T18:07:02.486075",
+      "ship_count": 49,
+      "cargo_value": 1743950.0
+    },
+    {
+      "timestamp": "2026-04-14T18:54:37.378819",
+      "ship_count": 49,
+      "cargo_value": 1743950.0
+    },
+    {
+      "timestamp": "2026-04-14T20:58:33.027198",
+      "ship_count": 49,
+      "cargo_value": 1743950.0
+    },
+    {
+      "timestamp": "2026-04-14T21:16:50.467935",
+      "ship_count": 49,
+      "cargo_value": 1743950.0
+    },
+    {
+      "timestamp": "2026-04-14T21:28:36.809188",
+      "ship_count": 49,
+      "cargo_value": 1743950.0
+    },
+    {
+      "timestamp": "2026-04-14T21:37:41.721714",
+      "ship_count": 49,
+      "cargo_value": 1743950.0
+    },
+    {
+      "timestamp": "2026-04-15T15:32:14.921659",
+      "ship_count": 61,
+      "cargo_value": 1783886.8421052631
+    },
+    {
+      "timestamp": "2026-04-15T18:34:19.772859",
+      "ship_count": 61,
+      "cargo_value": 1831728.9473684211
+    },
+    {
+      "timestamp": "2026-04-15T19:09:41.596050",
+      "ship_count": 61,
+      "cargo_value": 1831728.9473684211
+    },
+    {
+      "timestamp": "2026-04-15T20:11:03.864322",
+      "ship_count": 61,
+      "cargo_value": 1819886.8421052631
+    },
+    {
+      "timestamp": "2026-04-16T11:45:14.822139",
+      "ship_count": 66,
+      "cargo_value": 1945523.6842105263
+    },
+    {
+      "timestamp": "2026-04-16T18:04:57.066760",
+      "ship_count": 66,
+      "cargo_value": 2023376.3157894737
+    },
+    {
+      "timestamp": "2026-04-16T19:06:35.534898",
+      "ship_count": 66,
+      "cargo_value": 2020244.7368421052
+    },
+    {
+      "timestamp": "2026-04-16T20:53:30.390734",
+      "ship_count": 66,
+      "cargo_value": 2006876.3157894737
+    },
+    {
+      "timestamp": "2026-04-16T21:34:24.283231",
+      "ship_count": 66,
+      "cargo_value": 2038960.5263157894
+    },
+    {
+      "timestamp": "2026-04-16T21:59:22.632326",
+      "ship_count": 66,
+      "cargo_value": 2040307.894736842
+    },
+    {
+      "timestamp": "2026-04-17T14:48:21.795651",
+      "ship_count": 64,
+      "cargo_value": 1820423.6842105263
+    }
+  ],
+  "Великобритания": [
+    {
+      "timestamp": "2026-04-13T17:02:02.075902",
+      "ship_count": 58,
+      "cargo_value": 2101694.736842105
+    },
+    {
+      "timestamp": "2026-04-13T17:29:34.232386",
+      "ship_count": 58,
+      "cargo_value": 2099852.6315789474
+    },
+    {
+      "timestamp": "2026-04-13T18:34:56.082970",
+      "ship_count": 58,
+      "cargo_value": 2100089.4736842103
+    },
+    {
+      "timestamp": "2026-04-13T19:35:18.001820",
+      "ship_count": 58,
+      "cargo_value": 2100089.4736842103
+    },
+    {
+      "timestamp": "2026-04-13T19:56:03.484673",
+      "ship_count": 58,
+      "cargo_value": 2100089.4736842103
+    },
+    {
+      "timestamp": "2026-04-13T20:24:25.371484",
+      "ship_count": 58,
+      "cargo_value": 2120615.789473684
+    },
+    {
+      "timestamp": "2026-04-13T21:03:19.682994",
+      "ship_count": 58,
+      "cargo_value": 2119028.947368421
+    },
+    {
+      "timestamp": "2026-04-13T21:38:34.525062",
+      "ship_count": 58,
+      "cargo_value": 2122128.947368421
+    },
+    {
+      "timestamp": "2026-04-14T15:03:28.976835",
+      "ship_count": 26,
+      "cargo_value": 1587570.0
+    },
+    {
+      "timestamp": "2026-04-14T15:23:59.892698",
+      "ship_count": 26,
+      "cargo_value": 1743570.0
+    },
+    {
+      "timestamp": "2026-04-14T16:26:24.114778",
+      "ship_count": 26,
+      "cargo_value": 1743687.5
+    },
+    {
+      "timestamp": "2026-04-14T16:52:18.385346",
+      "ship_count": 26,
+      "cargo_value": 1743950.0
+    },
+    {
+      "timestamp": "2026-04-14T17:35:00.553719",
+      "ship_count": 26,
+      "cargo_value": 1743950.0
+    },
+    {
+      "timestamp": "2026-04-14T18:07:02.486080",
+      "ship_count": 26,
+      "cargo_value": 1743950.0
+    },
+    {
+      "timestamp": "2026-04-14T18:54:37.378825",
+      "ship_count": 26,
+      "cargo_value": 1743950.0
+    },
+    {
+      "timestamp": "2026-04-14T20:58:33.027204",
+      "ship_count": 26,
+      "cargo_value": 1743950.0
+    },
+    {
+      "timestamp": "2026-04-14T21:16:50.467941",
+      "ship_count": 26,
+      "cargo_value": 1743950.0
+    },
+    {
+      "timestamp": "2026-04-14T21:28:36.809194",
+      "ship_count": 26,
+      "cargo_value": 1743950.0
+    },
+    {
+      "timestamp": "2026-04-14T21:37:41.721720",
+      "ship_count": 26,
+      "cargo_value": 1743950.0
+    },
+    {
+      "timestamp": "2026-04-15T15:32:14.921676",
+      "ship_count": 44,
+      "cargo_value": 1783886.8421052631
+    },
+    {
+      "timestamp": "2026-04-15T18:34:19.772878",
+      "ship_count": 44,
+      "cargo_value": 1831728.9473684211
+    },
+    {
+      "timestamp": "2026-04-15T19:09:41.596072",
+      "ship_count": 44,
+      "cargo_value": 1831728.9473684211
+    },
+    {
+      "timestamp": "2026-04-15T20:11:03.864342",
+      "ship_count": 44,
+      "cargo_value": 1819886.8421052631
+    },
+    {
+      "timestamp": "2026-04-16T11:45:14.822164",
+      "ship_count": 36,
+      "cargo_value": 1945523.6842105263
+    },
+    {
+      "timestamp": "2026-04-16T18:04:57.066942",
+      "ship_count": 36,
+      "cargo_value": 2023376.3157894737
+    },
+    {
+      "timestamp": "2026-04-16T19:06:35.534917",
+      "ship_count": 36,
+      "cargo_value": 2020244.7368421052
+    },
+    {
+      "timestamp": "2026-04-16T20:53:30.390752",
+      "ship_count": 36,
+      "cargo_value": 2006876.3157894737
+    },
+    {
+      "timestamp": "2026-04-16T21:34:24.283249",
+      "ship_count": 36,
+      "cargo_value": 2038960.5263157894
+    },
+    {
+      "timestamp": "2026-04-16T21:59:22.632344",
+      "ship_count": 35,
+      "cargo_value": 2040307.894736842
+    },
+    {
+      "timestamp": "2026-04-17T14:48:21.795642",
+      "ship_count": 39,
+      "cargo_value": 1820423.6842105263
+    }
+  ],
+  "Франция": [
+    {
+      "timestamp": "2026-04-13T17:02:02.075912",
+      "ship_count": 34,
+      "cargo_value": 2101694.736842105
+    },
+    {
+      "timestamp": "2026-04-13T17:29:34.232396",
+      "ship_count": 34,
+      "cargo_value": 2099852.6315789474
+    },
+    {
+      "timestamp": "2026-04-13T18:34:56.082979",
+      "ship_count": 34,
+      "cargo_value": 2100089.4736842103
+    },
+    {
+      "timestamp": "2026-04-13T19:35:18.001825",
+      "ship_count": 34,
+      "cargo_value": 2100089.4736842103
+    },
+    {
+      "timestamp": "2026-04-13T19:56:03.484683",
+      "ship_count": 34,
+      "cargo_value": 2100089.4736842103
+    },
+    {
+      "timestamp": "2026-04-13T20:24:25.371492",
+      "ship_count": 34,
+      "cargo_value": 2120615.789473684
+    },
+    {
+      "timestamp": "2026-04-13T21:03:19.683124",
+      "ship_count": 34,
+      "cargo_value": 2119028.947368421
+    },
+    {
+      "timestamp": "2026-04-13T21:38:34.525072",
+      "ship_count": 34,
+      "cargo_value": 2122128.947368421
+    },
+    {
+      "timestamp": "2026-04-14T15:03:28.976854",
+      "ship_count": 22,
+      "cargo_value": 1587570.0
+    },
+    {
+      "timestamp": "2026-04-14T15:23:59.892702",
+      "ship_count": 22,
+      "cargo_value": 1743570.0
+    },
+    {
+      "timestamp": "2026-04-14T16:26:24.114783",
+      "ship_count": 22,
+      "cargo_value": 1743687.5
+    },
+    {
+      "timestamp": "2026-04-14T16:52:18.385351",
+      "ship_count": 22,
+      "cargo_value": 1743950.0
+    },
+    {
+      "timestamp": "2026-04-14T17:35:00.553724",
+      "ship_count": 22,
+      "cargo_value": 1743950.0
+    },
+    {
+      "timestamp": "2026-04-14T18:07:02.486086",
+      "ship_count": 22,
+      "cargo_value": 1743950.0
+    },
+    {
+      "timestamp": "2026-04-14T18:54:37.378859",
+      "ship_count": 22,
+      "cargo_value": 1743950.0
+    },
+    {
+      "timestamp": "2026-04-14T20:58:33.027210",
+      "ship_count": 22,
+      "cargo_value": 1743950.0
+    },
+    {
+      "timestamp": "2026-04-14T21:16:50.467946",
+      "ship_count": 22,
+      "cargo_value": 1743950.0
+    },
+    {
+      "timestamp": "2026-04-14T21:28:36.809199",
+      "ship_count": 22,
+      "cargo_value": 1743950.0
+    },
+    {
+      "timestamp": "2026-04-14T21:37:41.721726",
+      "ship_count": 22,
+      "cargo_value": 1743950.0
+    },
+    {
+      "timestamp": "2026-04-15T15:32:14.921684",
+      "ship_count": 39,
+      "cargo_value": 1783886.8421052631
+    },
+    {
+      "timestamp": "2026-04-15T18:34:19.772886",
+      "ship_count": 39,
+      "cargo_value": 1831728.9473684211
+    },
+    {
+      "timestamp": "2026-04-15T19:09:41.596080",
+      "ship_count": 39,
+      "cargo_value": 1831728.9473684211
+    },
+    {
+      "timestamp": "2026-04-15T20:11:03.864350",
+      "ship_count": 39,
+      "cargo_value": 1819886.8421052631
+    },
+    {
+      "timestamp": "2026-04-16T11:45:14.822179",
+      "ship_count": 40,
+      "cargo_value": 1945523.6842105263
+    },
+    {
+      "timestamp": "2026-04-16T18:04:57.066956",
+      "ship_count": 40,
+      "cargo_value": 2023376.3157894737
+    },
+    {
+      "timestamp": "2026-04-16T19:06:35.534931",
+      "ship_count": 40,
+      "cargo_value": 2020244.7368421052
+    },
+    {
+      "timestamp": "2026-04-16T20:53:30.390765",
+      "ship_count": 40,
+      "cargo_value": 2006876.3157894737
+    },
+    {
+      "timestamp": "2026-04-16T21:34:24.283262",
+      "ship_count": 40,
+      "cargo_value": 2038960.5263157894
+    },
+    {
+      "timestamp": "2026-04-16T21:59:22.632357",
+      "ship_count": 41,
+      "cargo_value": 2040307.894736842
+    },
+    {
+      "timestamp": "2026-04-17T14:48:21.795614",
+      "ship_count": 41,
+      "cargo_value": 1820423.6842105263
+    }
+  ],
+  "Япония": [
+    {
+      "timestamp": "2026-04-13T17:02:02.075966",
+      "ship_count": 39,
+      "cargo_value": 2101694.736842105
+    },
+    {
+      "timestamp": "2026-04-13T17:29:34.232437",
+      "ship_count": 39,
+      "cargo_value": 2099852.6315789474
+    },
+    {
+      "timestamp": "2026-04-13T18:34:56.083017",
+      "ship_count": 39,
+      "cargo_value": 2100089.4736842103
+    },
+    {
+      "timestamp": "2026-04-13T19:35:18.001863",
+      "ship_count": 39,
+      "cargo_value": 2100089.4736842103
+    },
+    {
+      "timestamp": "2026-04-13T19:56:03.484724",
+      "ship_count": 39,
+      "cargo_value": 2100089.4736842103
+    },
+    {
+      "timestamp": "2026-04-13T20:24:25.371527",
+      "ship_count": 39,
+      "cargo_value": 2120615.789473684
+    },
+    {
+      "timestamp": "2026-04-13T21:03:19.683172",
+      "ship_count": 39,
+      "cargo_value": 2119028.947368421
+    },
+    {
+      "timestamp": "2026-04-13T21:38:34.525114",
+      "ship_count": 39,
+      "cargo_value": 2122128.947368421
+    },
+    {
+      "timestamp": "2026-04-14T15:03:28.976859",
+      "ship_count": 34,
+      "cargo_value": 1587570.0
+    },
+    {
+      "timestamp": "2026-04-14T15:23:59.892707",
+      "ship_count": 34,
+      "cargo_value": 1743570.0
+    },
+    {
+      "timestamp": "2026-04-14T16:26:24.114787",
+      "ship_count": 34,
+      "cargo_value": 1743687.5
+    },
+    {
+      "timestamp": "2026-04-14T16:52:18.385356",
+      "ship_count": 34,
+      "cargo_value": 1743950.0
+    },
+    {
+      "timestamp": "2026-04-14T17:35:00.553728",
+      "ship_count": 34,
+      "cargo_value": 1743950.0
+    },
+    {
+      "timestamp": "2026-04-14T18:07:02.486090",
+      "ship_count": 34,
+      "cargo_value": 1743950.0
+    },
+    {
+      "timestamp": "2026-04-14T18:54:37.378865",
+      "ship_count": 34,
+      "cargo_value": 1743950.0
+    },
+    {
+      "timestamp": "2026-04-14T20:58:33.027215",
+      "ship_count": 34,
+      "cargo_value": 1743950.0
+    },
+    {
+      "timestamp": "2026-04-14T21:16:50.467950",
+      "ship_count": 34,
+      "cargo_value": 1743950.0
+    },
+    {
+      "timestamp": "2026-04-14T21:28:36.809204",
+      "ship_count": 34,
+      "cargo_value": 1743950.0
+    },
+    {
+      "timestamp": "2026-04-14T21:37:41.721731",
+      "ship_count": 34,
+      "cargo_value": 1743950.0
+    },
+    {
+      "timestamp": "2026-04-15T15:32:14.921694",
+      "ship_count": 66,
+      "cargo_value": 1783886.8421052631
+    },
+    {
+      "timestamp": "2026-04-15T18:34:19.772899",
+      "ship_count": 66,
+      "cargo_value": 1831728.9473684211
+    },
+    {
+      "timestamp": "2026-04-15T19:09:41.596091",
+      "ship_count": 66,
+      "cargo_value": 1831728.9473684211
+    },
+    {
+      "timestamp": "2026-04-15T20:11:03.864360",
+      "ship_count": 66,
+      "cargo_value": 1819886.8421052631
+    },
+    {
+      "timestamp": "2026-04-16T11:45:14.822185",
+      "ship_count": 63,
+      "cargo_value": 1945523.6842105263
+    },
+    {
+      "timestamp": "2026-04-16T18:04:57.066962",
+      "ship_count": 63,
+      "cargo_value": 2023376.3157894737
+    },
+    {
+      "timestamp": "2026-04-16T19:06:35.534936",
+      "ship_count": 63,
+      "cargo_value": 2020244.7368421052
+    },
+    {
+      "timestamp": "2026-04-16T20:53:30.390770",
+      "ship_count": 63,
+      "cargo_value": 2006876.3157894737
+    },
+    {
+      "timestamp": "2026-04-16T21:34:24.283267",
+      "ship_count": 63,
+      "cargo_value": 2038960.5263157894
+    },
+    {
+      "timestamp": "2026-04-16T21:59:22.632362",
+      "ship_count": 63,
+      "cargo_value": 2040307.894736842
+    },
+    {
+      "timestamp": "2026-04-17T14:48:21.795662",
+      "ship_count": 63,
+      "cargo_value": 1820423.6842105263
+    }
+  ],
+  "Бразилия": [
+    {
+      "timestamp": "2026-04-13T17:02:02.075974",
+      "ship_count": 22,
+      "cargo_value": 2101694.736842105
+    },
+    {
+      "timestamp": "2026-04-13T17:29:34.232442",
+      "ship_count": 22,
+      "cargo_value": 2099852.6315789474
+    },
+    {
+      "timestamp": "2026-04-13T18:34:56.083022",
+      "ship_count": 22,
+      "cargo_value": 2100089.4736842103
+    },
+    {
+      "timestamp": "2026-04-13T19:35:18.001868",
+      "ship_count": 22,
+      "cargo_value": 2100089.4736842103
+    },
+    {
+      "timestamp": "2026-04-13T19:56:03.484729",
+      "ship_count": 22,
+      "cargo_value": 2100089.4736842103
+    },
+    {
+      "timestamp": "2026-04-13T20:24:25.371531",
+      "ship_count": 22,
+      "cargo_value": 2120615.789473684
+    },
+    {
+      "timestamp": "2026-04-13T21:03:19.683176",
+      "ship_count": 22,
+      "cargo_value": 2119028.947368421
+    },
+    {
+      "timestamp": "2026-04-13T21:38:34.525119",
+      "ship_count": 22,
+      "cargo_value": 2122128.947368421
+    },
+    {
+      "timestamp": "2026-04-14T15:03:28.976863",
+      "ship_count": 24,
+      "cargo_value": 1587570.0
+    },
+    {
+      "timestamp": "2026-04-14T15:23:59.892710",
+      "ship_count": 24,
+      "cargo_value": 1743570.0
+    },
+    {
+      "timestamp": "2026-04-14T16:26:24.114796",
+      "ship_count": 24,
+      "cargo_value": 1743687.5
+    },
+    {
+      "timestamp": "2026-04-14T16:52:18.385360",
+      "ship_count": 24,
+      "cargo_value": 1743950.0
+    },
+    {
+      "timestamp": "2026-04-14T17:35:00.553733",
+      "ship_count": 24,
+      "cargo_value": 1743950.0
+    },
+    {
+      "timestamp": "2026-04-14T18:07:02.486095",
+      "ship_count": 24,
+      "cargo_value": 1743950.0
+    },
+    {
+      "timestamp": "2026-04-14T18:54:37.378870",
+      "ship_count": 24,
+      "cargo_value": 1743950.0
+    },
+    {
+      "timestamp": "2026-04-14T20:58:33.027221",
+      "ship_count": 24,
+      "cargo_value": 1743950.0
+    },
+    {
+      "timestamp": "2026-04-14T21:16:50.467955",
+      "ship_count": 24,
+      "cargo_value": 1743950.0
+    },
+    {
+      "timestamp": "2026-04-14T21:28:36.809208",
+      "ship_count": 24,
+      "cargo_value": 1743950.0
+    },
+    {
+      "timestamp": "2026-04-14T21:37:41.721737",
+      "ship_count": 24,
+      "cargo_value": 1743950.0
+    },
+    {
+      "timestamp": "2026-04-15T15:32:14.921730",
+      "ship_count": 20,
+      "cargo_value": 1783886.8421052631
+    },
+    {
+      "timestamp": "2026-04-15T18:34:19.772938",
+      "ship_count": 20,
+      "cargo_value": 1831728.9473684211
+    },
+    {
+      "timestamp": "2026-04-15T19:09:41.596127",
+      "ship_count": 20,
+      "cargo_value": 1831728.9473684211
+    },
+    {
+      "timestamp": "2026-04-15T20:11:03.864394",
+      "ship_count": 20,
+      "cargo_value": 1819886.8421052631
+    },
+    {
+      "timestamp": "2026-04-16T11:45:14.822224",
+      "ship_count": 20,
+      "cargo_value": 1945523.6842105263
+    },
+    {
+      "timestamp": "2026-04-16T18:04:57.067003",
+      "ship_count": 20,
+      "cargo_value": 2023376.3157894737
+    },
+    {
+      "timestamp": "2026-04-16T19:06:35.534973",
+      "ship_count": 20,
+      "cargo_value": 2020244.7368421052
+    },
+    {
+      "timestamp": "2026-04-16T20:53:30.390805",
+      "ship_count": 20,
+      "cargo_value": 2006876.3157894737
+    },
+    {
+      "timestamp": "2026-04-16T21:34:24.283308",
+      "ship_count": 20,
+      "cargo_value": 2038960.5263157894
+    },
+    {
+      "timestamp": "2026-04-16T21:59:22.632395",
+      "ship_count": 20,
+      "cargo_value": 2040307.894736842
+    },
+    {
+      "timestamp": "2026-04-17T14:48:21.795700",
+      "ship_count": 20,
+      "cargo_value": 1820423.6842105263
+    }
+  ],
+  "Израиль": [
+    {
+      "timestamp": "2026-04-13T17:02:02.075982",
+      "ship_count": 11,
+      "cargo_value": 2101694.736842105
+    },
+    {
+      "timestamp": "2026-04-13T17:29:34.232447",
+      "ship_count": 11,
+      "cargo_value": 2099852.6315789474
+    },
+    {
+      "timestamp": "2026-04-13T18:34:56.083027",
+      "ship_count": 11,
+      "cargo_value": 2100089.4736842103
+    },
+    {
+      "timestamp": "2026-04-13T19:35:18.001872",
+      "ship_count": 11,
+      "cargo_value": 2100089.4736842103
+    },
+    {
+      "timestamp": "2026-04-13T19:56:03.484735",
+      "ship_count": 11,
+      "cargo_value": 2100089.4736842103
+    },
+    {
+      "timestamp": "2026-04-13T20:24:25.371536",
+      "ship_count": 11,
+      "cargo_value": 2120615.789473684
+    },
+    {
+      "timestamp": "2026-04-13T21:03:19.683183",
+      "ship_count": 11,
+      "cargo_value": 2119028.947368421
+    },
+    {
+      "timestamp": "2026-04-13T21:38:34.525125",
+      "ship_count": 11,
+      "cargo_value": 2122128.947368421
+    },
+    {
+      "timestamp": "2026-04-14T15:03:28.976869",
+      "ship_count": 20,
+      "cargo_value": 1587570.0
+    },
+    {
+      "timestamp": "2026-04-14T15:23:59.892714",
+      "ship_count": 20,
+      "cargo_value": 1743570.0
+    },
+    {
+      "timestamp": "2026-04-14T16:26:24.114802",
+      "ship_count": 20,
+      "cargo_value": 1743687.5
+    },
+    {
+      "timestamp": "2026-04-14T16:52:18.385364",
+      "ship_count": 20,
+      "cargo_value": 1743950.0
+    },
+    {
+      "timestamp": "2026-04-14T17:35:00.553737",
+      "ship_count": 20,
+      "cargo_value": 1743950.0
+    },
+    {
+      "timestamp": "2026-04-14T18:07:02.486099",
+      "ship_count": 20,
+      "cargo_value": 1743950.0
+    },
+    {
+      "timestamp": "2026-04-14T18:54:37.378876",
+      "ship_count": 20,
+      "cargo_value": 1743950.0
+    },
+    {
+      "timestamp": "2026-04-14T20:58:33.027226",
+      "ship_count": 20,
+      "cargo_value": 1743950.0
+    },
+    {
+      "timestamp": "2026-04-14T21:16:50.467959",
+      "ship_count": 20,
+      "cargo_value": 1743950.0
+    },
+    {
+      "timestamp": "2026-04-14T21:28:36.809212",
+      "ship_count": 20,
+      "cargo_value": 1743950.0
+    },
+    {
+      "timestamp": "2026-04-14T21:37:41.721742",
+      "ship_count": 20,
+      "cargo_value": 1743950.0
+    },
+    {
+      "timestamp": "2026-04-15T15:32:14.921705",
+      "ship_count": 10,
+      "cargo_value": 1783886.8421052631
+    },
+    {
+      "timestamp": "2026-04-15T18:34:19.772909",
+      "ship_count": 10,
+      "cargo_value": 1831728.9473684211
+    },
+    {
+      "timestamp": "2026-04-15T19:09:41.596102",
+      "ship_count": 10,
+      "cargo_value": 1831728.9473684211
+    },
+    {
+      "timestamp": "2026-04-15T20:11:03.864369",
+      "ship_count": 10,
+      "cargo_value": 1819886.8421052631
+    },
+    {
+      "timestamp": "2026-04-16T11:45:14.822201",
+      "ship_count": 10,
+      "cargo_value": 1945523.6842105263
+    },
+    {
+      "timestamp": "2026-04-16T18:04:57.066979",
+      "ship_count": 10,
+      "cargo_value": 2023376.3157894737
+    },
+    {
+      "timestamp": "2026-04-16T19:06:35.534951",
+      "ship_count": 10,
+      "cargo_value": 2020244.7368421052
+    },
+    {
+      "timestamp": "2026-04-16T20:53:30.390784",
+      "ship_count": 10,
+      "cargo_value": 2006876.3157894737
+    },
+    {
+      "timestamp": "2026-04-16T21:34:24.283280",
+      "ship_count": 10,
+      "cargo_value": 2038960.5263157894
+    },
+    {
+      "timestamp": "2026-04-16T21:59:22.632375",
+      "ship_count": 10,
+      "cargo_value": 2040307.894736842
+    },
+    {
+      "timestamp": "2026-04-17T14:48:21.795672",
+      "ship_count": 10,
+      "cargo_value": 1820423.6842105263
+    }
+  ],
+  "Иран": [
+    {
+      "timestamp": "2026-04-13T17:02:02.075989",
+      "ship_count": 28,
+      "cargo_value": 2101694.736842105
+    },
+    {
+      "timestamp": "2026-04-13T17:29:34.232451",
+      "ship_count": 28,
+      "cargo_value": 2099852.6315789474
+    },
+    {
+      "timestamp": "2026-04-13T18:34:56.083031",
+      "ship_count": 28,
+      "cargo_value": 2100089.4736842103
+    },
+    {
+      "timestamp": "2026-04-13T19:35:18.001876",
+      "ship_count": 28,
+      "cargo_value": 2100089.4736842103
+    },
+    {
+      "timestamp": "2026-04-13T19:56:03.484740",
+      "ship_count": 28,
+      "cargo_value": 2100089.4736842103
+    },
+    {
+      "timestamp": "2026-04-13T20:24:25.371541",
+      "ship_count": 28,
+      "cargo_value": 2120615.789473684
+    },
+    {
+      "timestamp": "2026-04-13T21:03:19.683188",
+      "ship_count": 28,
+      "cargo_value": 2119028.947368421
+    },
+    {
+      "timestamp": "2026-04-13T21:38:34.525130",
+      "ship_count": 28,
+      "cargo_value": 2122128.947368421
+    },
+    {
+      "timestamp": "2026-04-14T15:03:28.976873",
+      "ship_count": 29,
+      "cargo_value": 1587570.0
+    },
+    {
+      "timestamp": "2026-04-14T15:23:59.892718",
+      "ship_count": 29,
+      "cargo_value": 1743570.0
+    },
+    {
+      "timestamp": "2026-04-14T16:26:24.114807",
+      "ship_count": 29,
+      "cargo_value": 1743687.5
+    },
+    {
+      "timestamp": "2026-04-14T16:52:18.385368",
+      "ship_count": 29,
+      "cargo_value": 1743950.0
+    },
+    {
+      "timestamp": "2026-04-14T17:35:00.553741",
+      "ship_count": 29,
+      "cargo_value": 1743950.0
+    },
+    {
+      "timestamp": "2026-04-14T18:07:02.486103",
+      "ship_count": 29,
+      "cargo_value": 1743950.0
+    },
+    {
+      "timestamp": "2026-04-14T18:54:37.378882",
+      "ship_count": 29,
+      "cargo_value": 1743950.0
+    },
+    {
+      "timestamp": "2026-04-14T20:58:33.027230",
+      "ship_count": 29,
+      "cargo_value": 1743950.0
+    },
+    {
+      "timestamp": "2026-04-14T21:16:50.467963",
+      "ship_count": 29,
+      "cargo_value": 1743950.0
+    },
+    {
+      "timestamp": "2026-04-14T21:28:36.809216",
+      "ship_count": 29,
+      "cargo_value": 1743950.0
+    },
+    {
+      "timestamp": "2026-04-14T21:37:41.721746",
+      "ship_count": 29,
+      "cargo_value": 1743950.0
+    },
+    {
+      "timestamp": "2026-04-15T15:32:14.921739",
+      "ship_count": 18,
+      "cargo_value": 1783886.8421052631
+    },
+    {
+      "timestamp": "2026-04-15T18:34:19.772947",
+      "ship_count": 18,
+      "cargo_value": 1831728.9473684211
+    },
+    {
+      "timestamp": "2026-04-15T19:09:41.596136",
+      "ship_count": 18,
+      "cargo_value": 1831728.9473684211
+    },
+    {
+      "timestamp": "2026-04-15T20:11:03.864402",
+      "ship_count": 18,
+      "cargo_value": 1819886.8421052631
+    },
+    {
+      "timestamp": "2026-04-16T11:45:14.822233",
+      "ship_count": 19,
+      "cargo_value": 1945523.6842105263
+    },
+    {
+      "timestamp": "2026-04-16T18:04:57.067014",
+      "ship_count": 19,
+      "cargo_value": 2023376.3157894737
+    },
+    {
+      "timestamp": "2026-04-16T19:06:35.534982",
+      "ship_count": 19,
+      "cargo_value": 2020244.7368421052
+    },
+    {
+      "timestamp": "2026-04-16T20:53:30.390813",
+      "ship_count": 19,
+      "cargo_value": 2006876.3157894737
+    },
+    {
+      "timestamp": "2026-04-16T21:34:24.283317",
+      "ship_count": 19,
+      "cargo_value": 2038960.5263157894
+    },
+    {
+      "timestamp": "2026-04-16T21:59:22.632403",
+      "ship_count": 19,
+      "cargo_value": 2040307.894736842
+    },
+    {
+      "timestamp": "2026-04-17T14:48:21.795709",
+      "ship_count": 19,
+      "cargo_value": 1820423.6842105263
+    }
+  ],
+  "Турция": [
+    {
+      "timestamp": "2026-04-13T17:02:02.075994",
+      "ship_count": 3,
+      "cargo_value": 2101694.736842105
+    },
+    {
+      "timestamp": "2026-04-13T17:29:34.232456",
+      "ship_count": 3,
+      "cargo_value": 2099852.6315789474
+    },
+    {
+      "timestamp": "2026-04-13T18:34:56.083036",
+      "ship_count": 3,
+      "cargo_value": 2100089.4736842103
+    },
+    {
+      "timestamp": "2026-04-13T19:35:18.001880",
+      "ship_count": 3,
+      "cargo_value": 2100089.4736842103
+    },
+    {
+      "timestamp": "2026-04-13T19:56:03.484745",
+      "ship_count": 3,
+      "cargo_value": 2100089.4736842103
+    },
+    {
+      "timestamp": "2026-04-13T20:24:25.371545",
+      "ship_count": 3,
+      "cargo_value": 2120615.789473684
+    },
+    {
+      "timestamp": "2026-04-13T21:03:19.683193",
+      "ship_count": 3,
+      "cargo_value": 2119028.947368421
+    },
+    {
+      "timestamp": "2026-04-13T21:38:34.525136",
+      "ship_count": 3,
+      "cargo_value": 2122128.947368421
+    },
+    {
+      "timestamp": "2026-04-14T15:03:28.976877",
+      "ship_count": 10,
+      "cargo_value": 1587570.0
+    },
+    {
+      "timestamp": "2026-04-14T15:23:59.892722",
+      "ship_count": 10,
+      "cargo_value": 1743570.0
+    },
+    {
+      "timestamp": "2026-04-14T16:26:24.114812",
+      "ship_count": 10,
+      "cargo_value": 1743687.5
+    },
+    {
+      "timestamp": "2026-04-14T16:52:18.385372",
+      "ship_count": 10,
+      "cargo_value": 1743950.0
+    },
+    {
+      "timestamp": "2026-04-14T17:35:00.553745",
+      "ship_count": 10,
+      "cargo_value": 1743950.0
+    },
+    {
+      "timestamp": "2026-04-14T18:07:02.486108",
+      "ship_count": 10,
+      "cargo_value": 1743950.0
+    },
+    {
+      "timestamp": "2026-04-14T18:54:37.378887",
+      "ship_count": 10,
+      "cargo_value": 1743950.0
+    },
+    {
+      "timestamp": "2026-04-14T20:58:33.027235",
+      "ship_count": 10,
+      "cargo_value": 1743950.0
+    },
+    {
+      "timestamp": "2026-04-14T21:16:50.467967",
+      "ship_count": 10,
+      "cargo_value": 1743950.0
+    },
+    {
+      "timestamp": "2026-04-14T21:28:36.809220",
+      "ship_count": 10,
+      "cargo_value": 1743950.0
+    },
+    {
+      "timestamp": "2026-04-14T21:37:41.721751",
+      "ship_count": 10,
+      "cargo_value": 1743950.0
+    },
+    {
+      "timestamp": "2026-04-15T15:32:14.921709",
+      "ship_count": 23,
+      "cargo_value": 1783886.8421052631
+    },
+    {
+      "timestamp": "2026-04-15T18:34:19.772914",
+      "ship_count": 23,
+      "cargo_value": 1831728.9473684211
+    },
+    {
+      "timestamp": "2026-04-15T19:09:41.596106",
+      "ship_count": 23,
+      "cargo_value": 1831728.9473684211
+    },
+    {
+      "timestamp": "2026-04-15T20:11:03.864373",
+      "ship_count": 23,
+      "cargo_value": 1819886.8421052631
+    },
+    {
+      "timestamp": "2026-04-16T11:45:14.822206",
+      "ship_count": 23,
+      "cargo_value": 1945523.6842105263
+    },
+    {
+      "timestamp": "2026-04-16T18:04:57.066984",
+      "ship_count": 23,
+      "cargo_value": 2023376.3157894737
+    },
+    {
+      "timestamp": "2026-04-16T19:06:35.534955",
+      "ship_count": 23,
+      "cargo_value": 2020244.7368421052
+    },
+    {
+      "timestamp": "2026-04-16T20:53:30.390788",
+      "ship_count": 23,
+      "cargo_value": 2006876.3157894737
+    },
+    {
+      "timestamp": "2026-04-16T21:34:24.283285",
+      "ship_count": 23,
+      "cargo_value": 2038960.5263157894
+    },
+    {
+      "timestamp": "2026-04-16T21:59:22.632379",
+      "ship_count": 23,
+      "cargo_value": 2040307.894736842
+    },
+    {
+      "timestamp": "2026-04-17T14:48:21.795677",
+      "ship_count": 23,
+      "cargo_value": 1820423.6842105263
+    }
+  ],
+  "Египет": [
+    {
+      "timestamp": "2026-04-03T22:12:09.773094",
+      "ship_count": 8,
+      "cargo_value": 1848672.5
+    },
+    {
+      "timestamp": "2026-04-03T22:50:09.538581",
+      "ship_count": 8,
+      "cargo_value": 1740345.0
+    },
+    {
+      "timestamp": "2026-04-03T23:09:02.261154",
+      "ship_count": 8,
+      "cargo_value": 1845175.0
+    },
+    {
+      "timestamp": "2026-04-03T23:11:28.092901",
+      "ship_count": 8,
+      "cargo_value": 1864875.0
+    },
+    {
+      "timestamp": "2026-04-03T23:18:31.278123",
+      "ship_count": 8,
+      "cargo_value": 1867275.0
+    },
+    {
+      "timestamp": "2026-04-03T23:30:12.377621",
+      "ship_count": 8,
+      "cargo_value": 1867275.0
+    },
+    {
+      "timestamp": "2026-04-03T23:35:17.915781",
+      "ship_count": 8,
+      "cargo_value": 1867275.0
+    },
+    {
+      "timestamp": "2026-04-03T23:38:29.111696",
+      "ship_count": 8,
+      "cargo_value": 1867275.0
+    },
+    {
+      "timestamp": "2026-04-03T23:40:35.096398",
+      "ship_count": 8,
+      "cargo_value": 1867275.0
+    },
+    {
+      "timestamp": "2026-04-03T23:58:26.142972",
+      "ship_count": 8,
+      "cargo_value": 1867275.0
+    },
+    {
+      "timestamp": "2026-04-04T00:03:50.191118",
+      "ship_count": 8,
+      "cargo_value": 1775215.0
+    },
+    {
+      "timestamp": "2026-04-04T00:16:08.385420",
+      "ship_count": 8,
+      "cargo_value": 1902095.0
+    },
+    {
+      "timestamp": "2026-04-04T00:27:15.236655",
+      "ship_count": 8,
+      "cargo_value": 1920220.0
+    },
+    {
+      "timestamp": "2026-04-06T18:35:55.378019",
+      "ship_count": 8,
+      "cargo_value": 1848905.0
+    },
+    {
+      "timestamp": "2026-04-06T19:16:42.252194",
+      "ship_count": 8,
+      "cargo_value": 1974472.5
+    },
+    {
+      "timestamp": "2026-04-06T19:40:32.597698",
+      "ship_count": 8,
+      "cargo_value": 1974527.5
+    },
+    {
+      "timestamp": "2026-04-06T20:11:50.855677",
+      "ship_count": 8,
+      "cargo_value": 1975337.5
+    },
+    {
+      "timestamp": "2026-04-06T20:50:59.423925",
+      "ship_count": 8,
+      "cargo_value": 1975337.5
+    },
+    {
+      "timestamp": "2026-04-06T21:09:22.280638",
+      "ship_count": 8,
+      "cargo_value": 1975337.5
+    },
+    {
+      "timestamp": "2026-04-14T15:03:28.976883",
+      "ship_count": 8,
+      "cargo_value": 1587570.0
+    },
+    {
+      "timestamp": "2026-04-14T15:23:59.892727",
+      "ship_count": 8,
+      "cargo_value": 1743570.0
+    },
+    {
+      "timestamp": "2026-04-14T16:26:24.114818",
+      "ship_count": 8,
+      "cargo_value": 1743687.5
+    },
+    {
+      "timestamp": "2026-04-14T16:52:18.385377",
+      "ship_count": 8,
+      "cargo_value": 1743950.0
+    },
+    {
+      "timestamp": "2026-04-14T17:35:00.553749",
+      "ship_count": 8,
+      "cargo_value": 1743950.0
+    },
+    {
+      "timestamp": "2026-04-14T18:07:02.486113",
+      "ship_count": 8,
+      "cargo_value": 1743950.0
+    },
+    {
+      "timestamp": "2026-04-14T18:54:37.378893",
+      "ship_count": 8,
+      "cargo_value": 1743950.0
+    },
+    {
+      "timestamp": "2026-04-14T20:58:33.027240",
+      "ship_count": 8,
+      "cargo_value": 1743950.0
+    },
+    {
+      "timestamp": "2026-04-14T21:16:50.467972",
+      "ship_count": 8,
+      "cargo_value": 1743950.0
+    },
+    {
+      "timestamp": "2026-04-14T21:28:36.809224",
+      "ship_count": 8,
+      "cargo_value": 1743950.0
+    },
+    {
+      "timestamp": "2026-04-14T21:37:41.721756",
+      "ship_count": 8,
+      "cargo_value": 1743950.0
+    }
+  ],
+  "Норвегия": [
+    {
+      "timestamp": "2026-04-13T17:02:02.075958",
+      "ship_count": 16,
+      "cargo_value": 2101694.736842105
+    },
+    {
+      "timestamp": "2026-04-13T17:29:34.232431",
+      "ship_count": 16,
+      "cargo_value": 2099852.6315789474
+    },
+    {
+      "timestamp": "2026-04-13T18:34:56.083012",
+      "ship_count": 16,
+      "cargo_value": 2100089.4736842103
+    },
+    {
+      "timestamp": "2026-04-13T19:35:18.001858",
+      "ship_count": 16,
+      "cargo_value": 2100089.4736842103
+    },
+    {
+      "timestamp": "2026-04-13T19:56:03.484719",
+      "ship_count": 16,
+      "cargo_value": 2100089.4736842103
+    },
+    {
+      "timestamp": "2026-04-13T20:24:25.371523",
+      "ship_count": 16,
+      "cargo_value": 2120615.789473684
+    },
+    {
+      "timestamp": "2026-04-13T21:03:19.683165",
+      "ship_count": 16,
+      "cargo_value": 2119028.947368421
+    },
+    {
+      "timestamp": "2026-04-13T21:38:34.525108",
+      "ship_count": 16,
+      "cargo_value": 2122128.947368421
+    },
+    {
+      "timestamp": "2026-04-14T15:03:28.976887",
+      "ship_count": 6,
+      "cargo_value": 1587570.0
+    },
+    {
+      "timestamp": "2026-04-14T15:23:59.892731",
+      "ship_count": 6,
+      "cargo_value": 1743570.0
+    },
+    {
+      "timestamp": "2026-04-14T16:26:24.114822",
+      "ship_count": 6,
+      "cargo_value": 1743687.5
+    },
+    {
+      "timestamp": "2026-04-14T16:52:18.385382",
+      "ship_count": 6,
+      "cargo_value": 1743950.0
+    },
+    {
+      "timestamp": "2026-04-14T17:35:00.553754",
+      "ship_count": 6,
+      "cargo_value": 1743950.0
+    },
+    {
+      "timestamp": "2026-04-14T18:07:02.486118",
+      "ship_count": 6,
+      "cargo_value": 1743950.0
+    },
+    {
+      "timestamp": "2026-04-14T18:54:37.378897",
+      "ship_count": 6,
+      "cargo_value": 1743950.0
+    },
+    {
+      "timestamp": "2026-04-14T20:58:33.027245",
+      "ship_count": 6,
+      "cargo_value": 1743950.0
+    },
+    {
+      "timestamp": "2026-04-14T21:16:50.467976",
+      "ship_count": 6,
+      "cargo_value": 1743950.0
+    },
+    {
+      "timestamp": "2026-04-14T21:28:36.809228",
+      "ship_count": 6,
+      "cargo_value": 1743950.0
+    },
+    {
+      "timestamp": "2026-04-14T21:37:41.721761",
+      "ship_count": 6,
+      "cargo_value": 1743950.0
+    },
+    {
+      "timestamp": "2026-04-15T15:32:14.921718",
+      "ship_count": 16,
+      "cargo_value": 1783886.8421052631
+    },
+    {
+      "timestamp": "2026-04-15T18:34:19.772924",
+      "ship_count": 16,
+      "cargo_value": 1831728.9473684211
+    },
+    {
+      "timestamp": "2026-04-15T19:09:41.596114",
+      "ship_count": 16,
+      "cargo_value": 1831728.9473684211
+    },
+    {
+      "timestamp": "2026-04-15T20:11:03.864382",
+      "ship_count": 16,
+      "cargo_value": 1819886.8421052631
+    },
+    {
+      "timestamp": "2026-04-16T11:45:14.822215",
+      "ship_count": 12,
+      "cargo_value": 1945523.6842105263
+    },
+    {
+      "timestamp": "2026-04-16T18:04:57.066994",
+      "ship_count": 12,
+      "cargo_value": 2023376.3157894737
+    },
+    {
+      "timestamp": "2026-04-16T19:06:35.534964",
+      "ship_count": 12,
+      "cargo_value": 2020244.7368421052
+    },
+    {
+      "timestamp": "2026-04-16T20:53:30.390796",
+      "ship_count": 12,
+      "cargo_value": 2006876.3157894737
+    },
+    {
+      "timestamp": "2026-04-16T21:34:24.283293",
+      "ship_count": 12,
+      "cargo_value": 2038960.5263157894
+    },
+    {
+      "timestamp": "2026-04-16T21:59:22.632387",
+      "ship_count": 12,
+      "cargo_value": 2040307.894736842
+    },
+    {
+      "timestamp": "2026-04-17T14:48:21.795681",
+      "ship_count": 22,
+      "cargo_value": 1820423.6842105263
+    }
+  ],
+  "Канада": [
+    {
+      "timestamp": "2026-04-13T17:02:02.076010",
+      "ship_count": 5,
+      "cargo_value": 2101694.736842105
+    },
+    {
+      "timestamp": "2026-04-13T17:29:34.232466",
+      "ship_count": 5,
+      "cargo_value": 2099852.6315789474
+    },
+    {
+      "timestamp": "2026-04-13T18:34:56.083045",
+      "ship_count": 5,
+      "cargo_value": 2100089.4736842103
+    },
+    {
+      "timestamp": "2026-04-13T19:35:18.001890",
+      "ship_count": 5,
+      "cargo_value": 2100089.4736842103
+    },
+    {
+      "timestamp": "2026-04-13T19:56:03.484757",
+      "ship_count": 5,
+      "cargo_value": 2100089.4736842103
+    },
+    {
+      "timestamp": "2026-04-13T20:24:25.371554",
+      "ship_count": 5,
+      "cargo_value": 2120615.789473684
+    },
+    {
+      "timestamp": "2026-04-13T21:03:19.683203",
+      "ship_count": 5,
+      "cargo_value": 2119028.947368421
+    },
+    {
+      "timestamp": "2026-04-13T21:38:34.525147",
+      "ship_count": 5,
+      "cargo_value": 2122128.947368421
+    },
+    {
+      "timestamp": "2026-04-14T15:03:28.976892",
+      "ship_count": 5,
+      "cargo_value": 1587570.0
+    },
+    {
+      "timestamp": "2026-04-14T15:23:59.892736",
+      "ship_count": 5,
+      "cargo_value": 1743570.0
+    },
+    {
+      "timestamp": "2026-04-14T16:26:24.114827",
+      "ship_count": 5,
+      "cargo_value": 1743687.5
+    },
+    {
+      "timestamp": "2026-04-14T16:52:18.385386",
+      "ship_count": 5,
+      "cargo_value": 1743950.0
+    },
+    {
+      "timestamp": "2026-04-14T17:35:00.553757",
+      "ship_count": 5,
+      "cargo_value": 1743950.0
+    },
+    {
+      "timestamp": "2026-04-14T18:07:02.486122",
+      "ship_count": 5,
+      "cargo_value": 1743950.0
+    },
+    {
+      "timestamp": "2026-04-14T18:54:37.378902",
+      "ship_count": 5,
+      "cargo_value": 1743950.0
+    },
+    {
+      "timestamp": "2026-04-14T20:58:33.027249",
+      "ship_count": 5,
+      "cargo_value": 1743950.0
+    },
+    {
+      "timestamp": "2026-04-14T21:16:50.467980",
+      "ship_count": 5,
+      "cargo_value": 1743950.0
+    },
+    {
+      "timestamp": "2026-04-14T21:28:36.809232",
+      "ship_count": 5,
+      "cargo_value": 1743950.0
+    },
+    {
+      "timestamp": "2026-04-14T21:37:41.721765",
+      "ship_count": 5,
+      "cargo_value": 1743950.0
+    },
+    {
+      "timestamp": "2026-04-15T15:32:14.921743",
+      "ship_count": 5,
+      "cargo_value": 1783886.8421052631
+    },
+    {
+      "timestamp": "2026-04-15T18:34:19.772952",
+      "ship_count": 5,
+      "cargo_value": 1831728.9473684211
+    },
+    {
+      "timestamp": "2026-04-15T19:09:41.596140",
+      "ship_count": 5,
+      "cargo_value": 1831728.9473684211
+    },
+    {
+      "timestamp": "2026-04-15T20:11:03.864406",
+      "ship_count": 5,
+      "cargo_value": 1819886.8421052631
+    },
+    {
+      "timestamp": "2026-04-16T11:45:14.822237",
+      "ship_count": 5,
+      "cargo_value": 1945523.6842105263
+    },
+    {
+      "timestamp": "2026-04-16T18:04:57.067018",
+      "ship_count": 5,
+      "cargo_value": 2023376.3157894737
+    },
+    {
+      "timestamp": "2026-04-16T19:06:35.534986",
+      "ship_count": 5,
+      "cargo_value": 2020244.7368421052
+    },
+    {
+      "timestamp": "2026-04-16T20:53:30.390816",
+      "ship_count": 5,
+      "cargo_value": 2006876.3157894737
+    },
+    {
+      "timestamp": "2026-04-16T21:34:24.283320",
+      "ship_count": 5,
+      "cargo_value": 2038960.5263157894
+    },
+    {
+      "timestamp": "2026-04-16T21:59:22.632407",
+      "ship_count": 5,
+      "cargo_value": 2040307.894736842
+    },
+    {
+      "timestamp": "2026-04-17T14:48:21.795713",
+      "ship_count": 5,
+      "cargo_value": 1820423.6842105263
+    }
+  ],
+  "Польша": [
+    {
+      "timestamp": "2026-04-13T17:02:02.076017",
+      "ship_count": 5,
+      "cargo_value": 2101694.736842105
+    },
+    {
+      "timestamp": "2026-04-13T17:29:34.232470",
+      "ship_count": 5,
+      "cargo_value": 2099852.6315789474
+    },
+    {
+      "timestamp": "2026-04-13T18:34:56.083049",
+      "ship_count": 5,
+      "cargo_value": 2100089.4736842103
+    },
+    {
+      "timestamp": "2026-04-13T19:35:18.001894",
+      "ship_count": 5,
+      "cargo_value": 2100089.4736842103
+    },
+    {
+      "timestamp": "2026-04-13T19:56:03.484761",
+      "ship_count": 5,
+      "cargo_value": 2100089.4736842103
+    },
+    {
+      "timestamp": "2026-04-13T20:24:25.371557",
+      "ship_count": 5,
+      "cargo_value": 2120615.789473684
+    },
+    {
+      "timestamp": "2026-04-13T21:03:19.683208",
+      "ship_count": 5,
+      "cargo_value": 2119028.947368421
+    },
+    {
+      "timestamp": "2026-04-13T21:38:34.525152",
+      "ship_count": 5,
+      "cargo_value": 2122128.947368421
+    },
+    {
+      "timestamp": "2026-04-14T15:03:28.976896",
+      "ship_count": 5,
+      "cargo_value": 1587570.0
+    },
+    {
+      "timestamp": "2026-04-14T15:23:59.892740",
+      "ship_count": 5,
+      "cargo_value": 1743570.0
+    },
+    {
+      "timestamp": "2026-04-14T16:26:24.114832",
+      "ship_count": 5,
+      "cargo_value": 1743687.5
+    },
+    {
+      "timestamp": "2026-04-14T16:52:18.385390",
+      "ship_count": 5,
+      "cargo_value": 1743950.0
+    },
+    {
+      "timestamp": "2026-04-14T17:35:00.553762",
+      "ship_count": 5,
+      "cargo_value": 1743950.0
+    },
+    {
+      "timestamp": "2026-04-14T18:07:02.486126",
+      "ship_count": 5,
+      "cargo_value": 1743950.0
+    },
+    {
+      "timestamp": "2026-04-14T18:54:37.378907",
+      "ship_count": 5,
+      "cargo_value": 1743950.0
+    },
+    {
+      "timestamp": "2026-04-14T20:58:33.027485",
+      "ship_count": 5,
+      "cargo_value": 1743950.0
+    },
+    {
+      "timestamp": "2026-04-14T21:16:50.467984",
+      "ship_count": 5,
+      "cargo_value": 1743950.0
+    },
+    {
+      "timestamp": "2026-04-14T21:28:36.809236",
+      "ship_count": 5,
+      "cargo_value": 1743950.0
+    },
+    {
+      "timestamp": "2026-04-14T21:37:41.721770",
+      "ship_count": 5,
+      "cargo_value": 1743950.0
+    },
+    {
+      "timestamp": "2026-04-15T15:32:14.921747",
+      "ship_count": 5,
+      "cargo_value": 1783886.8421052631
+    },
+    {
+      "timestamp": "2026-04-15T18:34:19.772956",
+      "ship_count": 5,
+      "cargo_value": 1831728.9473684211
+    },
+    {
+      "timestamp": "2026-04-15T19:09:41.596145",
+      "ship_count": 5,
+      "cargo_value": 1831728.9473684211
+    },
+    {
+      "timestamp": "2026-04-15T20:11:03.864410",
+      "ship_count": 5,
+      "cargo_value": 1819886.8421052631
+    },
+    {
+      "timestamp": "2026-04-16T11:45:14.822241",
+      "ship_count": 5,
+      "cargo_value": 1945523.6842105263
+    },
+    {
+      "timestamp": "2026-04-16T18:04:57.067023",
+      "ship_count": 5,
+      "cargo_value": 2023376.3157894737
+    },
+    {
+      "timestamp": "2026-04-16T19:06:35.534990",
+      "ship_count": 5,
+      "cargo_value": 2020244.7368421052
+    },
+    {
+      "timestamp": "2026-04-16T20:53:30.390820",
+      "ship_count": 5,
+      "cargo_value": 2006876.3157894737
+    },
+    {
+      "timestamp": "2026-04-16T21:34:24.283324",
+      "ship_count": 5,
+      "cargo_value": 2038960.5263157894
+    },
+    {
+      "timestamp": "2026-04-16T21:59:22.632411",
+      "ship_count": 5,
+      "cargo_value": 2040307.894736842
+    },
+    {
+      "timestamp": "2026-04-17T14:48:21.795717",
+      "ship_count": 5,
+      "cargo_value": 1820423.6842105263
+    }
+  ],
+  "Швеция": [
+    {
+      "timestamp": "2026-04-13T17:02:02.075939",
+      "ship_count": 33,
+      "cargo_value": 2101694.736842105
+    },
+    {
+      "timestamp": "2026-04-13T17:29:34.232420",
+      "ship_count": 33,
+      "cargo_value": 2099852.6315789474
+    },
+    {
+      "timestamp": "2026-04-13T18:34:56.083001",
+      "ship_count": 33,
+      "cargo_value": 2100089.4736842103
+    },
+    {
+      "timestamp": "2026-04-13T19:35:18.001845",
+      "ship_count": 33,
+      "cargo_value": 2100089.4736842103
+    },
+    {
+      "timestamp": "2026-04-13T19:56:03.484708",
+      "ship_count": 33,
+      "cargo_value": 2100089.4736842103
+    },
+    {
+      "timestamp": "2026-04-13T20:24:25.371512",
+      "ship_count": 33,
+      "cargo_value": 2120615.789473684
+    },
+    {
+      "timestamp": "2026-04-13T21:03:19.683152",
+      "ship_count": 33,
+      "cargo_value": 2119028.947368421
+    },
+    {
+      "timestamp": "2026-04-13T21:38:34.525096",
+      "ship_count": 33,
+      "cargo_value": 2122128.947368421
+    },
+    {
+      "timestamp": "2026-04-14T15:03:28.976901",
+      "ship_count": 6,
+      "cargo_value": 1587570.0
+    },
+    {
+      "timestamp": "2026-04-14T15:23:59.892743",
+      "ship_count": 6,
+      "cargo_value": 1743570.0
+    },
+    {
+      "timestamp": "2026-04-14T16:26:24.114838",
+      "ship_count": 6,
+      "cargo_value": 1743687.5
+    },
+    {
+      "timestamp": "2026-04-14T16:52:18.385394",
+      "ship_count": 6,
+      "cargo_value": 1743950.0
+    },
+    {
+      "timestamp": "2026-04-14T17:35:00.553766",
+      "ship_count": 6,
+      "cargo_value": 1743950.0
+    },
+    {
+      "timestamp": "2026-04-14T18:07:02.486130",
+      "ship_count": 6,
+      "cargo_value": 1743950.0
+    },
+    {
+      "timestamp": "2026-04-14T18:54:37.378912",
+      "ship_count": 6,
+      "cargo_value": 1743950.0
+    },
+    {
+      "timestamp": "2026-04-14T20:58:33.027496",
+      "ship_count": 6,
+      "cargo_value": 1743950.0
+    },
+    {
+      "timestamp": "2026-04-14T21:16:50.467989",
+      "ship_count": 6,
+      "cargo_value": 1743950.0
+    },
+    {
+      "timestamp": "2026-04-14T21:28:36.809241",
+      "ship_count": 6,
+      "cargo_value": 1743950.0
+    },
+    {
+      "timestamp": "2026-04-14T21:37:41.721775",
+      "ship_count": 6,
+      "cargo_value": 1743950.0
+    },
+    {
+      "timestamp": "2026-04-15T15:32:14.921714",
+      "ship_count": 21,
+      "cargo_value": 1783886.8421052631
+    },
+    {
+      "timestamp": "2026-04-15T18:34:19.772919",
+      "ship_count": 21,
+      "cargo_value": 1831728.9473684211
+    },
+    {
+      "timestamp": "2026-04-15T19:09:41.596110",
+      "ship_count": 21,
+      "cargo_value": 1831728.9473684211
+    },
+    {
+      "timestamp": "2026-04-15T20:11:03.864378",
+      "ship_count": 21,
+      "cargo_value": 1819886.8421052631
+    },
+    {
+      "timestamp": "2026-04-16T11:45:14.822190",
+      "ship_count": 33,
+      "cargo_value": 1945523.6842105263
+    },
+    {
+      "timestamp": "2026-04-16T18:04:57.066968",
+      "ship_count": 33,
+      "cargo_value": 2023376.3157894737
+    },
+    {
+      "timestamp": "2026-04-16T19:06:35.534941",
+      "ship_count": 33,
+      "cargo_value": 2020244.7368421052
+    },
+    {
+      "timestamp": "2026-04-16T20:53:30.390775",
+      "ship_count": 33,
+      "cargo_value": 2006876.3157894737
+    },
+    {
+      "timestamp": "2026-04-16T21:34:24.283272",
+      "ship_count": 33,
+      "cargo_value": 2038960.5263157894
+    },
+    {
+      "timestamp": "2026-04-16T21:59:22.632366",
+      "ship_count": 33,
+      "cargo_value": 2040307.894736842
+    },
+    {
+      "timestamp": "2026-04-17T14:48:21.795686",
+      "ship_count": 26,
+      "cargo_value": 1820423.6842105263
+    }
+  ],
+  "Финляндия": [
+    {
+      "timestamp": "2026-04-13T17:02:02.075950",
+      "ship_count": 19,
+      "cargo_value": 2101694.736842105
+    },
+    {
+      "timestamp": "2026-04-13T17:29:34.232425",
+      "ship_count": 19,
+      "cargo_value": 2099852.6315789474
+    },
+    {
+      "timestamp": "2026-04-13T18:34:56.083007",
+      "ship_count": 19,
+      "cargo_value": 2100089.4736842103
+    },
+    {
+      "timestamp": "2026-04-13T19:35:18.001853",
+      "ship_count": 19,
+      "cargo_value": 2100089.4736842103
+    },
+    {
+      "timestamp": "2026-04-13T19:56:03.484714",
+      "ship_count": 19,
+      "cargo_value": 2100089.4736842103
+    },
+    {
+      "timestamp": "2026-04-13T20:24:25.371518",
+      "ship_count": 19,
+      "cargo_value": 2120615.789473684
+    },
+    {
+      "timestamp": "2026-04-13T21:03:19.683159",
+      "ship_count": 19,
+      "cargo_value": 2119028.947368421
+    },
+    {
+      "timestamp": "2026-04-13T21:38:34.525102",
+      "ship_count": 19,
+      "cargo_value": 2122128.947368421
+    },
+    {
+      "timestamp": "2026-04-14T15:03:28.976905",
+      "ship_count": 4,
+      "cargo_value": 1587570.0
+    },
+    {
+      "timestamp": "2026-04-14T15:23:59.892748",
+      "ship_count": 4,
+      "cargo_value": 1743570.0
+    },
+    {
+      "timestamp": "2026-04-14T16:26:24.114843",
+      "ship_count": 4,
+      "cargo_value": 1743687.5
+    },
+    {
+      "timestamp": "2026-04-14T16:52:18.385398",
+      "ship_count": 4,
+      "cargo_value": 1743950.0
+    },
+    {
+      "timestamp": "2026-04-14T17:35:00.553770",
+      "ship_count": 4,
+      "cargo_value": 1743950.0
+    },
+    {
+      "timestamp": "2026-04-14T18:07:02.486134",
+      "ship_count": 4,
+      "cargo_value": 1743950.0
+    },
+    {
+      "timestamp": "2026-04-14T18:54:37.378917",
+      "ship_count": 4,
+      "cargo_value": 1743950.0
+    },
+    {
+      "timestamp": "2026-04-14T20:58:33.027501",
+      "ship_count": 4,
+      "cargo_value": 1743950.0
+    },
+    {
+      "timestamp": "2026-04-14T21:16:50.467993",
+      "ship_count": 4,
+      "cargo_value": 1743950.0
+    },
+    {
+      "timestamp": "2026-04-14T21:28:36.809244",
+      "ship_count": 4,
+      "cargo_value": 1743950.0
+    },
+    {
+      "timestamp": "2026-04-14T21:37:41.721779",
+      "ship_count": 4,
+      "cargo_value": 1743950.0
+    },
+    {
+      "timestamp": "2026-04-15T15:32:14.921699",
+      "ship_count": 21,
+      "cargo_value": 1783886.8421052631
+    },
+    {
+      "timestamp": "2026-04-15T18:34:19.772904",
+      "ship_count": 21,
+      "cargo_value": 1831728.9473684211
+    },
+    {
+      "timestamp": "2026-04-15T19:09:41.596096",
+      "ship_count": 21,
+      "cargo_value": 1831728.9473684211
+    },
+    {
+      "timestamp": "2026-04-15T20:11:03.864365",
+      "ship_count": 21,
+      "cargo_value": 1819886.8421052631
+    },
+    {
+      "timestamp": "2026-04-16T11:45:14.822196",
+      "ship_count": 21,
+      "cargo_value": 1945523.6842105263
+    },
+    {
+      "timestamp": "2026-04-16T18:04:57.066974",
+      "ship_count": 21,
+      "cargo_value": 2023376.3157894737
+    },
+    {
+      "timestamp": "2026-04-16T19:06:35.534946",
+      "ship_count": 21,
+      "cargo_value": 2020244.7368421052
+    },
+    {
+      "timestamp": "2026-04-16T20:53:30.390780",
+      "ship_count": 21,
+      "cargo_value": 2006876.3157894737
+    },
+    {
+      "timestamp": "2026-04-16T21:34:24.283276",
+      "ship_count": 21,
+      "cargo_value": 2038960.5263157894
+    },
+    {
+      "timestamp": "2026-04-16T21:59:22.632371",
+      "ship_count": 21,
+      "cargo_value": 2040307.894736842
+    },
+    {
+      "timestamp": "2026-04-17T14:48:21.795666",
+      "ship_count": 17,
+      "cargo_value": 1820423.6842105263
+    }
+  ],
+  "Украина": [
+    {
+      "timestamp": "2026-04-13T17:02:02.076024",
+      "ship_count": 4,
+      "cargo_value": 2101694.736842105
+    },
+    {
+      "timestamp": "2026-04-13T17:29:34.232475",
+      "ship_count": 4,
+      "cargo_value": 2099852.6315789474
+    },
+    {
+      "timestamp": "2026-04-13T18:34:56.083054",
+      "ship_count": 4,
+      "cargo_value": 2100089.4736842103
+    },
+    {
+      "timestamp": "2026-04-13T19:35:18.001899",
+      "ship_count": 4,
+      "cargo_value": 2100089.4736842103
+    },
+    {
+      "timestamp": "2026-04-13T19:56:03.484766",
+      "ship_count": 4,
+      "cargo_value": 2100089.4736842103
+    },
+    {
+      "timestamp": "2026-04-13T20:24:25.371561",
+      "ship_count": 4,
+      "cargo_value": 2120615.789473684
+    },
+    {
+      "timestamp": "2026-04-13T21:03:19.683213",
+      "ship_count": 4,
+      "cargo_value": 2119028.947368421
+    },
+    {
+      "timestamp": "2026-04-13T21:38:34.525157",
+      "ship_count": 4,
+      "cargo_value": 2122128.947368421
+    },
+    {
+      "timestamp": "2026-04-14T15:03:28.976910",
+      "ship_count": 4,
+      "cargo_value": 1587570.0
+    },
+    {
+      "timestamp": "2026-04-14T15:23:59.892752",
+      "ship_count": 4,
+      "cargo_value": 1743570.0
+    },
+    {
+      "timestamp": "2026-04-14T16:26:24.114848",
+      "ship_count": 4,
+      "cargo_value": 1743687.5
+    },
+    {
+      "timestamp": "2026-04-14T16:52:18.385402",
+      "ship_count": 4,
+      "cargo_value": 1743950.0
+    },
+    {
+      "timestamp": "2026-04-14T17:35:00.553774",
+      "ship_count": 4,
+      "cargo_value": 1743950.0
+    },
+    {
+      "timestamp": "2026-04-14T18:07:02.486139",
+      "ship_count": 4,
+      "cargo_value": 1743950.0
+    },
+    {
+      "timestamp": "2026-04-14T18:54:37.378922",
+      "ship_count": 4,
+      "cargo_value": 1743950.0
+    },
+    {
+      "timestamp": "2026-04-14T20:58:33.027506",
+      "ship_count": 4,
+      "cargo_value": 1743950.0
+    },
+    {
+      "timestamp": "2026-04-14T21:16:50.467996",
+      "ship_count": 4,
+      "cargo_value": 1743950.0
+    },
+    {
+      "timestamp": "2026-04-14T21:28:36.809249",
+      "ship_count": 4,
+      "cargo_value": 1743950.0
+    },
+    {
+      "timestamp": "2026-04-14T21:37:41.721785",
+      "ship_count": 4,
+      "cargo_value": 1743950.0
+    },
+    {
+      "timestamp": "2026-04-15T15:32:14.921751",
+      "ship_count": 4,
+      "cargo_value": 1783886.8421052631
+    },
+    {
+      "timestamp": "2026-04-15T18:34:19.772962",
+      "ship_count": 4,
+      "cargo_value": 1831728.9473684211
+    },
+    {
+      "timestamp": "2026-04-15T19:09:41.596148",
+      "ship_count": 4,
+      "cargo_value": 1831728.9473684211
+    },
+    {
+      "timestamp": "2026-04-15T20:11:03.864413",
+      "ship_count": 4,
+      "cargo_value": 1819886.8421052631
+    },
+    {
+      "timestamp": "2026-04-16T11:45:14.822246",
+      "ship_count": 4,
+      "cargo_value": 1945523.6842105263
+    },
+    {
+      "timestamp": "2026-04-16T18:04:57.067028",
+      "ship_count": 4,
+      "cargo_value": 2023376.3157894737
+    },
+    {
+      "timestamp": "2026-04-16T19:06:35.534994",
+      "ship_count": 4,
+      "cargo_value": 2020244.7368421052
+    },
+    {
+      "timestamp": "2026-04-16T20:53:30.390824",
+      "ship_count": 4,
+      "cargo_value": 2006876.3157894737
+    },
+    {
+      "timestamp": "2026-04-16T21:34:24.283328",
+      "ship_count": 4,
+      "cargo_value": 2038960.5263157894
+    },
+    {
+      "timestamp": "2026-04-16T21:59:22.632415",
+      "ship_count": 4,
+      "cargo_value": 2040307.894736842
+    },
+    {
+      "timestamp": "2026-04-17T14:48:21.795720",
+      "ship_count": 4,
+      "cargo_value": 1820423.6842105263
+    }
+  ],
+  "КНДР": [
+    {
+      "timestamp": "2026-04-13T17:02:02.076029",
+      "ship_count": 3,
+      "cargo_value": 2101694.736842105
+    },
+    {
+      "timestamp": "2026-04-13T17:29:34.232479",
+      "ship_count": 3,
+      "cargo_value": 2099852.6315789474
+    },
+    {
+      "timestamp": "2026-04-13T18:34:56.083058",
+      "ship_count": 3,
+      "cargo_value": 2100089.4736842103
+    },
+    {
+      "timestamp": "2026-04-13T19:35:18.001903",
+      "ship_count": 3,
+      "cargo_value": 2100089.4736842103
+    },
+    {
+      "timestamp": "2026-04-13T19:56:03.484771",
+      "ship_count": 3,
+      "cargo_value": 2100089.4736842103
+    },
+    {
+      "timestamp": "2026-04-13T20:24:25.371565",
+      "ship_count": 3,
+      "cargo_value": 2120615.789473684
+    },
+    {
+      "timestamp": "2026-04-13T21:03:19.683218",
+      "ship_count": 3,
+      "cargo_value": 2119028.947368421
+    },
+    {
+      "timestamp": "2026-04-13T21:38:34.525162",
+      "ship_count": 3,
+      "cargo_value": 2122128.947368421
+    },
+    {
+      "timestamp": "2026-04-14T15:03:28.976914",
+      "ship_count": 3,
+      "cargo_value": 1587570.0
+    },
+    {
+      "timestamp": "2026-04-14T15:23:59.892756",
+      "ship_count": 3,
+      "cargo_value": 1743570.0
+    },
+    {
+      "timestamp": "2026-04-14T16:26:24.114853",
+      "ship_count": 3,
+      "cargo_value": 1743687.5
+    },
+    {
+      "timestamp": "2026-04-14T16:52:18.385407",
+      "ship_count": 3,
+      "cargo_value": 1743950.0
+    },
+    {
+      "timestamp": "2026-04-14T17:35:00.553777",
+      "ship_count": 3,
+      "cargo_value": 1743950.0
+    },
+    {
+      "timestamp": "2026-04-14T18:07:02.486142",
+      "ship_count": 3,
+      "cargo_value": 1743950.0
+    },
+    {
+      "timestamp": "2026-04-14T18:54:37.378927",
+      "ship_count": 3,
+      "cargo_value": 1743950.0
+    },
+    {
+      "timestamp": "2026-04-14T20:58:33.027511",
+      "ship_count": 3,
+      "cargo_value": 1743950.0
+    },
+    {
+      "timestamp": "2026-04-14T21:16:50.468000",
+      "ship_count": 3,
+      "cargo_value": 1743950.0
+    },
+    {
+      "timestamp": "2026-04-14T21:28:36.809252",
+      "ship_count": 3,
+      "cargo_value": 1743950.0
+    },
+    {
+      "timestamp": "2026-04-14T21:37:41.721789",
+      "ship_count": 3,
+      "cargo_value": 1743950.0
+    },
+    {
+      "timestamp": "2026-04-15T15:32:14.921754",
+      "ship_count": 4,
+      "cargo_value": 1783886.8421052631
+    },
+    {
+      "timestamp": "2026-04-15T18:34:19.772966",
+      "ship_count": 4,
+      "cargo_value": 1831728.9473684211
+    },
+    {
+      "timestamp": "2026-04-15T19:09:41.596152",
+      "ship_count": 4,
+      "cargo_value": 1831728.9473684211
+    },
+    {
+      "timestamp": "2026-04-15T20:11:03.864417",
+      "ship_count": 4,
+      "cargo_value": 1819886.8421052631
+    },
+    {
+      "timestamp": "2026-04-16T11:45:14.822250",
+      "ship_count": 3,
+      "cargo_value": 1945523.6842105263
+    },
+    {
+      "timestamp": "2026-04-16T18:04:57.067032",
+      "ship_count": 3,
+      "cargo_value": 2023376.3157894737
+    },
+    {
+      "timestamp": "2026-04-16T19:06:35.534998",
+      "ship_count": 3,
+      "cargo_value": 2020244.7368421052
+    },
+    {
+      "timestamp": "2026-04-16T20:53:30.390828",
+      "ship_count": 3,
+      "cargo_value": 2006876.3157894737
+    },
+    {
+      "timestamp": "2026-04-16T21:34:24.283332",
+      "ship_count": 3,
+      "cargo_value": 2038960.5263157894
+    },
+    {
+      "timestamp": "2026-04-16T21:59:22.632419",
+      "ship_count": 3,
+      "cargo_value": 2040307.894736842
+    },
+    {
+      "timestamp": "2026-04-17T14:48:21.795724",
+      "ship_count": 3,
+      "cargo_value": 1820423.6842105263
+    }
+  ],
+  "Сирия": [
+    {
+      "timestamp": "2026-04-13T17:02:02.076001",
+      "ship_count": 1,
+      "cargo_value": 2101694.736842105
+    },
+    {
+      "timestamp": "2026-04-13T17:29:34.232461",
+      "ship_count": 1,
+      "cargo_value": 2099852.6315789474
+    },
+    {
+      "timestamp": "2026-04-13T18:34:56.083040",
+      "ship_count": 1,
+      "cargo_value": 2100089.4736842103
+    },
+    {
+      "timestamp": "2026-04-13T19:35:18.001885",
+      "ship_count": 1,
+      "cargo_value": 2100089.4736842103
+    },
+    {
+      "timestamp": "2026-04-13T19:56:03.484751",
+      "ship_count": 1,
+      "cargo_value": 2100089.4736842103
+    },
+    {
+      "timestamp": "2026-04-13T20:24:25.371549",
+      "ship_count": 1,
+      "cargo_value": 2120615.789473684
+    },
+    {
+      "timestamp": "2026-04-13T21:03:19.683198",
+      "ship_count": 1,
+      "cargo_value": 2119028.947368421
+    },
+    {
+      "timestamp": "2026-04-13T21:38:34.525141",
+      "ship_count": 1,
+      "cargo_value": 2122128.947368421
+    },
+    {
+      "timestamp": "2026-04-14T15:03:28.976919",
+      "ship_count": 2,
+      "cargo_value": 1587570.0
+    },
+    {
+      "timestamp": "2026-04-14T15:23:59.892760",
+      "ship_count": 2,
+      "cargo_value": 1743570.0
+    },
+    {
+      "timestamp": "2026-04-14T16:26:24.114858",
+      "ship_count": 2,
+      "cargo_value": 1743687.5
+    },
+    {
+      "timestamp": "2026-04-14T16:52:18.385411",
+      "ship_count": 2,
+      "cargo_value": 1743950.0
+    },
+    {
+      "timestamp": "2026-04-14T17:35:00.553782",
+      "ship_count": 2,
+      "cargo_value": 1743950.0
+    },
+    {
+      "timestamp": "2026-04-14T18:07:02.486146",
+      "ship_count": 2,
+      "cargo_value": 1743950.0
+    },
+    {
+      "timestamp": "2026-04-14T18:54:37.378931",
+      "ship_count": 2,
+      "cargo_value": 1743950.0
+    },
+    {
+      "timestamp": "2026-04-14T20:58:33.027515",
+      "ship_count": 2,
+      "cargo_value": 1743950.0
+    },
+    {
+      "timestamp": "2026-04-14T21:16:50.468004",
+      "ship_count": 2,
+      "cargo_value": 1743950.0
+    },
+    {
+      "timestamp": "2026-04-14T21:28:36.809256",
+      "ship_count": 2,
+      "cargo_value": 1743950.0
+    },
+    {
+      "timestamp": "2026-04-14T21:37:41.721794",
+      "ship_count": 2,
+      "cargo_value": 1743950.0
+    },
+    {
+      "timestamp": "2026-04-15T15:32:14.921734",
+      "ship_count": 4,
+      "cargo_value": 1783886.8421052631
+    },
+    {
+      "timestamp": "2026-04-15T18:34:19.772942",
+      "ship_count": 4,
+      "cargo_value": 1831728.9473684211
+    },
+    {
+      "timestamp": "2026-04-15T19:09:41.596131",
+      "ship_count": 4,
+      "cargo_value": 1831728.9473684211
+    },
+    {
+      "timestamp": "2026-04-15T20:11:03.864398",
+      "ship_count": 4,
+      "cargo_value": 1819886.8421052631
+    },
+    {
+      "timestamp": "2026-04-16T11:45:14.822229",
+      "ship_count": 4,
+      "cargo_value": 1945523.6842105263
+    },
+    {
+      "timestamp": "2026-04-16T18:04:57.067008",
+      "ship_count": 4,
+      "cargo_value": 2023376.3157894737
+    },
+    {
+      "timestamp": "2026-04-16T19:06:35.534978",
+      "ship_count": 4,
+      "cargo_value": 2020244.7368421052
+    },
+    {
+      "timestamp": "2026-04-16T20:53:30.390809",
+      "ship_count": 4,
+      "cargo_value": 2006876.3157894737
+    },
+    {
+      "timestamp": "2026-04-16T21:34:24.283312",
+      "ship_count": 4,
+      "cargo_value": 2038960.5263157894
+    },
+    {
+      "timestamp": "2026-04-16T21:59:22.632399",
+      "ship_count": 4,
+      "cargo_value": 2040307.894736842
+    },
+    {
+      "timestamp": "2026-04-17T14:48:21.795704",
+      "ship_count": 4,
+      "cargo_value": 1820423.6842105263
+    }
+  ]
+}

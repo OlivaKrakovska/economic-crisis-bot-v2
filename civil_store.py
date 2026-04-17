@@ -1,6 +1,6 @@
-# civil_store.py - Модуль для покупки гражданской продукции у корпораций
-# НОВАЯ ВЕРСИЯ: Страна → Специализация → Корпорация
-# Корпорации теперь самостоятельные агенты экономики
+# civil_store.py - МУЛЬТИВАЛЮТНАЯ ВЕРСИЯ
+# Корпорации работают с разными валютами (как военные)
+# Только материальные товары, услуги недоступны
 
 import discord
 from discord.ui import Button, View, Select, Modal, TextInput
@@ -21,18 +21,35 @@ from civil_corporations_db import (
 # Импортируем таможенную систему
 from trade_tariffs import TariffSystem
 
-# Импортируем вспомогательные функции
-from utils import get_user_id, get_user_name, send_response, format_number, format_billion, format_time, load_states, save_states
+# Импортируем вспомогательные функции для мультивалютной системы
+from utils import (
+    get_user_id, get_user_name, send_response, format_number, format_billion, 
+    format_time, load_states, save_states, DARK_THEME_COLOR,
+    get_budget, subtract_from_budget, get_currency_code, EXCHANGE_RATES_2019
+)
 
 # Файл для хранения активных заказов
 CIVIL_PRODUCTION_QUEUE_FILE = 'civil_production_queue.json'
 
-# Цвет для эмбедов в тёмной теме Discord
-DARK_THEME_COLOR = 0x2b2d31
+
+# ==================== ВСПОМОГАТЕЛЬНЫЕ ФУНКЦИИ ====================
+
+def get_currency_code_from_country(country_name: str) -> str:
+    """Возвращает код валюты страны"""
+    currency_map = {
+        "США": "USD", "Россия": "RUB", "Китай": "CNY", "Украина": "UAH",
+        "Германия": "EUR", "Франция": "EUR", "Великобритания": "GBP",
+        "Норвегия": "NOK", "Швеция": "SEK", "Финляндия": "EUR",
+        "Польша": "PLN", "Иран": "IRR", "Израиль": "ILS",
+        "Сирия": "SYP", "Бразилия": "BRL", "Турция": "TRY",
+        "Египет": "EGP", "Швейцария": "CHF", "Канада": "CAD",
+        "КНДР": "KPW", "Япония": "JPY", "Беларусь": "BYN",
+    }
+    return currency_map.get(country_name, "USD")
+
 
 # ==================== КАТЕГОРИИ СПЕЦИАЛИЗАЦИЙ ====================
 
-# Группировка специализаций по основным секторам экономики
 SPECIALIZATION_CATEGORIES = {
     "Автомобилестроение": ["cars", "trucks", "buses", "auto_parts"],
     "IT и Технологии": ["software", "it_services", "cloud_services", "cybersecurity", "tech_equipment"],
@@ -54,133 +71,139 @@ SPECIALIZATION_CATEGORIES = {
     "Сельское хозяйство": ["agricultural_machinery", "fertilizers"]
 }
 
-# Обратный маппинг: специализация -> категория
 SPECIALIZATION_TO_CATEGORY = {}
 for category, specializations in SPECIALIZATION_CATEGORIES.items():
     for spec in specializations:
         SPECIALIZATION_TO_CATEGORY[spec] = category
 
-# Человекочитаемые названия специализаций
 SPECIALIZATION_NAMES = {
-    # Автомобилестроение
     "cars": "Легковые автомобили",
     "trucks": "Грузовые автомобили",
     "buses": "Автобусы",
     "auto_parts": "Автозапчасти",
-    
-    # IT и Технологии
     "software": "Программное обеспечение",
     "it_services": "IT-услуги",
     "cloud_services": "Облачные услуги",
     "cybersecurity": "Кибербезопасность",
     "tech_equipment": "Технологическое оборудование",
-    
-    # Электроника
     "consumer_electronics": "Бытовая электроника",
     "computers": "Компьютеры",
     "smartphones": "Смартфоны",
     "tablets": "Планшеты",
-    
-    # Телекоммуникации
     "telecom_services": "Телеком-услуги",
     "mobile_services": "Мобильная связь",
     "internet_services": "Интернет-услуги",
     "telecom_equipment": "Телеком-оборудование",
-    
-    # Финансы
     "banking": "Банковские услуги",
     "investments": "Инвестиции",
     "fintech": "Финтех",
     "insurance": "Страхование",
-    
-    # Промышленность
     "industrial_equipment": "Промышленное оборудование",
     "machine_tools": "Станки",
     "industrial_robots": "Промышленные роботы",
     "construction_machinery": "Строительная техника",
-    
-    # Энергетика
     "energy_equipment": "Энергетическое оборудование",
     "oil": "Нефть",
     "gas_supply": "Газоснабжение",
     "electricity": "Электроэнергия",
-    
-    # Авиация
     "aerospace_equipment": "Авиационное оборудование",
     "airlines": "Авиаперевозки",
     "drones": "Беспилотники",
     "satellite_services": "Спутниковые услуги",
-    
-    # Фармацевтика
     "pharmaceuticals": "Лекарства",
     "medical_supplies": "Медизделия",
     "medical_equipment": "Медоборудование",
-    
-    # Продукты
     "food_products": "Продукты питания",
     "beverages": "Напитки",
     "restaurants": "Рестораны",
     "fast_food": "Фаст-фуд",
-    
-    # Товары
     "furniture": "Мебель",
     "household_goods": "Товары для дома",
     "clothing": "Одежда",
     "footwear": "Обувь",
     "cosmetics": "Косметика",
-    
-    # Медиа
     "media": "Медиа",
     "entertainment": "Развлечения",
     "streaming": "Стриминг",
     "gaming": "Игры",
-    
-    # Логистика
     "logistics": "Логистика",
     "freight": "Грузоперевозки",
     "passenger_transport": "Пассажирские перевозки",
-    
-    # Образование
     "education": "Образование",
     "online_courses": "Онлайн-курсы",
-    
-    # Строительство
     "construction": "Строительство",
     "real_estate": "Недвижимость",
     "property_management": "Управление недвижимостью",
-    
-    # Химия
     "chemicals": "Химия",
     "fertilizers": "Удобрения",
-    
-    # Сельское хозяйство
     "agricultural_machinery": "Сельхозтехника"
 }
 
-# ==================== ВСПОМОГАТЕЛЬНЫЕ ФУНКЦИИ ====================
+
+# ==================== ВРЕМЯ ПРОИЗВОДСТВА ====================
+
+CIVIL_PRODUCTION_SPEED = {
+    "cars": 3600, "trucks": 7200, "buses": 10800,
+    "agricultural_machinery": 5400, "construction_machinery": 7200,
+    "industrial_equipment": 3600, "machine_tools": 5400,
+    "industrial_robots": 7200, "energy_equipment": 7200,
+    "electrical_equipment": 1800, "telecom_equipment": 2700,
+    "tech_equipment": 3600, "aerospace_equipment": 21600,
+    "auto_parts": 900, "electronics_components": 1200,
+    "clothing": 600, "medical_supplies": 900,
+    "medical_equipment": 3600, "sanitary_products": 300,
+    "drones": 1800, "fpv_drones": 900,
+    "food_products": 120,
+    "chemicals": 1800, "pharmaceuticals": 2700,
+    "furniture": 3600, "household_goods": 1800, "consumer_electronics": 2700,
+    "oil": 3600, "gas_supply": 3600, "coal": 1800, "steel": 2700,
+    "aluminum": 1800, "uranium": 7200, "rare_metals": 5400, "gold": 7200,
+    "banking": 0, "insurance": 0, "telecom_services": 0,
+    "internet_services": 0, "mobile_services": 0, "cloud_services": 0,
+    "it_services": 0, "software": 0, "streaming": 0,
+    "education": 0, "online_courses": 0, "entertainment": 0,
+    "logistics": 0, "freight": 0, "passenger_transport": 0,
+    "airlines": 0, "construction": 0, "real_estate": 0,
+    "healthcare_services": 0, "hospital_services": 0, "dentistry": 0,
+    "consulting": 0, "legal": 0, "accounting": 0, "marketing": 0
+}
+
+
+def is_product_goods(product_type: str) -> bool:
+    """Проверяет, является ли продукт материальным товаром (не услугой)"""
+    prod_time = CIVIL_PRODUCTION_SPEED.get(product_type, 3600)
+    return prod_time > 0
+
 
 def get_specialization_category(specialization: str) -> str:
     """Получить категорию для специализации"""
     return SPECIALIZATION_TO_CATEGORY.get(specialization, "Другое")
 
+
 def get_unique_specializations_for_country(country: str) -> List[str]:
-    """Получить уникальные специализации корпораций в стране"""
+    """Получить уникальные специализации корпораций в стране (только товары, не услуги)"""
     specializations = set()
     corps = get_civil_corporations_by_country(country).values()
     for corp in corps:
         if hasattr(corp, 'specialization') and corp.specialization:
             for spec in corp.specialization:
-                specializations.add(spec)
+                if is_product_goods(spec):
+                    specializations.add(spec)
     return sorted(list(specializations))
 
+
 def get_corporations_by_specialization(country: str, specialization: str) -> List:
-    """Получить корпорации в стране по специализации"""
+    """Получить корпорации в стране по специализации (только те, у которых есть товар)"""
     result = []
     corps = get_civil_corporations_by_country(country).values()
     for corp in corps:
         if hasattr(corp, 'specialization') and specialization in corp.specialization:
-            result.append(corp)
+            if specialization in corp.products:
+                prod_time = CIVIL_PRODUCTION_SPEED.get(specialization, 3600)
+                if prod_time > 0:
+                    result.append(corp)
     return result
+
 
 def get_corporation_inventory(corp_id: str) -> Dict:
     """Получить инвентарь корпорации"""
@@ -188,6 +211,7 @@ def get_corporation_inventory(corp_id: str) -> Dict:
     if corp_id in state["corporations"]:
         return state["corporations"][corp_id].inventory
     return {}
+
 
 def update_corporation_inventory(corp_id: str, product_type: str, quantity: int, add: bool = True):
     """Обновить инвентарь корпорации"""
@@ -202,6 +226,7 @@ def update_corporation_inventory(corp_id: str, product_type: str, quantity: int,
         return True
     return False
 
+
 def update_corporation_budget(corp_id: str, amount: float, add: bool = True):
     """Обновить бюджет корпорации"""
     state = load_corporations_state()
@@ -215,48 +240,6 @@ def update_corporation_budget(corp_id: str, amount: float, add: bool = True):
         return True
     return False
 
-# ==================== ВРЕМЯ ПРОИЗВОДСТВА ====================
-
-CIVIL_PRODUCTION_SPEED = {
-    # Автомобили и транспорт
-    "cars": 3600, "trucks": 7200, "buses": 10800,
-    "agricultural_machinery": 5400, "construction_machinery": 7200,
-    
-    # Оборудование
-    "industrial_equipment": 3600, "machine_tools": 5400,
-    "industrial_robots": 7200, "energy_equipment": 7200,
-    "electrical_equipment": 1800, "telecom_equipment": 2700,
-    "tech_equipment": 3600, "aerospace_equipment": 21600,
-    
-    # Комплектующие
-    "auto_parts": 900, "electronics_components": 1200,
-    
-    # Потребительские товары
-    "clothing": 600, "medical_supplies": 900,
-    "medical_equipment": 3600, "sanitary_products": 300,
-    
-    # Дроны
-    "drones": 1800, "fpv_drones": 900,
-    
-    # Продукты
-    "food_products": 120,
-    
-    # Химия и фармацевтика
-    "chemicals": 1800, "pharmaceuticals": 2700,
-    
-    # Товары для дома
-    "furniture": 3600, "household_goods": 1800, "consumer_electronics": 2700,
-    
-    # Услуги (мгновенно)
-    "banking": 0, "insurance": 0, "telecom_services": 0,
-    "internet_services": 0, "mobile_services": 0, "cloud_services": 0,
-    "it_services": 0, "software": 0, "streaming": 0,
-    "education": 0, "online_courses": 0, "entertainment": 0,
-    "logistics": 0, "freight": 0, "passenger_transport": 0,
-    "airlines": 0, "construction": 0, "real_estate": 0,
-    "healthcare_services": 0, "hospital_services": 0, "dentistry": 0,
-    "consulting": 0, "legal": 0, "accounting": 0, "marketing": 0
-}
 
 # ==================== СИСТЕМА ЗАГРУЗКИ/СОХРАНЕНИЯ ПРОИЗВОДСТВА ====================
 
@@ -273,16 +256,17 @@ def load_civil_production_queue():
     except json.JSONDecodeError:
         return {"active_orders": [], "completed_orders": []}
 
+
 def save_civil_production_queue(data):
     """Сохранение очереди гражданского производства"""
     with open(CIVIL_PRODUCTION_QUEUE_FILE, 'w', encoding='utf-8') as f:
         json.dump(data, f, ensure_ascii=False, indent=4)
 
+
 def get_civil_production_time(product_type, quantity=1):
     """Получить общее время производства для заказа"""
     base_time = CIVIL_PRODUCTION_SPEED.get(product_type, 3600)
     
-    # Услуги производятся мгновенно
     if base_time == 0:
         return 0
     
@@ -298,18 +282,37 @@ def get_civil_production_time(product_type, quantity=1):
     else:
         return base_time * (1 + (quantity - 1) * 0.3)
 
-# ==================== ФУНКЦИЯ ПРОВЕРКИ БЛОКИРОВКИ ТОРГОВЛИ ====================
 
-def is_trade_blocked(tariff_system, buyer_country: str, seller_country: str, product_type: str) -> bool:
-    """Проверяет, заблокирована ли торговля между странами"""
-    if tariff_system.is_product_embargoed(seller_country, product_type):
+# ==================== ФУНКЦИЯ ПРОВЕРКИ ДОСТУПНОСТИ ====================
+
+def is_corporation_accessible(buyer_country: str, seller_country: str) -> bool:
+    """Проверяет, доступна ли корпорация из страны продавца для покупателя"""
+    if buyer_country == seller_country:
         return True
     
-    seller_tariff = TariffSystem(seller_country)
-    if seller_tariff.is_product_embargoed(buyer_country, product_type):
+    try:
+        buyer_tariff = TariffSystem(buyer_country)
+        seller_tariff = TariffSystem(seller_country)
+        
+        if buyer_tariff.is_product_embargoed(seller_country, "all"):
+            return False
+        
+        if seller_tariff.is_product_embargoed(buyer_country, "all"):
+            return False
+        
+        specific_tariffs = buyer_tariff.tariffs.get("specific_tariffs", {})
+        if seller_country in specific_tariffs and specific_tariffs[seller_country] >= 100.0:
+            return False
+        
+        seller_specific = seller_tariff.tariffs.get("specific_tariffs", {})
+        if buyer_country in seller_specific and seller_specific[buyer_country] >= 100.0:
+            return False
+        
         return True
-    
-    return False
+        
+    except Exception:
+        return True
+
 
 # ==================== МОДАЛЬНОЕ ОКНО ДЛЯ ВВОДА КОЛИЧЕСТВА ====================
 
@@ -324,7 +327,6 @@ class CivilQuantityModal(Modal, title="Введите количество"):
         self.tariff_system = tariff_system
         self.original_message = original_message
         
-        # Проверяем, есть ли продукт в инвентаре корпорации
         self.corp_state = initialize_corporation_state(corporation)
         available = self.corp_state.inventory.get(product_type, 0)
         
@@ -341,30 +343,35 @@ class CivilQuantityModal(Modal, title="Введите количество"):
     
     async def on_submit(self, interaction: discord.Interaction):
         if interaction.user.id != self.user_id:
-            await interaction.response.send_message("❌ Это не ваше меню!", ephemeral=True)
+            await interaction.response.send_message("Это не ваше меню!", ephemeral=True)
+            return
+        
+        if not is_corporation_accessible(self.player_country, self.corporation.country):
+            await interaction.response.send_message(
+                f"Корпорация {self.corporation.name} недоступна из-за эмбарго!",
+                ephemeral=True
+            )
             return
         
         try:
             quantity = int(self.quantity_input.value)
             if quantity < 1 or quantity > 1000:
-                await interaction.response.send_message("❌ Количество должно быть от 1 до 1000!", ephemeral=True)
+                await interaction.response.send_message("Количество должно быть от 1 до 1000!", ephemeral=True)
                 return
         except ValueError:
-            await interaction.response.send_message("❌ Введите корректное число!", ephemeral=True)
+            await interaction.response.send_message("Введите корректное число!", ephemeral=True)
             return
         
-        # Проверяем наличие в инвентаре
         self.corp_state = initialize_corporation_state(self.corporation)
         available = self.corp_state.inventory.get(self.product_type, 0)
         
         if available > 0 and quantity > available:
             await interaction.response.send_message(
-                f"❌ У корпорации недостаточно товара! Доступно: {available}",
+                f"Недостаточно товара на складе! Доступно: {available}",
                 ephemeral=True
             )
             return
         
-        # Удаляем оригинальное сообщение
         try:
             await self.original_message.delete()
         except:
@@ -387,7 +394,7 @@ class CivilQuantityModal(Modal, title="Введите количество"):
         embed.add_field(name="Корпорация", value=self.corporation.name, inline=True)
         embed.add_field(name="Продукт", value=self.product['name'], inline=True)
         embed.add_field(name="Количество", value=str(quantity), inline=True)
-        embed.add_field(name="Стоимость", value=f"${total_price:,}", inline=True)
+        embed.add_field(name="Стоимость (USD)", value=f"${total_price:,}", inline=True)
         
         if prod_time > 0:
             embed.add_field(name="Время производства", value=format_time(prod_time), inline=True)
@@ -398,6 +405,7 @@ class CivilQuantityModal(Modal, title="Введите количество"):
             embed.add_field(name="Наличие на складе", value=f"{available} ед.", inline=True)
         
         await interaction.response.send_message(embed=embed, view=view, ephemeral=True)
+
 
 # ==================== ВЫБОР СТРАНЫ ====================
 
@@ -412,14 +420,18 @@ class CountrySelect(Select):
         
         countries = list(ALL_CIVIL_CORPORATIONS.keys())
         
-        for country in countries[:25]:
+        for country in sorted(countries)[:25]:
             available_count = 0
             total_count = 0
-            for corp_id, corp in ALL_CIVIL_CORPORATIONS[country].items():
-                if hasattr(corp, 'products') and corp.products:
-                    total_count += 1
-                    if not is_trade_blocked(self.tariff_system, player_country, corp.country, "all"):
-                        available_count += 1
+            if country in ALL_CIVIL_CORPORATIONS:
+                for corp_id, corp in ALL_CIVIL_CORPORATIONS[country].items():
+                    if hasattr(corp, 'products') and corp.products:
+                        for prod_type in corp.products:
+                            if is_product_goods(prod_type):
+                                total_count += 1
+                                if is_corporation_accessible(player_country, corp.country):
+                                    available_count += 1
+                                break
             
             if available_count == 0:
                 emoji = "❌"
@@ -446,7 +458,7 @@ class CountrySelect(Select):
     
     async def callback(self, interaction: discord.Interaction):
         if interaction.user.id != self.user_id:
-            await interaction.response.send_message("❌ Это не ваше меню!", ephemeral=True)
+            await interaction.response.send_message("Это не ваше меню!", ephemeral=True)
             return
         
         country = self.values[0]
@@ -456,7 +468,6 @@ class CountrySelect(Select):
         except:
             pass
         
-        # Переходим к выбору специализации в выбранной стране
         await show_specializations_for_country(interaction, self.user_id, self.player_country, country, self.tariff_system)
 
 
@@ -480,6 +491,15 @@ class SpecializationCategorySelect(Select):
                 )
             )
         
+        if not options:
+            options.append(
+                discord.SelectOption(
+                    label="Нет доступных категорий",
+                    value="none",
+                    default=True
+                )
+            )
+        
         super().__init__(
             placeholder="Выберите категорию...",
             min_values=1,
@@ -489,7 +509,11 @@ class SpecializationCategorySelect(Select):
     
     async def callback(self, interaction: discord.Interaction):
         if interaction.user.id != self.user_id:
-            await interaction.response.send_message("❌ Это не ваше меню!", ephemeral=True)
+            await interaction.response.send_message("Это не ваше меню!", ephemeral=True)
+            return
+        
+        if self.values[0] == "none":
+            await interaction.response.send_message("Нет доступных категорий.", ephemeral=True)
             return
         
         category = self.values[0]
@@ -499,7 +523,6 @@ class SpecializationCategorySelect(Select):
         except:
             pass
         
-        # Показываем конкретные специализации в этой категории
         await show_specializations_in_category(
             interaction, self.user_id, self.player_country, 
             self.country, category, self.tariff_system
@@ -507,7 +530,7 @@ class SpecializationCategorySelect(Select):
 
 
 class SpecializationSelect(Select):
-    """Выбор конкретной специализации"""
+    """Выбор конкретной специализации (только товары)"""
     def __init__(self, user_id, player_country, country, category, specializations, tariff_system):
         self.user_id = user_id
         self.player_country = player_country
@@ -517,12 +540,14 @@ class SpecializationSelect(Select):
         
         options = []
         for spec in specializations[:25]:
+            if not is_product_goods(spec):
+                continue
+                
             spec_name = SPECIALIZATION_NAMES.get(spec, spec)
-            # Считаем доступные корпорации с этой специализацией
             corps = get_corporations_by_specialization(country, spec)
             available = 0
             for corp in corps:
-                if not is_trade_blocked(self.tariff_system, player_country, corp.country, "all"):
+                if is_corporation_accessible(player_country, corp.country):
                     available += 1
             
             options.append(
@@ -530,6 +555,15 @@ class SpecializationSelect(Select):
                     label=spec_name,
                     description=f"{available} корпораций",
                     value=spec
+                )
+            )
+        
+        if not options:
+            options.append(
+                discord.SelectOption(
+                    label="Нет доступных специализаций",
+                    value="none",
+                    default=True
                 )
             )
         
@@ -542,7 +576,11 @@ class SpecializationSelect(Select):
     
     async def callback(self, interaction: discord.Interaction):
         if interaction.user.id != self.user_id:
-            await interaction.response.send_message("❌ Это не ваше меню!", ephemeral=True)
+            await interaction.response.send_message("Это не ваше меню!", ephemeral=True)
+            return
+        
+        if self.values[0] == "none":
+            await interaction.response.send_message("Нет доступных специализаций.", ephemeral=True)
             return
         
         specialization = self.values[0]
@@ -552,7 +590,6 @@ class SpecializationSelect(Select):
         except:
             pass
         
-        # Показываем корпорации с этой специализацией
         await show_corporations_by_specialization(
             interaction, self.user_id, self.player_country,
             self.country, specialization, self.tariff_system
@@ -572,10 +609,12 @@ class CorporationSelect(Select):
         
         options = []
         for corp in corporations[:25]:
-            # Проверяем доступность
-            available = not is_trade_blocked(self.tariff_system, player_country, corp.country, "all")
+            if specialization in corp.products:
+                prod_time = CIVIL_PRODUCTION_SPEED.get(specialization, 3600)
+                if prod_time == 0:
+                    continue
             
-            # Получаем состояние корпорации
+            available = is_corporation_accessible(player_country, corp.country)
             corp_state = initialize_corporation_state(corp)
             inventory = corp_state.inventory.get(specialization, 0)
             popularity = corp_state.popularity
@@ -592,8 +631,17 @@ class CorporationSelect(Select):
                 )
             )
         
+        if not options:
+            options.append(
+                discord.SelectOption(
+                    label="Нет доступных корпораций",
+                    value="none",
+                    default=True
+                )
+            )
+        
         super().__init__(
-            placeholder="Выберите корпорацию...",
+            placeholder="Выберите корпорацию..." if options else "Нет доступных корпораций",
             min_values=1,
             max_values=1,
             options=options
@@ -601,20 +649,31 @@ class CorporationSelect(Select):
     
     async def callback(self, interaction: discord.Interaction):
         if interaction.user.id != self.user_id:
-            await interaction.response.send_message("❌ Это не ваше меню!", ephemeral=True)
+            await interaction.response.send_message("Это не ваше меню!", ephemeral=True)
+            return
+        
+        if self.values[0] == "none":
+            await interaction.response.send_message("Нет доступных корпораций.", ephemeral=True)
             return
         
         corp_id = self.values[0]
         corp = get_civil_corporation(corp_id)
         
         if not corp:
-            await interaction.response.send_message("❌ Корпорация не найдена!", ephemeral=True)
+            await interaction.response.send_message("Корпорация не найдена!", ephemeral=True)
             return
         
-        # Проверяем доступность
-        if is_trade_blocked(self.tariff_system, self.player_country, corp.country, "all"):
+        if not is_corporation_accessible(self.player_country, corp.country):
             await interaction.response.send_message(
-                f"❌ Корпорация {corp.name} недоступна из-за эмбарго!",
+                f"Корпорация {corp.name} недоступна из-за эмбарго!",
+                ephemeral=True
+            )
+            return
+        
+        if not is_product_goods(self.specialization):
+            await interaction.response.send_message(
+                f"{SPECIALIZATION_NAMES.get(self.specialization, self.specialization)} является услугой. "
+                f"Государства не могут закупать услуги у гражданских корпораций.",
                 ephemeral=True
             )
             return
@@ -624,7 +683,6 @@ class CorporationSelect(Select):
         except:
             pass
         
-        # Показываем информацию о корпорации и её продуктах
         await show_corporation_details(
             interaction, self.user_id, self.player_country,
             corp, self.specialization, self.tariff_system
@@ -636,7 +694,17 @@ class CorporationSelect(Select):
 async def show_corporation_details(interaction, user_id, player_country, corporation, specialization, tariff_system):
     """Показать детали корпорации и доступные продукты"""
     
-    # Получаем состояние корпорации
+    if not is_product_goods(specialization):
+        embed = discord.Embed(
+            title="Услуга недоступна",
+            description=f"**{SPECIALIZATION_NAMES.get(specialization, specialization)}** является услугой.\n\n"
+                       f"Государства не могут закупать услуги у гражданских корпораций.\n"
+                       f"Доступны только материальные товары.",
+            color=discord.Color.red()
+        )
+        await interaction.response.send_message(embed=embed, ephemeral=True)
+        return
+    
     corp_state = initialize_corporation_state(corporation)
     inventory = corp_state.inventory.get(specialization, 0)
     
@@ -651,27 +719,24 @@ async def show_corporation_details(interaction, user_id, player_country, corpora
     
     embed.add_field(name="Страна", value=corporation.country, inline=True)
     embed.add_field(name="Город", value=corporation.city, inline=True)
+    embed.add_field(name="Бюджет", value=f"${corp_state.budget:,.0f}", inline=True)
+    embed.add_field(name="Популярность", value=f"{corp_state.popularity}%", inline=True)
+    embed.add_field(name="Наличие", value=f"{inventory} ед.", inline=True)
     
-    # Показываем финансовое состояние
-    embed.add_field(name="💰 Бюджет", value=f"${corp_state.budget:,.0f}", inline=True)
-    embed.add_field(name="📊 Популярность", value=f"{corp_state.popularity}%", inline=True)
-    embed.add_field(name="📦 Наличие", value=f"{inventory} ед.", inline=True)
-    
-    # Информация о продукте
     if specialization in corporation.products:
         product = corporation.products[specialization]
         embed.add_field(
-            name="📦 Продукт",
+            name="Продукт",
             value=f"**{product['name']}**\n{product['description']}",
             inline=False
         )
-        embed.add_field(name="💰 Цена", value=f"${product['price']:,}", inline=True)
+        embed.add_field(name="Цена (USD)", value=f"${product['price']:,}", inline=True)
         
         prod_time = CIVIL_PRODUCTION_SPEED.get(specialization, 3600)
         if prod_time > 0:
-            embed.add_field(name="⏱️ Время производства", value=format_time(prod_time), inline=True)
+            embed.add_field(name="Время производства", value=format_time(prod_time), inline=True)
         else:
-            embed.add_field(name="⏱️ Тип", value="Услуга (мгновенно)", inline=True)
+            embed.add_field(name="Тип", value="Услуга (мгновенно)", inline=True)
     
     view = CorporationActionView(
         user_id, player_country, corporation, specialization,
@@ -692,19 +757,33 @@ class CorporationActionView(View):
         self.product = product
         self.tariff_system = tariff_system
         
-        # Кнопка покупки
-        buy_button = Button(label="🛒 Купить", style=discord.ButtonStyle.secondary)
-        buy_button.callback = self.buy_callback
-        self.add_item(buy_button)
+        if is_product_goods(product_type):
+            buy_button = Button(label="Купить", style=discord.ButtonStyle.secondary)
+            buy_button.callback = self.buy_callback
+            self.add_item(buy_button)
         
-        # Кнопка назад
-        back_button = Button(label="◀ Назад к списку", style=discord.ButtonStyle.secondary)
+        back_button = Button(label="Назад к списку", style=discord.ButtonStyle.secondary)
         back_button.callback = self.back_callback
         self.add_item(back_button)
     
     async def buy_callback(self, interaction: discord.Interaction):
         if interaction.user.id != self.user_id:
-            await interaction.response.send_message("❌ Это не ваше меню!", ephemeral=True)
+            await interaction.response.send_message("Это не ваше меню!", ephemeral=True)
+            return
+        
+        if not is_corporation_accessible(self.player_country, self.corporation.country):
+            await interaction.response.send_message(
+                f"Корпорация {self.corporation.name} недоступна из-за эмбарго!",
+                ephemeral=True
+            )
+            return
+        
+        if not is_product_goods(self.product_type):
+            await interaction.response.send_message(
+                f"{SPECIALIZATION_NAMES.get(self.product_type, self.product_type)} является услугой. "
+                f"Государства не могут закупать услуги у гражданских корпораций.",
+                ephemeral=True
+            )
             return
         
         try:
@@ -723,7 +802,7 @@ class CorporationActionView(View):
             color=DARK_THEME_COLOR
         )
         
-        embed.add_field(name="Цена", value=f"${self.product.get('price', 0):,}", inline=True)
+        embed.add_field(name="Цена (USD)", value=f"${self.product.get('price', 0):,}", inline=True)
         
         prod_time = CIVIL_PRODUCTION_SPEED.get(self.product_type, 3600)
         if prod_time > 0:
@@ -731,11 +810,10 @@ class CorporationActionView(View):
         else:
             embed.add_field(name="Тип", value="Услуга", inline=True)
         
-        # Показываем наличие на складе
         corp_state = initialize_corporation_state(self.corporation)
         available = corp_state.inventory.get(self.product_type, 0)
         if available > 0:
-            embed.add_field(name="📦 На складе", value=f"{available} ед.", inline=True)
+            embed.add_field(name="На складе", value=f"{available} ед.", inline=True)
         
         product_type_name = SPECIALIZATION_NAMES.get(self.product_type, self.product_type)
         embed.add_field(name="Тип", value=product_type_name, inline=False)
@@ -744,7 +822,7 @@ class CorporationActionView(View):
     
     async def back_callback(self, interaction: discord.Interaction):
         if interaction.user.id != self.user_id:
-            await interaction.response.send_message("❌ Это не ваше меню!", ephemeral=True)
+            await interaction.response.send_message("Это не ваше меню!", ephemeral=True)
             return
         
         try:
@@ -752,7 +830,6 @@ class CorporationActionView(View):
         except:
             pass
         
-        # Возвращаемся к выбору специализации
         await show_specializations_for_country(
             interaction, self.user_id, self.player_country,
             self.corporation.country, self.tariff_system
@@ -773,11 +850,10 @@ class CivilQuantitySelector(View):
         self.tariff_system = tariff_system
         self.quantity = 1
         
-        # Получаем доступное количество
         self.corp_state = initialize_corporation_state(corporation)
         self.available = self.corp_state.inventory.get(product_type, 0)
         
-        minus_button = Button(label="➖", style=discord.ButtonStyle.secondary)
+        minus_button = Button(label="-", style=discord.ButtonStyle.secondary)
         minus_button.callback = self.decrease_quantity
         self.add_item(minus_button)
         
@@ -788,7 +864,7 @@ class CivilQuantitySelector(View):
         )
         self.add_item(self.quantity_label)
         
-        plus_button = Button(label="➕", style=discord.ButtonStyle.secondary)
+        plus_button = Button(label="+", style=discord.ButtonStyle.secondary)
         plus_button.callback = self.increase_quantity
         self.add_item(plus_button)
         
@@ -807,7 +883,7 @@ class CivilQuantitySelector(View):
         self.add_item(buy_button)
         
         back_button = Button(
-            label="◀ Назад",
+            label="Назад",
             style=discord.ButtonStyle.secondary
         )
         back_button.callback = self.go_back
@@ -815,7 +891,14 @@ class CivilQuantitySelector(View):
     
     async def decrease_quantity(self, interaction: discord.Interaction):
         if interaction.user.id != self.user_id:
-            await interaction.response.send_message("❌ Это не ваше меню!", ephemeral=True)
+            await interaction.response.send_message("Это не ваше меню!", ephemeral=True)
+            return
+        
+        if not is_corporation_accessible(self.player_country, self.corporation.country):
+            await interaction.response.send_message(
+                f"Корпорация {self.corporation.name} недоступна из-за эмбарго!",
+                ephemeral=True
+            )
             return
         
         if self.quantity > 1:
@@ -827,7 +910,14 @@ class CivilQuantitySelector(View):
     
     async def increase_quantity(self, interaction: discord.Interaction):
         if interaction.user.id != self.user_id:
-            await interaction.response.send_message("❌ Это не ваше меню!", ephemeral=True)
+            await interaction.response.send_message("Это не ваше меню!", ephemeral=True)
+            return
+        
+        if not is_corporation_accessible(self.player_country, self.corporation.country):
+            await interaction.response.send_message(
+                f"Корпорация {self.corporation.name} недоступна из-за эмбарго!",
+                ephemeral=True
+            )
             return
         
         max_quantity = 1000
@@ -843,7 +933,14 @@ class CivilQuantitySelector(View):
     
     async def manual_input(self, interaction: discord.Interaction):
         if interaction.user.id != self.user_id:
-            await interaction.response.send_message("❌ Это не ваше меню!", ephemeral=True)
+            await interaction.response.send_message("Это не ваше меню!", ephemeral=True)
+            return
+        
+        if not is_corporation_accessible(self.player_country, self.corporation.country):
+            await interaction.response.send_message(
+                f"Корпорация {self.corporation.name} недоступна из-за эмбарго!",
+                ephemeral=True
+            )
             return
         
         modal = CivilQuantityModal(
@@ -862,35 +959,41 @@ class CivilQuantitySelector(View):
             color=DARK_THEME_COLOR
         )
         
-        embed.add_field(name="Цена за ед.", value=f"${self.product.get('price', 0):,}", inline=True)
+        embed.add_field(name="Цена за ед. (USD)", value=f"${self.product.get('price', 0):,}", inline=True)
         embed.add_field(name="Количество", value=str(self.quantity), inline=True)
-        embed.add_field(name="Общая сумма", value=f"${total_price:,}", inline=True)
+        embed.add_field(name="Общая сумма (USD)", value=f"${total_price:,}", inline=True)
         
         if prod_time > 0:
             embed.add_field(name="Время производства", value=format_time(prod_time), inline=True)
         
         if self.available > 0:
-            embed.add_field(name="📦 Доступно на складе", value=f"{self.available} ед.", inline=True)
+            embed.add_field(name="Доступно на складе", value=f"{self.available} ед.", inline=True)
         
         await interaction.response.edit_message(embed=embed, view=self)
     
     async def confirm_purchase(self, interaction: discord.Interaction):
         if interaction.user.id != self.user_id:
-            await interaction.response.send_message("❌ Это не ваше меню!", ephemeral=True)
+            await interaction.response.send_message("Это не ваше меню!", ephemeral=True)
             return
         
-        # Проверка эмбарго
-        if is_trade_blocked(self.tariff_system, self.player_country, self.corporation.country, self.product_type):
+        if not is_corporation_accessible(self.player_country, self.corporation.country):
             await interaction.response.send_message(
-                f"❌ Товары из {self.corporation.country} запрещены из-за эмбарго!",
+                f"Корпорация {self.corporation.name} недоступна из-за эмбарго!",
                 ephemeral=True
             )
             return
         
-        # Проверка наличия
+        if not is_product_goods(self.product_type):
+            await interaction.response.send_message(
+                f"{SPECIALIZATION_NAMES.get(self.product_type, self.product_type)} является услугой. "
+                f"Государства не могут закупать услуги у гражданских корпораций.",
+                ephemeral=True
+            )
+            return
+        
         if self.available > 0 and self.quantity > self.available:
             await interaction.response.send_message(
-                f"❌ Недостаточно товара на складе! Доступно: {self.available}",
+                f"Недостаточно товара на складе! Доступно: {self.available}",
                 ephemeral=True
             )
             return
@@ -917,7 +1020,7 @@ class CivilQuantitySelector(View):
         embed.add_field(name="Корпорация", value=self.corporation.name, inline=True)
         embed.add_field(name="Продукт", value=self.product.get('name', 'Неизвестный продукт'), inline=True)
         embed.add_field(name="Количество", value=str(self.quantity), inline=True)
-        embed.add_field(name="Стоимость", value=f"${total_price:,}", inline=True)
+        embed.add_field(name="Стоимость (USD)", value=f"${total_price:,}", inline=True)
         
         if prod_time > 0:
             embed.add_field(name="Время производства", value=format_time(prod_time), inline=True)
@@ -926,7 +1029,14 @@ class CivilQuantitySelector(View):
     
     async def go_back(self, interaction: discord.Interaction):
         if interaction.user.id != self.user_id:
-            await interaction.response.send_message("❌ Это не ваше меню!", ephemeral=True)
+            await interaction.response.send_message("Это не ваше меню!", ephemeral=True)
+            return
+        
+        if not is_corporation_accessible(self.player_country, self.corporation.country):
+            await interaction.response.send_message(
+                f"Корпорация {self.corporation.name} недоступна из-за эмбарго!",
+                ephemeral=True
+            )
             return
         
         try:
@@ -954,17 +1064,17 @@ class CivilPurchaseConfirmation(View):
         self.player_country = player_country
         self.tariff_system = tariff_system
         
-        confirm_button = Button(label="✅ Подтвердить", style=discord.ButtonStyle.secondary)
+        confirm_button = Button(label="Подтвердить", style=discord.ButtonStyle.secondary)
         confirm_button.callback = self.confirm
         self.add_item(confirm_button)
         
-        cancel_button = Button(label="❌ Отмена", style=discord.ButtonStyle.secondary)
+        cancel_button = Button(label="Отмена", style=discord.ButtonStyle.secondary)
         cancel_button.callback = self.cancel
         self.add_item(cancel_button)
     
     async def confirm(self, interaction: discord.Interaction):
         if interaction.user.id != self.user_id:
-            await interaction.response.send_message("❌ Это не ваше меню!", ephemeral=True)
+            await interaction.response.send_message("Это не ваше меню!", ephemeral=True)
             return
         
         states = load_states()
@@ -975,82 +1085,129 @@ class CivilPurchaseConfirmation(View):
                 break
         
         if not player_data:
-            await interaction.response.send_message("❌ У вас нет государства!", ephemeral=True)
+            await interaction.response.send_message("У вас нет государства!", ephemeral=True)
             return
         
         buyer_country = player_data["state"]["statename"]
         seller_country = self.corporation.country
         
-        # Проверка эмбарго
+        if not is_corporation_accessible(buyer_country, seller_country):
+            await interaction.response.send_message(
+                f"Корпорация {self.corporation.name} недоступна из-за эмбарго!",
+                ephemeral=True
+            )
+            return
+        
         buyer_tariff = TariffSystem(buyer_country)
         seller_tariff = TariffSystem(seller_country)
         
         if buyer_tariff.is_product_embargoed(seller_country, self.product_type):
             await interaction.response.send_message(
-                f"❌ Ваша страна ввела эмбарго против {seller_country}!",
+                f"Ваша страна ввела эмбарго против {seller_country}!",
                 ephemeral=True
             )
             return
         
         if seller_tariff.is_product_embargoed(buyer_country, self.product_type):
             await interaction.response.send_message(
-                f"❌ Страна {seller_country} ввела эмбарго против вашей страны!",
+                f"Страна {seller_country} ввела эмбарго против вашей страны!",
                 ephemeral=True
             )
             return
         
-        # Получаем состояние корпорации
         corp_state = initialize_corporation_state(self.corporation)
         available = corp_state.inventory.get(self.product_type, 0)
         
-        # Проверяем наличие (если товар есть на складе)
         if available > 0 and self.quantity > available:
             await interaction.response.send_message(
-                f"❌ Недостаточно товара на складе! Доступно: {available}",
+                f"Недостаточно товара на складе! Доступно: {available}",
                 ephemeral=True
             )
             return
         
-        # Рассчитываем пошлины
-        base_price = self.product.get('price', 0) * self.quantity
+        base_price_usd = self.product.get('price', 0) * self.quantity
+        is_domestic = (buyer_country == seller_country)
         
-        import_tariff = buyer_tariff.calculate_import_tariff(
-            self.product_type, seller_country, base_price
-        )
+        import_tariff = 0
+        export_tariff = 0
         
-        export_tariff = seller_tariff.calculate_export_tariff(
-            self.product_type, base_price
-        )
-        
-        buyer_pays = base_price + import_tariff
-        seller_receives = base_price - export_tariff
-        
-        # Проверяем бюджет покупателя
-        if player_data["economy"]["budget"] < buyer_pays:
-            await interaction.response.send_message(
-                f"❌ Недостаточно средств! Нужно: ${buyer_pays:,} (включая пошлину ${import_tariff:,})",
-                ephemeral=True
+        if not is_domestic:
+            import_tariff = buyer_tariff.calculate_import_tariff(
+                self.product_type, seller_country, base_price_usd
             )
-            return
+            export_tariff = seller_tariff.calculate_export_tariff(
+                self.product_type, base_price_usd
+            )
         
-        # Списываем деньги с покупателя
-        player_data["economy"]["budget"] -= buyer_pays
+        buyer_pays_usd = base_price_usd + import_tariff
+        seller_receives_usd = base_price_usd - export_tariff
+        reserves = player_data["economy"].get("foreign_reserves", {})
         
-        # Импортная пошлина идёт в бюджет покупателя
-        if "tariff_revenue" not in player_data:
-            player_data["tariff_revenue"] = 0
-        player_data["tariff_revenue"] += import_tariff
+        # ========== ОПЛАТА ==========
+        if is_domestic:
+            buyer_currency = get_currency_code(player_data["economy"])
+            rate = EXCHANGE_RATES_2019.get(buyer_country, 1.0)
+            local_price = base_price_usd * rate
+            
+            if get_budget(player_data["economy"]) < local_price:
+                await interaction.response.send_message(
+                    f"Недостаточно средств! Нужно: {local_price:,.0f} {buyer_currency}",
+                    ephemeral=True
+                )
+                return
+            
+            subtract_from_budget(player_data["economy"], local_price)
+            payment_info = f"{local_price:,.0f} {buyer_currency}"
+            payment_currency_used = buyer_currency
+            payment_amount = local_price
+            
+        else:
+            seller_currency = get_currency_code_from_country(seller_country)
+            rate = EXCHANGE_RATES_2019.get(seller_country, 1.0)
+            local_price_in_seller_currency = base_price_usd * rate
+            
+            payment_success = False
+            payment_currency_used = None
+            payment_amount = 0
+            
+            if seller_currency != "USD":
+                if reserves.get(seller_currency, 0) >= local_price_in_seller_currency:
+                    reserves[seller_currency] -= local_price_in_seller_currency
+                    payment_success = True
+                    payment_currency_used = seller_currency
+                    payment_amount = local_price_in_seller_currency
+                    payment_info = f"{payment_amount:,.0f} {seller_currency}"
+            
+            if not payment_success:
+                if reserves.get("USD", 0) >= buyer_pays_usd:
+                    reserves["USD"] -= buyer_pays_usd
+                    payment_success = True
+                    payment_currency_used = "USD"
+                    payment_amount = buyer_pays_usd
+                    payment_info = f"${payment_amount:,.0f} USD"
+            
+            if not payment_success:
+                available_usd = reserves.get("USD", 0)
+                available_seller = reserves.get(seller_currency, 0) if seller_currency != "USD" else 0
+                
+                msg = f"Недостаточно средств!\n"
+                msg += f"Нужно: {local_price_in_seller_currency:,.0f} {seller_currency} или ${buyer_pays_usd:,.0f} USD\n"
+                msg += f"Доступно: {available_seller:,.0f} {seller_currency}, ${available_usd:,.0f} USD"
+                
+                await interaction.response.send_message(msg, ephemeral=True)
+                return
+            
+            if import_tariff > 0:
+                reserves["USD"] = reserves.get("USD", 0) + import_tariff
+                player_data["tariff_revenue_usd"] = player_data.get("tariff_revenue_usd", 0) + import_tariff
         
-        # Обновляем бюджет корпорации
-        update_corporation_budget(self.corporation.id, seller_receives, add=True)
+        update_corporation_budget(self.corporation.id, seller_receives_usd, add=True)
         
-        # Списываем товар со склада (если был)
         if available > 0:
             update_corporation_inventory(self.corporation.id, self.product_type, self.quantity, add=False)
         
         save_states(states)
         
-        # Создаем заказ в очереди производства (если товара не было в наличии)
         if available == 0:
             queue = load_civil_production_queue()
             prod_time = get_civil_production_time(self.product_type, self.quantity)
@@ -1066,11 +1223,14 @@ class CivilPurchaseConfirmation(View):
                 "product_name": self.product.get('name', 'Неизвестный продукт'),
                 "product_type": self.product_type,
                 "quantity": self.quantity,
-                "base_price": base_price,
+                "base_price_usd": base_price_usd,
                 "import_tariff": import_tariff,
                 "export_tariff": export_tariff,
-                "buyer_pays": buyer_pays,
-                "seller_receives": seller_receives,
+                "buyer_pays_usd": buyer_pays_usd,
+                "seller_receives_usd": seller_receives_usd,
+                "is_domestic": is_domestic,
+                "payment_currency": payment_currency_used if not is_domestic else None,
+                "payment_amount": payment_amount if not is_domestic else None,
                 "start_time": str(datetime.now()),
                 "completion_time": str(completion_time),
                 "status": "in_production",
@@ -1083,18 +1243,24 @@ class CivilPurchaseConfirmation(View):
             status_text = "запущен в производство"
             time_text = f"Готовность через: {format_time(prod_time)}"
         else:
-            # Товар был в наличии - доставляем мгновенно
-            # Добавляем в гражданские запасы игрока
             if "civil_goods" not in player_data:
                 player_data["civil_goods"] = {}
             
             current = player_data["civil_goods"].get(self.product_type, 0)
             player_data["civil_goods"][self.product_type] = current + self.quantity
             
+            if self.product_type == "fpv_drones":
+                if "army" not in player_data:
+                    player_data["army"] = {}
+                if "equipment" not in player_data["army"]:
+                    player_data["army"]["equipment"] = {}
+                current_fpv = player_data["army"]["equipment"].get("fpv_drones", 0)
+                player_data["army"]["equipment"]["fpv_drones"] = current_fpv + self.quantity
+            
             save_states(states)
             
             status_text = "мгновенно доставлен со склада"
-            time_text = "✅ Товар получен!"
+            time_text = "Товар получен!"
         
         try:
             await interaction.message.delete()
@@ -1102,30 +1268,31 @@ class CivilPurchaseConfirmation(View):
             pass
         
         embed = discord.Embed(
-            title="✅ Заказ оформлен!",
+            title="Заказ оформлен!",
             description=f"Продукция {status_text}",
             color=DARK_THEME_COLOR
         )
         
         embed.add_field(name="Корпорация", value=self.corporation.name, inline=True)
+        embed.add_field(name="Страна-производитель", value=seller_country, inline=True)
         embed.add_field(name="Продукт", value=self.product.get('name', 'Неизвестный продукт'), inline=True)
         embed.add_field(name="Количество", value=str(self.quantity), inline=True)
-        embed.add_field(name="Базовая стоимость", value=f"${base_price:,}", inline=True)
+        embed.add_field(name="Оплата", value=payment_info, inline=True)
         
-        if import_tariff > 0:
-            embed.add_field(name="🛃 Импортная пошлина", value=f"${import_tariff:,}", inline=True)
+        if not is_domestic:
+            embed.add_field(name="Базовая стоимость (USD)", value=f"${base_price_usd:,}", inline=True)
+            if import_tariff > 0:
+                embed.add_field(name="Импортная пошлина", value=f"${import_tariff:,}", inline=True)
+            if export_tariff > 0:
+                embed.add_field(name="Экспортная пошлина", value=f"${export_tariff:,}", inline=True)
         
-        if export_tariff > 0:
-            embed.add_field(name="📤 Экспортная пошлина", value=f"${export_tariff:,}", inline=True)
-        
-        embed.add_field(name="💵 Итоговая стоимость", value=f"${buyer_pays:,}", inline=True)
-        embed.add_field(name="📊 Статус", value=time_text, inline=True)
+        embed.add_field(name="Статус", value=time_text, inline=True)
         
         await interaction.response.send_message(embed=embed, ephemeral=True)
     
     async def cancel(self, interaction: discord.Interaction):
         if interaction.user.id != self.user_id:
-            await interaction.response.send_message("❌ Это не ваше меню!", ephemeral=True)
+            await interaction.response.send_message("Это не ваше меню!", ephemeral=True)
             return
         
         try:
@@ -1134,7 +1301,7 @@ class CivilPurchaseConfirmation(View):
             pass
         
         embed = discord.Embed(
-            title="❌ Покупка отменена",
+            title="Покупка отменена",
             color=DARK_THEME_COLOR
         )
         await interaction.response.send_message(embed=embed, ephemeral=True)
@@ -1156,7 +1323,7 @@ async def show_civil_corporations_menu(ctx, user_id):
             break
     
     if not player_country:
-        error_msg = "❌ У вас нет государства!"
+        error_msg = "У вас нет государства!"
         if hasattr(ctx, 'response'):
             await ctx.response.send_message(error_msg, ephemeral=True)
         else:
@@ -1165,43 +1332,81 @@ async def show_civil_corporations_menu(ctx, user_id):
     
     tariff_system = TariffSystem(player_country)
     
+    all_corps = get_all_civil_corporations()
+    total_corps = 0
+    for corp in all_corps:
+        if hasattr(corp, 'products'):
+            for prod_type in corp.products:
+                if is_product_goods(prod_type):
+                    total_corps += 1
+                    break
+    
+    available_corps = []
+    blocked_by_me = 0
+    blocked_by_them = 0
+    
+    for corp in all_corps:
+        has_goods = False
+        for prod_type in corp.products:
+            if is_product_goods(prod_type):
+                has_goods = True
+                break
+        if not has_goods:
+            continue
+            
+        if hasattr(corp, 'country'):
+            if is_corporation_accessible(player_country, corp.country):
+                available_corps.append(corp)
+            else:
+                buyer_tariff = TariffSystem(player_country)
+                seller_tariff = TariffSystem(corp.country)
+                
+                if buyer_tariff.is_product_embargoed(corp.country, "all"):
+                    blocked_by_me += 1
+                elif seller_tariff.is_product_embargoed(player_country, "all"):
+                    blocked_by_them += 1
+                else:
+                    specific_tariffs = buyer_tariff.tariffs.get("specific_tariffs", {})
+                    if corp.country in specific_tariffs and specific_tariffs[corp.country] >= 100.0:
+                        blocked_by_me += 1
+                    else:
+                        seller_specific = seller_tariff.tariffs.get("specific_tariffs", {})
+                        if player_country in seller_specific and seller_specific[player_country] >= 100.0:
+                            blocked_by_them += 1
+    
+    available_count = len(available_corps)
+    blocked_total = total_corps - available_count
+    
     embed = discord.Embed(
-        title="🏭 Гражданская продукция и услуги",
-        description="Выберите страну для просмотра корпораций:",
+        title="Гражданская продукция",
+        description="Выберите страну для просмотра корпораций.\n*Доступны только материальные товары (услуги недоступны)*",
         color=DARK_THEME_COLOR
     )
     
-    all_corps = get_all_civil_corporations()
-    total_corps = len(all_corps)
+    embed.add_field(
+        name="Статистика",
+        value=f"Всего корпораций с товарами: **{total_corps}**\n"
+              f"Доступно: **{available_count}**\n"
+              f"Заблокировано: **{blocked_total}**\n"
+              f"  * Ваши эмбарго: {blocked_by_me}\n"
+              f"  * Их эмбарго: {blocked_by_them}",
+        inline=False
+    )
     
-    available_corps = 0
-    for corp in all_corps:
-        if hasattr(corp, 'country'):
-            if not is_trade_blocked(tariff_system, player_country, corp.country, "all"):
-                available_corps += 1
-    
-    countries = list(ALL_CIVIL_CORPORATIONS.keys())
-    country_stats = ""
-    for country in countries:
-        corp_count = len(ALL_CIVIL_CORPORATIONS[country])
-        country_stats += f"• {country}: {corp_count} корпораций\n"
-    
-    embed.add_field(name="📊 Доступно корпораций", value=f"{available_corps}/{total_corps}", inline=True)
-    
-    # Информация об эмбарго
     embargoed = []
     for country, categories in tariff_system.tariffs.get("embargoes", {}).items():
         if "all" in categories:
             embargoed.append(country)
     if embargoed:
         embed.add_field(
-            name="🚫 Эмбарго (ваши против других)",
+            name="Эмбарго (ваши против других)",
             value=", ".join(embargoed[:5]) + (" и др." if len(embargoed) > 5 else ""),
             inline=False
         )
     
     embargoed_against = []
-    for country in ["США", "Россия", "Китай", "Германия", "Израиль", "Украина", "Иран"]:
+    all_countries = list(ALL_CIVIL_CORPORATIONS.keys())
+    for country in all_countries:
         if country != player_country:
             other_tariff = TariffSystem(country)
             if other_tariff.is_product_embargoed(player_country, "all"):
@@ -1209,12 +1414,21 @@ async def show_civil_corporations_menu(ctx, user_id):
     
     if embargoed_against:
         embed.add_field(
-            name="🚫 Эмбарго (других против вас)",
+            name="Эмбарго (других против вас)",
             value=", ".join(embargoed_against[:5]) + (" и др." if len(embargoed_against) > 5 else ""),
             inline=False
         )
     
-    embed.add_field(name="🌍 Страны", value=country_stats, inline=False)
+    country_stats = ""
+    for country in sorted(list(ALL_CIVIL_CORPORATIONS.keys()))[:10]:
+        corp_count = 0
+        for corp in ALL_CIVIL_CORPORATIONS[country].values():
+            for prod_type in corp.products:
+                if is_product_goods(prod_type):
+                    corp_count += 1
+                    break
+        country_stats += f"* {country}: {corp_count} корпораций\n"
+    embed.add_field(name="Страны", value=country_stats, inline=False)
     
     if hasattr(ctx, 'response'):
         await ctx.response.send_message(embed=embed, ephemeral=True)
@@ -1230,38 +1444,52 @@ async def show_civil_corporations_menu(ctx, user_id):
 
 
 async def show_specializations_for_country(interaction, user_id, player_country, country, tariff_system):
-    """Показать категории специализаций для выбранной страны"""
+    """Показать категории специализаций для выбранной страны (только товары)"""
     
-    # Группируем специализации по категориям
     categories_with_counts = {}
     specializations = get_unique_specializations_for_country(country)
     
     for spec in specializations:
+        if not is_product_goods(spec):
+            continue
+            
         category = get_specialization_category(spec)
         if category not in categories_with_counts:
             categories_with_counts[category] = 0
         
-        # Считаем доступные корпорации с этой специализацией
         corps = get_corporations_by_specialization(country, spec)
         for corp in corps:
-            if not is_trade_blocked(tariff_system, player_country, corp.country, "all"):
+            if is_corporation_accessible(player_country, corp.country):
                 categories_with_counts[category] += 1
                 break
     
-    # Фильтруем пустые категории
     categories_with_counts = {k: v for k, v in categories_with_counts.items() if v > 0}
     
+    if not categories_with_counts:
+        embed = discord.Embed(
+            title=f"Категории продукции: {country}",
+            description="В этой стране нет доступных корпораций, продающих товары.",
+            color=DARK_THEME_COLOR
+        )
+        
+        view = View(timeout=300)
+        back_button = Button(label="Назад к странам", style=discord.ButtonStyle.secondary)
+        back_button.callback = lambda i: show_civil_corporations_menu(i, user_id)
+        view.add_item(back_button)
+        
+        await interaction.response.send_message(embed=embed, view=view, ephemeral=True)
+        return
+    
     embed = discord.Embed(
-        title=f"🏭 Категории продукции: {country}",
-        description="Выберите категорию товаров или услуг:",
+        title=f"Категории продукции: {country}",
+        description="Выберите категорию товаров:",
         color=DARK_THEME_COLOR
     )
     
-    # Показываем статистику по категориям
     cat_text = ""
     for cat, count in list(categories_with_counts.items())[:10]:
-        cat_text += f"• {cat}: {count} корпораций\n"
-    embed.add_field(name="📊 Доступные категории", value=cat_text, inline=False)
+        cat_text += f"* {cat}: {count} корпораций\n"
+    embed.add_field(name="Доступные категории", value=cat_text, inline=False)
     
     select = SpecializationCategorySelect(
         user_id, player_country, country, tariff_system, categories_with_counts
@@ -1269,8 +1497,7 @@ async def show_specializations_for_country(interaction, user_id, player_country,
     view = View(timeout=300)
     view.add_item(select)
     
-    # Кнопка назад к странам
-    back_button = Button(label="◀ Назад к странам", style=discord.ButtonStyle.secondary)
+    back_button = Button(label="Назад к странам", style=discord.ButtonStyle.secondary)
     back_button.callback = lambda i: show_civil_corporations_menu(i, user_id)
     view.add_item(back_button)
     
@@ -1278,23 +1505,40 @@ async def show_specializations_for_country(interaction, user_id, player_country,
 
 
 async def show_specializations_in_category(interaction, user_id, player_country, country, category, tariff_system):
-    """Показать конкретные специализации в выбранной категории"""
+    """Показать конкретные специализации в выбранной категории (только товары)"""
     
-    # Получаем все специализации в этой категории
     specializations_in_category = []
     all_specs = get_unique_specializations_for_country(country)
     
     for spec in all_specs:
+        if not is_product_goods(spec):
+            continue
         if get_specialization_category(spec) == category:
-            # Проверяем, есть ли доступные корпорации
             corps = get_corporations_by_specialization(country, spec)
             for corp in corps:
-                if not is_trade_blocked(tariff_system, player_country, corp.country, "all"):
+                if is_corporation_accessible(player_country, corp.country):
                     specializations_in_category.append(spec)
                     break
     
+    if not specializations_in_category:
+        embed = discord.Embed(
+            title=f"{category} в {country}",
+            description="В этой категории нет доступных специализаций.",
+            color=DARK_THEME_COLOR
+        )
+        
+        view = View(timeout=300)
+        back_button = Button(label="Назад к категориям", style=discord.ButtonStyle.secondary)
+        back_button.callback = lambda i: show_specializations_for_country(
+            i, user_id, player_country, country, tariff_system
+        )
+        view.add_item(back_button)
+        
+        await interaction.response.send_message(embed=embed, view=view, ephemeral=True)
+        return
+    
     embed = discord.Embed(
-        title=f"🏭 {category} в {country}",
+        title=f"{category} в {country}",
         description="Выберите конкретную специализацию:",
         color=DARK_THEME_COLOR
     )
@@ -1306,8 +1550,7 @@ async def show_specializations_in_category(interaction, user_id, player_country,
     view = View(timeout=300)
     view.add_item(select)
     
-    # Кнопка назад к категориям
-    back_button = Button(label="◀ Назад к категориям", style=discord.ButtonStyle.secondary)
+    back_button = Button(label="Назад к категориям", style=discord.ButtonStyle.secondary)
     back_button.callback = lambda i: show_specializations_for_country(
         i, user_id, player_country, country, tariff_system
     )
@@ -1317,20 +1560,39 @@ async def show_specializations_in_category(interaction, user_id, player_country,
 
 
 async def show_corporations_by_specialization(interaction, user_id, player_country, country, specialization, tariff_system):
-    """Показать корпорации с выбранной специализацией"""
+    """Показать корпорации с выбранной специализацией (только те, у которых есть товары)"""
     
     corps = get_corporations_by_specialization(country, specialization)
     
-    # Фильтруем доступные
     available_corps = []
     for corp in corps:
-        if not is_trade_blocked(tariff_system, player_country, corp.country, "all"):
+        if not is_product_goods(specialization):
+            continue
+        if is_corporation_accessible(player_country, corp.country):
             available_corps.append(corp)
     
     spec_name = SPECIALIZATION_NAMES.get(specialization, specialization)
     
+    if not available_corps:
+        embed = discord.Embed(
+            title=f"{spec_name} в {country}",
+            description="В этой специализации нет доступных корпораций.",
+            color=DARK_THEME_COLOR
+        )
+        
+        category = get_specialization_category(specialization)
+        view = View(timeout=300)
+        back_button = Button(label="Назад к специализациям", style=discord.ButtonStyle.secondary)
+        back_button.callback = lambda i: show_specializations_in_category(
+            i, user_id, player_country, country, category, tariff_system
+        )
+        view.add_item(back_button)
+        
+        await interaction.response.send_message(embed=embed, view=view, ephemeral=True)
+        return
+    
     embed = discord.Embed(
-        title=f"🏭 {spec_name} в {country}",
+        title=f"{spec_name} в {country}",
         description=f"Найдено корпораций: {len(available_corps)}",
         color=DARK_THEME_COLOR
     )
@@ -1342,9 +1604,8 @@ async def show_corporations_by_specialization(interaction, user_id, player_count
     view = View(timeout=300)
     view.add_item(select)
     
-    # Кнопка назад к специализациям в категории
     category = get_specialization_category(specialization)
-    back_button = Button(label="◀ Назад к специализациям", style=discord.ButtonStyle.secondary)
+    back_button = Button(label="Назад к специализациям", style=discord.ButtonStyle.secondary)
     back_button.callback = lambda i: show_specializations_in_category(
         i, user_id, player_country, country, category, tariff_system
     )
@@ -1353,7 +1614,7 @@ async def show_corporations_by_specialization(interaction, user_id, player_count
     await interaction.response.send_message(embed=embed, view=view, ephemeral=True)
 
 
-# ==================== ОСТАЛЬНЫЕ ФУНКЦИИ (без изменений) ====================
+# ==================== ОСТАЛЬНЫЕ ФУНКЦИИ ====================
 
 async def show_civil_orders(ctx):
     """Показать текущие заказы игрока"""
@@ -1361,11 +1622,11 @@ async def show_civil_orders(ctx):
     user_orders = [o for o in queue["active_orders"] if o["user_id"] == str(ctx.author.id)]
     
     if not user_orders:
-        await ctx.send("📦 У вас нет активных заказов гражданской продукции.", ephemeral=True)
+        await ctx.send("У вас нет активных заказов гражданской продукции.", ephemeral=True)
         return
     
     embed = discord.Embed(
-        title="📋 Мои заказы гражданской продукции",
+        title="Мои заказы гражданской продукции",
         color=DARK_THEME_COLOR
     )
     
@@ -1377,15 +1638,13 @@ async def show_civil_orders(ctx):
         if remaining > 0:
             progress = 100 - (remaining / (completion - datetime.fromisoformat(order["start_time"])).total_seconds() * 100)
             progress_bar = "█" * int(progress/10) + "░" * (10 - int(progress/10))
-            status = f"⏳ {format_time(remaining)} осталось\n{progress_bar}"
+            status = f"{format_time(remaining)} осталось\n{progress_bar}"
         else:
-            status = "✅ ГОТОВ К ПОЛУЧЕНИЮ!"
+            status = "ГОТОВ К ПОЛУЧЕНИЮ!"
         
         tariff_info = ""
         if order.get('import_tariff', 0) > 0:
-            tariff_info += f"\n🛃 Пошлина: ${order['import_tariff']:,}"
-        if order.get('export_tariff', 0) > 0:
-            tariff_info += f"\n📤 Эксп. пошлина: ${order['export_tariff']:,}"
+            tariff_info += f"\nПошлина: ${order['import_tariff']:,}"
         
         embed.add_field(
             name=f"Заказ #{order['id']} | {order['product_name']} x{order['quantity']}",
@@ -1397,7 +1656,7 @@ async def show_civil_orders(ctx):
 
 
 async def collect_civil_orders(ctx):
-    """Забрать готовые заказы (FPV-дроны идут сразу в армию)"""
+    """Забрать готовые заказы"""
     queue = load_civil_production_queue()
     states = load_states()
     
@@ -1411,7 +1670,7 @@ async def collect_civil_orders(ctx):
             break
     
     if not player_data:
-        await ctx.send("❌ У вас нет государства!", ephemeral=True)
+        await ctx.send("У вас нет государства!", ephemeral=True)
         return
     
     if "civil_goods" not in player_data:
@@ -1450,7 +1709,7 @@ async def collect_civil_orders(ctx):
         save_civil_production_queue(queue)
         
         embed = discord.Embed(
-            title="✅ Продукция получена!",
+            title="Продукция получена!",
             color=DARK_THEME_COLOR
         )
         
@@ -1459,21 +1718,19 @@ async def collect_civil_orders(ctx):
             
             tariff_info = ""
             if order.get('import_tariff', 0) > 0:
-                tariff_info += f"\n🛃 Вы заплатили пошлину: ${order['import_tariff']:,}"
-            if order.get('export_tariff', 0) > 0:
-                tariff_info += f"\n📤 Экспортная пошлина удержана: ${order['export_tariff']:,}"
+                tariff_info += f"\nВы заплатили пошлину: ${order['import_tariff']:,}"
             
             embed.add_field(
                 name=f"{order['product_name']} x{order['quantity']}",
                 value=f"Корпорация: {order['corporation']}\n"
                       f"Тип: {product_type_name}{tariff_info}\n"
-                      f"✅ Продукция добавлена в **{order.get('destination', 'гражданские запасы')}**",
+                      f"Продукция добавлена в **{order.get('destination', 'гражданские запасы')}**",
                 inline=False
             )
         
         await ctx.send(embed=embed, ephemeral=True)
     else:
-        await ctx.send("❌ У вас нет готовых заказов.", ephemeral=True)
+        await ctx.send("У вас нет готовых заказов.", ephemeral=True)
 
 
 async def civil_production_check_loop(bot_instance):
@@ -1491,7 +1748,7 @@ async def civil_production_check_loop(bot_instance):
                         user = await bot_instance.fetch_user(int(order["user_id"]))
                         if user:
                             embed = discord.Embed(
-                                title="✅ Заказ готов!",
+                                title="Заказ готов!",
                                 description=f"Ваш заказ **{order['product_name']} x{order['quantity']}** готов к получению!",
                                 color=DARK_THEME_COLOR
                             )
@@ -1499,12 +1756,10 @@ async def civil_production_check_loop(bot_instance):
                             embed.add_field(name="Команда", value="`!получить_гражданские` для получения")
                             
                             if order.get("product_type") == "fpv_drones":
-                                embed.add_field(name="Важно", value="FPV-дроны будут добавлены直接在 в армию!")
+                                embed.add_field(name="Важно", value="FPV-дроны будут добавлены непосредственно в армию!")
                             
                             if order.get('import_tariff', 0) > 0:
-                                embed.add_field(name="🛃 Импортная пошлина", value=f"${order['import_tariff']:,}", inline=True)
-                            if order.get('export_tariff', 0) > 0:
-                                embed.add_field(name="📤 Экспортная пошлина", value=f"${order['export_tariff']:,}", inline=True)
+                                embed.add_field(name="Импортная пошлина", value=f"${order['import_tariff']:,}", inline=True)
                             
                             await user.send(embed=embed)
                     except:
@@ -1529,18 +1784,18 @@ async def show_civil_goods(ctx):
             break
     
     if not player_data:
-        await ctx.send("❌ У вас нет государства!", ephemeral=True)
+        await ctx.send("У вас нет государства!", ephemeral=True)
         return
     
     civil_goods = player_data.get("civil_goods", {})
     state_name = player_data["state"]["statename"]
     
     if not civil_goods:
-        await ctx.send("📭 У вас нет запасов гражданской продукции.", ephemeral=True)
+        await ctx.send("У вас нет запасов гражданской продукции.", ephemeral=True)
         return
     
     embed = discord.Embed(
-        title=f"📦 Гражданская продукция: {state_name}",
+        title=f"Гражданская продукция: {state_name}",
         color=DARK_THEME_COLOR
     )
     
@@ -1556,7 +1811,8 @@ async def show_civil_goods(ctx):
         "Продукты питания": ["food_products", "beverages"],
         "Химия": ["chemicals", "fertilizers"],
         "Товары для дома": ["furniture", "household_goods"],
-        "Дроны": ["drones", "fpv_drones"]
+        "Дроны": ["drones", "fpv_drones"],
+        "Природные ресурсы": ["oil", "gas_supply", "coal", "steel", "aluminum", "uranium", "rare_metals", "gold"]
     }
     
     for category_name, type_list in categories.items():
@@ -1585,5 +1841,6 @@ __all__ = [
     'civil_production_check_loop',
     'show_civil_goods',
     'CIVIL_PRODUCTION_SPEED',
-    'CIVIL_PRODUCT_NAMES'
+    'CIVIL_PRODUCT_NAMES',
+    'is_product_goods'
 ]

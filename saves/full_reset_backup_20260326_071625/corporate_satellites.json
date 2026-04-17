@@ -1,0 +1,135 @@
+{
+    "corporations": {
+        "SpaceX (Starlink)": {
+            "name": "SpaceX (Starlink)",
+            "country": "США",
+            "satellites": 1790,
+            "description": "Крупнейшая спутниковая группировка в мире, обеспечивает глобальный доступ в интернет",
+            "service_type": "internet_global",
+            "bonus_if_active": {
+                "research_boost": 0.05,
+                "communication_boost": 0.1,
+                "gdp_boost": 0.02,
+                "drone_accuracy": 0.03,
+                "missile_accuracy": 0.03
+            },
+            "active": true,
+            "blocked_countries": [
+                "Иран",
+                "КНДР",
+                "Сирия",
+                "Китай"
+            ]
+        },
+        "OneWeb": {
+            "name": "OneWeb",
+            "country": "Великобритания",
+            "satellites": 358,
+            "description": "Глобальная спутниковая группировка для широкополосного доступа",
+            "service_type": "internet_global",
+            "bonus_if_active": {
+                "communication_boost": 0.05,
+                "drone_accuracy": 0.01,
+                "missile_accuracy": 0.01
+            },
+            "active": true,
+            "blocked_countries": [
+                "Иран",
+                "КНДР",
+                "Сирия"
+            ]
+        },
+        "Amazon Kuiper": {
+            "name": "Amazon Kuiper",
+            "country": "США",
+            "satellites": 0,
+            "description": "Планируемая спутниковая группировка Amazon, запуски с 2023 года",
+            "service_type": "internet_global",
+            "bonus_if_active": {
+                "communication_boost": 0.02
+            },
+            "active": false,
+            "blocked_countries": []
+        },
+        "Eutelsat": {
+            "name": "Eutelsat",
+            "country": "Франция",
+            "satellites": 36,
+            "description": "Европейский оператор спутниковой связи",
+            "service_type": "telecom_regional",
+            "bonus_if_active": {
+                "communication_boost": 0.02
+            },
+            "active": true,
+            "blocked_countries": [
+                "Иран",
+                "КНДР",
+                "Сирия"
+            ]
+        },
+        "Inmarsat": {
+            "name": "Inmarsat",
+            "country": "Великобритания",
+            "satellites": 13,
+            "description": "Спутниковая связь для морской и авиационной отрасли",
+            "service_type": "telecom_global",
+            "bonus_if_active": {
+                "communication_boost": 0.03,
+                "drone_accuracy": 0.02
+            },
+            "active": true,
+            "blocked_countries": [
+                "Иран",
+                "КНДР",
+                "Сирия"
+            ]
+        },
+        "Iridium": {
+            "name": "Iridium",
+            "country": "США",
+            "satellites": 75,
+            "description": "Глобальная спутниковая связь с низкой орбитой",
+            "service_type": "telecom_global",
+            "bonus_if_active": {
+                "communication_boost": 0.04
+            },
+            "active": true,
+            "blocked_countries": [
+                "Иран",
+                "КНДР",
+                "Сирия"
+            ]
+        },
+        "BeiDou": {
+            "name": "BeiDou (北斗)",
+            "country": "Китай",
+            "satellites": 48,
+            "description": "Китайская глобальная навигационная спутниковая система",
+            "service_type": "navigation",
+            "bonus_if_active": {
+                "drone_accuracy": 0.05,
+                "missile_accuracy": 0.05
+            },
+            "active": true,
+            "blocked_countries": []
+        },
+        "Galileo": {
+            "name": "Galileo (Галилео)",
+            "country": "ЕС (Германия/Франция/Италия/Испания)",
+            "satellites": 24,
+            "description": "Европейская глобальная навигационная спутниковая система",
+            "service_type": "navigation",
+            "bonus_if_active": {
+                "drone_accuracy": 0.04,
+                "missile_accuracy": 0.04
+            },
+            "active": true,
+            "blocked_countries": [
+                "Иран",
+                "КНДР",
+                "Сирия"
+            ]
+        }
+    },
+    "corporate_access": {}
+}

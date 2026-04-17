@@ -1,4 +1,5 @@
 # corp_store.py - Модуль для покупки техники у корпораций
+# МУЛЬТИВАЛЮТНАЯ ВЕРСИЯ
 
 import discord
 from discord.ui import Button, View, Select, Modal, TextInput
@@ -14,11 +15,14 @@ from corporations_db import get_corporation, get_all_corporations, ALL_CORPORATI
 from trade_tariffs import TariffSystem, filter_corporations_by_tariffs, is_corporation_available
 from trade_tariffs import PRODUCT_CATEGORIES
 
+# Импортируем утилиты для мультивалютной системы
+from utils import (
+    get_budget, subtract_from_budget, get_currency_code, 
+    EXCHANGE_RATES_2019, DARK_THEME_COLOR
+)
+
 # Файл для хранения активных заказов
 PRODUCTION_QUEUE_FILE = 'production_queue.json'
-
-# Цвет для эмбедов в тёмной теме Discord
-DARK_THEME_COLOR = 0x2b2d31
 
 # ==================== СИСТЕМА ЗАГРУЗКИ/СОХРАНЕНИЯ ПРОИЗВОДСТВА ====================
 def load_production_queue():
@@ -113,6 +117,19 @@ def get_game_time_description(real_seconds):
         years = game_months / 12
         return f"{years:.1f} игровых лет"
 
+def get_currency_code_from_country(country_name: str) -> str:
+    """Возвращает код валюты страны"""
+    currency_map = {
+        "США": "USD", "Россия": "RUB", "Китай": "CNY", "Украина": "UAH",
+        "Германия": "EUR", "Франция": "EUR", "Великобритания": "GBP",
+        "Норвегия": "NOK", "Швеция": "SEK", "Финляндия": "EUR",
+        "Польша": "PLN", "Иран": "IRR", "Израиль": "ILS",
+        "Сирия": "SYP", "Бразилия": "BRL", "Турция": "TRY",
+        "Египет": "EGP", "Швейцария": "CHF", "Канада": "CAD",
+        "КНДР": "KPW", "Япония": "JPY", "Беларусь": "BYN",
+    }
+    return currency_map.get(country_name, "USD")
+
 # Человекочитаемые названия для типов техники
 EQUIPMENT_NAMES = {
     "ground.tanks": "Танки",
@@ -198,18 +215,43 @@ def get_production_time(product_path, quantity=1):
     else:
         return base_time * (1 + (quantity - 1) * 0.25)
 
-def is_trade_blocked(tariff_system, buyer_country: str, seller_country: str, product_type: str) -> bool:
-    """Проверяет, заблокирована ли торговля между странами"""
-    # Проверка 1: Может ли покупатель покупать у продавца?
-    if tariff_system.is_product_embargoed(seller_country, product_type):
-        return True
+# ==================== ФУНКЦИЯ ПРОВЕРКИ ДОСТУПНОСТИ ====================
+def is_corporation_accessible(buyer_country: str, seller_country: str) -> bool:
+    """
+    Проверяет, доступна ли корпорация из страны продавца для покупателя
+    Использует данные из тарифной системы
+    """
+    if buyer_country == seller_country:
+        return True  # Свои корпорации всегда доступны
     
-    # Проверка 2: Может ли продавец продавать покупателю?
-    seller_tariff = TariffSystem(seller_country)
-    if seller_tariff.is_product_embargoed(buyer_country, product_type):
+    try:
+        # Проверяем через тарифную систему
+        buyer_tariff = TariffSystem(buyer_country)
+        
+        # Проверка 1: Есть ли у покупателя эмбарго против продавца?
+        if buyer_tariff.is_product_embargoed(seller_country, "all"):
+            return False
+        
+        # Проверка 2: Есть ли у продавца эмбарго против покупателя?
+        seller_tariff = TariffSystem(seller_country)
+        if seller_tariff.is_product_embargoed(buyer_country, "all"):
+            return False
+        
+        # Проверка 3: Проверяем специфические тарифы (100% = эмбарго)
+        specific_tariffs = buyer_tariff.tariffs.get("specific_tariffs", {})
+        if seller_country in specific_tariffs and specific_tariffs[seller_country] >= 100.0:
+            return False
+        
+        seller_specific = seller_tariff.tariffs.get("specific_tariffs", {})
+        if buyer_country in seller_specific and seller_specific[buyer_country] >= 100.0:
+            return False
+        
         return True
-    
-    return False
+        
+    except Exception:
+        # В случае ошибки считаем корпорацию доступной
+        return True
+
 
 # ==================== МОДАЛЬНОЕ ОКНО ДЛЯ ВВОДА КОЛИЧЕСТВА ====================
 class QuantityModal(Modal, title="Введите количество"):
@@ -234,16 +276,24 @@ class QuantityModal(Modal, title="Введите количество"):
     
     async def on_submit(self, interaction: discord.Interaction):
         if interaction.user.id != self.user_id:
-            await interaction.response.send_message("❌ Это не ваше меню!", ephemeral=True)
+            await interaction.response.send_message("Это не ваше меню!", ephemeral=True)
+            return
+        
+        # Проверяем доступность перед подтверждением
+        if not is_corporation_accessible(self.player_country, self.corporation.country):
+            await interaction.response.send_message(
+                f"Корпорация {self.corporation.name} недоступна из-за эмбарго!",
+                ephemeral=True
+            )
             return
         
         try:
             quantity = int(self.quantity_input.value)
             if quantity < 1 or quantity > 100000:
-                await interaction.response.send_message("❌ Количество должно быть от 1 до 100000!", ephemeral=True)
+                await interaction.response.send_message("Количество должно быть от 1 до 100000!", ephemeral=True)
                 return
         except ValueError:
-            await interaction.response.send_message("❌ Введите корректное число!", ephemeral=True)
+            await interaction.response.send_message("Введите корректное число!", ephemeral=True)
             return
         
         # Удаляем оригинальное сообщение
@@ -276,7 +326,7 @@ class QuantityModal(Modal, title="Введите количество"):
         embed.add_field(name="Корпорация", value=self.corporation.name, inline=True)
         embed.add_field(name="Продукт", value=self.product['name'], inline=True)
         embed.add_field(name="Количество", value=str(quantity), inline=True)
-        embed.add_field(name="Стоимость", value=f"${total_price:,}", inline=True)
+        embed.add_field(name="Стоимость (USD)", value=f"${total_price:,}", inline=True)
         embed.add_field(name="Время", value=format_time(prod_time), inline=True)
         embed.add_field(name="Игровое время", value=game_time, inline=True)
         
@@ -295,18 +345,18 @@ class CountrySelect(Select):
         options = []
         countries = list(ALL_CORPORATIONS.keys())
         
-        for country in countries[:25]:  # Discord ограничение - 25 стран
+        for country in sorted(countries)[:25]:
             # Считаем доступные корпорации в этой стране
             available_count = 0
             total_count = 0
-            for corp_id, corp in ALL_CORPORATIONS[country].items():
-                if hasattr(corp, 'products') and corp.products:
-                    total_count += 1
-                    # Проверяем доступность корпорации с учётом эмбарго с обеих сторон
-                    if not is_trade_blocked(self.tariff_system, self.player_country, corp.country, "all"):
-                        available_count += 1
             
-            # Определяем эмодзи в зависимости от доступности
+            if country in ALL_CORPORATIONS:
+                for corp_id, corp in ALL_CORPORATIONS[country].items():
+                    if hasattr(corp, 'products') and corp.products:
+                        total_count += 1
+                        if is_corporation_accessible(self.player_country, corp.country):
+                            available_count += 1
+            
             if available_count == 0:
                 emoji = "❌"
             elif available_count < total_count:
@@ -332,7 +382,7 @@ class CountrySelect(Select):
     
     async def callback(self, interaction: discord.Interaction):
         if interaction.user.id != self.user_id:
-            await interaction.response.send_message("❌ Это не ваше меню!", ephemeral=True)
+            await interaction.response.send_message("Это не ваше меню!", ephemeral=True)
             return
         
         country = self.values[0]
@@ -366,25 +416,24 @@ class CountryCorporationView(View):
         self.tariff_system = tariff_system
         
         # Получаем корпорации выбранной страны
-        corporations = list(ALL_CORPORATIONS[country].values())
-        
-        # Создаем кнопки для каждой корпорации
-        for corp in corporations:
-            # Проверяем доступность корпорации с обеих сторон
-            available = not is_trade_blocked(self.tariff_system, self.player_country, corp.country, "all")
+        if country in ALL_CORPORATIONS:
+            corporations = list(ALL_CORPORATIONS[country].values())
+            corporations.sort(key=lambda x: x.name)
             
-            button = Button(
-                label=corp.name[:80],
-                style=discord.ButtonStyle.secondary,
-                custom_id=f"corp_{corp.id}",
-                disabled=not available  # Блокируем недоступные корпорации
-            )
-            button.callback = self.create_corp_callback(corp, available)
-            self.add_item(button)
+            for corp in corporations:
+                available = is_corporation_accessible(self.player_country, corp.country)
+                
+                button = Button(
+                    label=corp.name[:80],
+                    style=discord.ButtonStyle.secondary,
+                    custom_id=f"corp_{corp.id}",
+                    disabled=not available
+                )
+                button.callback = self.create_corp_callback(corp, available)
+                self.add_item(button)
         
-        # Кнопка назад к списку стран
         back_button = Button(
-            label="◀ Назад к странам",
+            label="Назад к странам",
             style=discord.ButtonStyle.secondary
         )
         back_button.callback = self.back_callback
@@ -393,17 +442,16 @@ class CountryCorporationView(View):
     def create_corp_callback(self, corp, available):
         async def callback(interaction: discord.Interaction):
             if interaction.user.id != self.user_id:
-                await interaction.response.send_message("❌ Это не ваше меню!", ephemeral=True)
+                await interaction.response.send_message("Это не ваше меню!", ephemeral=True)
                 return
             
             if not available:
                 await interaction.response.send_message(
-                    f"❌ Корпорация {corp.name} недоступна из-за эмбарго!",
+                    f"Корпорация {corp.name} недоступна из-за эмбарго!",
                     ephemeral=True
                 )
                 return
             
-            # Удаляем текущее сообщение
             try:
                 await interaction.message.delete()
             except:
@@ -451,19 +499,17 @@ class CountryCorporationView(View):
             if hasattr(corp, 'products') and corp.products:
                 embed.add_field(name="Продуктов", value=str(len(corp.products)), inline=True)
             
-            # Проверяем, нет ли эмбарго на страну
             if self.tariff_system.is_product_embargoed(corp.country, "all"):
                 embed.add_field(
-                    name="🚫 Эмбарго",
+                    name="Эмбарго",
                     value=f"Торговля с {corp.country} запрещена!",
                     inline=False
                 )
             
-            # Проверяем санкции
             sanction_penalty = self.tariff_system.get_sanction_penalty(corp.country)
             if sanction_penalty > 0:
                 embed.add_field(
-                    name="⚠️ Санкции",
+                    name="Санкции",
                     value=f"Дополнительная пошлина: +{sanction_penalty*100}%",
                     inline=False
                 )
@@ -474,16 +520,14 @@ class CountryCorporationView(View):
     
     async def back_callback(self, interaction: discord.Interaction):
         if interaction.user.id != self.user_id:
-            await interaction.response.send_message("❌ Это не ваше меню!", ephemeral=True)
+            await interaction.response.send_message("Это не ваше меню!", ephemeral=True)
             return
         
-        # Удаляем текущее сообщение
         try:
             await interaction.message.delete()
         except:
             pass
         
-        # Возвращаемся к выбору страны
         await show_corporations_menu(interaction, self.user_id)
 
 
@@ -497,7 +541,11 @@ class ProductListView(View):
         self.player_country = player_country
         self.tariff_system = tariff_system
         
-        # Группируем продукты по категориям
+        self.is_available = is_corporation_accessible(self.player_country, self.corporation.country)
+        
+        if not self.is_available:
+            return
+        
         categories = {}
         for key, product in corporation.products.items():
             if 'type' in product:
@@ -534,7 +582,7 @@ class ProductListView(View):
             self.add_item(button)
         
         back_button = Button(
-            label="◀ Назад к списку",
+            label="Назад к списку",
             style=discord.ButtonStyle.secondary
         )
         back_button.callback = self.back_callback
@@ -543,7 +591,14 @@ class ProductListView(View):
     def create_category_callback(self, category, products):
         async def callback(interaction: discord.Interaction):
             if interaction.user.id != self.user_id:
-                await interaction.response.send_message("❌ Это не ваше меню!", ephemeral=True)
+                await interaction.response.send_message("Это не ваше меню!", ephemeral=True)
+                return
+            
+            if not is_corporation_accessible(self.player_country, self.corporation.country):
+                await interaction.response.send_message(
+                    f"Корпорация {self.corporation.name} недоступна из-за эмбарго!",
+                    ephemeral=True
+                )
                 return
             
             category_names = {
@@ -561,19 +616,17 @@ class ProductListView(View):
                 color=DARK_THEME_COLOR
             )
             
-            # Удаляем текущее сообщение
             try:
                 await interaction.message.delete()
             except:
                 pass
             
-            # Создаём новое сообщение с Select
             select = ProductSelect(products, self.corporation, self.user_id, self.player_country, self.tariff_system)
             view = View(timeout=300)
             view.add_item(select)
             
             back_button = Button(
-                label="◀ Назад к категориям",
+                label="Назад к категориям",
                 style=discord.ButtonStyle.secondary
             )
             back_button.callback = self.back_to_categories
@@ -584,10 +637,9 @@ class ProductListView(View):
     
     async def back_callback(self, interaction: discord.Interaction):
         if interaction.user.id != self.user_id:
-            await interaction.response.send_message("❌ Это не ваше меню!", ephemeral=True)
+            await interaction.response.send_message("Это не ваше меню!", ephemeral=True)
             return
         
-        # Удаляем текущее сообщение
         try:
             await interaction.message.delete()
         except:
@@ -597,7 +649,7 @@ class ProductListView(View):
     
     async def back_to_categories(self, interaction: discord.Interaction):
         if interaction.user.id != self.user_id:
-            await interaction.response.send_message("❌ Это не ваше меню!", ephemeral=True)
+            await interaction.response.send_message("Это не ваше меню!", ephemeral=True)
             return
         
         embed = discord.Embed(
@@ -606,13 +658,11 @@ class ProductListView(View):
             color=DARK_THEME_COLOR
         )
         
-        # Удаляем текущее сообщение
         try:
             await interaction.message.delete()
         except:
             pass
         
-        # Возвращаемся к списку категорий
         await interaction.response.send_message(embed=embed, view=self, ephemeral=True)
 
 
@@ -624,43 +674,69 @@ class ProductSelect(Select):
         self.player_country = player_country
         self.tariff_system = tariff_system
         
-        options = []
+        self.available_products = []
         for key, product in products:
             if 'name' in product and 'price' in product:
-                price_str = f"${product['price']:,}"
-                prod_time = PRODUCTION_SPEED.get(product.get('type', ''), 3600)
-                time_str = format_time(prod_time)
-                
-                label = product['name'][:90]
-                description = f"{price_str} | {time_str}"
-                
-                options.append(
-                    discord.SelectOption(
-                        label=label,
-                        description=description,
-                        value=key
-                    )
+                product_type = product.get('type', '')
+                if self.tariff_system.is_product_embargoed(corporation.country, product_type):
+                    continue
+                self.available_products.append((key, product))
+        
+        options = []
+        for key, product in self.available_products:
+            price_str = f"${product['price']:,}"
+            prod_time = PRODUCTION_SPEED.get(product.get('type', ''), 3600)
+            time_str = format_time(prod_time)
+            
+            label = product['name'][:90]
+            description = f"{price_str} | {time_str}"
+            
+            options.append(
+                discord.SelectOption(
+                    label=label,
+                    description=description,
+                    value=key
                 )
+            )
+        
+        if not options:
+            options.append(
+                discord.SelectOption(
+                    label="Нет доступных продуктов",
+                    value="none",
+                    default=True
+                )
+            )
         
         super().__init__(
-            placeholder="Выберите продукт...",
+            placeholder="Выберите продукт..." if options else "Нет доступных продуктов",
             min_values=1,
             max_values=1,
-            options=options[:25]
+            options=options[:25] if options else []
         )
     
     async def callback(self, interaction: discord.Interaction):
         if interaction.user.id != self.user_id:
-            await interaction.response.send_message("❌ Это не ваше меню!", ephemeral=True)
+            await interaction.response.send_message("Это не ваше меню!", ephemeral=True)
+            return
+        
+        if self.values[0] == "none":
+            await interaction.response.send_message("Нет доступных продуктов.", ephemeral=True)
+            return
+        
+        if not is_corporation_accessible(self.player_country, self.corporation.country):
+            await interaction.response.send_message(
+                f"Корпорация {self.corporation.name} недоступна из-за эмбарго!",
+                ephemeral=True
+            )
             return
         
         product_key = self.values[0]
         product = self.corporation.products[product_key]
         
-        # Проверяем доступность конкретного типа продукта
-        if is_trade_blocked(self.tariff_system, self.player_country, self.corporation.country, product.get('type', '')):
+        if self.tariff_system.is_product_embargoed(self.corporation.country, product.get('type', '')):
             await interaction.response.send_message(
-                f"❌ Продукт {product.get('name', 'Неизвестный')} недоступен из-за эмбарго!",
+                f"Продукт {product.get('name', 'Неизвестный')} недоступен из-за эмбарго!",
                 ephemeral=True
             )
             return
@@ -674,7 +750,7 @@ class ProductSelect(Select):
             color=DARK_THEME_COLOR
         )
         
-        embed.add_field(name="Цена", value=f"${product.get('price', 0):,}", inline=True)
+        embed.add_field(name="Цена (USD)", value=f"${product.get('price', 0):,}", inline=True)
         embed.add_field(name="Время", value=format_time(prod_time), inline=True)
         embed.add_field(name="Игровое время", value=game_time, inline=True)
         
@@ -682,13 +758,11 @@ class ProductSelect(Select):
         equip_name = EQUIPMENT_NAMES.get(equip_type, equip_type.split('.')[-1] if '.' in equip_type else equip_type)
         embed.add_field(name="Тип", value=equip_name, inline=False)
         
-        # Удаляем текущее сообщение
         try:
             await interaction.message.delete()
         except:
             pass
         
-        # Создаём новое сообщение с выбором количества
         view = QuantitySelector(self.corporation, product_key, product, self.user_id, self.player_country, self.tariff_system)
         await interaction.response.send_message(embed=embed, view=view, ephemeral=True)
 
@@ -705,18 +779,18 @@ class QuantitySelector(View):
         self.tariff_system = tariff_system
         self.quantity = 1
         
-        minus_button = Button(label="➖", style=discord.ButtonStyle.secondary)
+        minus_button = Button(label="-", style=discord.ButtonStyle.secondary)
         minus_button.callback = self.decrease_quantity
         self.add_item(minus_button)
         
         self.quantity_label = Button(
-            label=f"1",
+            label="1",
             style=discord.ButtonStyle.secondary,
             disabled=True
         )
         self.add_item(self.quantity_label)
         
-        plus_button = Button(label="➕", style=discord.ButtonStyle.secondary)
+        plus_button = Button(label="+", style=discord.ButtonStyle.secondary)
         plus_button.callback = self.increase_quantity
         self.add_item(plus_button)
         
@@ -735,7 +809,7 @@ class QuantitySelector(View):
         self.add_item(buy_button)
         
         back_button = Button(
-            label="◀ Назад",
+            label="Назад",
             style=discord.ButtonStyle.secondary
         )
         back_button.callback = self.go_back
@@ -743,7 +817,14 @@ class QuantitySelector(View):
     
     async def decrease_quantity(self, interaction: discord.Interaction):
         if interaction.user.id != self.user_id:
-            await interaction.response.send_message("❌ Это не ваше меню!", ephemeral=True)
+            await interaction.response.send_message("Это не ваше меню!", ephemeral=True)
+            return
+        
+        if not is_corporation_accessible(self.player_country, self.corporation.country):
+            await interaction.response.send_message(
+                f"Корпорация {self.corporation.name} недоступна из-за эмбарго!",
+                ephemeral=True
+            )
             return
         
         if self.quantity > 1:
@@ -755,7 +836,14 @@ class QuantitySelector(View):
     
     async def increase_quantity(self, interaction: discord.Interaction):
         if interaction.user.id != self.user_id:
-            await interaction.response.send_message("❌ Это не ваше меню!", ephemeral=True)
+            await interaction.response.send_message("Это не ваше меню!", ephemeral=True)
+            return
+        
+        if not is_corporation_accessible(self.player_country, self.corporation.country):
+            await interaction.response.send_message(
+                f"Корпорация {self.corporation.name} недоступна из-за эмбарго!",
+                ephemeral=True
+            )
             return
         
         if self.quantity < 100000:
@@ -767,10 +855,16 @@ class QuantitySelector(View):
     
     async def manual_input(self, interaction: discord.Interaction):
         if interaction.user.id != self.user_id:
-            await interaction.response.send_message("❌ Это не ваше меню!", ephemeral=True)
+            await interaction.response.send_message("Это не ваше меню!", ephemeral=True)
             return
         
-        # Передаём все необходимые аргументы в QuantityModal
+        if not is_corporation_accessible(self.player_country, self.corporation.country):
+            await interaction.response.send_message(
+                f"Корпорация {self.corporation.name} недоступна из-за эмбарго!",
+                ephemeral=True
+            )
+            return
+        
         modal = QuantityModal(
             self.corporation, 
             self.product_key, 
@@ -793,9 +887,9 @@ class QuantitySelector(View):
             color=DARK_THEME_COLOR
         )
         
-        embed.add_field(name="Цена за ед.", value=f"${self.product.get('price', 0):,}", inline=True)
+        embed.add_field(name="Цена за ед. (USD)", value=f"${self.product.get('price', 0):,}", inline=True)
         embed.add_field(name="Количество", value=str(self.quantity), inline=True)
-        embed.add_field(name="Общая сумма", value=f"${total_price:,}", inline=True)
+        embed.add_field(name="Общая сумма (USD)", value=f"${total_price:,}", inline=True)
         embed.add_field(name="Время", value=format_time(prod_time), inline=True)
         embed.add_field(name="Игровое время", value=game_time, inline=True)
         
@@ -803,24 +897,28 @@ class QuantitySelector(View):
     
     async def confirm_purchase(self, interaction: discord.Interaction):
         if interaction.user.id != self.user_id:
-            await interaction.response.send_message("❌ Это не ваше меню!", ephemeral=True)
+            await interaction.response.send_message("Это не ваше меню!", ephemeral=True)
             return
         
-        # Финальная проверка продукта
-        if is_trade_blocked(self.tariff_system, self.player_country, self.corporation.country, self.product.get('type', '')):
+        if not is_corporation_accessible(self.player_country, self.corporation.country):
             await interaction.response.send_message(
-                f"❌ Продукт {self.product.get('name', 'Неизвестный')} недоступен из-за эмбарго!",
+                f"Корпорация {self.corporation.name} недоступна из-за эмбарго!",
                 ephemeral=True
             )
             return
         
-        # Удаляем текущее сообщение
+        if self.tariff_system.is_product_embargoed(self.corporation.country, self.product.get('type', '')):
+            await interaction.response.send_message(
+                f"Продукт {self.product.get('name', 'Неизвестный')} недоступен из-за эмбарго!",
+                ephemeral=True
+            )
+            return
+        
         try:
             await interaction.message.delete()
         except:
             pass
         
-        # Показываем confirmation диалог с правильными аргументами
         view = PurchaseConfirmation(
             self.corporation, 
             self.product_key, 
@@ -844,7 +942,7 @@ class QuantitySelector(View):
         embed.add_field(name="Корпорация", value=self.corporation.name, inline=True)
         embed.add_field(name="Продукт", value=self.product.get('name', 'Неизвестный продукт'), inline=True)
         embed.add_field(name="Количество", value=str(self.quantity), inline=True)
-        embed.add_field(name="Стоимость", value=f"${total_price:,}", inline=True)
+        embed.add_field(name="Стоимость (USD)", value=f"${total_price:,}", inline=True)
         embed.add_field(name="Время", value=format_time(prod_time), inline=True)
         embed.add_field(name="Игровое время", value=game_time, inline=True)
         
@@ -852,34 +950,46 @@ class QuantitySelector(View):
     
     async def go_back(self, interaction: discord.Interaction):
         if interaction.user.id != self.user_id:
-            await interaction.response.send_message("❌ Это не ваше меню!", ephemeral=True)
+            await interaction.response.send_message("Это не ваше меню!", ephemeral=True)
             return
         
-        # Удаляем текущее сообщение
+        if not is_corporation_accessible(self.player_country, self.corporation.country):
+            await interaction.response.send_message(
+                f"Корпорация {self.corporation.name} недоступна из-за эмбарго!",
+                ephemeral=True
+            )
+            return
+        
         try:
             await interaction.message.delete()
         except:
             pass
         
-        # Возвращаемся к списку продуктов
         embed = discord.Embed(
             title=self.corporation.name,
             color=DARK_THEME_COLOR
         )
         
-        products_list = []
+        available_products = []
         current_category = self.product.get('type', '').split('.')[0] if '.' in self.product.get('type', '') else ''
         
         for key, product in self.corporation.products.items():
             product_category = product.get('type', '').split('.')[0] if '.' in product.get('type', '') else ''
             if product_category == current_category or not current_category:
-                products_list.append((key, product))
+                if not self.tariff_system.is_product_embargoed(self.corporation.country, product.get('type', '')):
+                    available_products.append((key, product))
         
-        select = ProductSelect(products_list, self.corporation, self.user_id, self.player_country, self.tariff_system)
-        view = View(timeout=300)
-        view.add_item(select)
-        
-        await interaction.response.send_message(embed=embed, view=view, ephemeral=True)
+        if available_products:
+            select = ProductSelect(available_products, self.corporation, self.user_id, self.player_country, self.tariff_system)
+            view = View(timeout=300)
+            view.add_item(select)
+            
+            await interaction.response.send_message(embed=embed, view=view, ephemeral=True)
+        else:
+            await interaction.response.send_message(
+                "В этой категории нет доступных продуктов из-за эмбарго.",
+                ephemeral=True
+            )
 
 
 class PurchaseConfirmation(View):
@@ -910,7 +1020,7 @@ class PurchaseConfirmation(View):
     
     async def confirm(self, interaction: discord.Interaction):
         if interaction.user.id != self.user_id:
-            await interaction.response.send_message("❌ Это не ваше меню!", ephemeral=True)
+            await interaction.response.send_message("Это не ваше меню!", ephemeral=True)
             return
         
         from bot import load_states, save_states
@@ -923,70 +1033,119 @@ class PurchaseConfirmation(View):
                 break
         
         if not player_data:
-            await interaction.response.send_message("❌ У вас нет государства!", ephemeral=True)
+            await interaction.response.send_message("У вас нет государства!", ephemeral=True)
             return
         
-        # Получаем страну игрока и страну производителя
         buyer_country = player_data["state"]["statename"]
         seller_country = self.corporation.country
         product_type = self.product.get('type', 'unknown')
         
-        # ❗️ ДВОЙНАЯ ПРОВЕРКА ЭМБАРГО ❗️
-        
-        # Проверка 1: Может ли покупатель покупать у продавца?
-        if self.tariff_system.is_product_embargoed(seller_country, product_type):
+        # Проверки доступности
+        if not is_corporation_accessible(buyer_country, seller_country):
             await interaction.response.send_message(
-                f"❌ Ваша страна ввела эмбарго против {seller_country}!",
+                f"Корпорация {self.corporation.name} недоступна из-за эмбарго!",
                 ephemeral=True
             )
             return
         
-        # Проверка 2: Может ли продавец продавать покупателю?
+        if self.tariff_system.is_product_embargoed(seller_country, product_type):
+            await interaction.response.send_message(
+                f"Ваша страна ввела эмбарго против {seller_country}!",
+                ephemeral=True
+            )
+            return
+        
         seller_tariff = TariffSystem(seller_country)
         if seller_tariff.is_product_embargoed(buyer_country, product_type):
             await interaction.response.send_message(
-                f"❌ Страна {seller_country} ввела эмбарго против вашей страны!",
+                f"Страна {seller_country} ввела эмбарго против вашей страны!",
                 ephemeral=True
             )
             return
+        
+        base_price_usd = self.product.get('price', 0) * self.quantity
+        is_domestic = (buyer_country == seller_country)
         
         # Рассчитываем пошлины
-        base_price = self.product.get('price', 0) * self.quantity
+        import_tariff = 0
+        export_tariff = 0
         
-        # Импортная пошлина (платит покупатель в свой бюджет)
-        import_tariff = self.tariff_system.calculate_import_tariff(
-            product_type, 
-            seller_country, 
-            base_price
-        )
-        
-        # Экспортная пошлина (платит продавец в свой бюджет)
-        export_tariff = seller_tariff.calculate_export_tariff(
-            product_type,
-            base_price
-        )
-        
-        # Покупатель платит: base_price + import_tariff
-        buyer_pays = base_price + import_tariff
-        
-        # Продавец получает: base_price - export_tariff (но мы не храним деньги продавца)
-        seller_receives = base_price - export_tariff
-        
-        # Проверяем бюджет покупателя
-        if player_data["economy"]["budget"] < buyer_pays:
-            await interaction.response.send_message(
-                f"❌ Недостаточно средств! Нужно: ${buyer_pays:,} (включая пошлину ${import_tariff:,})",
-                ephemeral=True
+        if not is_domestic:
+            import_tariff = self.tariff_system.calculate_import_tariff(
+                product_type, 
+                seller_country, 
+                base_price_usd
             )
-            return
+            export_tariff = seller_tariff.calculate_export_tariff(
+                product_type,
+                base_price_usd
+            )
         
-        # Списываем деньги с покупателя
-        player_data["economy"]["budget"] -= buyer_pays
+        buyer_pays_usd = base_price_usd + import_tariff
+        reserves = player_data["economy"].get("foreign_reserves", {})
         
-        # Импортная пошлина идёт в бюджет покупателя
-        if "tariff_revenue" not in player_data:
-            player_data["tariff_revenue"] = 0
-        player_data["tariff_revenue"] += import_tariff
+        # ========== ОПЛАТА ==========
+        if is_domestic:
+            # Отечественная корпорация - платим в национальной валюте
+            buyer_currency = get_currency_code(player_data["economy"])
+            rate = EXCHANGE_RATES_2019.get(buyer_country, 1.0)
+            local_price = base_price_usd * rate
+            
+            if get_budget(player_data["economy"]) < local_price:
+                await interaction.response.send_message(
+                    f"Недостаточно средств! Нужно: {local_price:,.0f} {buyer_currency}",
+                    ephemeral=True
+                )
+                return
+            
+            subtract_from_budget(player_data["economy"], local_price)
+            payment_info = f"{local_price:,.0f} {buyer_currency}"
+            payment_currency_used = buyer_currency
+            
+        else:
+            # Иностранная корпорация - пробуем оплатить в валюте продавца, затем USD
+            seller_currency = get_currency_code_from_country(seller_country)
+            rate = EXCHANGE_RATES_2019.get(seller_country, 1.0)
+            local_price_in_seller_currency = base_price_usd * rate
+            
+            payment_success = False
+            payment_currency_used = None
+            payment_amount = 0
+            
+            # 1. Пробуем оплатить в валюте страны-продавца
+            if seller_currency != "USD":
+                if reserves.get(seller_currency, 0) >= local_price_in_seller_currency:
+                    reserves[seller_currency] -= local_price_in_seller_currency
+                    payment_success = True
+                    payment_currency_used = seller_currency
+                    payment_amount = local_price_in_seller_currency
+                    payment_info = f"{payment_amount:,.0f} {seller_currency}"
+            
+            # 2. Fallback на USD
+            if not payment_success:
+                if reserves.get("USD", 0) >= buyer_pays_usd:
+                    reserves["USD"] -= buyer_pays_usd
+                    payment_success = True
+                    payment_currency_used = "USD"
+                    payment_amount = buyer_pays_usd
+                    payment_info = f"${payment_amount:,.0f} USD"
+            
+            # 3. Недостаточно средств
+            if not payment_success:
+                available_usd = reserves.get("USD", 0)
+                available_seller = reserves.get(seller_currency, 0) if seller_currency != "USD" else 0
+                
+                msg = f"Недостаточно средств!\n"
+                msg += f"Нужно: {local_price_in_seller_currency:,.0f} {seller_currency} или ${buyer_pays_usd:,.0f} USD\n"
+                msg += f"Доступно: {available_seller:,.0f} {seller_currency}, ${available_usd:,.0f} USD"
+                
+                await interaction.response.send_message(msg, ephemeral=True)
+                return
+            
+            # Импортная пошлина в USD-резервы покупателя
+            if import_tariff > 0:
+                reserves["USD"] = reserves.get("USD", 0) + import_tariff
+                player_data["tariff_revenue_usd"] = player_data.get("tariff_revenue_usd", 0) + import_tariff
         
         save_states(states)
         
@@ -1005,11 +1164,13 @@ class PurchaseConfirmation(View):
             "product_name": self.product.get('name', 'Неизвестный продукт'),
             "product_type": product_type,
             "quantity": self.quantity,
-            "base_price": base_price,
+            "base_price_usd": base_price_usd,
             "import_tariff": import_tariff,
             "export_tariff": export_tariff,
-            "buyer_pays": buyer_pays,
-            "seller_receives": seller_receives,
+            "buyer_pays_usd": buyer_pays_usd,
+            "is_domestic": is_domestic,
+            "payment_currency": payment_currency_used if not is_domestic else None,
+            "payment_amount": payment_amount if not is_domestic else None,
             "start_time": str(datetime.now()),
             "completion_time": str(completion_time),
             "status": "in_production",
@@ -1028,17 +1189,18 @@ class PurchaseConfirmation(View):
         )
         
         embed.add_field(name="Корпорация", value=self.corporation.name, inline=True)
+        embed.add_field(name="Страна-производитель", value=seller_country, inline=True)
         embed.add_field(name="Продукт", value=self.product.get('name', 'Неизвестный продукт'), inline=True)
         embed.add_field(name="Количество", value=str(self.quantity), inline=True)
-        embed.add_field(name="Базовая стоимость", value=f"${base_price:,}", inline=True)
+        embed.add_field(name="Оплата", value=payment_info, inline=True)
         
-        if import_tariff > 0:
-            embed.add_field(name="🛃 Импортная пошлина (в ваш бюджет)", value=f"${import_tariff:,}", inline=True)
+        if not is_domestic:
+            embed.add_field(name="Базовая стоимость (USD)", value=f"${base_price_usd:,}", inline=True)
+            if import_tariff > 0:
+                embed.add_field(name="Импортная пошлина", value=f"${import_tariff:,}", inline=True)
+            if export_tariff > 0:
+                embed.add_field(name="Экспортная пошлина (удержана)", value=f"${export_tariff:,}", inline=True)
         
-        if export_tariff > 0:
-            embed.add_field(name="📤 Экспортная пошлина (бюджет продавца)", value=f"${export_tariff:,}", inline=True)
-        
-        embed.add_field(name="💵 Итоговая стоимость", value=f"${buyer_pays:,}", inline=True)
         embed.add_field(name="Готовность через", value=format_time(prod_time), inline=True)
         embed.add_field(name="Игровое время", value=game_time, inline=True)
         embed.add_field(name="ID заказа", value=str(order['id']), inline=True)
@@ -1046,7 +1208,6 @@ class PurchaseConfirmation(View):
         
         embed.set_footer(text="Используйте !заказы и !получить для отслеживания")
         
-        # Удаляем confirmation сообщение
         try:
             await interaction.message.delete()
         except:
@@ -1056,7 +1217,7 @@ class PurchaseConfirmation(View):
     
     async def cancel(self, interaction: discord.Interaction):
         if interaction.user.id != self.user_id:
-            await interaction.response.send_message("❌ Это не ваше меню!", ephemeral=True)
+            await interaction.response.send_message("Это не ваше меню!", ephemeral=True)
             return
         
         embed = discord.Embed(
@@ -1064,7 +1225,6 @@ class PurchaseConfirmation(View):
             color=DARK_THEME_COLOR
         )
         
-        # Удаляем confirmation сообщение
         try:
             await interaction.message.delete()
         except:
@@ -1090,36 +1250,53 @@ async def show_corporations_menu(interaction_or_ctx, user_id):
             break
     
     if not player_country:
-        error_msg = "❌ У вас нет государства!"
+        error_msg = "У вас нет государства!"
         if hasattr(interaction_or_ctx, 'response'):
-            await interaction_or_ctx.response.send_message(error_msg, ephemeral=True)
+            try:
+                await interaction_or_ctx.response.send_message(error_msg, ephemeral=True)
+            except:
+                try:
+                    await interaction_or_ctx.followup.send(error_msg, ephemeral=True)
+                except:
+                    pass
         else:
             await interaction_or_ctx.send(error_msg)
         return
     
-    # Создаём таможенную систему для фильтрации
     tariff_system = TariffSystem(player_country)
     
-    # Считаем общее количество корпораций
     all_corps = get_all_corporations()
     total_corps = len(all_corps)
     
-    # Считаем доступные корпорации с учётом эмбарго с обеих сторон
     available_corps = []
+    blocked_by_me = 0
+    blocked_by_them = 0
+    
     for corp in all_corps:
         if hasattr(corp, 'country'):
-            # Проверка 1: Есть ли у покупателя эмбарго против страны корпорации?
-            if tariff_system.is_product_embargoed(corp.country, "all"):
-                continue
+            accessible = is_corporation_accessible(player_country, corp.country)
             
-            # Проверка 2: Есть ли у страны корпорации эмбарго против покупателя?
-            seller_tariff = TariffSystem(corp.country)
-            if seller_tariff.is_product_embargoed(player_country, "all"):
-                continue
-            
-            available_corps.append(corp)
+            if accessible:
+                available_corps.append(corp)
+            else:
+                buyer_tariff = TariffSystem(player_country)
+                seller_tariff = TariffSystem(corp.country)
+                
+                if buyer_tariff.is_product_embargoed(corp.country, "all"):
+                    blocked_by_me += 1
+                elif seller_tariff.is_product_embargoed(player_country, "all"):
+                    blocked_by_them += 1
+                else:
+                    specific_tariffs = buyer_tariff.tariffs.get("specific_tariffs", {})
+                    if corp.country in specific_tariffs and specific_tariffs[corp.country] >= 100.0:
+                        blocked_by_me += 1
+                    else:
+                        seller_specific = seller_tariff.tariffs.get("specific_tariffs", {})
+                        if player_country in seller_specific and seller_specific[player_country] >= 100.0:
+                            blocked_by_them += 1
     
     available_count = len(available_corps)
+    blocked_total = total_corps - available_count
     
     embed = discord.Embed(
         title=f"Военно-промышленный комплекс",
@@ -1127,30 +1304,30 @@ async def show_corporations_menu(interaction_or_ctx, user_id):
         color=DARK_THEME_COLOR
     )
     
-    # Добавляем статистику
     embed.add_field(
-        name="📊 Статистика",
+        name="Статистика",
         value=f"Всего корпораций: **{total_corps}**\n"
               f"Доступно: **{available_count}**\n"
-              f"Под санкциями/эмбарго: **{total_corps - available_count}**",
+              f"Заблокировано: **{blocked_total}**\n"
+              f"  * Ваши эмбарго: {blocked_by_me}\n"
+              f"  * Их эмбарго: {blocked_by_them}",
         inline=False
     )
     
-    # Добавляем информацию о действующих санкциях и эмбарго
     embargoed = []
     for country, categories in tariff_system.tariffs.get("embargoes", {}).items():
         if "all" in categories:
             embargoed.append(country)
     if embargoed:
         embed.add_field(
-            name="🚫 Эмбарго (ваши против других)",
+            name="Эмбарго (ваши против других)",
             value=", ".join(embargoed[:5]) + (" и др." if len(embargoed) > 5 else ""),
             inline=False
         )
     
-    # Добавляем информацию об эмбарго других стран против игрока
     embargoed_against = []
-    for country in ["США", "Россия", "Китай", "Германия", "Великобритания", "Франция", "Япония", "Израиль", "Украина", "Иран"]:
+    all_countries = list(ALL_CORPORATIONS.keys())
+    for country in all_countries:
         if country != player_country:
             other_tariff = TariffSystem(country)
             if other_tariff.is_product_embargoed(player_country, "all"):
@@ -1158,7 +1335,7 @@ async def show_corporations_menu(interaction_or_ctx, user_id):
     
     if embargoed_against:
         embed.add_field(
-            name="🚫 Эмбарго (других против вас)",
+            name="Эмбарго (других против вас)",
             value=", ".join(embargoed_against[:5]) + (" и др." if len(embargoed_against) > 5 else ""),
             inline=False
         )
@@ -1167,22 +1344,30 @@ async def show_corporations_menu(interaction_or_ctx, user_id):
     if sanctions:
         sanctions_text = ""
         for country, data in list(sanctions.items())[:3]:
-            sanctions_text += f"• {country}: +{data['penalty']}%\n"
-        embed.add_field(name="⚠️ Санкции", value=sanctions_text, inline=False)
+            sanctions_text += f"* {country}: +{data['penalty']}%\n"
+        embed.add_field(name="Санкции", value=sanctions_text, inline=False)
     
-    # Отправляем эфемерное сообщение
     if hasattr(interaction_or_ctx, 'response'):
-        await interaction_or_ctx.response.send_message(embed=embed, ephemeral=True)
-        message = await interaction_or_ctx.original_response()
+        try:
+            await interaction_or_ctx.response.send_message(embed=embed, ephemeral=True)
+            message = await interaction_or_ctx.original_response()
+            
+            select = CountrySelect(user_id, player_country, message, tariff_system)
+            view = View(timeout=300)
+            view.add_item(select)
+            
+            await message.edit(view=view)
+        except:
+            try:
+                await interaction_or_ctx.followup.send(embed=embed, ephemeral=True)
+            except:
+                pass
     else:
         message = await interaction_or_ctx.send(embed=embed, ephemeral=True)
-    
-    # Создаём View с Select для выбора страны
-    select = CountrySelect(user_id, player_country, message, tariff_system)
-    view = View(timeout=300)
-    view.add_item(select)
-    
-    await message.edit(view=view)
+        select = CountrySelect(user_id, player_country, message, tariff_system)
+        view = View(timeout=300)
+        view.add_item(select)
+        await message.edit(view=view)
 
 
 async def show_my_orders(ctx):
@@ -1191,7 +1376,7 @@ async def show_my_orders(ctx):
     user_orders = [o for o in queue["active_orders"] if o["user_id"] == str(ctx.author.id)]
     
     if not user_orders:
-        await ctx.send("📦 У вас нет активных заказов.", ephemeral=True)
+        await ctx.send("У вас нет активных заказов.", ephemeral=True)
         return
     
     embed = discord.Embed(
@@ -1207,15 +1392,13 @@ async def show_my_orders(ctx):
         if remaining > 0:
             progress = 100 - (remaining / (completion - datetime.fromisoformat(order["start_time"])).total_seconds() * 100)
             progress_bar = "█" * int(progress/10) + "░" * (10 - int(progress/10))
-            status = f"⏳ {format_time(remaining)} осталось\n{progress_bar}"
+            status = f"{format_time(remaining)} осталось\n{progress_bar}"
         else:
-            status = "✅ ГОТОВ К ПОЛУЧЕНИЮ!"
+            status = "ГОТОВ К ПОЛУЧЕНИЮ!"
         
         tariff_info = ""
         if order.get('import_tariff', 0) > 0:
-            tariff_info += f"🛃 Пошлина: ${order['import_tariff']:,} "
-        if order.get('export_tariff', 0) > 0:
-            tariff_info += f"📤 Эксп. пошлина: ${order['export_tariff']:,}"
+            tariff_info += f"Пошлина: ${order['import_tariff']:,} "
         
         embed.add_field(
             name=f"Заказ #{order['id']} | {order['product_name']} x{order['quantity']}",
@@ -1242,7 +1425,7 @@ async def collect_completed_orders(ctx):
             break
     
     if not player_data:
-        await ctx.send("❌ У вас нет государства!", ephemeral=True)
+        await ctx.send("У вас нет государства!", ephemeral=True)
         return
     
     for order in queue["active_orders"][:]:
@@ -1286,19 +1469,17 @@ async def collect_completed_orders(ctx):
             
             tariff_info = ""
             if order.get('import_tariff', 0) > 0:
-                tariff_info += f"\n🛃 Вы заплатили пошлину: ${order['import_tariff']:,}"
-            if order.get('export_tariff', 0) > 0:
-                tariff_info += f"\n📤 Экспортная пошлина удержана: ${order['export_tariff']:,}"
+                tariff_info += f"\nВы заплатили пошлину: ${order['import_tariff']:,}"
             
             embed.add_field(
                 name=f"{order['product_name']} x{order['quantity']}",
-                value=f"{order['corporation']}\nТип: {equip_name}{tariff_info}\n✅ Техника добавлена в армию",
+                value=f"{order['corporation']}\nТип: {equip_name}{tariff_info}\nТехника добавлена в армию",
                 inline=False
             )
         
         await ctx.send(embed=embed, ephemeral=True)
     else:
-        await ctx.send("❌ У вас нет готовых заказов.", ephemeral=True)
+        await ctx.send("У вас нет готовых заказов.", ephemeral=True)
 
 
 async def production_check_loop(bot_instance):
@@ -1324,9 +1505,7 @@ async def production_check_loop(bot_instance):
                             embed.add_field(name="Команда", value="`!получить` для получения")
                             
                             if order.get('import_tariff', 0) > 0:
-                                embed.add_field(name="🛃 Импортная пошлина", value=f"${order['import_tariff']:,}", inline=True)
-                            if order.get('export_tariff', 0) > 0:
-                                embed.add_field(name="📤 Экспортная пошлина", value=f"${order['export_tariff']:,}", inline=True)
+                                embed.add_field(name="Импортная пошлина", value=f"${order['import_tariff']:,}", inline=True)
                             
                             await user.send(embed=embed)
                     except:

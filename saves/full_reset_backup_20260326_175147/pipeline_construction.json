@@ -1,0 +1,18 @@
+{
+    "active_projects": [],
+    "completed_projects": [],
+    "active_dismantles": [
+        {
+            "id": "dismantle_keystone_1774462796.783222",
+            "pipeline_id": "keystone",
+            "pipeline_name": "Keystone",
+            "country": "США",
+            "length": 2,
+            "cost_return": 20000000,
+            "start_time": "2026-03-25 21:19:56.783246",
+            "completion_time": "2026-03-25 21:29:56.783262",
+            "status": "in_progress"
+        }
+    ],
+    "active_repairs": []
+}

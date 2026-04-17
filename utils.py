@@ -1,39 +1,196 @@
 # utils.py - Вспомогательные функции
+# Версия 4.0 - полная поддержка двухвалютной системы
 
 import discord
-import os
 from datetime import datetime
 import json
+import os
+import random
 
-DATA_DIR = os.environ.get('DATA_DIR', '/app/data')
-os.makedirs(DATA_DIR, exist_ok=True)
+from paths import DATA_DIR, get_data_path
 
-# Файлы для хранения данных
-STATES_FILE = 'states.json'
-TRADES_FILE = 'trades.json'
-ALLIANCES_FILE = 'alliances.json'
-TRANSFERS_FILE = 'transfers.json'
+STATES_FILE = get_data_path('states.json')
+TRADES_FILE = get_data_path('trades.json')
+ALLIANCES_FILE = get_data_path('alliances.json')
+TRANSFERS_FILE = get_data_path('transfers.json')
 
-# Цвет для эмбедов в тёмной теме Discord
 DARK_THEME_COLOR = 0x2b2d31
 
+# ==================== КУРСЫ ВАЛЮТ НА 2019 ГОД ====================
+EXCHANGE_RATES_2019 = {
+    "США": 1.0, "Россия": 64.7, "Китай": 6.91, "Украина": 25.8,
+    "Германия": 0.89, "Франция": 0.89, "Великобритания": 0.78,
+    "Норвегия": 8.80, "Швеция": 9.46, "Финляндия": 0.89,
+    "Польша": 3.84, "Иран": 42000.0, "Израиль": 3.56,
+    "Сирия": 515.0, "Бразилия": 3.94, "Турция": 5.67,
+    "Египет": 16.8, "Швейцария": 0.99, "Канада": 1.33,
+    "КНДР": 900.0, "Япония": 109.0, "Беларусь": 2.09,
+}
+# ==================== КОДЫ ВАЛЮТ ====================
+CURRENCY_CODES = {
+    "США": "USD", "Россия": "RUB", "Китай": "CNY", "Украина": "UAH",
+    "Германия": "EUR", "Франция": "EUR", "Великобритания": "GBP",
+    "Норвегия": "NOK", "Швеция": "SEK", "Финляндия": "EUR",
+    "Польша": "PLN", "Иран": "IRR", "Израиль": "ILS",
+    "Сирия": "SYP", "Бразилия": "BRL", "Турция": "TRY",
+    "Египет": "EGP", "Швейцария": "CHF", "Канада": "CAD",
+    "КНДР": "KPW", "Япония": "JPY", "Беларусь": "BYN",
+}
+# ==================== ФУНКЦИИ ДЛЯ ДВУХВАЛЮТНОЙ СИСТЕМЫ ====================
+
+def get_budget(economy):
+    """Возвращает бюджет в локальной валюте"""
+    if not economy:
+        return 0
+    if "local_currency" in economy:
+        return economy["local_currency"].get("amount", 0)
+    # Обратная совместимость
+    if "budget_usd" in economy:
+        return economy["budget_usd"]
+    return economy.get("budget", 0)
+
+def set_budget(economy, new_budget):
+    """Устанавливает бюджет в локальной валюте"""
+    if not economy:
+        return
+    if "local_currency" not in economy:
+        economy["local_currency"] = {"code": "USD", "amount": 0, "inflation": 2.0, "interest_rate": 5.0}
+    economy["local_currency"]["amount"] = float(new_budget)
+
+def add_to_budget(economy, amount):
+    """Добавляет сумму к бюджету в локальной валюте"""
+    current = get_budget(economy)
+    set_budget(economy, current + amount)
+
+def subtract_from_budget(economy, amount):
+    """Вычитает сумму из бюджета в локальной валюте"""
+    current = get_budget(economy)
+    set_budget(economy, max(0, current - amount))
+
+def has_sufficient_budget(economy, amount):
+    """Проверяет, достаточно ли средств в локальном бюджете"""
+    return get_budget(economy) >= amount
+
+def get_gdp(economy):
+    """Возвращает ВВП в локальной валюте"""
+    if not economy:
+        return 0
+    return economy.get("gdp_local", 0)
+
+def get_gdp_usd(economy):
+    """Возвращает ВВП в USD (для международной статистики)"""
+    if not economy:
+        return 0
+    return economy.get("gdp_usd", 0)
+
+def get_debt(economy):
+    """Возвращает госдолг в локальной валюте"""
+    if not economy:
+        return 0
+    return economy.get("debt_local", 0)
+
+def get_debt_usd(economy):
+    """Возвращает госдолг в USD"""
+    if not economy:
+        return 0
+    return economy.get("debt_usd", 0)
+
+def get_military_budget(economy):
+    """Возвращает военный бюджет в локальной валюте"""
+    if not economy:
+        return 0
+    return economy.get("military_budget_local", 0)
+
+def get_wage(economy):
+    """Возвращает среднюю зарплату в локальной валюте"""
+    if not economy:
+        return 0
+    return economy.get("wage_local", 0)
+
+def get_currency_code(economy):
+    """Возвращает код локальной валюты"""
+    if not economy:
+        return "USD"
+    if "local_currency" in economy:
+        return economy["local_currency"].get("code", "USD")
+    return "USD"
+
+def get_inflation(economy):
+    """Возвращает инфляцию"""
+    if not economy:
+        return 2.0
+    if "local_currency" in economy:
+        return economy["local_currency"].get("inflation", 2.0)
+    return economy.get("inflation", 2.0)
+
+def get_usd_reserves(economy):
+    """Возвращает долларовые резервы"""
+    if not economy:
+        return 0
+    return economy.get("foreign_reserves", {}).get("USD", 0)
+
+def spend_usd(economy, amount):
+    """Списывает USD из резервов"""
+    if not economy:
+        return False
+    if "foreign_reserves" not in economy:
+        economy["foreign_reserves"] = {"USD": 0, "EUR": 0, "CNY": 0, "gold_tons": 0}
+    if economy["foreign_reserves"].get("USD", 0) < amount:
+        return False
+    economy["foreign_reserves"]["USD"] -= amount
+    return True
+
+def add_usd(economy, amount):
+    """Добавляет USD в резервы"""
+    if not economy:
+        return
+    if "foreign_reserves" not in economy:
+        economy["foreign_reserves"] = {"USD": 0, "EUR": 0, "CNY": 0, "gold_tons": 0}
+    economy["foreign_reserves"]["USD"] = economy["foreign_reserves"].get("USD", 0) + amount
+
+def format_budget_display(economy):
+    """Форматирует бюджет для отображения"""
+    budget = get_budget(economy)
+    currency = get_currency_code(economy)
+    return f"{format_billion(budget)} {currency}".replace('$ ', '')
+
+def format_gdp_display(economy):
+    """Форматирует ВВП для отображения"""
+    gdp = get_gdp(economy)
+    currency = get_currency_code(economy)
+    return f"{format_billion(gdp)} {currency}".replace('$ ', '')
+
+def format_debt_display(economy):
+    """Форматирует госдолг для отображения"""
+    debt = get_debt(economy)
+    currency = get_currency_code(economy)
+    return f"{format_billion(debt)} {currency}".replace('$ ', '')
+
+def format_money(amount, currency_code=None):
+    """Универсальное форматирование денег с валютой"""
+    if amount is None:
+        return "0"
+    formatted = format_billion(amount)
+    if currency_code:
+        return f"{formatted} {currency_code}"
+    return formatted
+
+# ==================== ОСНОВНЫЕ ФУНКЦИИ ====================
+
 def get_user_id(ctx):
-    """Получить ID пользователя из контекста (команда или взаимодействие)"""
-    if hasattr(ctx, 'author'):  # Это команда (ctx)
+    if hasattr(ctx, 'author'):
         return ctx.author.id
-    else:  # Это взаимодействие (interaction)
+    else:
         return ctx.user.id
 
 def get_user_name(ctx):
-    """Получить имя пользователя из контекста (команда или взаимодействие)"""
-    if hasattr(ctx, 'author'):  # Это команда (ctx)
+    if hasattr(ctx, 'author'):
         return ctx.author.name
-    else:  # Это взаимодействие (interaction)
+    else:
         return ctx.user.name
 
 async def send_response(ctx, content=None, embed=None, view=None, file=None, ephemeral=False):
-    """Отправить ответ в зависимости от типа контекста"""
-    if hasattr(ctx, 'author'):  # Это команда (ctx)
+    if hasattr(ctx, 'author'):
         if embed and file:
             await ctx.send(embed=embed, view=view, file=file)
         elif embed:
@@ -42,7 +199,7 @@ async def send_response(ctx, content=None, embed=None, view=None, file=None, eph
             await ctx.send(content, view=view, file=file)
         else:
             await ctx.send(content, view=view)
-    else:  # Это взаимодействие (interaction)
+    else:
         try:
             if not ctx.response.is_done():
                 if embed and file:
@@ -62,27 +219,16 @@ async def send_response(ctx, content=None, embed=None, view=None, file=None, eph
                     await ctx.followup.send(content, view=view, file=file, ephemeral=ephemeral)
                 else:
                     await ctx.followup.send(content, view=view, ephemeral=ephemeral)
-        except (discord.errors.NotFound, discord.errors.InteractionResponded) as e:
-            try:
-                if embed and file:
-                    await ctx.followup.send(embed=embed, view=view, file=file, ephemeral=ephemeral)
-                elif embed:
-                    await ctx.followup.send(embed=embed, view=view, ephemeral=ephemeral)
-                elif file:
-                    await ctx.followup.send(content, view=view, file=file, ephemeral=ephemeral)
-                else:
-                    await ctx.followup.send(content, view=view, ephemeral=ephemeral)
-            except:
-                pass
+        except:
+            pass
 
 async def edit_response(ctx, embed=None, view=None):
-    """Редактировать сообщение в зависимости от типа контекста"""
-    if hasattr(ctx, 'author'):  # Это команда (ctx) - нельзя редактировать, отправляем новое
+    if hasattr(ctx, 'author'):
         if embed:
             await ctx.send(embed=embed, view=view)
         else:
             await ctx.send(view=view)
-    else:  # Это взаимодействие (interaction)
+    else:
         try:
             await ctx.response.edit_message(embed=embed, view=view)
         except:
@@ -92,47 +238,36 @@ async def edit_response(ctx, embed=None, view=None):
                 pass
 
 def format_number(value):
-    """Форматирует число с разделителями"""
-    return f"{value:,}".replace(',', ' ')
+    if value is None:
+        return "0"
+    return f"{int(value):,}".replace(',', ' ')
 
 def format_army_number(value):
-    """Форматирует число для армии с разделителями"""
+    if value is None:
+        return "0"
     if value >= 1_000_000:
-        millions = value / 1_000_000
-        return f"{millions:.1f} млн"
+        return f"{value/1_000_000:.1f} млн"
     elif value >= 1_000:
-        thousands = value / 1_000
-        return f"{thousands:.1f} тыс"
+        return f"{value/1_000:.1f} тыс"
     else:
-        return str(value)
+        return str(int(value))
 
 def format_billion(value):
-    """
-    Форматирует число в триллионах/миллиардах/миллионах
-    ПРИМЕЧАНИЕ: value должно быть в ДОЛЛАРАХ
-    Для инфраструктуры (значения в миллионах) используйте format_infra_cost
-    """
+    if value is None:
+        return "0"
     if value >= 1_000_000_000_000:
-        trillions = value / 1_000_000_000_000
-        return f"{trillions:,.2f}".replace(',', ' ') + " трлн $"
+        return f"{value/1_000_000_000_000:.2f} трлн".replace(',', '.')
     elif value >= 1_000_000_000:
-        billions = value / 1_000_000_000
-        return f"{billions:,.2f}".replace(',', ' ') + " млрд $"
+        return f"{value/1_000_000_000:.2f} млрд".replace(',', '.')
     elif value >= 1_000_000:
-        millions = value / 1_000_000
-        return f"{millions:,.2f}".replace(',', ' ') + " млн $"
+        return f"{value/1_000_000:.2f} млн".replace(',', '.')
     elif value >= 1_000:
-        thousands = value / 1_000
-        return f"{thousands:,.2f}".replace(',', ' ') + " тыс $"
+        return f"{value/1_000:.2f} тыс".replace(',', '.')
     else:
-        return f"{value:,} $".replace(',', ' ')
+        return f"{int(value):,}".replace(',', ' ')
 
 def format_infra_cost(cost_millions):
-    """
-    Специальное форматирование для стоимости инфраструктуры
-    cost_millions - значение в МИЛЛИОНАХ долларов
-    Пример: 500 -> "500 млн $", 1500 -> "1.5 млрд $"
-    """
+    """Специальное форматирование для стоимости инфраструктуры"""
     if cost_millions >= 1000:
         billions = cost_millions / 1000
         return f"{billions:.1f} млрд $"
@@ -140,10 +275,7 @@ def format_infra_cost(cost_millions):
         return f"{cost_millions:.0f} млн $"
 
 def format_research_cost(cost_millions):
-    """
-    Форматирование для стоимости исследований
-    cost_millions - значение в МИЛЛИОНАХ долларов
-    """
+    """Форматирование для стоимости исследований"""
     if cost_millions >= 1000:
         billions = cost_millions / 1000
         return f"{billions:.1f} млрд $"
@@ -151,7 +283,6 @@ def format_research_cost(cost_millions):
         return f"{cost_millions:.0f} млн $"
 
 def format_time(seconds):
-    """Форматирование времени"""
     if seconds < 60:
         return f"{seconds:.0f} сек"
     elif seconds < 3600:
@@ -170,36 +301,22 @@ def format_time(seconds):
         return f"{days} дн"
 
 def create_embed(title, description=None, color=DARK_THEME_COLOR, fields=None, footer=None):
-    """
-    Универсальная функция для создания embed с тёмной темой
-    """
-    embed = discord.Embed(
-        title=title,
-        description=description,
-        color=color
-    )
-    
+    embed = discord.Embed(title=title, description=description, color=color)
     if fields:
         for name, value, inline in fields:
             embed.add_field(name=name, value=value, inline=inline)
-    
     if footer:
         embed.set_footer(text=footer)
-    
     return embed
 
 async def safe_delete(message):
-    """Безопасное удаление сообщения (асинхронная функция)"""
     try:
         if message:
             await message.delete()
     except:
         pass
 
-# ==================== ФУНКЦИИ ЗАГРУЗКИ/СОХРАНЕНИЯ ====================
-
 def load_states():
-    """Загрузка данных государств"""
     try:
         with open(STATES_FILE, 'r', encoding='utf-8') as f:
             content = f.read().strip()
@@ -212,13 +329,10 @@ def load_states():
         return {"players": {}, "last_update": str(datetime.now())}
 
 def save_states(data):
-    """Сохранение данных государств"""
-    filepath = os.path.join(DATA_DIR, 'states.json')
-    with open(filepath, 'w', encoding='utf-8') as f:
+    with open(STATES_FILE, 'w', encoding='utf-8') as f:
         json.dump(data, f, ensure_ascii=False, indent=4)
 
 def load_trades():
-    """Загрузка активных сделок"""
     try:
         with open(TRADES_FILE, 'r', encoding='utf-8') as f:
             content = f.read().strip()
@@ -231,12 +345,10 @@ def load_trades():
         return {"active_trades": [], "completed_trades": []}
 
 def save_trades(data):
-    """Сохранение сделок"""
     with open(TRADES_FILE, 'w', encoding='utf-8') as f:
         json.dump(data, f, ensure_ascii=False, indent=4)
 
 def load_alliances():
-    """Загрузка альянсов"""
     try:
         with open(ALLIANCES_FILE, 'r', encoding='utf-8') as f:
             content = f.read().strip()
@@ -249,12 +361,10 @@ def load_alliances():
         return {"alliances": []}
 
 def save_alliances(data):
-    """Сохранение альянсов"""
     with open(ALLIANCES_FILE, 'w', encoding='utf-8') as f:
         json.dump(data, f, ensure_ascii=False, indent=4)
 
 def load_transfers():
-    """Загрузка активных переводов"""
     try:
         with open(TRANSFERS_FILE, 'r', encoding='utf-8') as f:
             content = f.read().strip()
@@ -267,23 +377,13 @@ def load_transfers():
         return {"active_transfers": [], "completed_transfers": []}
 
 def save_transfers(data):
-    """Сохранение переводов"""
     with open(TRANSFERS_FILE, 'w', encoding='utf-8') as f:
         json.dump(data, f, ensure_ascii=False, indent=4)
 
-# ==================== ДОПОЛНИТЕЛЬНЫЕ ФУНКЦИИ ДЛЯ РАБОТЫ С ЭФЕМЕРНЫМИ СООБЩЕНИЯМИ ====================
-
 async def send_ephemeral(interaction, embed=None, view=None, content=None):
-    """Отправить эфемерное сообщение"""
-    await interaction.response.send_message(
-        content=content,
-        embed=embed,
-        view=view,
-        ephemeral=True
-    )
+    await interaction.response.send_message(content=content, embed=embed, view=view, ephemeral=True)
 
 async def update_ephemeral(interaction, embed=None, view=None):
-    """Обновить эфемерное сообщение"""
     try:
         await interaction.response.edit_message(embed=embed, view=view)
     except:
@@ -292,12 +392,21 @@ async def update_ephemeral(interaction, embed=None, view=None):
         except:
             pass
 
-# Экспортируем все функции
+# ==================== РАСЧЁТ ДОЛИ РЫНКА ====================
+# (Оставьте существующий код расчёта доли рынка без изменений)
+
+# ==================== ЭКСПОРТ ====================
 __all__ = [
     'get_user_id', 'get_user_name', 'send_response', 'edit_response',
     'format_number', 'format_army_number', 'format_billion', 'format_time',
-    'format_infra_cost', 'format_research_cost', 'create_embed', 'safe_delete',
-    'send_ephemeral', 'update_ephemeral', 'DARK_THEME_COLOR',
-    'load_states', 'save_states', 'load_trades', 'save_trades',
-    'load_alliances', 'save_alliances', 'load_transfers', 'save_transfers'
+    'format_infra_cost', 'format_research_cost',
+    'create_embed', 'safe_delete', 'send_ephemeral', 'update_ephemeral',
+    'DARK_THEME_COLOR', 'load_states', 'save_states', 'load_trades', 'save_trades',
+    'load_alliances', 'save_alliances', 'load_transfers', 'save_transfers',
+    'get_budget', 'set_budget', 'add_to_budget', 'subtract_from_budget',
+    'has_sufficient_budget', 'get_gdp', 'get_gdp_usd', 'get_debt', 'get_debt_usd',
+    'get_military_budget', 'get_wage', 'get_currency_code', 'get_inflation',
+    'get_usd_reserves', 'spend_usd', 'add_usd',
+    'format_budget_display', 'format_gdp_display', 'format_debt_display',
+    'EXCHANGE_RATES_2019', 'CURRENCY_CODES'  # ДОБАВЛЕНО
 ]

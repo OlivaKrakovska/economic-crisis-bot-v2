@@ -1,10 +1,12 @@
 # production_effects.py - Модуль для применения бонусов инфраструктуры к производству
+# Версия с поддержкой новой структуры активов (total/ownership)
 
 from infra_build import (
     calculate_production_bonus, calculate_power_generation,
     calculate_storage_capacity, calculate_research_bonus,
     calculate_gov_efficiency_bonus, calculate_pp_gain_bonus,
-    load_infrastructure, INFRASTRUCTURE_COSTS
+    load_infrastructure, INFRASTRUCTURE_COSTS,
+    get_asset_total  # <-- ДОБАВЛЕН ИМПОРТ
 )
 from utils import load_states, save_states
 import asyncio
@@ -64,99 +66,88 @@ def apply_infrastructure_bonuses(player_data, country_name):
     
     for region_name, region_data in regions.items():
         # Военные заводы - дают бонус ко всей военной технике, включая дроны-камикадзе
-        if "military_factories" in region_data:
-            count = region_data["military_factories"]
-            if count > 0:
-                # Сухопутная техника
-                if "ground" not in total_production_bonus:
-                    total_production_bonus["ground"] = 1.0
-                total_production_bonus["ground"] += count * 0.02
-                
-                # Авиация (включая дроны-камикадзе)
-                if "air" not in total_production_bonus:
-                    total_production_bonus["air"] = 1.0
-                total_production_bonus["air"] += count * 0.02
-                
-                # Ракеты
-                if "missiles" not in total_production_bonus:
-                    total_production_bonus["missiles"] = 1.0
-                total_production_bonus["missiles"] += count * 0.02
-                
-                # Дроны-камикадзе (отдельно, но также получают бонус от военных заводов)
-                if "air.kamikaze_uav" not in total_production_bonus:
-                    total_production_bonus["air.kamikaze_uav"] = 1.0
-                total_production_bonus["air.kamikaze_uav"] += count * 0.02
+        military_count = get_asset_total(region_data, "military_factories")
+        if military_count > 0:
+            # Сухопутная техника
+            if "ground" not in total_production_bonus:
+                total_production_bonus["ground"] = 1.0
+            total_production_bonus["ground"] += military_count * 0.02
+            
+            # Авиация (включая дроны-камикадзе)
+            if "air" not in total_production_bonus:
+                total_production_bonus["air"] = 1.0
+            total_production_bonus["air"] += military_count * 0.02
+            
+            # Ракеты
+            if "missiles" not in total_production_bonus:
+                total_production_bonus["missiles"] = 1.0
+            total_production_bonus["missiles"] += military_count * 0.02
+            
+            # Дроны-камикадзе (отдельно, но также получают бонус от военных заводов)
+            if "air.kamikaze_uav" not in total_production_bonus:
+                total_production_bonus["air.kamikaze_uav"] = 1.0
+            total_production_bonus["air.kamikaze_uav"] += military_count * 0.02
         
         # Верфи
-        if "shipyards" in region_data:
-            count = region_data["shipyards"]
-            if count > 0:
-                for prod in ["navy.boats", "navy.corvettes", "navy.destroyers", 
-                           "navy.cruisers", "navy.aircraft_carriers", "navy.submarines"]:
-                    if prod not in total_production_bonus:
-                        total_production_bonus[prod] = 1.0
-                    total_production_bonus[prod] += count * 0.05
+        shipyards_count = get_asset_total(region_data, "shipyards")
+        if shipyards_count > 0:
+            for prod in ["navy.boats", "navy.corvettes", "navy.destroyers", 
+                       "navy.cruisers", "navy.aircraft_carriers", "navy.submarines"]:
+                if prod not in total_production_bonus:
+                    total_production_bonus[prod] = 1.0
+                total_production_bonus[prod] += shipyards_count * 0.05
         
         # Гражданские фабрики
-        if "civilian_factories" in region_data:
-            count = region_data["civilian_factories"]
-            if count > 0:
-                if "civil" not in total_production_bonus:
-                    total_production_bonus["civil"] = 1.0
-                total_production_bonus["civil"] += count * 0.03
+        civilian_count = get_asset_total(region_data, "civilian_factories")
+        if civilian_count > 0:
+            if "civil" not in total_production_bonus:
+                total_production_bonus["civil"] = 1.0
+            total_production_bonus["civil"] += civilian_count * 0.03
         
         # НПЗ
-        if "refineries" in region_data:
-            count = region_data["refineries"]
-            if count > 0:
-                for prod in ["chemicals", "pharmaceuticals"]:
-                    if prod not in total_production_bonus:
-                        total_production_bonus[prod] = 1.0
-                    total_production_bonus[prod] += count * 0.10
+        refineries_count = get_asset_total(region_data, "refineries")
+        if refineries_count > 0:
+            for prod in ["chemicals", "pharmaceuticals"]:
+                if prod not in total_production_bonus:
+                    total_production_bonus[prod] = 1.0
+                total_production_bonus[prod] += refineries_count * 0.10
         
         # Энергия и потребление топлива (СУТОЧНОЕ)
-        if "thermal_power" in region_data:
-            count = region_data["thermal_power"]
-            if count > 0:
-                total_power += count * 100
-                total_fuel_consumption["coal"] += count * 0.024
-                total_fuel_consumption["oil"] += count * 0.012
+        thermal_count = get_asset_total(region_data, "thermal_power")
+        if thermal_count > 0:
+            total_power += thermal_count * 100
+            total_fuel_consumption["coal"] += thermal_count * 0.024
+            total_fuel_consumption["oil"] += thermal_count * 0.012
         
-        if "nuclear_power" in region_data:
-            count = region_data["nuclear_power"]
-            if count > 0:
-                total_power += count * 500
-                total_fuel_consumption["uranium"] += count * 0.002
+        nuclear_count = get_asset_total(region_data, "nuclear_power")
+        if nuclear_count > 0:
+            total_power += nuclear_count * 500
+            total_fuel_consumption["uranium"] += nuclear_count * 0.002
         
-        if "hydro_power" in region_data:
-            count = region_data["hydro_power"]
-            if count > 0:
-                total_power += count * 150
+        hydro_count = get_asset_total(region_data, "hydro_power")
+        if hydro_count > 0:
+            total_power += hydro_count * 150
         
-        if "solar_power" in region_data:
-            count = region_data["solar_power"]
-            if count > 0:
-                total_power += count * 40
+        solar_count = get_asset_total(region_data, "solar_power")
+        if solar_count > 0:
+            total_power += solar_count * 40
         
-        if "wind_power" in region_data:
-            count = region_data["wind_power"]
-            if count > 0:
-                total_power += count * 60
+        wind_count = get_asset_total(region_data, "wind_power")
+        if wind_count > 0:
+            total_power += wind_count * 60
         
         # Хранилища (нефтебазы)
-        if "oil_depots" in region_data:
-            count = region_data["oil_depots"]
-            if count > 0:
-                total_storage["oil"] = total_storage.get("oil", 0) + count * 1000
-                total_storage["gas"] = total_storage.get("gas", 0) + count * 500
+        oil_depots_count = get_asset_total(region_data, "oil_depots")
+        if oil_depots_count > 0:
+            total_storage["oil"] = total_storage.get("oil", 0) + oil_depots_count * 1000
+            total_storage["gas"] = total_storage.get("gas", 0) + oil_depots_count * 500
         
         # ЦОД - бонусы к исследованиям и эффективности
-        if "internet_infrastructure" in region_data:
-            count = region_data["internet_infrastructure"]
-            if count > 0:
-                total_research_bonus += count * 0.01
-                total_gov_bonus += count * 1
-                total_pp_bonus += count * 0.01
+        internet_count = get_asset_total(region_data, "internet_infrastructure")
+        if internet_count > 0:
+            total_research_bonus += internet_count * 0.01
+            total_gov_bonus += internet_count * 1
+            total_pp_bonus += internet_count * 0.01
     
     if "infrastructure_bonuses" not in player_data:
         player_data["infrastructure_bonuses"] = {}
@@ -349,9 +340,15 @@ def get_production_bonus_info(player_data):
         elif prod_type == "air.kamikaze_uav":
             info["Дроны-камикадзе"] = f"x{bonus:.2f}"
         elif prod_type.startswith("navy."):
-            info[prod_type.replace("navy.", "Флот: ")] = f"x{bonus:.2f}"
+            ship_type = prod_type.replace("navy.", "")
+            ship_names = {
+                "boats": "Катера", "corvettes": "Корветы", "destroyers": "Эсминцы",
+                "cruisers": "Крейсера", "aircraft_carriers": "Авианосцы", "submarines": "Подлодки"
+            }
+            info[f"Флот: {ship_names.get(ship_type, ship_type)}"] = f"x{bonus:.2f}"
         elif prod_type in ["chemicals", "pharmaceuticals"]:
-            info[prod_type.capitalize()] = f"x{bonus:.2f}"
+            names = {"chemicals": "Химикаты", "pharmaceuticals": "Фармацевтика"}
+            info[names.get(prod_type, prod_type)] = f"x{bonus:.2f}"
     
     return info
 

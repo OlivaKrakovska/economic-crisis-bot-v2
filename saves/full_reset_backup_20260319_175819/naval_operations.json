@@ -1,0 +1,16 @@
+{
+    "operations": [
+        {
+            "timestamp": "2026-03-19 17:57:40.955016",
+            "attacker": "США",
+            "attacker_fleet": "2-й флот США (Атлантический)",
+            "weapon": "Крылатые ракеты",
+            "quantity": 2,
+            "target_type": "trade",
+            "target_region": "Северная Атлантика",
+            "destroyed": 1,
+            "damage": 100,
+            "detected": true
+        }
+    ]
+}

@@ -1,6 +1,7 @@
 # resource_system.py
 
 import discord
+from typing import Dict, List, Optional, Tuple
 
 # Типы ресурсов (с пользовательскими эмодзи)
 # Формат: <:название_эмодзи:ID_эмодзи>
@@ -43,6 +44,44 @@ RESOURCE_PRICES = {
     "food": 50         # 50,000$ за единицу
 }
 
+# ==================== НОВЫЕ ФУНКЦИИ ДЛЯ РАБОТЫ С НАЗВАНИЯМИ ====================
+
+def get_resource_key(resource_name: str) -> Optional[str]:
+    """
+    Возвращает ключ ресурса по человекочитаемому названию
+    Пример: get_resource_key("Нефть") -> "oil"
+    """
+    # Сначала проверяем прямые совпадения
+    for key, name in RESOURCE_TYPES.items():
+        if name.lower() == resource_name.lower():
+            return key
+    
+    # Проверяем с эмодзи (если ввели с эмодзи)
+    for key, name in RESOURCE_TYPES_FALLBACK.items():
+        if name.lower().endswith(resource_name.lower()) or resource_name.lower() in name.lower():
+            return key
+    
+    return None
+
+
+def get_all_resource_names(with_emoji: bool = False) -> List[str]:
+    """
+    Возвращает список всех названий ресурсов для подсказок
+    """
+    if with_emoji:
+        return list(RESOURCE_TYPES_FALLBACK.values())
+    return list(RESOURCE_TYPES.values())
+
+
+def get_resource_name_by_key(key: str, with_emoji: bool = False) -> str:
+    """
+    Возвращает название ресурса по ключу
+    """
+    if with_emoji:
+        return RESOURCE_TYPES_FALLBACK.get(key, f"📦 {key}")
+    return RESOURCE_TYPES.get(key, key)
+
+
 def get_resource_emoji(resource, use_custom=True):
     """Возвращает эмодзи для ресурса"""
     if use_custom:
@@ -62,6 +101,7 @@ def get_resource_emoji(resource, use_custom=True):
         emoji = emojis.get(resource, "📦")
     return emoji
 
+
 def get_resource_name(resource, use_custom=True):
     """Возвращает полное название ресурса с эмодзи"""
     if use_custom:
@@ -69,14 +109,17 @@ def get_resource_name(resource, use_custom=True):
     else:
         return RESOURCE_TYPES_FALLBACK.get(resource, f"📦 {resource}")
 
+
 def format_resource_amount(amount):
     """Форматирует количество ресурсов"""
     return f"{amount:,.0f}".replace(',', ' ')
+
 
 def calculate_resource_value(resource, amount):
     """Рассчитывает стоимость ресурсов в долларах"""
     price = RESOURCE_PRICES.get(resource, 0)
     return amount * price * 1000  # переводим в доллары
+
 
 def format_resource_value(value):
     """Форматирует стоимость ресурсов"""
@@ -89,13 +132,14 @@ def format_resource_value(value):
     else:
         return f"{value:,.0f} $".replace(',', ' ')
 
+
 def create_resource_embed(resources, title="Ресурсы", use_custom=True):
     """
     Создает embed со ВСЕМИ ресурсами в удобном формате
     """
     embed = discord.Embed(
         title=f"⛏️ {title}",
-        description="Торговля только между игроками. Используйте `!торговля`",
+        description="Торговля только между игроками. Используйте `!торговля @игрок [ресурс] [количество] [цена]`",
         color=discord.Color.green()
     )
     
@@ -143,7 +187,11 @@ def create_resource_embed(resources, title="Ресурсы", use_custom=True):
         inline=False
     )
     
+    # Добавляем подсказку по командам
+    embed.set_footer(text="Для торговли используйте: !торговля @игрок Нефть 100 50 (100 ед. по 50 тыс.$/ед.)")
+    
     return embed
+
 
 def create_trade_embed(resource, amount, price_per_unit, total_price, seller, use_custom=True):
     """Создает embed для торгового предложения (для обратной совместимости)"""
@@ -180,6 +228,7 @@ def create_trade_embed(resource, amount, price_per_unit, total_price, seller, us
     
     return embed
 
+
 def check_resource_sufficiency(resources, required_resources):
     """
     Проверяет достаточно ли ресурсов для производства/строительства
@@ -193,6 +242,7 @@ def check_resource_sufficiency(resources, required_resources):
             missing[resource] = required_amount - available
     
     return len(missing) == 0, missing
+
 
 # Функция для конвертации старых ресурсов в новые
 def convert_old_resources(old_resources):
@@ -241,11 +291,16 @@ def convert_old_resources(old_resources):
     
     return new_resources
 
-# Экспорт
+
+# ==================== ЭКСПОРТ ====================
+
 __all__ = [
     'RESOURCE_TYPES',
     'RESOURCE_TYPES_FALLBACK',
     'RESOURCE_PRICES',
+    'get_resource_key',           # НОВАЯ: поиск ключа по названию
+    'get_all_resource_names',     # НОВАЯ: список всех названий
+    'get_resource_name_by_key',   # НОВАЯ: название по ключу
     'get_resource_emoji',
     'get_resource_name',
     'format_resource_amount',

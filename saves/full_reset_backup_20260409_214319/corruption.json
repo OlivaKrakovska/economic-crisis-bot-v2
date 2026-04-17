@@ -1,0 +1,491 @@
+{
+    "countries": {
+        "США": {
+            "level": 3.1,
+            "history": [
+                {
+                    "date": "2026-04-06 18:34:00.540499",
+                    "level": 3.1,
+                    "reason": "Начальное значение после сброса"
+                }
+            ],
+            "last_update": "2026-04-06 18:34:00.540507",
+            "total_stolen": 0,
+            "anti_corruption_efforts": 0,
+            "last_campaign": null,
+            "campaign_count": 0,
+            "public_trust": 50
+        },
+        "Россия": {
+            "level": 8.28627814519678,
+            "history": [
+                {
+                    "date": "2026-04-08 22:02:27.282607",
+                    "level": 7.639530045907426,
+                    "change": -0.009970102748810343,
+                    "loss": 2388088086.3629556,
+                    "reason": "Ежемесячное обновление"
+                },
+                {
+                    "date": "2026-04-09 14:44:41.424898",
+                    "level": 7.749865656684732,
+                    "change": 0.11033561077730575,
+                    "loss": 0.0,
+                    "reason": "Ежемесячное обновление"
+                },
+                {
+                    "date": "2026-04-09 14:47:55.959675",
+                    "level": 7.872517193360263,
+                    "change": 0.1226515366755306,
+                    "loss": 0.0,
+                    "reason": "Ежемесячное обновление"
+                },
+                {
+                    "date": "2026-04-09 14:50:46.553443",
+                    "level": 7.982932152505354,
+                    "change": 0.11041495914509131,
+                    "loss": 0.0,
+                    "reason": "Ежемесячное обновление"
+                },
+                {
+                    "date": "2026-04-09 15:06:13.396753",
+                    "level": 8.088774059911376,
+                    "change": 0.10584190740602178,
+                    "loss": 0.0,
+                    "reason": "Ежемесячное обновление"
+                },
+                {
+                    "date": "2026-04-09 18:08:29.501498",
+                    "level": 8.133635433562798,
+                    "change": 0.044861373651422676,
+                    "loss": 0.0,
+                    "reason": "Ежемесячное обновление"
+                },
+                {
+                    "date": "2026-04-09 18:14:59.448746",
+                    "level": 8.169243366014019,
+                    "change": 0.03560793245122135,
+                    "loss": 0.0,
+                    "reason": "Ежемесячное обновление"
+                },
+                {
+                    "date": "2026-04-09 18:17:58.549530",
+                    "level": 8.139913397469142,
+                    "change": -0.029329968544877662,
+                    "loss": 0.0,
+                    "reason": "Ежемесячное обновление"
+                },
+                {
+                    "date": "2026-04-09 18:31:46.780830",
+                    "level": 8.105424073863272,
+                    "change": -0.034489323605869565,
+                    "loss": 184180876214.58014,
+                    "reason": "Ежемесячное обновление"
+                },
+                {
+                    "date": "2026-04-09 18:46:07.988675",
+                    "level": 8.188142176977216,
+                    "change": 0.08271810311394304,
+                    "loss": 157326281273.6861,
+                    "reason": "Ежемесячное обновление"
+                },
+                {
+                    "date": "2026-04-09 18:54:34.345712",
+                    "level": 8.183019413450884,
+                    "change": -0.005122763526332189,
+                    "loss": 157643629695.88367,
+                    "reason": "Р•Р¶РµРјРµСЃСЏС‡РЅРѕРµ РѕР±РЅРѕРІР»РµРЅРёРµ"
+                },
+                {
+                    "date": "2026-04-09 19:00:34.884998",
+                    "level": 8.211676062650406,
+                    "change": 0.028656649199523158,
+                    "loss": 156255001918.96478,
+                    "reason": "Р•Р¶РµРјРµСЃСЏС‡РЅРѕРµ РѕР±РЅРѕРІР»РµРЅРёРµ"
+                },
+                {
+                    "date": "2026-04-09 19:02:11.002211",
+                    "level": 8.271627248484506,
+                    "change": 0.05995118583409935,
+                    "loss": 155519086038.75308,
+                    "reason": "Р•Р¶РµРјРµСЃСЏС‡РЅРѕРµ РѕР±РЅРѕРІР»РµРЅРёРµ"
+                },
+                {
+                    "date": "2026-04-09 19:02:55.890495",
+                    "level": 8.29081082389504,
+                    "change": 0.019183575410533567,
+                    "loss": 156641708399.37183,
+                    "reason": "Р•Р¶РµРјРµСЃСЏС‡РЅРѕРµ РѕР±РЅРѕРІР»РµРЅРёРµ"
+                },
+                {
+                    "date": "2026-04-09 19:03:43.802653",
+                    "level": 8.347314042270282,
+                    "change": 0.05650321837524261,
+                    "loss": 155706305409.34363,
+                    "reason": "Р•Р¶РµРјРµСЃСЏС‡РЅРѕРµ РѕР±РЅРѕРІР»РµРЅРёРµ"
+                },
+                {
+                    "date": "2026-04-09 21:18:28.383856",
+                    "level": 8.480715197334387,
+                    "change": 0.13340115506410544,
+                    "loss": 155467739666.1081,
+                    "reason": "Ежемесячное обновление"
+                },
+                {
+                    "date": "2026-04-09 21:21:14.476668",
+                    "level": 8.425749847162228,
+                    "change": -0.05496535017215956,
+                    "loss": 156633842825.13785,
+                    "reason": "Ежемесячное обновление"
+                },
+                {
+                    "date": "2026-04-09 21:26:09.440606",
+                    "level": 8.366051498387922,
+                    "change": -0.05969834877430667,
+                    "loss": 154298907421.57047,
+                    "reason": "Ежемесячное обновление"
+                },
+                {
+                    "date": "2026-04-09 21:35:39.694797",
+                    "level": 8.335321613913955,
+                    "change": -0.030729884473967285,
+                    "loss": 151914792059.16885,
+                    "reason": "Ежемесячное обновление"
+                },
+                {
+                    "date": "2026-04-09 21:39:09.023905",
+                    "level": 8.28627814519678,
+                    "change": -0.04904346871717455,
+                    "loss": 150090525368.1646,
+                    "reason": "Ежемесячное обновление"
+                }
+            ],
+            "last_update": "2026-04-06 18:34:00.540524",
+            "total_stolen": 1933999576817.2012,
+            "anti_corruption_efforts": 0,
+            "last_campaign": null,
+            "campaign_count": 0,
+            "public_trust": 50
+        },
+        "Китай": {
+            "level": 5.8,
+            "history": [
+                {
+                    "date": "2026-04-06 18:34:00.540533",
+                    "level": 5.8,
+                    "reason": "Начальное значение после сброса"
+                }
+            ],
+            "last_update": "2026-04-06 18:34:00.540538",
+            "total_stolen": 0,
+            "anti_corruption_efforts": 0,
+            "last_campaign": null,
+            "campaign_count": 0,
+            "public_trust": 50
+        },
+        "Германия": {
+            "level": 2.2,
+            "history": [
+                {
+                    "date": "2026-04-06 18:34:00.540545",
+                    "level": 2.2,
+                    "reason": "Начальное значение после сброса"
+                }
+            ],
+            "last_update": "2026-04-06 18:34:00.540550",
+            "total_stolen": 0,
+            "anti_corruption_efforts": 0,
+            "last_campaign": null,
+            "campaign_count": 0,
+            "public_trust": 50
+        },
+        "Великобритания": {
+            "level": 2.7,
+            "history": [
+                {
+                    "date": "2026-04-06 18:34:00.540556",
+                    "level": 2.7,
+                    "reason": "Начальное значение после сброса"
+                }
+            ],
+            "last_update": "2026-04-06 18:34:00.540560",
+            "total_stolen": 0,
+            "anti_corruption_efforts": 0,
+            "last_campaign": null,
+            "campaign_count": 0,
+            "public_trust": 50
+        },
+        "Франция": {
+            "level": 2.8,
+            "history": [
+                {
+                    "date": "2026-04-06 18:34:00.540566",
+                    "level": 2.8,
+                    "reason": "Начальное значение после сброса"
+                }
+            ],
+            "last_update": "2026-04-06 18:34:00.540571",
+            "total_stolen": 0,
+            "anti_corruption_efforts": 0,
+            "last_campaign": null,
+            "campaign_count": 0,
+            "public_trust": 50
+        },
+        "Япония": {
+            "level": 2.7,
+            "history": [
+                {
+                    "date": "2026-04-06 18:34:00.540576",
+                    "level": 2.7,
+                    "reason": "Начальное значение после сброса"
+                }
+            ],
+            "last_update": "2026-04-06 18:34:00.540581",
+            "total_stolen": 0,
+            "anti_corruption_efforts": 0,
+            "last_campaign": null,
+            "campaign_count": 0,
+            "public_trust": 50
+        },
+        "Израиль": {
+            "level": 3.8,
+            "history": [
+                {
+                    "date": "2026-04-06 18:34:00.540586",
+                    "level": 3.8,
+                    "reason": "Начальное значение после сброса"
+                }
+            ],
+            "last_update": "2026-04-06 18:34:00.540590",
+            "total_stolen": 0,
+            "anti_corruption_efforts": 0,
+            "last_campaign": null,
+            "campaign_count": 0,
+            "public_trust": 50
+        },
+        "Украина": {
+            "level": 6.4,
+            "history": [
+                {
+                    "date": "2026-04-06 18:34:00.540595",
+                    "level": 6.4,
+                    "reason": "Начальное значение после сброса"
+                }
+            ],
+            "last_update": "2026-04-06 18:34:00.540599",
+            "total_stolen": 0,
+            "anti_corruption_efforts": 0,
+            "last_campaign": null,
+            "campaign_count": 0,
+            "public_trust": 50
+        },
+        "Иран": {
+            "level": 7.5,
+            "history": [
+                {
+                    "date": "2026-04-06 18:34:00.540604",
+                    "level": 7.5,
+                    "reason": "Начальное значение после сброса"
+                }
+            ],
+            "last_update": "2026-04-06 18:34:00.540609",
+            "total_stolen": 0,
+            "anti_corruption_efforts": 0,
+            "last_campaign": null,
+            "campaign_count": 0,
+            "public_trust": 50
+        },
+        "Беларусь": {
+            "level": 6.0,
+            "history": [
+                {
+                    "date": "2026-04-06 18:34:00.540614",
+                    "level": 6.0,
+                    "reason": "Начальное значение после сброса"
+                }
+            ],
+            "last_update": "2026-04-06 18:34:00.540618",
+            "total_stolen": 0,
+            "anti_corruption_efforts": 0,
+            "last_campaign": null,
+            "campaign_count": 0,
+            "public_trust": 50
+        },
+        "Норвегия": {
+            "level": 1.6,
+            "history": [
+                {
+                    "date": "2026-04-06 18:34:00.540624",
+                    "level": 1.6,
+                    "reason": "Начальное значение после сброса"
+                }
+            ],
+            "last_update": "2026-04-06 18:34:00.540628",
+            "total_stolen": 0,
+            "anti_corruption_efforts": 0,
+            "last_campaign": null,
+            "campaign_count": 0,
+            "public_trust": 50
+        },
+        "КНДР": {
+            "level": 8.0,
+            "history": [
+                {
+                    "date": "2026-04-06 18:34:00.540633",
+                    "level": 8.0,
+                    "reason": "Начальное значение после сброса"
+                }
+            ],
+            "last_update": "2026-04-06 18:34:00.540638",
+            "total_stolen": 0,
+            "anti_corruption_efforts": 0,
+            "last_campaign": null,
+            "campaign_count": 0,
+            "public_trust": 50
+        },
+        "Турция": {
+            "level": 6.4,
+            "history": [
+                {
+                    "date": "2026-04-06 18:34:00.540642",
+                    "level": 6.4,
+                    "reason": "Начальное значение после сброса"
+                }
+            ],
+            "last_update": "2026-04-06 18:34:00.540647",
+            "total_stolen": 0,
+            "anti_corruption_efforts": 0,
+            "last_campaign": null,
+            "campaign_count": 0,
+            "public_trust": 50
+        },
+        "Сирия": {
+            "level": 8.5,
+            "history": [
+                {
+                    "date": "2026-04-06 18:34:00.540651",
+                    "level": 8.5,
+                    "reason": "Начальное значение после сброса"
+                }
+            ],
+            "last_update": "2026-04-06 18:34:00.540656",
+            "total_stolen": 0,
+            "anti_corruption_efforts": 0,
+            "last_campaign": null,
+            "campaign_count": 0,
+            "public_trust": 50
+        },
+        "Канада": {
+            "level": 2.4,
+            "history": [
+                {
+                    "date": "2026-04-06 18:34:00.540661",
+                    "level": 2.4,
+                    "reason": "Начальное значение после сброса"
+                }
+            ],
+            "last_update": "2026-04-06 18:34:00.540669",
+            "total_stolen": 0,
+            "anti_corruption_efforts": 0,
+            "last_campaign": null,
+            "campaign_count": 0,
+            "public_trust": 50
+        },
+        "Польша": {
+            "level": 4.6,
+            "history": [
+                {
+                    "date": "2026-04-06 18:34:00.540676",
+                    "level": 4.6,
+                    "reason": "Начальное значение после сброса"
+                }
+            ],
+            "last_update": "2026-04-06 18:34:00.540680",
+            "total_stolen": 0,
+            "anti_corruption_efforts": 0,
+            "last_campaign": null,
+            "campaign_count": 0,
+            "public_trust": 50
+        },
+        "Бразилия": {
+            "level": 6.4,
+            "history": [
+                {
+                    "date": "2026-04-06 18:34:00.540686",
+                    "level": 6.4,
+                    "reason": "Начальное значение после сброса"
+                }
+            ],
+            "last_update": "2026-04-06 18:34:00.540690",
+            "total_stolen": 0,
+            "anti_corruption_efforts": 0,
+            "last_campaign": null,
+            "campaign_count": 0,
+            "public_trust": 50
+        },
+        "Швеция": {
+            "level": 1.8,
+            "history": [
+                {
+                    "date": "2026-04-06 18:34:00.540695",
+                    "level": 1.8,
+                    "reason": "Начальное значение после сброса"
+                }
+            ],
+            "last_update": "2026-04-06 18:34:00.540700",
+            "total_stolen": 0,
+            "anti_corruption_efforts": 0,
+            "last_campaign": null,
+            "campaign_count": 0,
+            "public_trust": 50
+        },
+        "Финляндия": {
+            "level": 1.3,
+            "history": [
+                {
+                    "date": "2026-04-06 18:34:00.540705",
+                    "level": 1.3,
+                    "reason": "Начальное значение после сброса"
+                }
+            ],
+            "last_update": "2026-04-06 18:34:00.540709",
+            "total_stolen": 0,
+            "anti_corruption_efforts": 0,
+            "last_campaign": null,
+            "campaign_count": 0,
+            "public_trust": 50
+        },
+        "Швейцария": {
+            "level": 1.8,
+            "history": [
+                {
+                    "date": "2026-04-06 18:34:00.540714",
+                    "level": 1.8,
+                    "reason": "Начальное значение после сброса"
+                }
+            ],
+            "last_update": "2026-04-06 18:34:00.540719",
+            "total_stolen": 0,
+            "anti_corruption_efforts": 0,
+            "last_campaign": null,
+            "campaign_count": 0,
+            "public_trust": 50
+        },
+        "Египет": {
+            "level": 6.5,
+            "history": [
+                {
+                    "date": "2026-04-06 18:34:00.540724",
+                    "level": 6.5,
+                    "reason": "Начальное значение после сброса"
+                }
+            ],
+            "last_update": "2026-04-06 18:34:00.540728",
+            "total_stolen": 0,
+            "anti_corruption_efforts": 0,
+            "last_campaign": null,
+            "campaign_count": 0,
+            "public_trust": 50
+        }
+    }
+}

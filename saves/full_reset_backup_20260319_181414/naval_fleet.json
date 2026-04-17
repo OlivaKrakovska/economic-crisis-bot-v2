@@ -1,0 +1,1000 @@
+{
+    "fleets": {
+        "США": [
+            {
+                "id": "fleet_США_2-й_флот_США_(Атлантический)_20260319175834",
+                "name": "2-й флот США (Атлантический)",
+                "country": "США",
+                "ships": {
+                    "aircraft_carriers": 0,
+                    "cruisers": 0,
+                    "destroyers": 0,
+                    "submarines": 6
+                },
+                "home_port": "Норфолк",
+                "base_region": "Вирджиния",
+                "mission": "Патрулирование Северной Атлантики",
+                "current_region": "Северная Атлантика",
+                "status": "patrolling",
+                "missiles": {
+                    "strategic_nuclear": 209,
+                    "tactical_nuclear": 31
+                },
+                "aircraft": {},
+                "uav": {},
+                "missile_capacity": 240,
+                "aircraft_capacity": 0,
+                "drone_capacity": 0,
+                "detection_range": 200.0,
+                "has_submarines": true,
+                "has_carriers": true,
+                "stealth": 0.2,
+                "damage": 0,
+                "supply": 100,
+                "created_at": "2026-03-19 17:58:34.968833",
+                "last_update": "2026-03-19 17:58:34.968845"
+            },
+            {
+                "id": "fleet_США_3-й_флот_США_(Тихоокеанский)_20260319175835",
+                "name": "3-й флот США (Тихоокеанский)",
+                "country": "США",
+                "ships": {
+                    "aircraft_carriers": 0,
+                    "cruisers": 0,
+                    "destroyers": 0,
+                    "submarines": 7
+                },
+                "home_port": "Сан-Диего",
+                "base_region": "Калифорния",
+                "mission": "Патрулирование Восточной Пацифики",
+                "current_region": "Калифорнийское течение",
+                "status": "patrolling",
+                "missiles": {
+                    "strategic_nuclear": 167,
+                    "tactical_nuclear": 90,
+                    "cruise_missiles": 23
+                },
+                "aircraft": {},
+                "uav": {},
+                "missile_capacity": 280,
+                "aircraft_capacity": 0,
+                "drone_capacity": 0,
+                "detection_range": 200.0,
+                "has_submarines": true,
+                "has_carriers": true,
+                "stealth": 0.2,
+                "damage": 0,
+                "supply": 100,
+                "created_at": "2026-03-19 17:58:35.030820",
+                "last_update": "2026-03-19 17:58:35.030833"
+            },
+            {
+                "id": "fleet_США_4-й_флот_США_(Южный)_20260319175835",
+                "name": "4-й флот США (Южный)",
+                "country": "США",
+                "ships": {
+                    "cruisers": 0,
+                    "destroyers": 0,
+                    "corvettes": 8
+                },
+                "home_port": "Майами",
+                "base_region": "Флорида",
+                "mission": "Патрулирование Карибского бассейна",
+                "current_region": "Карибское море",
+                "status": "patrolling",
+                "missiles": {
+                    "cruise_missiles": 160
+                },
+                "aircraft": {},
+                "uav": {},
+                "missile_capacity": 160,
+                "aircraft_capacity": 0,
+                "drone_capacity": 0,
+                "detection_range": 150.0,
+                "has_submarines": false,
+                "has_carriers": false,
+                "stealth": 0.0,
+                "damage": 0,
+                "supply": 100,
+                "created_at": "2026-03-19 17:58:35.079737",
+                "last_update": "2026-03-19 17:58:35.079748"
+            },
+            {
+                "id": "fleet_США_5-й_флот_США_(Ближневосточный)_20260319175835",
+                "name": "5-й флот США (Ближневосточный)",
+                "country": "США",
+                "ships": {
+                    "aircraft_carriers": 0,
+                    "cruisers": 0,
+                    "destroyers": 0,
+                    "submarines": 0
+                },
+                "home_port": "Бахрейн",
+                "base_region": "Бахрейн",
+                "mission": "Охрана судоходства в Персидском заливе",
+                "current_region": "Персидский залив",
+                "status": "patrolling",
+                "missiles": {},
+                "aircraft": {},
+                "uav": {},
+                "missile_capacity": 0,
+                "aircraft_capacity": 0,
+                "drone_capacity": 0,
+                "detection_range": 0,
+                "has_submarines": true,
+                "has_carriers": true,
+                "stealth": 0.2,
+                "damage": 0,
+                "supply": 100,
+                "created_at": "2026-03-19 17:58:35.129072",
+                "last_update": "2026-03-19 17:58:35.129084"
+            },
+            {
+                "id": "fleet_США_6-й_флот_США_(Средиземноморский)_20260319175835",
+                "name": "6-й флот США (Средиземноморский)",
+                "country": "США",
+                "ships": {
+                    "aircraft_carriers": 0,
+                    "cruisers": 0,
+                    "destroyers": 0,
+                    "submarines": 0
+                },
+                "home_port": "Неаполь",
+                "base_region": "Италия",
+                "mission": "Патрулирование Средиземного моря",
+                "current_region": "Центральное Средиземноморье",
+                "status": "patrolling",
+                "missiles": {},
+                "aircraft": {},
+                "uav": {},
+                "missile_capacity": 0,
+                "aircraft_capacity": 0,
+                "drone_capacity": 0,
+                "detection_range": 0,
+                "has_submarines": true,
+                "has_carriers": true,
+                "stealth": 0.2,
+                "damage": 0,
+                "supply": 100,
+                "created_at": "2026-03-19 17:58:35.182702",
+                "last_update": "2026-03-19 17:58:35.182714"
+            },
+            {
+                "id": "fleet_США_7-й_флот_США_(Западно-Тихоокеанский)_20260319175835",
+                "name": "7-й флот США (Западно-Тихоокеанский)",
+                "country": "США",
+                "ships": {
+                    "aircraft_carriers": 0,
+                    "cruisers": 0,
+                    "destroyers": 0,
+                    "submarines": 0
+                },
+                "home_port": "Иокогама",
+                "base_region": "Япония",
+                "mission": "Патрулирование Западной Пацифики",
+                "current_region": "Филиппинское море",
+                "status": "patrolling",
+                "missiles": {},
+                "aircraft": {},
+                "uav": {},
+                "missile_capacity": 0,
+                "aircraft_capacity": 0,
+                "drone_capacity": 0,
+                "detection_range": 0,
+                "has_submarines": true,
+                "has_carriers": true,
+                "stealth": 0.2,
+                "damage": 0,
+                "supply": 100,
+                "created_at": "2026-03-19 17:58:35.238445",
+                "last_update": "2026-03-19 17:58:35.238457"
+            }
+        ],
+        "Китай": [
+            {
+                "id": "fleet_Китай_Северный_флот_20260319175835",
+                "name": "Северный флот",
+                "country": "Китай",
+                "ships": {
+                    "aircraft_carriers": 1,
+                    "destroyers": 8,
+                    "submarines": 12
+                },
+                "home_port": "Циндао",
+                "base_region": "Шаньдун",
+                "mission": "Патрулирование Жёлтого моря",
+                "current_region": "Желтое море",
+                "status": "patrolling",
+                "missiles": {
+                    "strategic_nuclear": 70,
+                    "tactical_nuclear": 80,
+                    "cruise_missiles": 460,
+                    "hypersonic_missiles": 32,
+                    "ballistic_missiles": 184
+                },
+                "aircraft": {
+                    "fighters": 50
+                },
+                "uav": {
+                    "recon_uav": 20
+                },
+                "missile_capacity": 960,
+                "aircraft_capacity": 50,
+                "drone_capacity": 20,
+                "detection_range": 233.33333333333334,
+                "has_submarines": true,
+                "has_carriers": true,
+                "stealth": 0.2,
+                "damage": 0,
+                "supply": 100,
+                "created_at": "2026-03-19 17:58:35.284864",
+                "last_update": "2026-03-19 17:58:35.284876"
+            },
+            {
+                "id": "fleet_Китай_Восточный_флот_20260319175835",
+                "name": "Восточный флот",
+                "country": "Китай",
+                "ships": {
+                    "aircraft_carriers": 1,
+                    "destroyers": 10,
+                    "submarines": 14
+                },
+                "home_port": "Нинбо",
+                "base_region": "Чжэцзян",
+                "mission": "Патрулирование Восточно-Китайского моря",
+                "current_region": "Восточно-Китайское море",
+                "status": "patrolling",
+                "missiles": {
+                    "strategic_nuclear": 56,
+                    "tactical_nuclear": 64,
+                    "cruise_missiles": 368,
+                    "hypersonic_missiles": 25,
+                    "ballistic_missiles": 147
+                },
+                "aircraft": {
+                    "fighters": 50
+                },
+                "uav": {
+                    "recon_uav": 20
+                },
+                "missile_capacity": 1160,
+                "aircraft_capacity": 50,
+                "drone_capacity": 20,
+                "detection_range": 232.0,
+                "has_submarines": true,
+                "has_carriers": true,
+                "stealth": 0.2,
+                "damage": 0,
+                "supply": 100,
+                "created_at": "2026-03-19 17:58:35.331628",
+                "last_update": "2026-03-19 17:58:35.331640"
+            },
+            {
+                "id": "fleet_Китай_Южный_флот_20260319175835",
+                "name": "Южный флот",
+                "country": "Китай",
+                "ships": {
+                    "aircraft_carriers": 1,
+                    "destroyers": 12,
+                    "submarines": 16
+                },
+                "home_port": "Чжаньцзян",
+                "base_region": "Гуандун",
+                "mission": "Патрулирование Южно-Китайского моря",
+                "current_region": "Южно-Китайское море",
+                "status": "patrolling",
+                "missiles": {
+                    "strategic_nuclear": 44,
+                    "tactical_nuclear": 51,
+                    "cruise_missiles": 294,
+                    "hypersonic_missiles": 20,
+                    "ballistic_missiles": 117
+                },
+                "aircraft": {
+                    "fighters": 50
+                },
+                "uav": {
+                    "recon_uav": 20
+                },
+                "missile_capacity": 1360,
+                "aircraft_capacity": 50,
+                "drone_capacity": 20,
+                "detection_range": 231.0344827586207,
+                "has_submarines": true,
+                "has_carriers": true,
+                "stealth": 0.2,
+                "damage": 0,
+                "supply": 100,
+                "created_at": "2026-03-19 17:58:35.384937",
+                "last_update": "2026-03-19 17:58:35.384949"
+            }
+        ],
+        "Германия": [
+            {
+                "id": "fleet_Германия_Военно-морские_силы_Германия_20260319175835",
+                "name": "Военно-морские силы Германия",
+                "country": "Германия",
+                "ships": {
+                    "boats": 80,
+                    "corvettes": 5,
+                    "submarines": 6
+                },
+                "home_port": "Гамбург",
+                "base_region": "Германия",
+                "mission": "Патрулирование территориальных вод",
+                "current_region": null,
+                "status": "idle",
+                "missiles": {
+                    "tactical_nuclear": 4,
+                    "cruise_missiles": 100,
+                    "ballistic_missiles": 60
+                },
+                "aircraft": {},
+                "uav": {},
+                "missile_capacity": 740,
+                "aircraft_capacity": 0,
+                "drone_capacity": 0,
+                "detection_range": 65.38461538461539,
+                "has_submarines": true,
+                "has_carriers": false,
+                "stealth": 0.2,
+                "damage": 0,
+                "supply": 100,
+                "created_at": "2026-03-19 17:58:35.433993",
+                "last_update": "2026-03-19 17:58:35.434004"
+            }
+        ],
+        "Израиль": [
+            {
+                "id": "fleet_Израиль_Военно-морские_силы_Израиль_20260319175835",
+                "name": "Военно-морские силы Израиль",
+                "country": "Израиль",
+                "ships": {
+                    "boats": 60,
+                    "corvettes": 8,
+                    "submarines": 5
+                },
+                "home_port": "Хайфа",
+                "base_region": "Израиль",
+                "mission": "Патрулирование территориальных вод",
+                "current_region": null,
+                "status": "idle",
+                "missiles": {
+                    "strategic_nuclear": 16,
+                    "tactical_nuclear": 30,
+                    "cruise_missiles": 160,
+                    "hypersonic_missiles": 10,
+                    "ballistic_missiles": 120
+                },
+                "aircraft": {},
+                "uav": {},
+                "missile_capacity": 660,
+                "aircraft_capacity": 0,
+                "drone_capacity": 0,
+                "detection_range": 71.23287671232876,
+                "has_submarines": true,
+                "has_carriers": false,
+                "stealth": 0.2,
+                "damage": 0,
+                "supply": 100,
+                "created_at": "2026-03-19 17:58:35.479917",
+                "last_update": "2026-03-19 17:58:35.479929"
+            }
+        ],
+        "Украина": [
+            {
+                "id": "fleet_Украина_Военно-морские_силы_Украина_20260319175835",
+                "name": "Военно-морские силы Украина",
+                "country": "Украина",
+                "ships": {
+                    "boats": 40,
+                    "corvettes": 2,
+                    "submarines": 1
+                },
+                "home_port": "Одесса",
+                "base_region": "Украина",
+                "mission": "Патрулирование территориальных вод",
+                "current_region": null,
+                "status": "idle",
+                "missiles": {
+                    "cruise_missiles": 40,
+                    "ballistic_missiles": 30
+                },
+                "aircraft": {},
+                "uav": {},
+                "missile_capacity": 280,
+                "aircraft_capacity": 0,
+                "drone_capacity": 0,
+                "detection_range": 58.13953488372093,
+                "has_submarines": true,
+                "has_carriers": false,
+                "stealth": 0.2,
+                "damage": 0,
+                "supply": 100,
+                "created_at": "2026-03-19 17:58:35.527755",
+                "last_update": "2026-03-19 17:58:35.527767"
+            }
+        ],
+        "Иран": [
+            {
+                "id": "fleet_Иран_Военно-морские_силы_Иран_20260319175835",
+                "name": "Военно-морские силы Иран",
+                "country": "Иран",
+                "ships": {
+                    "boats": 70,
+                    "corvettes": 5,
+                    "submarines": 3
+                },
+                "home_port": "Бендер-Аббас",
+                "base_region": "Иран",
+                "mission": "Патрулирование территориальных вод",
+                "current_region": null,
+                "status": "idle",
+                "missiles": {
+                    "cruise_missiles": 80,
+                    "hypersonic_missiles": 2,
+                    "ballistic_missiles": 60
+                },
+                "aircraft": {},
+                "uav": {},
+                "missile_capacity": 570,
+                "aircraft_capacity": 0,
+                "drone_capacity": 0,
+                "detection_range": 62.17948717948718,
+                "has_submarines": true,
+                "has_carriers": false,
+                "stealth": 0.2,
+                "damage": 0,
+                "supply": 100,
+                "created_at": "2026-03-19 17:58:35.580813",
+                "last_update": "2026-03-19 17:58:35.580827"
+            }
+        ],
+        "Беларусь": [
+            {
+                "id": "fleet_Беларусь_Военно-морские_силы_Беларусь_20260319175835",
+                "name": "Военно-морские силы Беларусь",
+                "country": "Беларусь",
+                "ships": {
+                    "boats": 10
+                },
+                "home_port": "Неизвестный порт",
+                "base_region": "Беларусь",
+                "mission": "Патрулирование территориальных вод",
+                "current_region": null,
+                "status": "idle",
+                "missiles": {
+                    "cruise_missiles": 10,
+                    "ballistic_missiles": 6
+                },
+                "aircraft": {},
+                "uav": {},
+                "missile_capacity": 50,
+                "aircraft_capacity": 0,
+                "drone_capacity": 0,
+                "detection_range": 50.0,
+                "has_submarines": false,
+                "has_carriers": false,
+                "stealth": 0.0,
+                "damage": 0,
+                "supply": 100,
+                "created_at": "2026-03-19 17:58:35.636233",
+                "last_update": "2026-03-19 17:58:35.636246"
+            }
+        ],
+        "Норвегия": [
+            {
+                "id": "fleet_Норвегия_Военно-морские_силы_Норвегия_20260319175835",
+                "name": "Военно-морские силы Норвегия",
+                "country": "Норвегия",
+                "ships": {
+                    "boats": 40,
+                    "corvettes": 5,
+                    "submarines": 6
+                },
+                "home_port": "Осло",
+                "base_region": "Норвегия",
+                "mission": "Патрулирование территориальных вод",
+                "current_region": null,
+                "status": "idle",
+                "missiles": {
+                    "cruise_missiles": 10
+                },
+                "aircraft": {},
+                "uav": {},
+                "missile_capacity": 540,
+                "aircraft_capacity": 0,
+                "drone_capacity": 0,
+                "detection_range": 77.45098039215686,
+                "has_submarines": true,
+                "has_carriers": false,
+                "stealth": 0.2,
+                "damage": 0,
+                "supply": 100,
+                "created_at": "2026-03-19 17:58:35.690270",
+                "last_update": "2026-03-19 17:58:35.690283"
+            }
+        ],
+        "Великобритания": [
+            {
+                "id": "fleet_Великобритания_Флот_метрополии_20260319175835",
+                "name": "Флот метрополии",
+                "country": "Великобритания",
+                "ships": {
+                    "aircraft_carriers": 2,
+                    "destroyers": 6,
+                    "submarines": 6
+                },
+                "home_port": "Портсмут",
+                "base_region": "Саутгемптон",
+                "mission": "Патрулирование Северного моря",
+                "current_region": "Северное море",
+                "status": "patrolling",
+                "missiles": {
+                    "strategic_nuclear": 40,
+                    "tactical_nuclear": 20,
+                    "cruise_missiles": 80,
+                    "ballistic_missiles": 10
+                },
+                "aircraft": {
+                    "fighters": 45,
+                    "attack_aircraft": 21,
+                    "attack_helicopters": 24
+                },
+                "uav": {
+                    "recon_uav": 40
+                },
+                "missile_capacity": 600,
+                "aircraft_capacity": 100,
+                "drone_capacity": 40,
+                "detection_range": 264.2857142857143,
+                "has_submarines": true,
+                "has_carriers": true,
+                "stealth": 0.2,
+                "damage": 0,
+                "supply": 100,
+                "created_at": "2026-03-19 17:58:35.752731",
+                "last_update": "2026-03-19 17:58:35.752744"
+            }
+        ],
+        "Франция": [
+            {
+                "id": "fleet_Франция_Атлантический_флот_20260319175835",
+                "name": "Атлантический флот",
+                "country": "Франция",
+                "ships": {
+                    "aircraft_carriers": 1,
+                    "destroyers": 4,
+                    "submarines": 4
+                },
+                "home_port": "Брест",
+                "base_region": "Брест",
+                "mission": "Патрулирование Атлантики",
+                "current_region": "Бискайский залив",
+                "status": "patrolling",
+                "missiles": {
+                    "strategic_nuclear": 60,
+                    "tactical_nuclear": 20,
+                    "cruise_missiles": 100,
+                    "ballistic_missiles": 16
+                },
+                "aircraft": {
+                    "fighters": 50
+                },
+                "uav": {
+                    "recon_uav": 20
+                },
+                "missile_capacity": 400,
+                "aircraft_capacity": 50,
+                "drone_capacity": 20,
+                "detection_range": 255.55555555555554,
+                "has_submarines": true,
+                "has_carriers": true,
+                "stealth": 0.2,
+                "damage": 0,
+                "supply": 100,
+                "created_at": "2026-03-19 17:58:35.806778",
+                "last_update": "2026-03-19 17:58:35.806791"
+            },
+            {
+                "id": "fleet_Франция_Средиземноморский_флот_20260319175835",
+                "name": "Средиземноморский флот",
+                "country": "Франция",
+                "ships": {
+                    "destroyers": 3,
+                    "submarines": 2
+                },
+                "home_port": "Тулон",
+                "base_region": "Тулон",
+                "mission": "Патрулирование Средиземного моря",
+                "current_region": "Западное Средиземноморье",
+                "status": "patrolling",
+                "missiles": {
+                    "strategic_nuclear": 48,
+                    "tactical_nuclear": 16,
+                    "cruise_missiles": 80,
+                    "ballistic_missiles": 12
+                },
+                "aircraft": {},
+                "uav": {},
+                "missile_capacity": 260,
+                "aircraft_capacity": 0,
+                "drone_capacity": 0,
+                "detection_range": 230.0,
+                "has_submarines": true,
+                "has_carriers": false,
+                "stealth": 0.2,
+                "damage": 0,
+                "supply": 100,
+                "created_at": "2026-03-19 17:58:35.861798",
+                "last_update": "2026-03-19 17:58:35.861812"
+            }
+        ],
+        "Япония": [
+            {
+                "id": "fleet_Япония_Флот_самообороны_20260319175835",
+                "name": "Флот самообороны",
+                "country": "Япония",
+                "ships": {
+                    "destroyers": 8,
+                    "submarines": 6
+                },
+                "home_port": "Иокогама",
+                "base_region": "Иокогама",
+                "mission": "Патрулирование Японского моря",
+                "current_region": "Японское море",
+                "status": "patrolling",
+                "missiles": {
+                    "cruise_missiles": 40,
+                    "ballistic_missiles": 20
+                },
+                "aircraft": {},
+                "uav": {},
+                "missile_capacity": 720,
+                "aircraft_capacity": 0,
+                "drone_capacity": 0,
+                "detection_range": 228.57142857142858,
+                "has_submarines": true,
+                "has_carriers": false,
+                "stealth": 0.2,
+                "damage": 0,
+                "supply": 100,
+                "created_at": "2026-03-19 17:58:35.921677",
+                "last_update": "2026-03-19 17:58:35.921690"
+            }
+        ],
+        "КНДР": [
+            {
+                "id": "fleet_КНДР_Военно-морские_силы_КНДР_20260319175835",
+                "name": "Военно-морские силы КНДР",
+                "country": "КНДР",
+                "ships": {
+                    "boats": 300,
+                    "corvettes": 10,
+                    "submarines": 70
+                },
+                "home_port": "Нампхо",
+                "base_region": "КНДР",
+                "mission": "Патрулирование территориальных вод",
+                "current_region": null,
+                "status": "idle",
+                "missiles": {
+                    "strategic_nuclear": 10,
+                    "tactical_nuclear": 20,
+                    "cruise_missiles": 60,
+                    "ballistic_missiles": 200
+                },
+                "aircraft": {},
+                "uav": {},
+                "missile_capacity": 4500,
+                "aircraft_capacity": 0,
+                "drone_capacity": 0,
+                "detection_range": 80.26315789473684,
+                "has_submarines": true,
+                "has_carriers": false,
+                "stealth": 0.2,
+                "damage": 0,
+                "supply": 100,
+                "created_at": "2026-03-19 17:58:35.985923",
+                "last_update": "2026-03-19 17:58:35.985936"
+            }
+        ],
+        "Турция": [
+            {
+                "id": "fleet_Турция_Военно-морские_силы_Турция_20260319175836",
+                "name": "Военно-морские силы Турция",
+                "country": "Турция",
+                "ships": {
+                    "boats": 50,
+                    "corvettes": 10,
+                    "submarines": 12
+                },
+                "home_port": "Стамбул",
+                "base_region": "Турция",
+                "mission": "Патрулирование территориальных вод",
+                "current_region": null,
+                "status": "idle",
+                "missiles": {
+                    "cruise_missiles": 40,
+                    "ballistic_missiles": 20
+                },
+                "aircraft": {},
+                "uav": {},
+                "missile_capacity": 930,
+                "aircraft_capacity": 0,
+                "drone_capacity": 0,
+                "detection_range": 88.88888888888889,
+                "has_submarines": true,
+                "has_carriers": false,
+                "stealth": 0.2,
+                "damage": 0,
+                "supply": 100,
+                "created_at": "2026-03-19 17:58:36.039997",
+                "last_update": "2026-03-19 17:58:36.040011"
+            }
+        ],
+        "Сирия": [
+            {
+                "id": "fleet_Сирия_Военно-морские_силы_Сирия_20260319175836",
+                "name": "Военно-морские силы Сирия",
+                "country": "Сирия",
+                "ships": {
+                    "boats": 20
+                },
+                "home_port": "Латакия",
+                "base_region": "Сирия",
+                "mission": "Патрулирование территориальных вод",
+                "current_region": null,
+                "status": "idle",
+                "missiles": {
+                    "cruise_missiles": 20,
+                    "ballistic_missiles": 10
+                },
+                "aircraft": {},
+                "uav": {},
+                "missile_capacity": 100,
+                "aircraft_capacity": 0,
+                "drone_capacity": 0,
+                "detection_range": 50.0,
+                "has_submarines": false,
+                "has_carriers": false,
+                "stealth": 0.0,
+                "damage": 0,
+                "supply": 100,
+                "created_at": "2026-03-19 17:58:36.094492",
+                "last_update": "2026-03-19 17:58:36.094505"
+            }
+        ],
+        "Канада": [
+            {
+                "id": "fleet_Канада_Военно-морские_силы_Канада_20260319175836",
+                "name": "Военно-морские силы Канада",
+                "country": "Канада",
+                "ships": {
+                    "boats": 30,
+                    "corvettes": 5,
+                    "destroyers": 4,
+                    "submarines": 4
+                },
+                "home_port": "Ванкувер",
+                "base_region": "Канада",
+                "mission": "Патрулирование территориальных вод",
+                "current_region": null,
+                "status": "idle",
+                "missiles": {
+                    "cruise_missiles": 20
+                },
+                "aircraft": {},
+                "uav": {},
+                "missile_capacity": 650,
+                "aircraft_capacity": 0,
+                "drone_capacity": 0,
+                "detection_range": 94.18604651162791,
+                "has_submarines": true,
+                "has_carriers": false,
+                "stealth": 0.2,
+                "damage": 0,
+                "supply": 100,
+                "created_at": "2026-03-19 17:58:36.149003",
+                "last_update": "2026-03-19 17:58:36.149017"
+            }
+        ],
+        "Польша": [
+            {
+                "id": "fleet_Польша_Военно-морские_силы_Польша_20260319175836",
+                "name": "Военно-морские силы Польша",
+                "country": "Польша",
+                "ships": {
+                    "boats": 20,
+                    "corvettes": 2
+                },
+                "home_port": "Гданьск",
+                "base_region": "Польша",
+                "mission": "Патрулирование территориальных вод",
+                "current_region": null,
+                "status": "idle",
+                "missiles": {
+                    "cruise_missiles": 20,
+                    "ballistic_missiles": 6
+                },
+                "aircraft": {},
+                "uav": {},
+                "missile_capacity": 140,
+                "aircraft_capacity": 0,
+                "drone_capacity": 0,
+                "detection_range": 59.09090909090909,
+                "has_submarines": false,
+                "has_carriers": false,
+                "stealth": 0.0,
+                "damage": 0,
+                "supply": 100,
+                "created_at": "2026-03-19 17:58:36.202827",
+                "last_update": "2026-03-19 17:58:36.202840"
+            }
+        ],
+        "Бразилия": [
+            {
+                "id": "fleet_Бразилия_Военно-морские_силы_Бразилия_20260319175836",
+                "name": "Военно-морские силы Бразилия",
+                "country": "Бразилия",
+                "ships": {
+                    "boats": 50,
+                    "corvettes": 5,
+                    "submarines": 5
+                },
+                "home_port": "Сантос",
+                "base_region": "Бразилия",
+                "mission": "Патрулирование территориальных вод",
+                "current_region": null,
+                "status": "idle",
+                "missiles": {
+                    "cruise_missiles": 10,
+                    "ballistic_missiles": 4
+                },
+                "aircraft": {},
+                "uav": {},
+                "missile_capacity": 550,
+                "aircraft_capacity": 0,
+                "drone_capacity": 0,
+                "detection_range": 70.83333333333333,
+                "has_submarines": true,
+                "has_carriers": false,
+                "stealth": 0.2,
+                "damage": 0,
+                "supply": 100,
+                "created_at": "2026-03-19 17:58:36.261132",
+                "last_update": "2026-03-19 17:58:36.261154"
+            }
+        ],
+        "Швеция": [
+            {
+                "id": "fleet_Швеция_Военно-морские_силы_Швеция_20260319175836",
+                "name": "Военно-морские силы Швеция",
+                "country": "Швеция",
+                "ships": {
+                    "boats": 20,
+                    "corvettes": 5,
+                    "submarines": 5
+                },
+                "home_port": "Гётеборг",
+                "base_region": "Швеция",
+                "mission": "Патрулирование территориальных вод",
+                "current_region": null,
+                "status": "idle",
+                "missiles": {
+                    "cruise_missiles": 10
+                },
+                "aircraft": {},
+                "uav": {},
+                "missile_capacity": 400,
+                "aircraft_capacity": 0,
+                "drone_capacity": 0,
+                "detection_range": 91.66666666666667,
+                "has_submarines": true,
+                "has_carriers": false,
+                "stealth": 0.2,
+                "damage": 0,
+                "supply": 100,
+                "created_at": "2026-03-19 17:58:36.328457",
+                "last_update": "2026-03-19 17:58:36.328470"
+            }
+        ],
+        "Финляндия": [
+            {
+                "id": "fleet_Финляндия_Военно-морские_силы_Финляндия_20260319175836",
+                "name": "Военно-морские силы Финляндия",
+                "country": "Финляндия",
+                "ships": {
+                    "boats": 20,
+                    "corvettes": 4
+                },
+                "home_port": "Хельсинки",
+                "base_region": "Финляндия",
+                "mission": "Патрулирование территориальных вод",
+                "current_region": null,
+                "status": "idle",
+                "missiles": {
+                    "cruise_missiles": 8
+                },
+                "aircraft": {},
+                "uav": {},
+                "missile_capacity": 180,
+                "aircraft_capacity": 0,
+                "drone_capacity": 0,
+                "detection_range": 66.66666666666667,
+                "has_submarines": false,
+                "has_carriers": false,
+                "stealth": 0.0,
+                "damage": 0,
+                "supply": 100,
+                "created_at": "2026-03-19 17:58:36.383804",
+                "last_update": "2026-03-19 17:58:36.383817"
+            }
+        ],
+        "Швейцария": [
+            {
+                "id": "fleet_Швейцария_Военно-морские_силы_Швейцария_20260319175836",
+                "name": "Военно-морские силы Швейцария",
+                "country": "Швейцария",
+                "ships": {
+                    "boats": 10
+                },
+                "home_port": "Неизвестный порт",
+                "base_region": "Швейцария",
+                "mission": "Патрулирование территориальных вод",
+                "current_region": null,
+                "status": "idle",
+                "missiles": {},
+                "aircraft": {},
+                "uav": {},
+                "missile_capacity": 50,
+                "aircraft_capacity": 0,
+                "drone_capacity": 0,
+                "detection_range": 50.0,
+                "has_submarines": false,
+                "has_carriers": false,
+                "stealth": 0.0,
+                "damage": 0,
+                "supply": 100,
+                "created_at": "2026-03-19 17:58:36.446342",
+                "last_update": "2026-03-19 17:58:36.446355"
+            }
+        ],
+        "Египет": [
+            {
+                "id": "fleet_Египет_Военно-морские_силы_Египет_20260319175836",
+                "name": "Военно-морские силы Египет",
+                "country": "Египет",
+                "ships": {
+                    "boats": 50,
+                    "corvettes": 10,
+                    "submarines": 8
+                },
+                "home_port": "Александрия",
+                "base_region": "Египет",
+                "mission": "Патрулирование территориальных вод",
+                "current_region": null,
+                "status": "idle",
+                "missiles": {
+                    "cruise_missiles": 20,
+                    "ballistic_missiles": 10
+                },
+                "aircraft": {},
+                "uav": {},
+                "missile_capacity": 770,
+                "aircraft_capacity": 0,
+                "drone_capacity": 0,
+                "detection_range": 82.3529411764706,
+                "has_submarines": true,
+                "has_carriers": false,
+                "stealth": 0.2,
+                "damage": 0,
+                "supply": 100,
+                "created_at": "2026-03-19 17:58:36.509308",
+                "last_update": "2026-03-19 17:58:36.509322"
+            }
+        ]
+    },
+    "deployments": {},
+    "operations": []
+}

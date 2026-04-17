@@ -1,0 +1,30 @@
+{
+    "active_projects": [],
+    "completed_projects": [],
+    "active_dismantles": [
+        {
+            "id": "dismantle_transcanada_1774617602.893332",
+            "pipeline_id": "transcanada",
+            "pipeline_name": "TransCanada",
+            "country": "США",
+            "length": 25,
+            "cost_return": 200000000,
+            "start_time": "2026-03-27 16:20:02.893356",
+            "completion_time": "2026-03-27 18:25:02.893373",
+            "status": "in_progress"
+        },
+        {
+            "id": "dismantle_transcanada_1774640119.85927",
+            "pipeline_id": "transcanada",
+            "pipeline_name": "TransCanada",
+            "country": "США",
+            "length": 20,
+            "cost_return": 160000000,
+            "start_time": "2026-03-27 22:35:19.859291",
+            "completion_time": "2026-03-28 00:15:19.859305",
+            "dismantle_game_days": 6.25,
+            "status": "in_progress"
+        }
+    ],
+    "active_repairs": []
+}

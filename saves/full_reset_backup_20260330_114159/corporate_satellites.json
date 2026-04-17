@@ -1,0 +1,163 @@
+{
+    "corporations": {
+        "SpaceX (Starlink)": {
+            "name": "SpaceX (Starlink)",
+            "country": "США",
+            "civilian_satellites": 1944,
+            "military_satellites": 0,
+            "description": "Коммерческая спутниковая группировка для глобального интернета",
+            "service_type": "telecom_global",
+            "requires_subscription": true,
+            "subscription_cost": 100000,
+            "bonus_if_active": {
+                "research_boost": 0.03,
+                "communication_boost": 0.08,
+                "gdp_boost": 0.02,
+                "drone_accuracy": 0.03,
+                "missile_accuracy": 0.02
+            }
+        },
+        "OneWeb": {
+            "name": "OneWeb",
+            "country": "Великобритания",
+            "civilian_satellites": 394,
+            "military_satellites": 0,
+            "description": "Спутниковая группировка для широкополосного доступа",
+            "service_type": "telecom_global",
+            "requires_subscription": true,
+            "subscription_cost": 100000,
+            "bonus_if_active": {
+                "communication_boost": 0.05,
+                "drone_accuracy": 0.02,
+                "missile_accuracy": 0.01
+            }
+        },
+        "Amazon Kuiper": {
+            "name": "Amazon Kuiper",
+            "country": "США",
+            "civilian_satellites": 0,
+            "military_satellites": 0,
+            "description": "Планируемая спутниковая группировка Amazon (запуски с 2023)",
+            "service_type": "telecom_global",
+            "requires_subscription": true,
+            "subscription_cost": 100000,
+            "bonus_if_active": {}
+        },
+        "Eutelsat": {
+            "name": "Eutelsat",
+            "country": "Франция",
+            "civilian_satellites": 36,
+            "military_satellites": 2,
+            "description": "Европейский оператор спутниковой связи",
+            "service_type": "telecom_global",
+            "requires_subscription": true,
+            "subscription_cost": 100000,
+            "bonus_if_active": {
+                "communication_boost": 0.02
+            }
+        },
+        "Inmarsat": {
+            "name": "Inmarsat",
+            "country": "Великобритания",
+            "civilian_satellites": 13,
+            "military_satellites": 4,
+            "description": "Спутниковая связь для морской и авиационной отрасли",
+            "service_type": "telecom_global",
+            "requires_subscription": true,
+            "subscription_cost": 100000,
+            "bonus_if_active": {
+                "communication_boost": 0.03,
+                "drone_accuracy": 0.02
+            }
+        },
+        "Iridium": {
+            "name": "Iridium",
+            "country": "США",
+            "civilian_satellites": 75,
+            "military_satellites": 0,
+            "description": "Глобальная спутниковая связь с низкой орбитой",
+            "service_type": "telecom_global",
+            "requires_subscription": true,
+            "subscription_cost": 100000,
+            "bonus_if_active": {
+                "communication_boost": 0.04
+            }
+        },
+        "Telesat": {
+            "name": "Telesat",
+            "country": "Канада",
+            "civilian_satellites": 15,
+            "military_satellites": 1,
+            "description": "Канадский оператор спутниковой связи",
+            "service_type": "telecom_global",
+            "requires_subscription": true,
+            "subscription_cost": 100000,
+            "bonus_if_active": {
+                "communication_boost": 0.02
+            }
+        },
+        "SES": {
+            "name": "SES",
+            "country": "Люксембург",
+            "civilian_satellites": 50,
+            "military_satellites": 2,
+            "description": "Люксембургский оператор спутниковой связи (включая O3b)",
+            "service_type": "telecom_global",
+            "requires_subscription": true,
+            "subscription_cost": 100000,
+            "bonus_if_active": {
+                "communication_boost": 0.03
+            }
+        },
+        "ViaSat": {
+            "name": "ViaSat",
+            "country": "США",
+            "civilian_satellites": 8,
+            "military_satellites": 3,
+            "description": "Американский оператор спутниковой связи",
+            "service_type": "telecom_global",
+            "requires_subscription": true,
+            "subscription_cost": 100000,
+            "bonus_if_active": {
+                "communication_boost": 0.02,
+                "drone_accuracy": 0.01
+            }
+        },
+        "China Satcom": {
+            "name": "China Satcom",
+            "country": "Китай",
+            "civilian_satellites": 45,
+            "military_satellites": 12,
+            "description": "Китайский оператор спутниковой связи",
+            "service_type": "telecom_global",
+            "requires_subscription": true,
+            "subscription_cost": 100000,
+            "bonus_if_active": {
+                "communication_boost": 0.04,
+                "drone_accuracy": 0.01,
+                "missile_accuracy": 0.02
+            }
+        },
+        "Russian Satellite Communications": {
+            "name": "Российские спутники связи",
+            "country": "Россия",
+            "civilian_satellites": 32,
+            "military_satellites": 18,
+            "description": "Российские спутники связи (Экспресс, Ямал и др.)",
+            "service_type": "telecom_global",
+            "requires_subscription": true,
+            "subscription_cost": 100000,
+            "bonus_if_active": {
+                "communication_boost": 0.04,
+                "drone_accuracy": 0.01,
+                "missile_accuracy": 0.02
+            }
+        }
+    },
+    "subscriptions": {},
+    "starlink_status": {
+        "active": true,
+        "last_crisis": null,
+        "crisis_count": 0
+    }
+}

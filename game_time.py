@@ -16,8 +16,8 @@ REAL_DAYS_PER_GAME_YEAR = 3  # 3 реальных дня = 1 игровой го
 REAL_HOURS_PER_GAME_MONTH = 8  # 8 реальных часов = 1 игровой месяц
 
 # Стартовая дата
-START_DATE = datetime(2022, 12, 1)
-START_DATE_STR = "2022-12-01"
+START_DATE = datetime(2021, 12, 1)
+START_DATE_STR = "2021-12-01"
 
 # ==================== ФУНКЦИИ ЗАГРУЗКИ/СОХРАНЕНИЯ ====================
 

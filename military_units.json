@@ -1,0 +1,266 @@
+{
+  "Россия": {
+    "branches": [
+      {"id": "ru_msv", "name": "Мотострелковые войска", "description": "Основная пехота на БМП и БТР."},
+      {"id": "ru_tv", "name": "Танковые войска", "description": "Танковые подразделения на Т-72, Т-80, Т-90."},
+      {"id": "ru_vdv", "name": "Воздушно-десантные войска", "description": "ВДВ — элита российской армии."},
+      {"id": "ru_mp", "name": "Морская пехота", "description": "Морская пехота ВМФ России."},
+      {"id": "ru_sso", "name": "Силы специальных операций", "description": "ССО России."},
+      {"id": "ru_rvia", "name": "Ракетные войска и артиллерия", "description": "РВиА."},
+      {"id": "ru_iv", "name": "Инженерные войска", "description": "Сапёры, маскировка, переправы."},
+      {"id": "ru_recon", "name": "Разведка", "description": "Разведывательные подразделения."}
+    ]
+  },
+  "США": {
+    "branches": [
+      {"id": "us_infantry", "name": "Пехотные войска", "description": "Основная боевая сила армии США."},
+      {"id": "us_armor", "name": "Бронетанковые войска", "description": "Танковые подразделения на M1 Abrams."},
+      {"id": "us_airborne", "name": "Воздушно-десантные войска", "description": "82-я и 101-я воздушно-десантные дивизии."},
+      {"id": "us_marines", "name": "Корпус морской пехоты", "description": "Морская пехота США (USMC)."},
+      {"id": "us_special", "name": "Силы специальных операций", "description": "SEALs, Delta Force, Green Berets."},
+      {"id": "us_artillery", "name": "Артиллерия", "description": "Полевая артиллерия и РСЗО."},
+      {"id": "us_engineer", "name": "Инженерные войска", "description": "Сапёры, строительство, разминирование."},
+      {"id": "us_aviation", "name": "Армейская авиация", "description": "Вертолётные подразделения."}
+    ]
+  },
+  "Китай": {
+    "branches": [
+      {"id": "cn_infantry", "name": "Пехотные войска", "description": "Основная пехота НОАК."},
+      {"id": "cn_armor", "name": "Бронетанковые войска", "description": "Танки Type 99, Type 96."},
+      {"id": "cn_airborne", "name": "Воздушно-десантные войска", "description": "Airborne Corps."},
+      {"id": "cn_marines", "name": "Морская пехота", "description": "Marine Corps."},
+      {"id": "cn_special", "name": "Силы специальных операций", "description": "Special Operations Forces."},
+      {"id": "cn_artillery", "name": "Артиллерия", "description": "Артиллерийские войска."},
+      {"id": "cn_engineer", "name": "Инженерные войска", "description": "Инженерные подразделения."},
+      {"id": "cn_rocket", "name": "Ракетные войска", "description": "Ракетные войска НОАК."}
+    ]
+  },
+  "Украина": {
+    "branches": [
+      {"id": "ua_msv", "name": "Механізовані війська", "description": "Основна піхота на БМП та БТР."},
+      {"id": "ua_tv", "name": "Танкові війська", "description": "Танкові підрозділи."},
+      {"id": "ua_dshv", "name": "Десантно-штурмові війська", "description": "Елітна піхота ДШВ."},
+      {"id": "ua_mp", "name": "Морська піхота", "description": "Морська піхота ВМСУ."},
+      {"id": "ua_sso", "name": "Сили спеціальних операцій", "description": "ССО України."},
+      {"id": "ua_teroborona", "name": "Територіальна оборона", "description": "Підрозділи ТрО."},
+      {"id": "ua_rvia", "name": "Ракетні війська та артилерія", "description": "РВіА."},
+      {"id": "ua_iv", "name": "Інженерні війська", "description": "Сапери та будівельники."}
+    ]
+  },
+  "Германия": {
+    "branches": [
+      {"id": "de_infantry", "name": "Пехотные войска", "description": "Основная пехота Бундесвера."},
+      {"id": "de_armor", "name": "Бронетанковые войска", "description": "Танки Leopard 2."},
+      {"id": "de_airborne", "name": "Десантники", "description": "Fallschirmjäger."},
+      {"id": "de_marines", "name": "Морская пехота", "description": "Seebataillon."},
+      {"id": "de_special", "name": "Силы специальных операций", "description": "KSK."},
+      {"id": "de_artillery", "name": "Артиллерия", "description": "Артиллерийские подразделения."},
+      {"id": "de_engineer", "name": "Инженерные войска", "description": "Сапёрные подразделения."},
+      {"id": "de_recon", "name": "Разведка", "description": "Fernspäher."}
+    ]
+  },
+  "Франция": {
+    "branches": [
+      {"id": "fr_infantry", "name": "Пехотные войска", "description": "Infanterie."},
+      {"id": "fr_armor", "name": "Бронетанковые войска", "description": "Chars de combat (танки Leclerc)."},
+      {"id": "fr_airborne", "name": "Десантники", "description": "Troupes aéroportées."},
+      {"id": "fr_legion", "name": "Иностранный легион", "description": "Légion Étrangère."},
+      {"id": "fr_marines", "name": "Морская пехота", "description": "Troupes de marine."},
+      {"id": "fr_special", "name": "Силы специальных операций", "description": "Commandement des Opérations Spéciales."},
+      {"id": "fr_artillery", "name": "Артиллерия", "description": "Artillerie."},
+      {"id": "fr_engineer", "name": "Инженерные войска", "description": "Génie militaire."}
+    ]
+  },
+  "Великобритания": {
+    "branches": [
+      {"id": "uk_infantry", "name": "Пехотные войска", "description": "Основная пехота британской армии."},
+      {"id": "uk_armor", "name": "Бронетанковые войска", "description": "Танки Challenger 2."},
+      {"id": "uk_paratroopers", "name": "Десантники", "description": "Parachute Regiment."},
+      {"id": "uk_marines", "name": "Морская пехота", "description": "Royal Marines."},
+      {"id": "uk_special", "name": "Силы специальных операций", "description": "SAS, SBS."},
+      {"id": "uk_artillery", "name": "Артиллерия", "description": "Королевская артиллерия."},
+      {"id": "uk_engineer", "name": "Инженерные войска", "description": "Королевские инженеры."},
+      {"id": "uk_recon", "name": "Разведка", "description": "Разведывательные подразделения."}
+    ]
+  },
+  "Норвегия": {
+    "branches": [
+      {"id": "no_infantry", "name": "Пехотные войска", "description": "Основная пехота."},
+      {"id": "no_armor", "name": "Бронетанковые войска", "description": "Танки Leopard 2."},
+      {"id": "no_airborne", "name": "Десантники", "description": "Fallskjermjegere."},
+      {"id": "no_marines", "name": "Морская пехота", "description": "Kystjegerkommandoen."},
+      {"id": "no_special", "name": "Силы специальных операций", "description": "FSK, MJK."},
+      {"id": "no_artillery", "name": "Артиллерия", "description": "Артиллерийские войска."},
+      {"id": "no_engineer", "name": "Инженерные войска", "description": "Инженерные подразделения."},
+      {"id": "no_recon", "name": "Разведка", "description": "Разведывательные подразделения."}
+    ]
+  },
+  "Швеция": {
+    "branches": [
+      {"id": "se_infantry", "name": "Пехотные войска", "description": "Основная пехота."},
+      {"id": "se_armor", "name": "Бронетанковые войска", "description": "Танки Strv 122 (Leopard 2)."},
+      {"id": "se_airborne", "name": "Десантники", "description": "Fallskärmsjägarna."},
+      {"id": "se_marines", "name": "Морская пехота", "description": "Amfibiekåren."},
+      {"id": "se_special", "name": "Силы специальных операций", "description": "SOG."},
+      {"id": "se_artillery", "name": "Артиллерия", "description": "Артиллерийские войска."},
+      {"id": "se_engineer", "name": "Инженерные войска", "description": "Инженерные подразделения."},
+      {"id": "se_recon", "name": "Разведка", "description": "Разведывательные подразделения."}
+    ]
+  },
+  "Финляндия": {
+    "branches": [
+      {"id": "fi_infantry", "name": "Пехотные войска", "description": "Основная пехота."},
+      {"id": "fi_armor", "name": "Бронетанковые войска", "description": "Танки Leopard 2."},
+      {"id": "fi_airborne", "name": "Десантники", "description": "Laskuvarjojääkärit."},
+      {"id": "fi_marines", "name": "Морская пехота", "description": "Rannikkojääkärit."},
+      {"id": "fi_special", "name": "Силы специальных операций", "description": "Utin jääkärirykmentti."},
+      {"id": "fi_artillery", "name": "Артиллерия", "description": "Артиллерийские войска."},
+      {"id": "fi_engineer", "name": "Инженерные войска", "description": "Инженерные подразделения."},
+      {"id": "fi_recon", "name": "Разведка", "description": "Разведывательные подразделения."}
+    ]
+  },
+  "Польша": {
+    "branches": [
+      {"id": "pl_infantry", "name": "Пехотные войска", "description": "Wojska Zmechanizowane."},
+      {"id": "pl_armor", "name": "Бронетанковые войска", "description": "Wojska Pancerne (танки Leopard 2, PT-91)."},
+      {"id": "pl_airborne", "name": "Десантники", "description": "Wojska Powietrznodesantowe."},
+      {"id": "pl_marines", "name": "Морская пехота", "description": "Marines."},
+      {"id": "pl_special", "name": "Силы специальных операций", "description": "Wojska Specjalne."},
+      {"id": "pl_artillery", "name": "Артиллерия", "description": "Artyleria."},
+      {"id": "pl_engineer", "name": "Инженерные войска", "description": "Wojska Inżynieryjne."},
+      {"id": "pl_territorial", "name": "Территориальная оборона", "description": "Wojska Obrony Terytorialnej."}
+    ]
+  },
+  "Иран": {
+    "branches": [
+      {"id": "ir_infantry", "name": "Пехотные войска", "description": "Основная пехота."},
+      {"id": "ir_armor", "name": "Бронетанковые войска", "description": "Танки Karrar, T-72."},
+      {"id": "ir_irgc", "name": "КСИР", "description": "Корпус стражей исламской революции."},
+      {"id": "ir_marines", "name": "Морская пехота", "description": "Морская пехота КСИР."},
+      {"id": "ir_basij", "name": "Басидж", "description": "Народное ополчение."},
+      {"id": "ir_artillery", "name": "Артиллерия", "description": "Ракетные и артиллерийские войска."},
+      {"id": "ir_engineer", "name": "Инженерные войска", "description": "Инженерные подразделения."},
+      {"id": "ir_airdefense", "name": "ПВО", "description": "Войска противовоздушной обороны."}
+    ]
+  },
+  "Израиль": {
+    "branches": [
+      {"id": "il_infantry", "name": "Пехотные войска", "description": "Основная пехота ЦАХАЛ."},
+      {"id": "il_armor", "name": "Бронетанковые войска", "description": "Танки Меркава."},
+      {"id": "il_paratroopers", "name": "Десантники", "description": "Элитная бригада десантников."},
+      {"id": "il_golani", "name": "Бригада Голани", "description": "Легендарная пехотная бригада."},
+      {"id": "il_navy", "name": "Морская пехота", "description": "Подразделения Шайетет 13."},
+      {"id": "il_artillery", "name": "Артиллерия", "description": "Полевая артиллерия."},
+      {"id": "il_engineer", "name": "Инженерные войска", "description": "Сапёрные подразделения."},
+      {"id": "il_recon", "name": "Разведка", "description": "Разведывательные подразделения."}
+    ]
+  },
+  "Сирия": {
+    "branches": [
+      {"id": "sy_infantry", "name": "Пехотные войска", "description": "Основная пехота сирийской армии."},
+      {"id": "sy_armor", "name": "Бронетанковые войска", "description": "Танковые подразделения на Т-72, Т-62."},
+      {"id": "sy_republican", "name": "Республиканская гвардия", "description": "Элитные подразделения."},
+      {"id": "sy_special", "name": "Силы специальных операций", "description": "Спецназ."},
+      {"id": "sy_artillery", "name": "Артиллерия", "description": "Артиллерийские войска."},
+      {"id": "sy_engineer", "name": "Инженерные войска", "description": "Инженерные подразделения."},
+      {"id": "sy_airdefense", "name": "ПВО", "description": "Войска ПВО."},
+      {"id": "sy_militia", "name": "Народное ополчение", "description": "Силы народной обороны."}
+    ]
+  },
+  "Бразилия": {
+    "branches": [
+      {"id": "br_infantry", "name": "Пехотные войска", "description": "Основная пехота."},
+      {"id": "br_armor", "name": "Бронетанковые войска", "description": "Танки Leopard 1, M60."},
+      {"id": "br_airborne", "name": "Десантники", "description": "Brigada de Infantaria Paraquedista."},
+      {"id": "br_marines", "name": "Морская пехота", "description": "Corpo de Fuzileiros Navais."},
+      {"id": "br_special", "name": "Силы специальных операций", "description": "Forças Especiais."},
+      {"id": "br_artillery", "name": "Артиллерия", "description": "Артиллерийские войска."},
+      {"id": "br_engineer", "name": "Инженерные войска", "description": "Инженерные подразделения."},
+      {"id": "br_recon", "name": "Разведка", "description": "Разведывательные подразделения."}
+    ]
+  },
+  "Турция": {
+    "branches": [
+      {"id": "tr_infantry", "name": "Пехотные войска", "description": "Piyade."},
+      {"id": "tr_armor", "name": "Бронетанковые войска", "description": "Zırhlı Birlikler (танки Altay, Leopard 2)."},
+      {"id": "tr_commando", "name": "Коммандос", "description": "Komando Birlikleri."},
+      {"id": "tr_marines", "name": "Морская пехота", "description": "Deniz Piyadeleri."},
+      {"id": "tr_special", "name": "Силы специальных операций", "description": "Özel Kuvvetler."},
+      {"id": "tr_artillery", "name": "Артиллерия", "description": "Topçu Birlikleri."},
+      {"id": "tr_engineer", "name": "Инженерные войска", "description": "İstihkam Birlikleri."},
+      {"id": "tr_gendarmerie", "name": "Жандармерия", "description": "Jandarma."}
+    ]
+  },
+  "Египет": {
+    "branches": [
+      {"id": "eg_infantry", "name": "Пехотные войска", "description": "Основная пехота египетской армии."},
+      {"id": "eg_armor", "name": "Бронетанковые войска", "description": "Танки M1A1 Abrams, T-62."},
+      {"id": "eg_airborne", "name": "Десантники", "description": "Воздушно-десантные подразделения."},
+      {"id": "eg_marines", "name": "Морская пехота", "description": "Морская пехота Египта."},
+      {"id": "eg_special", "name": "Силы специальных операций", "description": "Спецназ."},
+      {"id": "eg_artillery", "name": "Артиллерия", "description": "Артиллерийские войска."},
+      {"id": "eg_engineer", "name": "Инженерные войска", "description": "Инженерные подразделения."},
+      {"id": "eg_recon", "name": "Разведка", "description": "Разведывательные подразделения."}
+    ]
+  },
+  "Швейцария": {
+    "branches": [
+      {"id": "ch_infantry", "name": "Пехотные войска", "description": "Основная пехота."},
+      {"id": "ch_armor", "name": "Бронетанковые войска", "description": "Танки Leopard 2."},
+      {"id": "ch_airborne", "name": "Десантники", "description": "Fallschirmaufklärer."},
+      {"id": "ch_marines", "name": "Морская пехота", "description": "Морские подразделения."},
+      {"id": "ch_special", "name": "Силы специальных операций", "description": "Special Forces Command."},
+      {"id": "ch_artillery", "name": "Артиллерия", "description": "Артиллерийские войска."},
+      {"id": "ch_engineer", "name": "Инженерные войска", "description": "Инженерные подразделения."},
+      {"id": "ch_recon", "name": "Разведка", "description": "Aufklärungsabteilung."}
+    ]
+  },
+  "Канада": {
+    "branches": [
+      {"id": "ca_infantry", "name": "Пехотные войска", "description": "Основная пехота."},
+      {"id": "ca_armor", "name": "Бронетанковые войска", "description": "Танки Leopard 2."},
+      {"id": "ca_airborne", "name": "Десантники", "description": "Paratroopers."},
+      {"id": "ca_marines", "name": "Морская пехота", "description": "Морские подразделения."},
+      {"id": "ca_special", "name": "Силы специальных операций", "description": "CANSOFCOM."},
+      {"id": "ca_artillery", "name": "Артиллерия", "description": "Артиллерийские войска."},
+      {"id": "ca_engineer", "name": "Инженерные войска", "description": "Canadian Military Engineers."},
+      {"id": "ca_recon", "name": "Разведка", "description": "Разведывательные подразделения."}
+    ]
+  },
+  "КНДР": {
+    "branches": [
+      {"id": "kp_infantry", "name": "Пехотные войска", "description": "Основная пехота Корейской народной армии."},
+      {"id": "kp_armor", "name": "Бронетанковые войска", "description": "Танки Чхонмахо, Покпхунхо."},
+      {"id": "kp_special", "name": "Силы специальных операций", "description": "Спецназ КНДР."},
+      {"id": "kp_artillery", "name": "Артиллерия", "description": "Артиллерийские войска."},
+      {"id": "kp_engineer", "name": "Инженерные войска", "description": "Инженерные подразделения."},
+      {"id": "kp_rocket", "name": "Ракетные войска", "description": "Стратегические ракетные войска."},
+      {"id": "kp_recon", "name": "Разведка", "description": "Разведывательные подразделения."},
+      {"id": "kp_worker", "name": "Рабоче-крестьянская гвардия", "description": "Народное ополчение."}
+    ]
+  },
+  "Япония": {
+    "branches": [
+      {"id": "jp_infantry", "name": "Пехотные войска", "description": "Основная пехота."},
+      {"id": "jp_armor", "name": "Бронетанковые войска", "description": "Танки Type 10, Type 90."},
+      {"id": "jp_airborne", "name": "Десантники", "description": "Первая воздушно-десантная бригада."},
+      {"id": "jp_marines", "name": "Морская пехота", "description": "Десантные подразделения."},
+      {"id": "jp_special", "name": "Силы специальных операций", "description": "Спецназ."},
+      {"id": "jp_artillery", "name": "Артиллерия", "description": "Артиллерийские войска."},
+      {"id": "jp_engineer", "name": "Инженерные войска", "description": "Инженерные подразделения."},
+      {"id": "jp_recon", "name": "Разведка", "description": "Разведывательные подразделения."}
+    ]
+  },
+  "Беларусь": {
+    "branches": [
+      {"id": "by_infantry", "name": "Мотострелковые войска", "description": "Основная пехота."},
+      {"id": "by_armor", "name": "Танковые войска", "description": "Танки Т-72Б3."},
+      {"id": "by_airborne", "name": "Воздушно-десантные войска", "description": "Силы специальных операций."},
+      {"id": "by_special", "name": "Силы специальных операций", "description": "Спецназ."},
+      {"id": "by_artillery", "name": "Артиллерия", "description": "Ракетные войска и артиллерия."},
+      {"id": "by_engineer", "name": "Инженерные войска", "description": "Инженерные подразделения."},
+      {"id": "by_territorial", "name": "Территориальная оборона", "description": "Территориальные войска."},
+      {"id": "by_recon", "name": "Разведка", "description": "Разведывательные подразделения."}
+    ]
+  }
+}

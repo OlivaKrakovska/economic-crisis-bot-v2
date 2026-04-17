@@ -1,0 +1,907 @@
+{
+    "pipelines": [
+        {
+            "id": "druzhba",
+            "name": "Дружба",
+            "operator": "Россия",
+            "type": "oil",
+            "total_length": 4000,
+            "land_length": 4000,
+            "sea_length": 0,
+            "countries_through": [
+                "Россия",
+                "Беларусь",
+                "Украина",
+                "Польша",
+                "Германия",
+                "Венгрия",
+                "Словакия",
+                "Чехия"
+            ],
+            "status": "active",
+            "damage": 0,
+            "security_level": 0.5,
+            "constructed_at": "1964-01-01",
+            "last_maintenance": null,
+            "construction_cost": 72000,
+            "closed_sections": {},
+            "country_control": {
+                "Россия": 10.0,
+                "Беларусь": 10.0,
+                "Украина": 12.5,
+                "Польша": 17.0,
+                "Германия": 8.0,
+                "Венгрия": 7.000000000000001,
+                "Словакия": 3.0,
+                "Чехия": 7.5
+            },
+            "country_military": {
+                "Россия": {
+                    "infantry": 0
+                },
+                "Беларусь": {
+                    "infantry": 0
+                },
+                "Украина": {
+                    "infantry": 0
+                },
+                "Польша": {
+                    "infantry": 0
+                },
+                "Германия": {
+                    "infantry": 0
+                },
+                "Венгрия": {
+                    "infantry": 0
+                },
+                "Словакия": {
+                    "infantry": 0
+                },
+                "Чехия": {
+                    "infantry": 0
+                }
+            },
+            "country_vehicles": {
+                "Россия": {
+                    "armored_vehicles": 0
+                },
+                "Беларусь": {
+                    "armored_vehicles": 0
+                },
+                "Украина": {
+                    "armored_vehicles": 0
+                },
+                "Польша": {
+                    "armored_vehicles": 0
+                },
+                "Германия": {
+                    "armored_vehicles": 0
+                },
+                "Венгрия": {
+                    "armored_vehicles": 0
+                },
+                "Словакия": {
+                    "armored_vehicles": 0
+                },
+                "Чехия": {
+                    "armored_vehicles": 0
+                }
+            },
+            "country_length": {
+                "Россия": {
+                    "land": 400,
+                    "sea": 0
+                },
+                "Беларусь": {
+                    "land": 400,
+                    "sea": 0
+                },
+                "Украина": {
+                    "land": 500,
+                    "sea": 0
+                },
+                "Польша": {
+                    "land": 680,
+                    "sea": 0
+                },
+                "Германия": {
+                    "land": 320,
+                    "sea": 0
+                },
+                "Венгрия": {
+                    "land": 280,
+                    "sea": 0
+                },
+                "Словакия": {
+                    "land": 120,
+                    "sea": 0
+                },
+                "Чехия": {
+                    "land": 300,
+                    "sea": 0
+                }
+            },
+            "country_uav": {
+                "Россия": {
+                    "attack_uav": 0,
+                    "recon_uav": 0
+                },
+                "Беларусь": {
+                    "attack_uav": 0,
+                    "recon_uav": 0
+                },
+                "Украина": {
+                    "attack_uav": 0,
+                    "recon_uav": 0
+                },
+                "Польша": {
+                    "attack_uav": 0,
+                    "recon_uav": 0
+                },
+                "Германия": {
+                    "attack_uav": 0,
+                    "recon_uav": 0
+                },
+                "Венгрия": {
+                    "attack_uav": 0,
+                    "recon_uav": 0
+                },
+                "Словакия": {
+                    "attack_uav": 0,
+                    "recon_uav": 0
+                },
+                "Чехия": {
+                    "attack_uav": 0,
+                    "recon_uav": 0
+                }
+            }
+        },
+        {
+            "id": "nord_stream",
+            "name": "Северный поток",
+            "operator": "Россия",
+            "type": "gas",
+            "total_length": 1224,
+            "land_length": 0,
+            "sea_length": 1224,
+            "countries_through": [
+                "Россия",
+                "Финляндия",
+                "Швеция",
+                "Дания",
+                "Германия"
+            ],
+            "status": "active",
+            "damage": 0,
+            "security_level": 0.6,
+            "constructed_at": "2011-01-01",
+            "last_maintenance": null,
+            "construction_cost": 36720,
+            "closed_sections": {},
+            "country_control": {
+                "Россия": 12.254901960784313,
+                "Финляндия": 16.33986928104575,
+                "Швеция": 32.6797385620915,
+                "Дания": 20.424836601307188,
+                "Германия": 18.30065359477124
+            },
+            "country_military": {
+                "Россия": {
+                    "infantry": 0
+                },
+                "Финляндия": {
+                    "infantry": 0
+                },
+                "Швеция": {
+                    "infantry": 0
+                },
+                "Дания": {
+                    "infantry": 0
+                },
+                "Германия": {
+                    "infantry": 0
+                }
+            },
+            "country_vehicles": {
+                "Россия": {
+                    "armored_vehicles": 0
+                },
+                "Финляндия": {
+                    "armored_vehicles": 0
+                },
+                "Швеция": {
+                    "armored_vehicles": 0
+                },
+                "Дания": {
+                    "armored_vehicles": 0
+                },
+                "Германия": {
+                    "armored_vehicles": 0
+                }
+            },
+            "country_length": {
+                "Россия": {
+                    "land": 0,
+                    "sea": 150
+                },
+                "Финляндия": {
+                    "land": 0,
+                    "sea": 200
+                },
+                "Швеция": {
+                    "land": 0,
+                    "sea": 400
+                },
+                "Дания": {
+                    "land": 0,
+                    "sea": 250
+                },
+                "Германия": {
+                    "land": 0,
+                    "sea": 224
+                }
+            },
+            "country_uav": {
+                "Россия": {
+                    "attack_uav": 0,
+                    "recon_uav": 0
+                },
+                "Финляндия": {
+                    "attack_uav": 0,
+                    "recon_uav": 0
+                },
+                "Швеция": {
+                    "attack_uav": 0,
+                    "recon_uav": 0
+                },
+                "Дания": {
+                    "attack_uav": 0,
+                    "recon_uav": 0
+                },
+                "Германия": {
+                    "attack_uav": 0,
+                    "recon_uav": 0
+                }
+            }
+        },
+        {
+            "id": "turkish_stream",
+            "name": "Турецкий поток",
+            "operator": "Россия",
+            "type": "gas",
+            "total_length": 930,
+            "land_length": 300,
+            "sea_length": 630,
+            "countries_through": [
+                "Россия",
+                "Турция",
+                "Болгария",
+                "Сербия",
+                "Венгрия"
+            ],
+            "status": "active",
+            "damage": 0,
+            "security_level": 0.55,
+            "constructed_at": "2020-01-01",
+            "last_maintenance": null,
+            "construction_cost": 23400,
+            "closed_sections": {},
+            "country_control": {
+                "Россия": 67.74193548387096,
+                "Турция": 16.129032258064516,
+                "Болгария": 19.35483870967742,
+                "Сербия": 21.50537634408602,
+                "Венгрия": 16.129032258064516
+            },
+            "country_military": {
+                "Россия": {
+                    "infantry": 0
+                },
+                "Турция": {
+                    "infantry": 0
+                },
+                "Болгария": {
+                    "infantry": 0
+                },
+                "Сербия": {
+                    "infantry": 0
+                },
+                "Венгрия": {
+                    "infantry": 0
+                }
+            },
+            "country_vehicles": {
+                "Россия": {
+                    "armored_vehicles": 0
+                },
+                "Турция": {
+                    "armored_vehicles": 0
+                },
+                "Болгария": {
+                    "armored_vehicles": 0
+                },
+                "Сербия": {
+                    "armored_vehicles": 0
+                },
+                "Венгрия": {
+                    "armored_vehicles": 0
+                }
+            },
+            "country_length": {
+                "Россия": {
+                    "land": 0,
+                    "sea": 630
+                },
+                "Турция": {
+                    "land": 150,
+                    "sea": 0
+                },
+                "Болгария": {
+                    "land": 180,
+                    "sea": 0
+                },
+                "Сербия": {
+                    "land": 200,
+                    "sea": 0
+                },
+                "Венгрия": {
+                    "land": 150,
+                    "sea": 0
+                }
+            },
+            "country_uav": {
+                "Россия": {
+                    "attack_uav": 0,
+                    "recon_uav": 0
+                },
+                "Турция": {
+                    "attack_uav": 0,
+                    "recon_uav": 0
+                },
+                "Болгария": {
+                    "attack_uav": 0,
+                    "recon_uav": 0
+                },
+                "Сербия": {
+                    "attack_uav": 0,
+                    "recon_uav": 0
+                },
+                "Венгрия": {
+                    "attack_uav": 0,
+                    "recon_uav": 0
+                }
+            }
+        },
+        {
+            "id": "yamal_europe",
+            "name": "Ямал-Европа",
+            "operator": "Россия",
+            "type": "gas",
+            "total_length": 4196,
+            "land_length": 4196,
+            "sea_length": 0,
+            "countries_through": [
+                "Россия",
+                "Беларусь",
+                "Польша",
+                "Германия"
+            ],
+            "status": "active",
+            "damage": 0,
+            "security_level": 0.5,
+            "constructed_at": "1994-01-01",
+            "last_maintenance": null,
+            "construction_cost": 62940,
+            "closed_sections": {},
+            "country_control": {
+                "Россия": 59.58055290753098,
+                "Беларусь": 13.107721639656816,
+                "Польша": 16.205910390848427,
+                "Германия": 11.105815061963774
+            },
+            "country_military": {
+                "Россия": {
+                    "infantry": 0
+                },
+                "Беларусь": {
+                    "infantry": 0
+                },
+                "Польша": {
+                    "infantry": 0
+                },
+                "Германия": {
+                    "infantry": 0
+                }
+            },
+            "country_vehicles": {
+                "Россия": {
+                    "armored_vehicles": 0
+                },
+                "Беларусь": {
+                    "armored_vehicles": 0
+                },
+                "Польша": {
+                    "armored_vehicles": 0
+                },
+                "Германия": {
+                    "armored_vehicles": 0
+                }
+            },
+            "country_length": {
+                "Россия": {
+                    "land": 2500,
+                    "sea": 0
+                },
+                "Беларусь": {
+                    "land": 550,
+                    "sea": 0
+                },
+                "Польша": {
+                    "land": 680,
+                    "sea": 0
+                },
+                "Германия": {
+                    "land": 466,
+                    "sea": 0
+                }
+            },
+            "country_uav": {
+                "Россия": {
+                    "attack_uav": 0,
+                    "recon_uav": 0
+                },
+                "Беларусь": {
+                    "attack_uav": 0,
+                    "recon_uav": 0
+                },
+                "Польша": {
+                    "attack_uav": 0,
+                    "recon_uav": 0
+                },
+                "Германия": {
+                    "attack_uav": 0,
+                    "recon_uav": 0
+                }
+            }
+        },
+        {
+            "id": "power_of_siberia",
+            "name": "Сила Сибири",
+            "operator": "Россия",
+            "type": "gas",
+            "total_length": 3000,
+            "land_length": 3000,
+            "sea_length": 0,
+            "countries_through": [
+                "Россия",
+                "Китай"
+            ],
+            "status": "active",
+            "damage": 0,
+            "security_level": 0.7,
+            "constructed_at": "2019-01-01",
+            "last_maintenance": null,
+            "construction_cost": 45000,
+            "closed_sections": {},
+            "country_control": {
+                "Россия": 93.33333333333333,
+                "Китай": 6.666666666666667
+            },
+            "country_military": {
+                "Россия": {
+                    "infantry": 0
+                },
+                "Китай": {
+                    "infantry": 0
+                }
+            },
+            "country_vehicles": {
+                "Россия": {
+                    "armored_vehicles": 0
+                },
+                "Китай": {
+                    "armored_vehicles": 0
+                }
+            },
+            "country_length": {
+                "Россия": {
+                    "land": 2800,
+                    "sea": 0
+                },
+                "Китай": {
+                    "land": 200,
+                    "sea": 0
+                }
+            },
+            "country_uav": {
+                "Россия": {
+                    "attack_uav": 0,
+                    "recon_uav": 0
+                },
+                "Китай": {
+                    "attack_uav": 0,
+                    "recon_uav": 0
+                }
+            }
+        },
+        {
+            "id": "keystone",
+            "name": "Keystone",
+            "operator": "США",
+            "type": "oil",
+            "total_length": 4345,
+            "land_length": 4345,
+            "sea_length": 0,
+            "countries_through": [
+                "Канада",
+                "США"
+            ],
+            "status": "active",
+            "damage": 0,
+            "security_level": 0.7,
+            "constructed_at": "2010-01-01",
+            "last_maintenance": null,
+            "construction_cost": 78246,
+            "closed_sections": {},
+            "country_control": {
+                "Канада": 14.959723820483314,
+                "США": 85.04027617951668
+            },
+            "country_military": {
+                "Канада": {
+                    "infantry": 0
+                },
+                "США": {
+                    "infantry": 0
+                }
+            },
+            "country_vehicles": {
+                "Канада": {
+                    "armored_vehicles": 0
+                },
+                "США": {
+                    "armored_vehicles": 0
+                }
+            },
+            "country_length": {
+                "Канада": {
+                    "land": 650,
+                    "sea": 0
+                },
+                "США": {
+                    "land": 3695,
+                    "sea": 0
+                }
+            },
+            "country_uav": {
+                "Канада": {
+                    "attack_uav": 0,
+                    "recon_uav": 0
+                },
+                "США": {
+                    "attack_uav": 0,
+                    "recon_uav": 0
+                }
+            }
+        },
+        {
+            "id": "colonial",
+            "name": "Colonial",
+            "operator": "США",
+            "type": "oil",
+            "total_length": 8850,
+            "land_length": 8850,
+            "sea_length": 0,
+            "countries_through": [
+                "США"
+            ],
+            "status": "active",
+            "damage": 0,
+            "security_level": 0.65,
+            "constructed_at": "1962-01-01",
+            "last_maintenance": null,
+            "construction_cost": 159300,
+            "closed_sections": {},
+            "country_control": {
+                "США": 100.0
+            },
+            "country_military": {
+                "США": {
+                    "infantry": 0
+                }
+            },
+            "country_vehicles": {
+                "США": {
+                    "armored_vehicles": 0
+                }
+            },
+            "country_length": {
+                "США": {
+                    "land": 8850,
+                    "sea": 0
+                }
+            },
+            "country_uav": {
+                "США": {
+                    "attack_uav": 0,
+                    "recon_uav": 0
+                }
+            }
+        },
+        {
+            "id": "transcanada",
+            "name": "TransCanada",
+            "operator": "Канада",
+            "type": "gas",
+            "total_length": 2590,
+            "land_length": 2590,
+            "sea_length": 0,
+            "countries_through": [
+                "Канада",
+                "США"
+            ],
+            "status": "active",
+            "damage": 0,
+            "security_level": 0.6,
+            "constructed_at": "1951-01-01",
+            "last_maintenance": null,
+            "construction_cost": 38850,
+            "closed_sections": {
+                "США": false
+            },
+            "country_control": {
+                "Канада": 77.22007722007721,
+                "США": 23.029922779922778
+            },
+            "country_military": {
+                "Канада": {
+                    "infantry": 0
+                },
+                "США": {
+                    "infantry": 200
+                }
+            },
+            "country_vehicles": {
+                "Канада": {
+                    "armored_vehicles": 0
+                },
+                "США": {
+                    "armored_vehicles": 2
+                }
+            },
+            "country_length": {
+                "Канада": {
+                    "land": 2000,
+                    "sea": 0
+                },
+                "США": {
+                    "land": 590,
+                    "sea": 0
+                }
+            },
+            "country_uav": {
+                "Канада": {
+                    "attack_uav": 0,
+                    "recon_uav": 0
+                },
+                "США": {
+                    "attack_uav": 0,
+                    "recon_uav": 2
+                }
+            }
+        },
+        {
+            "id": "btc",
+            "name": "Баку-Тбилиси-Джейхан",
+            "operator": "Азербайджан",
+            "type": "oil",
+            "total_length": 1768,
+            "land_length": 1768,
+            "sea_length": 0,
+            "countries_through": [
+                "Азербайджан",
+                "Грузия",
+                "Турция"
+            ],
+            "status": "active",
+            "damage": 0,
+            "security_level": 0.6,
+            "constructed_at": "2006-01-01",
+            "last_maintenance": null,
+            "construction_cost": 31824,
+            "closed_sections": {},
+            "country_control": {
+                "Азербайджан": 25.056561085972852,
+                "Грузия": 14.083710407239819,
+                "Турция": 60.85972850678733
+            },
+            "country_military": {
+                "Азербайджан": {
+                    "infantry": 0
+                },
+                "Грузия": {
+                    "infantry": 0
+                },
+                "Турция": {
+                    "infantry": 0
+                }
+            },
+            "country_vehicles": {
+                "Азербайджан": {
+                    "armored_vehicles": 0
+                },
+                "Грузия": {
+                    "armored_vehicles": 0
+                },
+                "Турция": {
+                    "armored_vehicles": 0
+                }
+            },
+            "country_length": {
+                "Азербайджан": {
+                    "land": 443,
+                    "sea": 0
+                },
+                "Грузия": {
+                    "land": 249,
+                    "sea": 0
+                },
+                "Турция": {
+                    "land": 1076,
+                    "sea": 0
+                }
+            },
+            "country_uav": {
+                "Азербайджан": {
+                    "attack_uav": 0,
+                    "recon_uav": 0
+                },
+                "Грузия": {
+                    "attack_uav": 0,
+                    "recon_uav": 0
+                },
+                "Турция": {
+                    "attack_uav": 0,
+                    "recon_uav": 0
+                }
+            }
+        },
+        {
+            "id": "caspian_pipeline",
+            "name": "Каспийский трубопровод",
+            "operator": "Казахстан",
+            "type": "oil",
+            "total_length": 1511,
+            "land_length": 1511,
+            "sea_length": 0,
+            "countries_through": [
+                "Казахстан",
+                "Россия"
+            ],
+            "status": "active",
+            "damage": 0,
+            "security_level": 0.55,
+            "constructed_at": "2001-01-01",
+            "last_maintenance": null,
+            "construction_cost": 27198,
+            "closed_sections": {},
+            "country_control": {
+                "Казахстан": 29.781601588352085,
+                "Россия": 70.21839841164793
+            },
+            "country_military": {
+                "Казахстан": {
+                    "infantry": 0
+                },
+                "Россия": {
+                    "infantry": 0
+                }
+            },
+            "country_vehicles": {
+                "Казахстан": {
+                    "armored_vehicles": 0
+                },
+                "Россия": {
+                    "armored_vehicles": 0
+                }
+            },
+            "country_length": {
+                "Казахстан": {
+                    "land": 450,
+                    "sea": 0
+                },
+                "Россия": {
+                    "land": 1061,
+                    "sea": 0
+                }
+            },
+            "country_uav": {
+                "Казахстан": {
+                    "attack_uav": 0,
+                    "recon_uav": 0
+                },
+                "Россия": {
+                    "attack_uav": 0,
+                    "recon_uav": 0
+                }
+            }
+        },
+        {
+            "id": "tap",
+            "name": "Трансадриатический газопровод",
+            "operator": "Греция",
+            "type": "gas",
+            "total_length": 878,
+            "land_length": 378,
+            "sea_length": 500,
+            "countries_through": [
+                "Греция",
+                "Албания",
+                "Италия"
+            ],
+            "status": "active",
+            "damage": 0,
+            "security_level": 0.55,
+            "constructed_at": "2020-01-01",
+            "last_maintenance": null,
+            "construction_cost": 20670,
+            "closed_sections": {},
+            "country_control": {
+                "Греция": 43.052391799544424,
+                "Албания": 24.4874715261959,
+                "Италия": 32.46013667425968
+            },
+            "country_military": {
+                "Греция": {
+                    "infantry": 0
+                },
+                "Албания": {
+                    "infantry": 0
+                },
+                "Италия": {
+                    "infantry": 0
+                }
+            },
+            "country_vehicles": {
+                "Греция": {
+                    "armored_vehicles": 0
+                },
+                "Албания": {
+                    "armored_vehicles": 0
+                },
+                "Италия": {
+                    "armored_vehicles": 0
+                }
+            },
+            "country_length": {
+                "Греция": {
+                    "land": 378,
+                    "sea": 0
+                },
+                "Албания": {
+                    "land": 215,
+                    "sea": 0
+                },
+                "Италия": {
+                    "land": 85,
+                    "sea": 200
+                }
+            },
+            "country_uav": {
+                "Греция": {
+                    "attack_uav": 0,
+                    "recon_uav": 0
+                },
+                "Албания": {
+                    "attack_uav": 0,
+                    "recon_uav": 0
+                },
+                "Италия": {
+                    "attack_uav": 0,
+                    "recon_uav": 0
+                }
+            }
+        }
+    ],
+    "stats": {}
+}

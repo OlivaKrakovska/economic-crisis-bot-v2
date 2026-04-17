@@ -11,61 +11,96 @@ import random
 
 class CivilCorporation:
     """Класс, представляющий гражданскую корпорацию"""
-    def __init__(self, id, name, country, city, description, specialization, products, 
+    
+    def __init__(self, corp_id, name, country, city, description, specialization, products, 
                  founded=None, website=None, service_type="manufacturing"):
-        self.id = id
+        self.id = corp_id
         self.name = name
         self.country = country
         self.city = city
         self.description = description
-        self.specialization = specialization  # Список типов продукции/услуг
-        self.products = products  # Продукты (ключ: тип продукции)
+        self.specialization = specialization
+        self.products = products
         self.founded = founded
         self.website = website
-        self.service_type = service_type  # "manufacturing", "telecom", "it", "finance", "retail", "healthcare"
-        
-        # ✅ ДИНАМИЧЕСКИЕ ПОЛЯ (будут сохраняться в отдельном файле)
-        self.inventory = {}  # Запасы продукции {product_type: количество}
-        self.budget = 0      # Деньги корпорации
-        self.popularity = 50 # Популярность среди населения (0-100)
-        self.market_share = {}  # Доля рынка по продуктам {product_type: процент}
-        self.employees = 0   # Количество сотрудников
-        self.last_update = str(datetime.now())
+        self.service_type = service_type
+        # Динамические поля (будут загружаться из state)
+        self.inventory = {}
+        self.budget = 0
+        self.popularity = 50
+        self.market_share = {}
+        self.employees = 0
+        self.last_update = None
     
-    def get_product(self, product_key):
-        return self.products.get(product_key)
+    def get_product_price(self, product_type: str) -> float:
+        """Получить цену продукта"""
+        if product_type in self.products:
+            return self.products[product_type].get("price", 100)
+        return 100
+    
+    def get_product_name(self, product_type: str) -> str:
+        """Получить название продукта"""
+        if product_type in self.products:
+            return self.products[product_type].get("name", product_type)
+        return product_type
+    
+    def get_product_description(self, product_type: str) -> str:
+        """Получить описание продукта"""
+        if product_type in self.products:
+            return self.products[product_type].get("description", "")
+        return ""
     
     def get_all_products(self):
+        """Получить все продукты корпорации"""
         return list(self.products.values())
     
     def has_specialization(self, spec):
+        """Проверяет, есть ли у корпорации указанная специализация"""
         return spec in self.specialization
     
-    def add_to_inventory(self, product_type, quantity):
-        """Добавить продукцию на склад"""
+    def add_to_inventory(self, product_type: str, quantity: int):
+        """Добавить товар в инвентарь"""
         if product_type not in self.inventory:
             self.inventory[product_type] = 0
         self.inventory[product_type] += quantity
     
-    def remove_from_inventory(self, product_type, quantity):
-        """Списать продукцию со склада (для продажи населению)"""
-        if product_type in self.inventory and self.inventory[product_type] >= quantity:
+    def remove_from_inventory(self, product_type: str, quantity: int):
+        """Удалить товар из инвентаря"""
+        if product_type in self.inventory:
             self.inventory[product_type] -= quantity
+            if self.inventory[product_type] <= 0:
+                del self.inventory[product_type]
             return True
         return False
     
-    def get_product_price(self, product_type):
-        """Получить цену продукта"""
-        if product_type in self.products:
-            return self.products[product_type]['price']
-        return 0
-    
-    def get_available_quantity(self, product_type):
-        """Получить доступное количество продукта на складе"""
-        return self.inventory.get(product_type, 0)
+    @classmethod
+    def from_dict(cls, corp_id: str, data: dict):
+        """Создаёт объект CivilCorporation из словаря"""
+        corp = cls(
+            corp_id=corp_id,
+            name=data.get("name", "Неизвестно"),
+            country=data.get("country", "Неизвестно"),
+            city=data.get("city", ""),
+            description=data.get("description", ""),
+            specialization=data.get("specialization", []),
+            products=data.get("products", {}),
+            founded=data.get("founded"),
+            website=data.get("website"),
+            service_type=data.get("service_type", "manufacturing")
+        )
+        
+        # Загружаем динамические данные, если они есть
+        corp.inventory = data.get("inventory", {})
+        corp.budget = data.get("budget", 0)
+        corp.popularity = data.get("popularity", 50)
+        corp.market_share = data.get("market_share", {})
+        corp.employees = data.get("employees", 0)
+        corp.last_update = data.get("last_update")
+        
+        return corp
     
     def to_dict(self):
-        """Сериализация для сохранения"""
+        """Преобразует объект в словарь для сохранения"""
         return {
             "id": self.id,
             "name": self.name,
@@ -84,23 +119,6 @@ class CivilCorporation:
             "employees": self.employees,
             "last_update": self.last_update
         }
-    
-    @classmethod
-    def from_dict(cls, data):
-        """Десериализация из словаря"""
-        corp = cls(
-            data["id"], data["name"], data["country"], data["city"],
-            data["description"], data["specialization"], data["products"],
-            data.get("founded"), data.get("website"), data.get("service_type", "manufacturing")
-        )
-        corp.inventory = data.get("inventory", {})
-        corp.budget = data.get("budget", 0)
-        corp.popularity = data.get("popularity", 50)
-        corp.market_share = data.get("market_share", {})
-        corp.employees = data.get("employees", 0)
-        corp.last_update = data.get("last_update", str(datetime.now()))
-        return corp
-
 
 # ==================== ФАЙЛ ДЛЯ СОХРАНЕНИЯ СОСТОЯНИЯ ====================
 
@@ -118,7 +136,7 @@ def load_corporations_state():
             # Конвертируем словари обратно в объекты
             corporations = {}
             for corp_id, corp_data in data["corporations"].items():
-                corporations[corp_id] = CivilCorporation.from_dict(corp_data)
+                corporations[corp_id] = CivilCorporation.from_dict(corp_id, corp_data)
             return {"corporations": corporations}
     except FileNotFoundError:
         return {"corporations": {}}
@@ -358,7 +376,7 @@ CIVIL_PRODUCT_NAMES = CIVIL_PRODUCT_TYPES.copy()
 
 # Автомобилестроение
 GENERAL_MOTORS = CivilCorporation(
-    id="civ_us_001",
+    corp_id="civ_us_001",
     name="General Motors",
     country="США",
     city="Детройт, Мичиган",
@@ -374,7 +392,7 @@ GENERAL_MOTORS = CivilCorporation(
 )
 
 FORD = CivilCorporation(
-    id="civ_us_001b",
+    corp_id="civ_us_001b",
     name="Ford Motor Company",
     country="США",
     city="Дирборн, Мичиган",
@@ -390,7 +408,7 @@ FORD = CivilCorporation(
 )
 
 TESLA = CivilCorporation(
-    id="civ_us_001c",
+    corp_id="civ_us_001c",
     name="Tesla, Inc.",
     country="США",
     city="Остин, Техас",
@@ -406,7 +424,7 @@ TESLA = CivilCorporation(
 
 # Промышленное оборудование
 CATERPILLAR = CivilCorporation(
-    id="civ_us_002",
+    corp_id="civ_us_002",
     name="Caterpillar Inc.",
     country="США",
     city="Ирвинг, Техас",
@@ -423,7 +441,7 @@ CATERPILLAR = CivilCorporation(
 
 # Авиакосмическая промышленность
 BOEING = CivilCorporation(
-    id="civ_us_003",
+    corp_id="civ_us_003",
     name="Boeing",
     country="США",
     city="Чикаго, Иллинойс",
@@ -439,7 +457,7 @@ BOEING = CivilCorporation(
 
 # Технологическое оборудование и IT
 IBM = CivilCorporation(
-    id="civ_us_004",
+    corp_id="civ_us_004",
     name="IBM",
     country="США",
     city="Армонк, Нью-Йорк",
@@ -456,7 +474,7 @@ IBM = CivilCorporation(
 )
 
 MICROSOFT = CivilCorporation(
-    id="civ_us_004b",
+    corp_id="civ_us_004b",
     name="Microsoft Corporation",
     country="США",
     city="Редмонд, Вашингтон",
@@ -473,7 +491,7 @@ MICROSOFT = CivilCorporation(
 )
 
 APPLE = CivilCorporation(
-    id="civ_us_004c",
+    corp_id="civ_us_004c",
     name="Apple Inc.",
     country="США",
     city="Купертино, Калифорния",
@@ -491,7 +509,7 @@ APPLE = CivilCorporation(
 )
 
 GOOGLE = CivilCorporation(
-    id="civ_us_004d",
+    corp_id="civ_us_004d",
     name="Google LLC",
     country="США",
     city="Маунтин-Вью, Калифорния",
@@ -508,7 +526,7 @@ GOOGLE = CivilCorporation(
 )
 
 AMAZON = CivilCorporation(
-    id="civ_us_004e",
+    corp_id="civ_us_004e",
     name="Amazon.com, Inc.",
     country="США",
     city="Сиэтл, Вашингтон",
@@ -526,7 +544,7 @@ AMAZON = CivilCorporation(
 
 # Медицинское оборудование и фармацевтика
 JOHNSON_JOHNSON = CivilCorporation(
-    id="civ_us_005",
+    corp_id="civ_us_005",
     name="Johnson & Johnson",
     country="США",
     city="Нью-Брансуик, Нью-Джерси",
@@ -544,7 +562,7 @@ JOHNSON_JOHNSON = CivilCorporation(
 )
 
 PFIZER = CivilCorporation(
-    id="civ_us_005b",
+    corp_id="civ_us_005b",
     name="Pfizer Inc.",
     country="США",
     city="Нью-Йорк, Нью-Йорк",
@@ -558,7 +576,7 @@ PFIZER = CivilCorporation(
 )
 
 MERCK = CivilCorporation(
-    id="civ_us_005c",
+    corp_id="civ_us_005c",
     name="Merck & Co.",
     country="США",
     city="Кенилуэрт, Нью-Джерси",
@@ -573,7 +591,7 @@ MERCK = CivilCorporation(
 
 # Телекоммуникации
 AT_T = CivilCorporation(
-    id="civ_us_006",
+    corp_id="civ_us_006",
     name="AT&T Inc.",
     country="США",
     city="Даллас, Техас",
@@ -590,7 +608,7 @@ AT_T = CivilCorporation(
 )
 
 VERIZON = CivilCorporation(
-    id="civ_us_006b",
+    corp_id="civ_us_006b",
     name="Verizon Communications",
     country="США",
     city="Нью-Йорк, Нью-Йорк",
@@ -606,7 +624,7 @@ VERIZON = CivilCorporation(
 )
 
 COMCAST = CivilCorporation(
-    id="civ_us_006c",
+    corp_id="civ_us_006c",
     name="Comcast Corporation",
     country="США",
     city="Филадельфия, Пенсильвания",
@@ -623,7 +641,7 @@ COMCAST = CivilCorporation(
 
 # Финансовые услуги
 JPMORGAN = CivilCorporation(
-    id="civ_us_007",
+    corp_id="civ_us_007",
     name="JPMorgan Chase & Co.",
     country="США",
     city="Нью-Йорк, Нью-Йорк",
@@ -639,7 +657,7 @@ JPMORGAN = CivilCorporation(
 )
 
 GOLDMAN_SACHS = CivilCorporation(
-    id="civ_us_007b",
+    corp_id="civ_us_007b",
     name="Goldman Sachs",
     country="США",
     city="Нью-Йорк, Нью-Йорк",
@@ -654,7 +672,7 @@ GOLDMAN_SACHS = CivilCorporation(
 )
 
 VISA = CivilCorporation(
-    id="civ_us_007c",
+    corp_id="civ_us_007c",
     name="Visa Inc.",
     country="США",
     city="Сан-Франциско, Калифорния",
@@ -669,7 +687,7 @@ VISA = CivilCorporation(
 )
 
 MASTERCARD = CivilCorporation(
-    id="civ_us_007d",
+    corp_id="civ_us_007d",
     name="Mastercard Inc.",
     country="США",
     city="Пёрчейз, Нью-Йорк",
@@ -685,7 +703,7 @@ MASTERCARD = CivilCorporation(
 
 # Розничная торговля
 WALMART = CivilCorporation(
-    id="civ_us_008",
+    corp_id="civ_us_008",
     name="Walmart Inc.",
     country="США",
     city="Бентонвилл, Арканзас",
@@ -701,7 +719,7 @@ WALMART = CivilCorporation(
 )
 
 COSTCO = CivilCorporation(
-    id="civ_us_008b",
+    corp_id="civ_us_008b",
     name="Costco Wholesale",
     country="США",
     city="Иссакуа, Вашингтон",
@@ -716,7 +734,7 @@ COSTCO = CivilCorporation(
 )
 
 TARGET = CivilCorporation(
-    id="civ_us_008c",
+    corp_id="civ_us_008c",
     name="Target Corporation",
     country="США",
     city="Миннеаполис, Миннесота",
@@ -733,7 +751,7 @@ TARGET = CivilCorporation(
 
 # Рестораны и фаст-фуд
 MCDONALDS = CivilCorporation(
-    id="civ_us_009",
+    corp_id="civ_us_009",
     name="McDonald's Corporation",
     country="США",
     city="Чикаго, Иллинойс",
@@ -748,7 +766,7 @@ MCDONALDS = CivilCorporation(
 )
 
 STARBUCKS = CivilCorporation(
-    id="civ_us_009b",
+    corp_id="civ_us_009b",
     name="Starbucks Corporation",
     country="США",
     city="Сиэтл, Вашингтон",
@@ -763,7 +781,7 @@ STARBUCKS = CivilCorporation(
 )
 
 YUM_BRANDS = CivilCorporation(
-    id="civ_us_009c",
+    corp_id="civ_us_009c",
     name="Yum! Brands",
     country="США",
     city="Луисвилл, Кентукки",
@@ -780,7 +798,7 @@ YUM_BRANDS = CivilCorporation(
 
 # Сельскохозяйственная техника
 JOHN_DEERE = CivilCorporation(
-    id="civ_us_010",
+    corp_id="civ_us_010",
     name="John Deere",
     country="США",
     city="Молин, Иллинойс",
@@ -796,7 +814,7 @@ JOHN_DEERE = CivilCorporation(
 
 # Продукты питания и напитки
 PEPSICO = CivilCorporation(
-    id="civ_us_011",
+    corp_id="civ_us_011",
     name="PepsiCo",
     country="США",
     city="Перчейз, Нью-Йорк",
@@ -811,7 +829,7 @@ PEPSICO = CivilCorporation(
 )
 
 COCA_COLA = CivilCorporation(
-    id="civ_us_011b",
+    corp_id="civ_us_011b",
     name="The Coca-Cola Company",
     country="США",
     city="Атланта, Джорджия",
@@ -826,7 +844,7 @@ COCA_COLA = CivilCorporation(
 
 # Электротехника
 GE = CivilCorporation(
-    id="civ_us_012",
+    corp_id="civ_us_012",
     name="General Electric",
     country="США",
     city="Бостон, Массачусетс",
@@ -843,7 +861,7 @@ GE = CivilCorporation(
 
 # Авиаперевозки
 DELTA_AIR = CivilCorporation(
-    id="civ_us_013",
+    corp_id="civ_us_013",
     name="Delta Air Lines",
     country="США",
     city="Атланта, Джорджия",
@@ -859,7 +877,7 @@ DELTA_AIR = CivilCorporation(
 )
 
 AMERICAN_AIR = CivilCorporation(
-    id="civ_us_013b",
+    corp_id="civ_us_013b",
     name="American Airlines",
     country="США",
     city="Форт-Уэрт, Техас",
@@ -874,7 +892,7 @@ AMERICAN_AIR = CivilCorporation(
 )
 
 UNITED_AIR = CivilCorporation(
-    id="civ_us_013c",
+    corp_id="civ_us_013c",
     name="United Airlines",
     country="США",
     city="Чикаго, Иллинойс",
@@ -890,7 +908,7 @@ UNITED_AIR = CivilCorporation(
 
 # Логистика
 UPS = CivilCorporation(
-    id="civ_us_014",
+    corp_id="civ_us_014",
     name="United Parcel Service (UPS)",
     country="США",
     city="Сэнди-Спрингс, Джорджия",
@@ -905,7 +923,7 @@ UPS = CivilCorporation(
 )
 
 FEDEX = CivilCorporation(
-    id="civ_us_014b",
+    corp_id="civ_us_014b",
     name="FedEx Corporation",
     country="США",
     city="Мемфис, Теннесси",
@@ -921,7 +939,7 @@ FEDEX = CivilCorporation(
 
 # Медиа и развлечения
 WALT_DISNEY = CivilCorporation(
-    id="civ_us_015",
+    corp_id="civ_us_015",
     name="The Walt Disney Company",
     country="США",
     city="Бербанк, Калифорния",
@@ -937,7 +955,7 @@ WALT_DISNEY = CivilCorporation(
 )
 
 NETFLIX = CivilCorporation(
-    id="civ_us_015b",
+    corp_id="civ_us_015b",
     name="Netflix, Inc.",
     country="США",
     city="Лос-Гатос, Калифорния",
@@ -952,7 +970,7 @@ NETFLIX = CivilCorporation(
 )
 
 WARNER_BROS = CivilCorporation(
-    id="civ_us_015c",
+    corp_id="civ_us_015c",
     name="Warner Bros. Discovery",
     country="США",
     city="Нью-Йорк, Нью-Йорк",
@@ -969,7 +987,7 @@ WARNER_BROS = CivilCorporation(
 
 # Образование
 CHEGG = CivilCorporation(
-    id="civ_us_016",
+    corp_id="civ_us_016",
     name="Chegg, Inc.",
     country="США",
     city="Санта-Клара, Калифорния",
@@ -984,7 +1002,7 @@ CHEGG = CivilCorporation(
 )
 
 COURSERA = CivilCorporation(
-    id="civ_us_016b",
+    corp_id="civ_us_016b",
     name="Coursera, Inc.",
     country="США",
     city="Маунтин-Вью, Калифорния",
@@ -1003,7 +1021,7 @@ COURSERA = CivilCorporation(
 
 # Автомобилестроение
 AVTOVAZ = CivilCorporation(
-    id="civ_ru_001",
+    corp_id="civ_ru_001",
     name="АвтоВАЗ",
     country="Россия",
     city="Тольятти, Самарская область",
@@ -1018,7 +1036,7 @@ AVTOVAZ = CivilCorporation(
 )
 
 GAZ = CivilCorporation(
-    id="civ_ru_001b",
+    corp_id="civ_ru_001b",
     name="Группа ГАЗ",
     country="Россия",
     city="Нижний Новгород",
@@ -1034,7 +1052,7 @@ GAZ = CivilCorporation(
 )
 
 KAMAZ = CivilCorporation(
-    id="civ_ru_002",
+    corp_id="civ_ru_002",
     name="КАМАЗ",
     country="Россия",
     city="Набережные Челны, Татарстан",
@@ -1051,7 +1069,7 @@ KAMAZ = CivilCorporation(
 
 # Телекоммуникации
 MTS = CivilCorporation(
-    id="civ_ru_003",
+    corp_id="civ_ru_003",
     name="МТС",
     country="Россия",
     city="Москва",
@@ -1068,7 +1086,7 @@ MTS = CivilCorporation(
 )
 
 MEGAFON = CivilCorporation(
-    id="civ_ru_003b",
+    corp_id="civ_ru_003b",
     name="МегаФон",
     country="Россия",
     city="Москва",
@@ -1084,7 +1102,7 @@ MEGAFON = CivilCorporation(
 )
 
 BEELINE = CivilCorporation(
-    id="civ_ru_003c",
+    corp_id="civ_ru_003c",
     name="ВымпелКом (Билайн)",
     country="Россия",
     city="Москва",
@@ -1101,7 +1119,7 @@ BEELINE = CivilCorporation(
 
 # IT и технологии
 YANDEX = CivilCorporation(
-    id="civ_ru_004",
+    corp_id="civ_ru_004",
     name="Яндекс",
     country="Россия",
     city="Москва",
@@ -1119,7 +1137,7 @@ YANDEX = CivilCorporation(
 )
 
 VK = CivilCorporation(
-    id="civ_ru_004b",
+    corp_id="civ_ru_004b",
     name="VK (Mail.ru Group)",
     country="Россия",
     city="Москва",
@@ -1136,7 +1154,7 @@ VK = CivilCorporation(
 )
 
 KASPERSKY = CivilCorporation(
-    id="civ_ru_004c",
+    corp_id="civ_ru_004c",
     name="Лаборатория Касперского",
     country="Россия",
     city="Москва",
@@ -1152,7 +1170,7 @@ KASPERSKY = CivilCorporation(
 
 # Банки и финансы
 SBERBANK = CivilCorporation(
-    id="civ_ru_005",
+    corp_id="civ_ru_005",
     name="Сбербанк",
     country="Россия",
     city="Москва",
@@ -1169,7 +1187,7 @@ SBERBANK = CivilCorporation(
 )
 
 VTB = CivilCorporation(
-    id="civ_ru_005b",
+    corp_id="civ_ru_005b",
     name="ВТБ",
     country="Россия",
     city="Москва",
@@ -1184,7 +1202,7 @@ VTB = CivilCorporation(
 )
 
 TINKOFF = CivilCorporation(
-    id="civ_ru_005c",
+    corp_id="civ_ru_005c",
     name="Т-Банк (Тинькофф)",
     country="Россия",
     city="Москва",
@@ -1201,7 +1219,7 @@ TINKOFF = CivilCorporation(
 
 # Ритейл
 MAGNIT = CivilCorporation(
-    id="civ_ru_006",
+    corp_id="civ_ru_006",
     name="Магнит",
     country="Россия",
     city="Краснодар",
@@ -1216,7 +1234,7 @@ MAGNIT = CivilCorporation(
 )
 
 X5_GROUP = CivilCorporation(
-    id="civ_ru_006b",
+    corp_id="civ_ru_006b",
     name="X5 Group",
     country="Россия",
     city="Москва",
@@ -1232,7 +1250,7 @@ X5_GROUP = CivilCorporation(
 )
 
 WILDBERRIES = CivilCorporation(
-    id="civ_ru_006c",
+    corp_id="civ_ru_006c",
     name="Wildberries",
     country="Россия",
     city="Москва",
@@ -1248,7 +1266,7 @@ WILDBERRIES = CivilCorporation(
 )
 
 OZON = CivilCorporation(
-    id="civ_ru_006d",
+    corp_id="civ_ru_006d",
     name="Ozon",
     country="Россия",
     city="Москва",
@@ -1265,7 +1283,7 @@ OZON = CivilCorporation(
 
 # Энергетика
 GAZPROM = CivilCorporation(
-    id="civ_ru_007",
+    corp_id="civ_ru_007",
     name="Газпром",
     country="Россия",
     city="Москва",
@@ -1280,7 +1298,7 @@ GAZPROM = CivilCorporation(
 )
 
 ROSNEFT = CivilCorporation(
-    id="civ_ru_007b",
+    corp_id="civ_ru_007b",
     name="Роснефть",
     country="Россия",
     city="Москва",
@@ -1295,7 +1313,7 @@ ROSNEFT = CivilCorporation(
 )
 
 LUKOIL = CivilCorporation(
-    id="civ_ru_007c",
+    corp_id="civ_ru_007c",
     name="Лукойл",
     country="Россия",
     city="Москва",
@@ -1311,7 +1329,7 @@ LUKOIL = CivilCorporation(
 )
 
 ROSATOM = CivilCorporation(
-    id="civ_ru_007d",
+    corp_id="civ_ru_007d",
     name="Росатом",
     country="Россия",
     city="Москва",
@@ -1327,7 +1345,7 @@ ROSATOM = CivilCorporation(
 
 # Сельскохозяйственная техника
 ROSTSELMASH = CivilCorporation(
-    id="civ_ru_008",
+    corp_id="civ_ru_008",
     name="Ростсельмаш",
     country="Россия",
     city="Ростов-на-Дону",
@@ -1342,7 +1360,7 @@ ROSTSELMASH = CivilCorporation(
 
 # Энергетическое оборудование
 POWER_MACHINES = CivilCorporation(
-    id="civ_ru_009",
+    corp_id="civ_ru_009",
     name="Силовые машины",
     country="Россия",
     city="Санкт-Петербург",
@@ -1357,7 +1375,7 @@ POWER_MACHINES = CivilCorporation(
 
 # Авиакосмическая промышленность
 UAC = CivilCorporation(
-    id="civ_ru_010",
+    corp_id="civ_ru_010",
     name="Объединенная авиастроительная корпорация",
     country="Россия",
     city="Москва",
@@ -1373,7 +1391,7 @@ UAC = CivilCorporation(
 
 # Продукты питания
 RUSAGRO = CivilCorporation(
-    id="civ_ru_011",
+    corp_id="civ_ru_011",
     name="Русагро",
     country="Россия",
     city="Москва",
@@ -1388,7 +1406,7 @@ RUSAGRO = CivilCorporation(
 
 # Фармацевтика
 PHARMSTANDARD = CivilCorporation(
-    id="civ_ru_012",
+    corp_id="civ_ru_012",
     name="Фармстандарт",
     country="Россия",
     city="Москва",
@@ -1403,7 +1421,7 @@ PHARMSTANDARD = CivilCorporation(
 
 # Химическая промышленность
 URALKALI = CivilCorporation(
-    id="civ_ru_013",
+    corp_id="civ_ru_013",
     name="Уралкалий",
     country="Россия",
     city="Березники, Пермский край",
@@ -1419,7 +1437,7 @@ URALKALI = CivilCorporation(
 
 # Логистика
 RZD = CivilCorporation(
-    id="civ_ru_014",
+    corp_id="civ_ru_014",
     name="Российские железные дороги (РЖД)",
     country="Россия",
     city="Москва",
@@ -1436,7 +1454,7 @@ RZD = CivilCorporation(
 
 # Рестораны
 ROSVEN = CivilCorporation(
-    id="civ_ru_015",
+    corp_id="civ_ru_015",
     name="Росинтер Ресторантс",
     country="Россия",
     city="Москва",
@@ -1452,7 +1470,7 @@ ROSVEN = CivilCorporation(
 
 # Медицинские услуги
 MEDSI = CivilCorporation(
-    id="civ_ru_016",
+    corp_id="civ_ru_016",
     name="Медси",
     country="Россия",
     city="Москва",
@@ -1468,7 +1486,7 @@ MEDSI = CivilCorporation(
 
 # Строительство
 PIK = CivilCorporation(
-    id="civ_ru_017",
+    corp_id="civ_ru_017",
     name="Группа ПИК",
     country="Россия",
     city="Москва",
@@ -1488,7 +1506,7 @@ PIK = CivilCorporation(
 
 # Автомобилестроение
 SAIC = CivilCorporation(
-    id="civ_cn_001",
+    corp_id="civ_cn_001",
     name="SAIC Motor",
     country="Китай",
     city="Шанхай",
@@ -1504,7 +1522,7 @@ SAIC = CivilCorporation(
 )
 
 BYD = CivilCorporation(
-    id="civ_cn_001b",
+    corp_id="civ_cn_001b",
     name="BYD Company",
     country="Китай",
     city="Шэньчжэнь",
@@ -1521,7 +1539,7 @@ BYD = CivilCorporation(
 
 # Технологическое оборудование
 HUAWEI = CivilCorporation(
-    id="civ_cn_002",
+    corp_id="civ_cn_002",
     name="Huawei",
     country="Китай",
     city="Шэньчжэнь",
@@ -1538,7 +1556,7 @@ HUAWEI = CivilCorporation(
 )
 
 XIAOMI = CivilCorporation(
-    id="civ_cn_007",
+    corp_id="civ_cn_007",
     name="Xiaomi",
     country="Китай",
     city="Пекин",
@@ -1554,7 +1572,7 @@ XIAOMI = CivilCorporation(
 )
 
 LENOVO = CivilCorporation(
-    id="civ_cn_002b",
+    corp_id="civ_cn_002b",
     name="Lenovo Group",
     country="Китай",
     city="Пекин",
@@ -1570,7 +1588,7 @@ LENOVO = CivilCorporation(
 )
 
 TENCENT = CivilCorporation(
-    id="civ_cn_002c",
+    corp_id="civ_cn_002c",
     name="Tencent Holdings",
     country="Китай",
     city="Шэньчжэнь",
@@ -1587,7 +1605,7 @@ TENCENT = CivilCorporation(
 )
 
 ALIBABA = CivilCorporation(
-    id="civ_cn_002d",
+    corp_id="civ_cn_002d",
     name="Alibaba Group",
     country="Китай",
     city="Ханчжоу",
@@ -1604,7 +1622,7 @@ ALIBABA = CivilCorporation(
 )
 
 BAIDU = CivilCorporation(
-    id="civ_cn_002e",
+    corp_id="civ_cn_002e",
     name="Baidu, Inc.",
     country="Китай",
     city="Пекин",
@@ -1621,7 +1639,7 @@ BAIDU = CivilCorporation(
 
 # Телекоммуникации
 CHINA_MOBILE = CivilCorporation(
-    id="civ_cn_003",
+    corp_id="civ_cn_003",
     name="China Mobile",
     country="Китай",
     city="Пекин",
@@ -1637,7 +1655,7 @@ CHINA_MOBILE = CivilCorporation(
 )
 
 CHINA_TELECOM = CivilCorporation(
-    id="civ_cn_003b",
+    corp_id="civ_cn_003b",
     name="China Telecom",
     country="Китай",
     city="Пекин",
@@ -1654,7 +1672,7 @@ CHINA_TELECOM = CivilCorporation(
 
 # Строительная техника
 SANY = CivilCorporation(
-    id="civ_cn_004",
+    corp_id="civ_cn_004",
     name="SANY Group",
     country="Китай",
     city="Чанша, Хунань",
@@ -1669,7 +1687,7 @@ SANY = CivilCorporation(
 
 # Энергетическое оборудование
 GOLDWIND = CivilCorporation(
-    id="civ_cn_005",
+    corp_id="civ_cn_005",
     name="Goldwind",
     country="Китай",
     city="Пекин",
@@ -1684,7 +1702,7 @@ GOLDWIND = CivilCorporation(
 
 # Железнодорожное оборудование
 CRRC = CivilCorporation(
-    id="civ_cn_006",
+    corp_id="civ_cn_006",
     name="CRRC Corporation",
     country="Китай",
     city="Пекин",
@@ -1699,7 +1717,7 @@ CRRC = CivilCorporation(
 
 # Текстильная промышленность
 TEXHONG = CivilCorporation(
-    id="civ_cn_007",
+    corp_id="civ_cn_007",
     name="Texhong Textile",
     country="Китай",
     city="Гонконг",
@@ -1714,7 +1732,7 @@ TEXHONG = CivilCorporation(
 
 # Бытовая электроника
 DJI = CivilCorporation(
-    id="civ_cn_008",
+    corp_id="civ_cn_008",
     name="DJI (Da-Jiang Innovations)",
     country="Китай",
     city="Шэньчжэнь",
@@ -1731,7 +1749,7 @@ DJI = CivilCorporation(
 
 # Финансы
 ICBC = CivilCorporation(
-    id="civ_cn_009",
+    corp_id="civ_cn_009",
     name="Industrial and Commercial Bank of China (ICBC)",
     country="Китай",
     city="Пекин",
@@ -1746,7 +1764,7 @@ ICBC = CivilCorporation(
 )
 
 PING_AN = CivilCorporation(
-    id="civ_cn_009b",
+    corp_id="civ_cn_009b",
     name="Ping An Insurance",
     country="Китай",
     city="Шэньчжэнь",
@@ -1763,7 +1781,7 @@ PING_AN = CivilCorporation(
 
 # Ритейл
 JD_COM = CivilCorporation(
-    id="civ_cn_010",
+    corp_id="civ_cn_010",
     name="JD.com",
     country="Китай",
     city="Пекин",
@@ -1780,7 +1798,7 @@ JD_COM = CivilCorporation(
 
 # Энергетика
 CNPC = CivilCorporation(
-    id="civ_cn_011",
+    corp_id="civ_cn_011",
     name="China National Petroleum Corporation (CNPC)",
     country="Китай",
     city="Пекин",
@@ -1796,7 +1814,7 @@ CNPC = CivilCorporation(
 )
 
 STATE_GRID = CivilCorporation(
-    id="civ_cn_011b",
+    corp_id="civ_cn_011b",
     name="State Grid Corporation of China",
     country="Китай",
     city="Пекин",
@@ -1815,7 +1833,7 @@ STATE_GRID = CivilCorporation(
 
 # Автомобилестроение
 VOLKSWAGEN = CivilCorporation(
-    id="civ_de_001",
+    corp_id="civ_de_001",
     name="Volkswagen Group",
     country="Германия",
     city="Вольфсбург",
@@ -1831,7 +1849,7 @@ VOLKSWAGEN = CivilCorporation(
 )
 
 BMW = CivilCorporation(
-    id="civ_de_002",
+    corp_id="civ_de_002",
     name="BMW Group",
     country="Германия",
     city="Мюнхен",
@@ -1846,7 +1864,7 @@ BMW = CivilCorporation(
 )
 
 MERCEDES = CivilCorporation(
-    id="civ_de_003",
+    corp_id="civ_de_003",
     name="Mercedes-Benz Group",
     country="Германия",
     city="Штутгарт",
@@ -1864,7 +1882,7 @@ MERCEDES = CivilCorporation(
 
 # Промышленное оборудование
 SIEMENS = CivilCorporation(
-    id="civ_de_004",
+    corp_id="civ_de_004",
     name="Siemens",
     country="Германия",
     city="Мюнхен",
@@ -1882,7 +1900,7 @@ SIEMENS = CivilCorporation(
 
 # Химическая промышленность
 BASF = CivilCorporation(
-    id="civ_de_005",
+    corp_id="civ_de_005",
     name="BASF",
     country="Германия",
     city="Людвигсхафен",
@@ -1899,7 +1917,7 @@ BASF = CivilCorporation(
 
 # Станкостроение
 TRUMPF = CivilCorporation(
-    id="civ_de_006",
+    corp_id="civ_de_006",
     name="Trumpf",
     country="Германия",
     city="Дитцинген",
@@ -1915,7 +1933,7 @@ TRUMPF = CivilCorporation(
 
 # Фармацевтика
 BAYER = CivilCorporation(
-    id="civ_de_007",
+    corp_id="civ_de_007",
     name="Bayer",
     country="Германия",
     city="Леверкузен",
@@ -1931,7 +1949,7 @@ BAYER = CivilCorporation(
 )
 
 SAP = CivilCorporation(
-    id="civ_de_008",
+    corp_id="civ_de_008",
     name="SAP SE",
     country="Германия",
     city="Вальдорф",
@@ -1947,7 +1965,7 @@ SAP = CivilCorporation(
 )
 
 DEUTSCHE_TELEKOM = CivilCorporation(
-    id="civ_de_009",
+    corp_id="civ_de_009",
     name="Deutsche Telekom",
     country="Германия",
     city="Бонн",
@@ -1963,7 +1981,7 @@ DEUTSCHE_TELEKOM = CivilCorporation(
 )
 
 ALLIANZ = CivilCorporation(
-    id="civ_de_010",
+    corp_id="civ_de_010",
     name="Allianz SE",
     country="Германия",
     city="Мюнхен",
@@ -1978,7 +1996,7 @@ ALLIANZ = CivilCorporation(
 )
 
 DEUTSCHE_BANK = CivilCorporation(
-    id="civ_de_011",
+    corp_id="civ_de_011",
     name="Deutsche Bank",
     country="Германия",
     city="Франкфурт",
@@ -1993,7 +2011,7 @@ DEUTSCHE_BANK = CivilCorporation(
 )
 
 ADIDAS = CivilCorporation(
-    id="civ_de_012",
+    corp_id="civ_de_012",
     name="Adidas AG",
     country="Германия",
     city="Херцогенаурах",
@@ -2008,7 +2026,7 @@ ADIDAS = CivilCorporation(
 )
 
 PUMA = CivilCorporation(
-    id="civ_de_012b",
+    corp_id="civ_de_012b",
     name="Puma SE",
     country="Германия",
     city="Херцогенаурах",
@@ -2023,7 +2041,7 @@ PUMA = CivilCorporation(
 )
 
 LUFTHANSA = CivilCorporation(
-    id="civ_de_013",
+    corp_id="civ_de_013",
     name="Deutsche Lufthansa AG",
     country="Германия",
     city="Кёльн",
@@ -2039,7 +2057,7 @@ LUFTHANSA = CivilCorporation(
 )
 
 DHL = CivilCorporation(
-    id="civ_de_014",
+    corp_id="civ_de_014",
     name="DHL Group",
     country="Германия",
     city="Бонн",
@@ -2054,7 +2072,7 @@ DHL = CivilCorporation(
 )
 
 BOSCH = CivilCorporation(
-    id="civ_de_015",
+    corp_id="civ_de_015",
     name="Robert Bosch GmbH",
     country="Германия",
     city="Герлинген",
@@ -2073,7 +2091,7 @@ BOSCH = CivilCorporation(
 # ==================== КОРПОРАЦИИ ВЕЛИКОБРИТАНИИ ====================
 
 BP = CivilCorporation(
-    id="civ_uk_001",
+    corp_id="civ_uk_001",
     name="BP p.l.c.",
     country="Великобритания",
     city="Лондон",
@@ -2089,7 +2107,7 @@ BP = CivilCorporation(
 )
 
 SHELL = CivilCorporation(
-    id="civ_uk_001b",
+    corp_id="civ_uk_001b",
     name="Shell plc",
     country="Великобритания",
     city="Лондон",
@@ -2105,7 +2123,7 @@ SHELL = CivilCorporation(
 )
 
 VODAFONE = CivilCorporation(
-    id="civ_uk_002",
+    corp_id="civ_uk_002",
     name="Vodafone Group",
     country="Великобритания",
     city="Ньюбери",
@@ -2121,7 +2139,7 @@ VODAFONE = CivilCorporation(
 )
 
 BT_GROUP = CivilCorporation(
-    id="civ_uk_002b",
+    corp_id="civ_uk_002b",
     name="BT Group",
     country="Великобритания",
     city="Лондон",
@@ -2137,7 +2155,7 @@ BT_GROUP = CivilCorporation(
 )
 
 GLAXOSMITHKLINE = CivilCorporation(
-    id="civ_uk_003",
+    corp_id="civ_uk_003",
     name="GSK plc",
     country="Великобритания",
     city="Брентфорд",
@@ -2152,7 +2170,7 @@ GLAXOSMITHKLINE = CivilCorporation(
 )
 
 ASTRAZENECA = CivilCorporation(
-    id="civ_uk_003b",
+    corp_id="civ_uk_003b",
     name="AstraZeneca",
     country="Великобритания",
     city="Кембридж",
@@ -2166,7 +2184,7 @@ ASTRAZENECA = CivilCorporation(
 )
 
 HSBC = CivilCorporation(
-    id="civ_uk_004",
+    corp_id="civ_uk_004",
     name="HSBC Holdings",
     country="Великобритания",
     city="Лондон",
@@ -2182,7 +2200,7 @@ HSBC = CivilCorporation(
 )
 
 BARCLAYS = CivilCorporation(
-    id="civ_uk_004b",
+    corp_id="civ_uk_004b",
     name="Barclays",
     country="Великобритания",
     city="Лондон",
@@ -2197,7 +2215,7 @@ BARCLAYS = CivilCorporation(
 )
 
 LLOYDS = CivilCorporation(
-    id="civ_uk_004c",
+    corp_id="civ_uk_004c",
     name="Lloyds Banking Group",
     country="Великобритания",
     city="Лондон",
@@ -2212,7 +2230,7 @@ LLOYDS = CivilCorporation(
 )
 
 UNILEVER = CivilCorporation(
-    id="civ_uk_005",
+    corp_id="civ_uk_005",
     name="Unilever plc",
     country="Великобритания",
     city="Лондон",
@@ -2229,7 +2247,7 @@ UNILEVER = CivilCorporation(
 )
 
 BRITISH_AMERICAN_TOBACCO = CivilCorporation(
-    id="civ_uk_006",
+    corp_id="civ_uk_006",
     name="British American Tobacco",
     country="Великобритания",
     city="Лондон",
@@ -2243,7 +2261,7 @@ BRITISH_AMERICAN_TOBACCO = CivilCorporation(
 )
 
 ROLLS_ROYCE = CivilCorporation(
-    id="civ_uk_007",
+    corp_id="civ_uk_007",
     name="Rolls-Royce Holdings",
     country="Великобритания",
     city="Лондон",
@@ -2258,7 +2276,7 @@ ROLLS_ROYCE = CivilCorporation(
 )
 
 BAE_SYSTEMS = CivilCorporation(
-    id="civ_uk_008",
+    corp_id="civ_uk_008",
     name="BAE Systems",
     country="Великобритания",
     city="Лондон",
@@ -2274,7 +2292,7 @@ BAE_SYSTEMS = CivilCorporation(
 )
 
 TESCO = CivilCorporation(
-    id="civ_uk_009",
+    corp_id="civ_uk_009",
     name="Tesco plc",
     country="Великобритания",
     city="Уэлин-Гарден-Сити",
@@ -2290,7 +2308,7 @@ TESCO = CivilCorporation(
 )
 
 SAINSBURY = CivilCorporation(
-    id="civ_uk_009b",
+    corp_id="civ_uk_009b",
     name="J Sainsbury plc",
     country="Великобритания",
     city="Лондон",
@@ -2308,7 +2326,7 @@ SAINSBURY = CivilCorporation(
 # ==================== КОРПОРАЦИИ ФРАНЦИИ ====================
 
 TOTALENERGIES = CivilCorporation(
-    id="civ_fr_001",
+    corp_id="civ_fr_001",
     name="TotalEnergies SE",
     country="Франция",
     city="Курбевуа",
@@ -2324,7 +2342,7 @@ TOTALENERGIES = CivilCorporation(
 )
 
 LVMH = CivilCorporation(
-    id="civ_fr_002",
+    corp_id="civ_fr_002",
     name="LVMH Moët Hennessy Louis Vuitton",
     country="Франция",
     city="Париж",
@@ -2341,7 +2359,7 @@ LVMH = CivilCorporation(
 )
 
 SANOFI = CivilCorporation(
-    id="civ_fr_003",
+    corp_id="civ_fr_003",
     name="Sanofi S.A.",
     country="Франция",
     city="Париж",
@@ -2356,7 +2374,7 @@ SANOFI = CivilCorporation(
 )
 
 ORANGE = CivilCorporation(
-    id="civ_fr_004",
+    corp_id="civ_fr_004",
     name="Orange S.A.",
     country="Франция",
     city="Париж",
@@ -2372,7 +2390,7 @@ ORANGE = CivilCorporation(
 )
 
 RENAULT = CivilCorporation(
-    id="civ_fr_005",
+    corp_id="civ_fr_005",
     name="Renault Group",
     country="Франция",
     city="Булонь-Бийанкур",
@@ -2388,7 +2406,7 @@ RENAULT = CivilCorporation(
 )
 
 PEUGEOT = CivilCorporation(
-    id="civ_fr_005b",
+    corp_id="civ_fr_005b",
     name="Peugeot S.A.",
     country="Франция",
     city="Париж",
@@ -2403,7 +2421,7 @@ PEUGEOT = CivilCorporation(
 )
 
 AIRBUS = CivilCorporation(
-    id="civ_fr_006",
+    corp_id="civ_fr_006",
     name="Airbus SE",
     country="Франция",
     city="Тулуза",
@@ -2418,7 +2436,7 @@ AIRBUS = CivilCorporation(
 )
 
 CARREFOUR = CivilCorporation(
-    id="civ_fr_007",
+    corp_id="civ_fr_007",
     name="Carrefour S.A.",
     country="Франция",
     city="Масси",
@@ -2434,7 +2452,7 @@ CARREFOUR = CivilCorporation(
 )
 
 BNP_PARIBAS = CivilCorporation(
-    id="civ_fr_008",
+    corp_id="civ_fr_008",
     name="BNP Paribas",
     country="Франция",
     city="Париж",
@@ -2450,7 +2468,7 @@ BNP_PARIBAS = CivilCorporation(
 )
 
 SOCIETE_GENERALE = CivilCorporation(
-    id="civ_fr_008b",
+    corp_id="civ_fr_008b",
     name="Société Générale S.A.",
     country="Франция",
     city="Париж",
@@ -2465,7 +2483,7 @@ SOCIETE_GENERALE = CivilCorporation(
 )
 
 AXA = CivilCorporation(
-    id="civ_fr_009",
+    corp_id="civ_fr_009",
     name="AXA S.A.",
     country="Франция",
     city="Париж",
@@ -2480,7 +2498,7 @@ AXA = CivilCorporation(
 )
 
 DANONE = CivilCorporation(
-    id="civ_fr_010",
+    corp_id="civ_fr_010",
     name="Danone S.A.",
     country="Франция",
     city="Париж",
@@ -2495,7 +2513,7 @@ DANONE = CivilCorporation(
 )
 
 HERMES = CivilCorporation(
-    id="civ_fr_011",
+    corp_id="civ_fr_011",
     name="Hermès International",
     country="Франция",
     city="Париж",
@@ -2515,7 +2533,7 @@ HERMES = CivilCorporation(
 
 # Авіабудування
 ANTONOV = CivilCorporation(
-    id="civ_ua_001",
+    corp_id="civ_ua_001",
     name="ДП «Антонов»",
     country="Україна",
     city="Київ",
@@ -2541,7 +2559,7 @@ ANTONOV = CivilCorporation(
 
 # Важке машинобудування
 NOVOKRAMATORSK = CivilCorporation(
-    id="civ_ua_002",
+    corp_id="civ_ua_002",
     name="Новокраматорський машинобудівний завод",
     country="Україна",
     city="Краматорськ",
@@ -2567,7 +2585,7 @@ NOVOKRAMATORSK = CivilCorporation(
 
 # Сільгосптехніка
 UKRAVTOZAPCHAST = CivilCorporation(
-    id="civ_ua_003",
+    corp_id="civ_ua_003",
     name="Украгрозапчастина",
     country="Україна",
     city="Київ",
@@ -2593,7 +2611,7 @@ UKRAVTOZAPCHAST = CivilCorporation(
 
 # Енергетика
 TURBOATOM = CivilCorporation(
-    id="civ_ua_004",
+    corp_id="civ_ua_004",
     name="Турбоатом",
     country="Україна",
     city="Харків",
@@ -2613,7 +2631,7 @@ TURBOATOM = CivilCorporation(
 
 # Автомобілебудування
 ZAZ = CivilCorporation(
-    id="civ_ua_005",
+    corp_id="civ_ua_005",
     name="Запорізький автомобілебудівний завод",
     country="Україна",
     city="Запоріжжя",
@@ -2639,7 +2657,7 @@ ZAZ = CivilCorporation(
 
 # Продукти харчування
 KERNEL = CivilCorporation(
-    id="civ_ua_006",
+    corp_id="civ_ua_006",
     name="Kernel",
     country="Україна",
     city="Київ",
@@ -2659,7 +2677,7 @@ KERNEL = CivilCorporation(
 
 # IT
 EPAM = CivilCorporation(
-    id="civ_ua_007",
+    corp_id="civ_ua_007",
     name="EPAM Systems",
     country="Україна",
     city="Київ",
@@ -2691,7 +2709,7 @@ EPAM = CivilCorporation(
 
 # Рітейл
 ATB = CivilCorporation(
-    id="civ_ua_008",
+    corp_id="civ_ua_008",
     name="АТБ-Маркет",
     country="Україна",
     city="Дніпро",
@@ -2717,7 +2735,7 @@ ATB = CivilCorporation(
 
 # Енергетика
 DTEK = CivilCorporation(
-    id="civ_ua_009",
+    corp_id="civ_ua_009",
     name="ДТЕК",
     country="Україна",
     city="Київ",
@@ -2743,7 +2761,7 @@ DTEK = CivilCorporation(
 
 # Телекомунікації
 KYIVSTAR = CivilCorporation(
-    id="civ_ua_010",
+    corp_id="civ_ua_010",
     name="Київстар",
     country="Україна",
     city="Київ",
@@ -2775,7 +2793,7 @@ KYIVSTAR = CivilCorporation(
 
 # Банки
 PRIVATBANK = CivilCorporation(
-    id="civ_ua_011",
+    corp_id="civ_ua_011",
     name="ПриватБанк",
     country="Україна",
     city="Київ",
@@ -2801,7 +2819,7 @@ PRIVATBANK = CivilCorporation(
 
 # Медицина
 BORYS = CivilCorporation(
-    id="civ_ua_012",
+    corp_id="civ_ua_012",
     name="Клініка Борис",
     country="Україна",
     city="Київ",
@@ -2830,7 +2848,7 @@ BORYS = CivilCorporation(
 
 # Фармацевтика
 TEVA = CivilCorporation(
-    id="civ_il_001",
+    corp_id="civ_il_001",
     name="Teva Pharmaceuticals",
     country="Израиль",
     city="Петах-Тиква",
@@ -2856,7 +2874,7 @@ TEVA = CivilCorporation(
 
 # Кибербезопасность
 CHECK_POINT = CivilCorporation(
-    id="civ_il_002",
+    corp_id="civ_il_002",
     name="Check Point Software",
     country="Израиль",
     city="Тель-Авив",
@@ -2888,7 +2906,7 @@ CHECK_POINT = CivilCorporation(
 
 # Авиапром
 ISRAEL_AEROSPACE = CivilCorporation(
-    id="civ_il_003",
+    corp_id="civ_il_003",
     name="Israel Aerospace Industries",
     country="Израиль",
     city="Лод",
@@ -2914,7 +2932,7 @@ ISRAEL_AEROSPACE = CivilCorporation(
 
 # Агротех
 NETAFIM = CivilCorporation(
-    id="civ_il_004",
+    corp_id="civ_il_004",
     name="Netafim",
     country="Израиль",
     city="Тель-Авив",
@@ -2940,7 +2958,7 @@ NETAFIM = CivilCorporation(
 
 # Медицина
 PHILIPS_ISRAEL = CivilCorporation(
-    id="civ_il_005",
+    corp_id="civ_il_005",
     name="Philips Israel",
     country="Израиль",
     city="Хайфа",
@@ -2960,7 +2978,7 @@ PHILIPS_ISRAEL = CivilCorporation(
 
 # IT
 WIX = CivilCorporation(
-    id="civ_il_006",
+    corp_id="civ_il_006",
     name="Wix.com",
     country="Израиль",
     city="Тель-Авив",
@@ -2992,7 +3010,7 @@ WIX = CivilCorporation(
 
 # Автомобили
 MOBILEYE = CivilCorporation(
-    id="civ_il_007",
+    corp_id="civ_il_007",
     name="Mobileye",
     country="Израиль",
     city="Иерусалим",
@@ -3024,7 +3042,7 @@ MOBILEYE = CivilCorporation(
 
 # Финансы
 ISRAEL_DISCOUNT = CivilCorporation(
-    id="civ_il_008",
+    corp_id="civ_il_008",
     name="Israel Discount Bank",
     country="Израиль",
     city="Тель-Авив",
@@ -3050,7 +3068,7 @@ ISRAEL_DISCOUNT = CivilCorporation(
 
 # Ритейл
 SHUFERSAL = CivilCorporation(
-    id="civ_il_009",
+    corp_id="civ_il_009",
     name="שופרסל (Shufersal)",
     country="Израиль",
     city="Ришон-ле-Цион",
@@ -3085,7 +3103,7 @@ SHUFERSAL = CivilCorporation(
 
 # Автомобилестроение
 IRAN_KHODRO = CivilCorporation(
-    id="civ_ir_001",
+    corp_id="civ_ir_001",
     name="Iran Khodro",
     country="Иран",
     city="Тегеран",
@@ -3116,7 +3134,7 @@ IRAN_KHODRO = CivilCorporation(
 )
 
 SAIPA = CivilCorporation(
-    id="civ_ir_001b",
+    corp_id="civ_ir_001b",
     name="SAIPA",
     country="Иран",
     city="Тегеран",
@@ -3142,7 +3160,7 @@ SAIPA = CivilCorporation(
 
 # Нефтегазовое оборудование
 SADRA = CivilCorporation(
-    id="civ_ir_002",
+    corp_id="civ_ir_002",
     name="Sadra",
     country="Иран",
     city="Тегеран",
@@ -3168,7 +3186,7 @@ SADRA = CivilCorporation(
 
 # Пищевая промышленность
 KALLEH = CivilCorporation(
-    id="civ_ir_003",
+    corp_id="civ_ir_003",
     name="Kalleh",
     country="Иран",
     city="Амоль",
@@ -3194,7 +3212,7 @@ KALLEH = CivilCorporation(
 
 # Станкостроение
 MACHINE_SAZI = CivilCorporation(
-    id="civ_ir_004",
+    corp_id="civ_ir_004",
     name="Machine Sazi Arak",
     country="Иран",
     city="Арак",
@@ -3220,7 +3238,7 @@ MACHINE_SAZI = CivilCorporation(
 
 # Фармацевтика
 DAROU_PAKHSH = CivilCorporation(
-    id="civ_ir_005",
+    corp_id="civ_ir_005",
     name="Darou Pakhsh",
     country="Иран",
     city="Тегеран",
@@ -3240,7 +3258,7 @@ DAROU_PAKHSH = CivilCorporation(
 
 # Телекоммуникации
 TALYAI = CivilCorporation(
-    id="civ_ir_006",
+    corp_id="civ_ir_006",
     name="Talyaie",
     country="Иран",
     city="Тегеран",
@@ -3272,7 +3290,7 @@ TALYAI = CivilCorporation(
 
 # IT
 PISHGAMAN = CivilCorporation(
-    id="civ_ir_007",
+    corp_id="civ_ir_007",
     name="Pishgaman",
     country="Иран",
     city="Тегеран",
@@ -3304,7 +3322,7 @@ PISHGAMAN = CivilCorporation(
 
 # Банки
 MELI_BANK = CivilCorporation(
-    id="civ_ir_008",
+    corp_id="civ_ir_008",
     name="Bank Melli Iran",
     country="Иран",
     city="Тегеран",
@@ -3330,7 +3348,7 @@ MELI_BANK = CivilCorporation(
 
 # Ритейл
 REFAAH = CivilCorporation(
-    id="civ_ir_009",
+    corp_id="civ_ir_009",
     name="Refaah",
     country="Иран",
     city="Тегеран",
@@ -3356,7 +3374,7 @@ REFAAH = CivilCorporation(
 
 # Строительство
 KAYSON = CivilCorporation(
-    id="civ_ir_010",
+    corp_id="civ_ir_010",
     name="Kayson",
     country="Иран",
     city="Тегеран",
@@ -3379,7 +3397,1744 @@ KAYSON = CivilCorporation(
         }
     }
 )
+# ==================== КОРПОРАЦИИ БЕЛАРУСИ ====================
 
+# Автомобилестроение
+BELAZ = CivilCorporation(
+    corp_id="civ_by_001",
+    name="БелАЗ",
+    country="Беларусь",
+    city="Жодино",
+    description="Крупнейший мировой производитель карьерных самосвалов и транспортного оборудования для горнодобывающей промышленности.",
+    specialization=["industrial_equipment", "construction_machinery"],
+    founded=1948,
+    website="www.belaz.by",
+    products={
+        "industrial_equipment": {"name": "Карьерные самосвалы", "type": "industrial_equipment", "price": 2000000, "description": "Самосвалы грузоподъемностью до 450 тонн"},
+        "construction_machinery": {"name": "Спецтехника", "type": "construction_machinery", "price": 800000, "description": "Бульдозеры, погрузчики"}
+    }
+)
+
+MAZ = CivilCorporation(
+    corp_id="civ_by_002",
+    name="МАЗ (Минский автомобильный завод)",
+    country="Беларусь",
+    city="Минск",
+    description="Крупнейший производитель грузовых автомобилей, автобусов и троллейбусов в Беларуси.",
+    specialization=["trucks", "buses", "auto_parts"],
+    founded=1944,
+    website="www.maz.by",
+    products={
+        "trucks": {"name": "Грузовики МАЗ", "type": "trucks", "price": 70000, "description": "Седельные тягачи, самосвалы"},
+        "buses": {"name": "Автобусы МАЗ", "type": "buses", "price": 150000, "description": "Городские и междугородние автобусы"},
+        "auto_parts": {"name": "Запчасти МАЗ", "type": "auto_parts", "price": 2000, "description": "Оригинальные запчасти"}
+    }
+)
+
+MTZ = CivilCorporation(
+    corp_id="civ_by_003",
+    name="МТЗ (Минский тракторный завод)",
+    country="Беларусь",
+    city="Минск",
+    description="Один из крупнейших производителей сельскохозяйственной техники в мире, выпускает тракторы BELARUS.",
+    specialization=["agricultural_machinery"],
+    founded=1946,
+    website="www.belarus-tractor.com",
+    products={
+        "agricultural_machinery": {"name": "Тракторы BELARUS", "type": "agricultural_machinery", "price": 50000, "description": "Колесные тракторы"}
+    }
+)
+
+GOMMELMASH = CivilCorporation(
+    corp_id="civ_by_003b",
+    name="Гомсельмаш",
+    country="Беларусь",
+    city="Гомель",
+    description="Крупный производитель сельскохозяйственной техники, специализируется на зерноуборочных и кормоуборочных комбайнах.",
+    specialization=["agricultural_machinery"],
+    founded=1930,
+    website="www.gomselmash.by",
+    products={
+        "agricultural_machinery": {"name": "Комбайны ПАЛЕССЕ", "type": "agricultural_machinery", "price": 200000, "description": "Зерноуборочные комбайны"}
+    }
+)
+
+# Продукты питания
+SAVUSHKIN = CivilCorporation(
+    corp_id="civ_by_004",
+    name="Савушкин продукт",
+    country="Беларусь",
+    city="Брест",
+    description="Крупнейший производитель молочной продукции в Беларуси.",
+    specialization=["food_products"],
+    founded=1997,
+    website="www.savushkin.by",
+    products={
+        "food_products": {"name": "Молочная продукция", "type": "food_products", "price": 50, "description": "Молоко, сыры, йогурты"}
+    }
+)
+
+SANTA_BREMOR = CivilCorporation(
+    corp_id="civ_by_004b",
+    name="Санта Бремор",
+    country="Беларусь",
+    city="Брест",
+    description="Крупный производитель продуктов питания, включая мороженое, рыбные деликатесы и консервы.",
+    specialization=["food_products"],
+    founded=1998,
+    website="www.santabremor.by",
+    products={
+        "food_products": {"name": "Мороженое и деликатесы", "type": "food_products", "price": 40, "description": "Мороженое, рыбная продукция"}
+    }
+)
+
+SPARTAK = CivilCorporation(
+    corp_id="civ_by_004c",
+    name="Спартак",
+    country="Беларусь",
+    city="Гомель",
+    description="Крупнейший производитель кондитерских изделий в Беларуси.",
+    specialization=["food_products"],
+    founded=1924,
+    website="www.spartak.by",
+    products={
+        "food_products": {"name": "Кондитерские изделия", "type": "food_products", "price": 30, "description": "Шоколад, конфеты, печенье"}
+    }
+)
+
+# IT
+EPAM_BELARUS = CivilCorporation(
+    corp_id="civ_by_005",
+    name="EPAM Systems Belarus",
+    country="Беларусь",
+    city="Минск",
+    description="Крупнейшая IT-компания в Беларуси, разработка программного обеспечения.",
+    specialization=["software", "it_services", "cloud_services"],
+    founded=1993,
+    website="www.epam.by",
+    products={
+        "software": {"name": "Разработка ПО", "type": "software", "price": 50000, "description": "Заказная разработка"},
+        "it_services": {"name": "IT-консалтинг", "type": "it_services", "price": 300, "description": "Консультации"},
+        "cloud_services": {"name": "Облачные решения", "type": "cloud_services", "price": 800, "description": "Разработка и поддержка"}
+    }
+)
+
+IBA = CivilCorporation(
+    corp_id="civ_by_005b",
+    name="IBA Group",
+    country="Беларусь",
+    city="Минск",
+    description="Крупная IT-компания, специализирующаяся на разработке ПО и ИТ-услугах.",
+    specialization=["software", "it_services"],
+    founded=1993,
+    website="www.ibagroup.eu",
+    products={
+        "software": {"name": "Корпоративное ПО", "type": "software", "price": 40000, "description": "Разработка на заказ"},
+        "it_services": {"name": "IT-аутсорсинг", "type": "it_services", "price": 250, "description": "Поддержка и обслуживание"}
+    }
+)
+
+# Телекоммуникации
+VELCOM = CivilCorporation(
+    corp_id="civ_by_006",
+    name="Velcom (A1)",
+    country="Беларусь",
+    city="Минск",
+    description="Один из крупнейших операторов мобильной связи в Беларуси.",
+    specialization=["mobile_services", "telecom_services", "internet_services"],
+    founded=1999,
+    website="www.a1.by",
+    products={
+        "mobile_services": {"name": "Мобильная связь", "type": "mobile_services", "price": 15, "description": "Тарифы для населения"},
+        "telecom_services": {"name": "Домашний интернет", "type": "telecom_services", "price": 20, "description": "Доступ в интернет"},
+        "internet_services": {"name": "Корпоративная связь", "type": "internet_services", "price": 100, "description": "Для бизнеса"}
+    }
+)
+
+MTS_BELARUS = CivilCorporation(
+    corp_id="civ_by_007",
+    name="МТС Беларусь",
+    country="Беларусь",
+    city="Минск",
+    description="Крупный оператор мобильной связи в Беларуси.",
+    specialization=["mobile_services", "telecom_services"],
+    founded=2002,
+    website="www.mts.by",
+    products={
+        "mobile_services": {"name": "Мобильная связь", "type": "mobile_services", "price": 14, "description": "Тарифы"},
+        "telecom_services": {"name": "Домашний интернет", "type": "telecom_services", "price": 18, "description": "Интернет и ТВ"}
+    }
+)
+
+BELTELECOM = CivilCorporation(
+    corp_id="civ_by_007b",
+    name="Белтелеком",
+    country="Беларусь",
+    city="Минск",
+    description="Национальный оператор электросвязи Беларуси, предоставляет услуги интернета и телефонии.",
+    specialization=["internet_services", "telecom_services"],
+    founded=1995,
+    website="www.beltelecom.by",
+    products={
+        "internet_services": {"name": "Интернет byfly", "type": "internet_services", "price": 16, "description": "Домашний интернет"},
+        "telecom_services": {"name": "Телефония", "type": "telecom_services", "price": 8, "description": "Городская связь"}
+    }
+)
+
+# Банки
+BELARUSBANK = CivilCorporation(
+    corp_id="civ_by_008",
+    name="Беларусбанк",
+    country="Беларусь",
+    city="Минск",
+    description="Крупнейший банк Беларуси, системно значимый кредитор.",
+    specialization=["banking", "investments"],
+    founded=1922,
+    website="www.belarusbank.by",
+    products={
+        "banking": {"name": "Банковские услуги", "type": "banking", "price": 0, "description": "Счета, кредиты, карты"},
+        "investments": {"name": "Инвестиции", "type": "investments", "price": 200, "description": "Инвестиционные продукты"}
+    }
+)
+
+BELAGROPROMBANK = CivilCorporation(
+    corp_id="civ_by_008b",
+    name="Белагропромбанк",
+    country="Беларусь",
+    city="Минск",
+    description="Один из крупнейших банков Беларуси, специализируется на обслуживании агропромышленного комплекса.",
+    specialization=["banking"],
+    founded=1991,
+    website="www.belapb.by",
+    products={
+        "banking": {"name": "Банковские услуги", "type": "banking", "price": 0, "description": "Кредиты, депозиты"}
+    }
+)
+
+# Ритейл
+EUROOPT = CivilCorporation(
+    corp_id="civ_by_009",
+    name="Евроопт",
+    country="Беларусь",
+    city="Минск",
+    description="Крупнейшая сеть супермаркетов в Беларуси.",
+    specialization=["retail", "supermarkets"],
+    founded=1995,
+    website="www.euroopt.by",
+    products={
+        "retail": {"name": "Розничная торговля", "type": "retail", "price": 0, "description": "Товары повседневного спроса"},
+        "supermarkets": {"name": "Супермаркеты", "type": "supermarkets", "price": 0, "description": "Продуктовые магазины"}
+    }
+)
+
+GREEN = CivilCorporation(
+    corp_id="civ_by_009b",
+    name="Green",
+    country="Беларусь",
+    city="Минск",
+    description="Крупная сеть гипермаркетов и супермаркетов в Беларуси.",
+    specialization=["retail", "supermarkets"],
+    founded=2004,
+    website="www.green.by",
+    products={
+        "retail": {"name": "Гипермаркеты", "type": "retail", "price": 0, "description": "Широкий ассортимент"},
+        "supermarkets": {"name": "Продуктовые магазины", "type": "supermarkets", "price": 0, "description": "Продукты"}
+    }
+)
+
+# Энергетика
+BELNEFTEKHIM = CivilCorporation(
+    corp_id="civ_by_010",
+    name="Белнефтехим",
+    country="Беларусь",
+    city="Минск",
+    description="Государственный концерн, объединяющий предприятия нефтехимической промышленности.",
+    specialization=["oil", "chemicals", "energy_equipment"],
+    founded=1991,
+    website="www.belneftekhim.by",
+    products={
+        "oil": {"name": "Нефтепродукты", "type": "oil", "price": 400, "description": "Топливо, масла"},
+        "chemicals": {"name": "Химическая продукция", "type": "chemicals", "price": 300, "description": "Полимеры, удобрения"},
+        "energy_equipment": {"name": "Оборудование", "type": "energy_equipment", "price": 20000, "description": "Нефтегазовое оборудование"}
+    }
+)
+
+
+# ==================== КОРПОРАЦИИ НОРВЕГИИ ====================
+
+# Энергетика
+EQUINOR = CivilCorporation(
+    corp_id="civ_no_001",
+    name="Equinor",
+    country="Норвегия",
+    city="Ставангер",
+    description="Крупнейшая энергетическая компания Норвегии, специализируется на добыче нефти и газа.",
+    specialization=["oil", "gas_supply", "energy_equipment"],
+    founded=1972,
+    website="www.equinor.com",
+    products={
+        "oil": {"name": "Нефть", "type": "oil", "price": 500, "description": "Сырая нефть"},
+        "gas_supply": {"name": "Природный газ", "type": "gas_supply", "price": 450, "description": "Газ для экспорта"},
+        "energy_equipment": {"name": "Оборудование", "type": "energy_equipment", "price": 50000, "description": "Оборудование для шельфовой добычи"}
+    }
+)
+
+# Морепродукты
+MARINE_HARVEST = CivilCorporation(
+    corp_id="civ_no_002",
+    name="Marine Harvest (Mowi)",
+    country="Норвегия",
+    city="Берген",
+    description="Крупнейший в мире производитель атлантического лосося и других морепродуктов.",
+    specialization=["food_products"],
+    founded=1965,
+    website="www.mowi.com",
+    products={
+        "food_products": {"name": "Атлантический лосось", "type": "food_products", "price": 150, "description": "Свежая и замороженная рыба"}
+    }
+)
+
+# Судостроение
+AKER = CivilCorporation(
+    corp_id="civ_no_003",
+    name="Aker Solutions",
+    country="Норвегия",
+    city="Осло",
+    description="Крупная инжиниринговая компания, специализирующаяся на оборудовании для нефтегазовой отрасли и судостроении.",
+    specialization=["industrial_equipment", "energy_equipment"],
+    founded=2004,
+    website="www.akersolutions.com",
+    products={
+        "industrial_equipment": {"name": "Промышленное оборудование", "type": "industrial_equipment", "price": 100000, "description": "Оборудование для шельфа"},
+        "energy_equipment": {"name": "Энергооборудование", "type": "energy_equipment", "price": 150000, "description": "Морские платформы"}
+    }
+)
+
+# Телекоммуникации
+TELENOR = CivilCorporation(
+    corp_id="civ_no_004",
+    name="Telenor",
+    country="Норвегия",
+    city="Осло",
+    description="Крупнейший телекоммуникационный оператор Норвегии, работает в нескольких странах мира.",
+    specialization=["mobile_services", "telecom_services", "internet_services"],
+    founded=1855,
+    website="www.telenor.com",
+    products={
+        "mobile_services": {"name": "Мобильная связь", "type": "mobile_services", "price": 40, "description": "Тарифы"},
+        "telecom_services": {"name": "Домашний интернет", "type": "telecom_services", "price": 45, "description": "Широкополосный доступ"},
+        "internet_services": {"name": "Корпоративные решения", "type": "internet_services", "price": 300, "description": "B2B услуги"}
+    }
+)
+
+# Банки
+DNB = CivilCorporation(
+    corp_id="civ_no_005",
+    name="DNB",
+    country="Норвегия",
+    city="Осло",
+    description="Крупнейшая финансовая группа Норвегии, предоставляет полный спектр банковских услуг.",
+    specialization=["banking", "investments", "insurance"],
+    founded=1822,
+    website="www.dnb.no",
+    products={
+        "banking": {"name": "Банковские услуги", "type": "banking", "price": 0, "description": "Счета, кредиты"},
+        "investments": {"name": "Инвестиции", "type": "investments", "price": 500, "description": "Управление активами"},
+        "insurance": {"name": "Страхование", "type": "insurance", "price": 400, "description": "Страховые продукты"}
+    }
+)
+
+# Судоходство
+WILHELMSEN = CivilCorporation(
+    corp_id="civ_no_006",
+    name="Wilhelmsen",
+    country="Норвегия",
+    city="Осло",
+    description="Крупнейшая судоходная компания Норвегии, специализируется на морских перевозках и логистике.",
+    specialization=["logistics", "freight", "passenger_transport"],
+    founded=1861,
+    website="www.wilhelmsen.com",
+    products={
+        "logistics": {"name": "Морская логистика", "type": "logistics", "price": 1000, "description": "Грузовые перевозки"},
+        "freight": {"name": "Грузоперевозки", "type": "freight", "price": 800, "description": "Контейнерные перевозки"},
+        "passenger_transport": {"name": "Пассажирские перевозки", "type": "passenger_transport", "price": 200, "description": "Круизы и паромы"}
+    }
+)
+
+# Ритейл
+REMA_1000 = CivilCorporation(
+    corp_id="civ_no_007",
+    name="Rema 1000",
+    country="Норвегия",
+    city="Осло",
+    description="Крупная сеть продовольственных магазинов в Норвегии.",
+    specialization=["retail", "supermarkets"],
+    founded=1979,
+    website="www.rema.no",
+    products={
+        "retail": {"name": "Розничная торговля", "type": "retail", "price": 0, "description": "Продукты и товары"},
+        "supermarkets": {"name": "Супермаркеты", "type": "supermarkets", "price": 0, "description": "Сеть магазинов"}
+    }
+)
+
+# IT
+KONGSBERG_DIGITAL = CivilCorporation(
+    corp_id="civ_no_008",
+    name="Kongsberg Digital",
+    country="Норвегия",
+    city="Конгсберг",
+    description="IT-подразделение Kongsberg, специализируется на цифровых решениях для морской и энергетической отраслей.",
+    specialization=["software", "it_services"],
+    founded=2016,
+    website="www.kongsberg.com",
+    products={
+        "software": {"name": "Цифровые решения", "type": "software", "price": 20000, "description": "ПО для моделирования"},
+        "it_services": {"name": "IT-услуги", "type": "it_services", "price": 400, "description": "Консалтинг и поддержка"}
+    }
+)
+
+
+# ==================== КОРПОРАЦИИ ТУРЦИИ ====================
+
+# Автомобилестроение
+TOFAS = CivilCorporation(
+    corp_id="civ_tr_001",
+    name="Tofaş",
+    country="Турция",
+    city="Бурса",
+    description="Крупный производитель автомобилей, совместное предприятие с Fiat.",
+    specialization=["cars", "auto_parts"],
+    founded=1968,
+    website="www.tofas.com.tr",
+    products={
+        "cars": {"name": "Автомобили Fiat/Tofaş", "type": "cars", "price": 20000, "description": "Легковые автомобили"},
+        "auto_parts": {"name": "Автозапчасти", "type": "auto_parts", "price": 1500, "description": "Комплектующие"}
+    }
+)
+
+FORD_OTOSAN = CivilCorporation(
+    corp_id="civ_tr_001b",
+    name="Ford Otosan",
+    country="Турция",
+    city="Коджаэли",
+    description="Совместное предприятие Ford и Koç Holding, производит коммерческие автомобили.",
+    specialization=["cars", "trucks"],
+    founded=1959,
+    website="www.fordotosan.com.tr",
+    products={
+        "cars": {"name": "Ford Transit", "type": "cars", "price": 30000, "description": "Коммерческие автомобили"},
+        "trucks": {"name": "Грузовики Ford", "type": "trucks", "price": 50000, "description": "Тяжелые грузовики"}
+    }
+)
+
+# Бытовая техника
+ARCELIK = CivilCorporation(
+    corp_id="civ_tr_002",
+    name="Arçelik",
+    country="Турция",
+    city="Стамбул",
+    description="Крупнейший производитель бытовой техники в Турции, владеет брендами Beko, Grundig.",
+    specialization=["household_goods", "consumer_electronics"],
+    founded=1955,
+    website="www.arcelik.com.tr",
+    products={
+        "household_goods": {"name": "Бытовая техника", "type": "household_goods", "price": 500, "description": "Холодильники, стиральные машины"},
+        "consumer_electronics": {"name": "Электроника", "type": "consumer_electronics", "price": 400, "description": "Телевизоры, аудиосистемы"}
+    }
+)
+
+VESTEL = CivilCorporation(
+    corp_id="civ_tr_002b",
+    name="Vestel",
+    country="Турция",
+    city="Маниса",
+    description="Крупный производитель электроники и бытовой техники, крупнейший производитель телевизоров в Европе.",
+    specialization=["consumer_electronics", "household_goods"],
+    founded=1984,
+    website="www.vestel.com.tr",
+    products={
+        "consumer_electronics": {"name": "Телевизоры", "type": "consumer_electronics", "price": 600, "description": "LED и QLED телевизоры"},
+        "household_goods": {"name": "Бытовая техника", "type": "household_goods", "price": 450, "description": "Мелкая и крупная техника"}
+    }
+)
+
+# Текстиль
+LCWAIKIKI = CivilCorporation(
+    corp_id="civ_tr_003",
+    name="LC Waikiki",
+    country="Турция",
+    city="Стамбул",
+    description="Крупнейшая сеть магазинов одежды в Турции, производит доступную одежду.",
+    specialization=["clothing", "footwear"],
+    founded=1988,
+    website="www.lcwaikiki.com.tr",
+    products={
+        "clothing": {"name": "Одежда", "type": "clothing", "price": 40, "description": "Повседневная одежда"},
+        "footwear": {"name": "Обувь", "type": "footwear", "price": 50, "description": "Обувь для всей семьи"}
+    }
+)
+
+MAVI = CivilCorporation(
+    corp_id="civ_tr_003b",
+    name="Mavi",
+    country="Турция",
+    city="Стамбул",
+    description="Известный бренд джинсовой одежды и аксессуаров.",
+    specialization=["clothing"],
+    founded=1991,
+    website="www.mavi.com",
+    products={
+        "clothing": {"name": "Джинсовая одежда", "type": "clothing", "price": 80, "description": "Джинсы, куртки"}
+    }
+)
+
+# Строительство
+RENAISSANCE = CivilCorporation(
+    corp_id="civ_tr_004",
+    name="Rönesans Holding",
+    country="Турция",
+    city="Анкара",
+    description="Крупная международная строительная компания, реализует проекты в России, Европе и на Ближнем Востоке.",
+    specialization=["construction", "real_estate"],
+    founded=1993,
+    website="www.ronesans.com",
+    products={
+        "construction": {"name": "Строительные услуги", "type": "construction", "price": 1000000, "description": "Промышленное и гражданское строительство"},
+        "real_estate": {"name": "Недвижимость", "type": "real_estate", "price": 500000, "description": "Коммерческая недвижимость"}
+    }
+)
+
+ENKA = CivilCorporation(
+    corp_id="civ_tr_004b",
+    name="Enka İnşaat",
+    country="Турция",
+    city="Стамбул",
+    description="Одна из крупнейших строительных компаний Турции, работает на международном уровне.",
+    specialization=["construction"],
+    founded=1957,
+    website="www.enka.com",
+    products={
+        "construction": {"name": "Строительство", "type": "construction", "price": 800000, "description": "Инфраструктурные проекты"}
+    }
+)
+
+# Продукты питания
+ULKER = CivilCorporation(
+    corp_id="civ_tr_005",
+    name="Ülker",
+    country="Турция",
+    city="Стамбул",
+    description="Крупнейший производитель кондитерских изделий и продуктов питания в Турции.",
+    specialization=["food_products"],
+    founded=1944,
+    website="www.ulker.com.tr",
+    products={
+        "food_products": {"name": "Кондитерские изделия", "type": "food_products", "price": 20, "description": "Печенье, шоколад"}
+    }
+)
+
+ETI = CivilCorporation(
+    corp_id="civ_tr_005b",
+    name="Eti",
+    country="Турция",
+    city="Эскишехир",
+    description="Крупный производитель продуктов питания, специализируется на снеках и кондитерских изделиях.",
+    specialization=["food_products"],
+    founded=1961,
+    website="www.eti.com.tr",
+    products={
+        "food_products": {"name": "Снеки", "type": "food_products", "price": 15, "description": "Печенье, вафли"}
+    }
+)
+
+# Банки
+ISBANK = CivilCorporation(
+    corp_id="civ_tr_006",
+    name="İşbank",
+    country="Турция",
+    city="Стамбул",
+    description="Крупнейший частный банк Турции, предоставляет полный спектр финансовых услуг.",
+    specialization=["banking", "investments", "insurance"],
+    founded=1924,
+    website="www.isbank.com.tr",
+    products={
+        "banking": {"name": "Банковские услуги", "type": "banking", "price": 0, "description": "Счета, кредиты"},
+        "investments": {"name": "Инвестиции", "type": "investments", "price": 400, "description": "Управление активами"},
+        "insurance": {"name": "Страхование", "type": "insurance", "price": 300, "description": "Страховые продукты"}
+    }
+)
+
+GARANTI = CivilCorporation(
+    corp_id="civ_tr_006b",
+    name="Garanti BBVA",
+    country="Турция",
+    city="Стамбул",
+    description="Один из крупнейших банков Турции, входит в испанскую группу BBVA.",
+    specialization=["banking", "fintech"],
+    founded=1946,
+    website="www.garantibbva.com.tr",
+    products={
+        "banking": {"name": "Банковские услуги", "type": "banking", "price": 0, "description": "Розничный банкинг"},
+        "fintech": {"name": "Мобильный банк", "type": "fintech", "price": 0, "description": "Цифровые сервисы"}
+    }
+)
+
+# Ритейл
+BIM = CivilCorporation(
+    corp_id="civ_tr_007",
+    name="BİM",
+    country="Турция",
+    city="Стамбул",
+    description="Крупнейшая сеть дискаунтеров в Турции.",
+    specialization=["retail", "supermarkets"],
+    founded=1995,
+    website="www.bim.com.tr",
+    products={
+        "retail": {"name": "Розничная торговля", "type": "retail", "price": 0, "description": "Продукты и товары"},
+        "supermarkets": {"name": "Дискаунтеры", "type": "supermarkets", "price": 0, "description": "Сеть магазинов"}
+    }
+)
+
+# Авиаперевозки
+TURKISH_AIRLINES = CivilCorporation(
+    corp_id="civ_tr_008",
+    name="Turkish Airlines",
+    country="Турция",
+    city="Стамбул",
+    description="Национальный авиаперевозчик Турции, выполняет рейсы в более чем 120 стран мира.",
+    specialization=["airlines", "passenger_transport", "logistics"],
+    founded=1933,
+    website="www.turkishairlines.com",
+    products={
+        "airlines": {"name": "Авиабилеты", "type": "airlines", "price": 500, "description": "Пассажирские перевозки"},
+        "passenger_transport": {"name": "Чартерные рейсы", "type": "passenger_transport", "price": 2000, "description": "Частные рейсы"},
+        "logistics": {"name": "Грузовые перевозки", "type": "logistics", "price": 800, "description": "Turkish Cargo"}
+    }
+)
+
+
+# ==================== КОРПОРАЦИИ СИРИИ ====================
+
+# Цементная промышленность
+LATTAKIA_CEMENT = CivilCorporation(
+    corp_id="civ_sy_001",
+    name="Lattakia Cement Company",
+    country="Сирия",
+    city="Латакия",
+    description="Крупный производитель цемента и строительных материалов в Сирии.",
+    specialization=["construction", "industrial_equipment"],
+    founded=1975,
+    website="",
+    products={
+        "construction": {"name": "Цемент", "type": "construction", "price": 100, "description": "Строительный цемент"},
+        "industrial_equipment": {"name": "Оборудование", "type": "industrial_equipment", "price": 5000, "description": "Промышленное оборудование"}
+    }
+)
+
+# Пищевая промышленность
+SYRIAN_ARAB_COMPANY = CivilCorporation(
+    corp_id="civ_sy_002",
+    name="Syrian Arab Company for Food Industries",
+    country="Сирия",
+    city="Дамаск",
+    description="Крупный производитель продуктов питания и напитков в Сирии.",
+    specialization=["food_products", "beverages"],
+    founded=1970,
+    website="",
+    products={
+        "food_products": {"name": "Продукты питания", "type": "food_products", "price": 30, "description": "Консервы, макароны"},
+        "beverages": {"name": "Напитки", "type": "beverages", "price": 15, "description": "Соки, газировка"}
+    }
+)
+
+# Текстиль
+SYRIAN_TEXTILE = CivilCorporation(
+    corp_id="civ_sy_003",
+    name="Syrian Textile Company",
+    country="Сирия",
+    city="Алеппо",
+    description="Крупный производитель текстиля и готовой одежды в Сирии.",
+    specialization=["clothing"],
+    founded=1960,
+    website="",
+    products={
+        "clothing": {"name": "Текстиль", "type": "clothing", "price": 20, "description": "Ткани, готовая одежда"}
+    }
+)
+
+# Фармацевтика
+SYRIAN_PHARM = CivilCorporation(
+    corp_id="civ_sy_004",
+    name="Syrian Pharmaceutical Company",
+    country="Сирия",
+    city="Дамаск",
+    description="Крупнейший производитель лекарственных средств в Сирии.",
+    specialization=["pharmaceuticals", "medical_supplies"],
+    founded=1980,
+    website="",
+    products={
+        "pharmaceuticals": {"name": "Лекарства", "type": "pharmaceuticals", "price": 150, "description": "Рецептурные препараты"},
+        "medical_supplies": {"name": "Медизделия", "type": "medical_supplies", "price": 50, "description": "Расходные материалы"}
+    }
+)
+
+
+# ==================== КОРПОРАЦИИ КАНАДЫ ====================
+
+# Авиастроение
+BOMBARDIER = CivilCorporation(
+    corp_id="civ_ca_001",
+    name="Bombardier",
+    country="Канада",
+    city="Монреаль, Квебек",
+    description="Крупный производитель бизнес-джетов и железнодорожной техники.",
+    specialization=["aerospace_equipment", "industrial_equipment"],
+    founded=1942,
+    website="www.bombardier.com",
+    products={
+        "aerospace_equipment": {"name": "Бизнес-джеты", "type": "aerospace_equipment", "price": 25000000, "description": "Частные самолеты"},
+        "industrial_equipment": {"name": "Железнодорожная техника", "type": "industrial_equipment", "price": 2000000, "description": "Поезда и вагоны"}
+    }
+)
+
+# Горнодобывающая промышленность
+BARRICK_GOLD = CivilCorporation(
+    corp_id="civ_ca_002",
+    name="Barrick Gold",
+    country="Канада",
+    city="Торонто, Онтарио",
+    description="Крупнейшая золотодобывающая компания в мире.",
+    specialization=["industrial_equipment"],
+    founded=1983,
+    website="www.barrick.com",
+    products={
+        "industrial_equipment": {"name": "Золото", "type": "industrial_equipment", "price": 60000, "description": "Золотые слитки"}
+    }
+)
+
+# IT
+OPEN_TEXT = CivilCorporation(
+    corp_id="civ_ca_003",
+    name="OpenText",
+    country="Канада",
+    city="Ватерлоо, Онтарио",
+    description="Крупнейшая канадская IT-компания, специализируется на корпоративном ПО.",
+    specialization=["software", "cloud_services", "it_services"],
+    founded=1991,
+    website="www.opentext.com",
+    products={
+        "software": {"name": "Корпоративное ПО", "type": "software", "price": 15000, "description": "Управление документами"},
+        "cloud_services": {"name": "Облачные услуги", "type": "cloud_services", "price": 500, "description": "Хостинг"},
+        "it_services": {"name": "IT-консалтинг", "type": "it_services", "price": 350, "description": "Поддержка"}
+    }
+)
+
+SHOPIFY = CivilCorporation(
+    corp_id="civ_ca_003b",
+    name="Shopify",
+    country="Канада",
+    city="Оттава, Онтарио",
+    description="Ведущая платформа для электронной коммерции.",
+    specialization=["ecommerce", "software", "cloud_services"],
+    founded=2006,
+    website="www.shopify.com",
+    products={
+        "ecommerce": {"name": "Платформа для магазинов", "type": "ecommerce", "price": 30, "description": "Создание интернет-магазинов"},
+        "software": {"name": "ПО для продаж", "type": "software", "price": 2000, "description": "Лицензии"},
+        "cloud_services": {"name": "Облачный хостинг", "type": "cloud_services", "price": 100, "description": "Размещение магазинов"}
+    }
+)
+
+# Банки
+RBC = CivilCorporation(
+    corp_id="civ_ca_004",
+    name="Royal Bank of Canada",
+    country="Канада",
+    city="Торонто, Онтарио",
+    description="Крупнейший банк Канады по размеру активов.",
+    specialization=["banking", "investments", "insurance"],
+    founded=1864,
+    website="www.rbc.com",
+    products={
+        "banking": {"name": "Банковские услуги", "type": "banking", "price": 0, "description": "Счета, кредиты"},
+        "investments": {"name": "Инвестиции", "type": "investments", "price": 600, "description": "Управление капиталом"},
+        "insurance": {"name": "Страхование", "type": "insurance", "price": 400, "description": "Страховые продукты"}
+    }
+)
+
+TD_BANK = CivilCorporation(
+    corp_id="civ_ca_004b",
+    name="TD Bank Group",
+    country="Канада",
+    city="Торонто, Онтарио",
+    description="Один из крупнейших банков Канады, работает также в США.",
+    specialization=["banking", "investments"],
+    founded=1955,
+    website="www.td.com",
+    products={
+        "banking": {"name": "Банковские услуги", "type": "banking", "price": 0, "description": "Розничный банкинг"},
+        "investments": {"name": "Инвестиции", "type": "investments", "price": 500, "description": "Брокерские услуги"}
+    }
+)
+
+# Энергетика
+ENBRIDGE = CivilCorporation(
+    corp_id="civ_ca_005",
+    name="Enbridge",
+    country="Канада",
+    city="Калгари, Альберта",
+    description="Крупнейшая энергетическая компания Канады, оператор трубопроводов.",
+    specialization=["energy_equipment", "oil", "gas_supply"],
+    founded=1949,
+    website="www.enbridge.com",
+    products={
+        "energy_equipment": {"name": "Трубопроводы", "type": "energy_equipment", "price": 100000, "description": "Транспортировка нефти"},
+        "oil": {"name": "Нефть", "type": "oil", "price": 450, "description": "Сырая нефть"},
+        "gas_supply": {"name": "Природный газ", "type": "gas_supply", "price": 400, "description": "Газ"}
+    }
+)
+
+# Ритейл
+LOBLAW = CivilCorporation(
+    corp_id="civ_ca_006",
+    name="Loblaw Companies",
+    country="Канада",
+    city="Брамптон, Онтарио",
+    description="Крупнейшая сеть супермаркетов и аптек в Канаде.",
+    specialization=["retail", "supermarkets", "pharmaceuticals"],
+    founded=1956,
+    website="www.loblaw.ca",
+    products={
+        "retail": {"name": "Розничная торговля", "type": "retail", "price": 0, "description": "Продукты и товары"},
+        "supermarkets": {"name": "Супермаркеты", "type": "supermarkets", "price": 0, "description": "Сеть Loblaws"},
+        "pharmaceuticals": {"name": "Аптеки", "type": "pharmaceuticals", "price": 200, "description": "Лекарства"}
+    }
+)
+
+# Телекоммуникации
+ROGERS = CivilCorporation(
+    corp_id="civ_ca_007",
+    name="Rogers Communications",
+    country="Канада",
+    city="Торонто, Онтарио",
+    description="Крупный оператор мобильной и фиксированной связи в Канаде.",
+    specialization=["mobile_services", "telecom_services", "internet_services", "media"],
+    founded=1960,
+    website="www.rogers.com",
+    products={
+        "mobile_services": {"name": "Мобильная связь", "type": "mobile_services", "price": 60, "description": "Тарифы"},
+        "telecom_services": {"name": "Домашний интернет", "type": "telecom_services", "price": 70, "description": "Интернет"},
+        "internet_services": {"name": "Корпоративные решения", "type": "internet_services", "price": 500, "description": "B2B услуги"},
+        "media": {"name": "Медиа", "type": "media", "price": 30, "description": "Телевидение"}
+    }
+)
+
+BELL = CivilCorporation(
+    corp_id="civ_ca_007b",
+    name="Bell Canada",
+    country="Канада",
+    city="Монреаль, Квебек",
+    description="Крупнейший телекоммуникационный оператор Канады.",
+    specialization=["mobile_services", "telecom_services", "internet_services"],
+    founded=1880,
+    website="www.bell.ca",
+    products={
+        "mobile_services": {"name": "Мобильная связь", "type": "mobile_services", "price": 65, "description": "Тарифы"},
+        "telecom_services": {"name": "Домашний интернет", "type": "telecom_services", "price": 75, "description": "Интернет"},
+        "internet_services": {"name": "Корпоративная связь", "type": "internet_services", "price": 600, "description": "Для бизнеса"}
+    }
+)
+
+
+# ==================== КОРПОРАЦИИ ПОЛЬШИ ====================
+
+# Энергетика
+PKN_ORLEN = CivilCorporation(
+    corp_id="civ_pl_001",
+    name="PKN Orlen",
+    country="Польша",
+    city="Плоцк",
+    description="Крупнейшая нефтегазовая компания Польши, владеет сетью АЗС и НПЗ.",
+    specialization=["oil", "gas_supply", "energy_equipment", "retail"],
+    founded=1999,
+    website="www.orlen.pl",
+    products={
+        "oil": {"name": "Нефтепродукты", "type": "oil", "price": 450, "description": "Топливо"},
+        "gas_supply": {"name": "Природный газ", "type": "gas_supply", "price": 400, "description": "Газ"},
+        "energy_equipment": {"name": "Оборудование", "type": "energy_equipment", "price": 30000, "description": "Нефтегазовое оборудование"},
+        "retail": {"name": "АЗС", "type": "retail", "price": 0, "description": "Сеть заправочных станций"}
+    }
+)
+
+PGNIG = CivilCorporation(
+    corp_id="civ_pl_001b",
+    name="PGNiG",
+    country="Польша",
+    city="Варшава",
+    description="Крупнейшая газодобывающая компания Польши.",
+    specialization=["gas_supply"],
+    founded=1982,
+    website="www.pgnig.pl",
+    products={
+        "gas_supply": {"name": "Природный газ", "type": "gas_supply", "price": 380, "description": "Добыча и поставки"}
+    }
+)
+
+# Ритейл
+DINO = CivilCorporation(
+    corp_id="civ_pl_002",
+    name="Dino Polska",
+    country="Польша",
+    city="Кротошин",
+    description="Одна из крупнейших сетей супермаркетов в Польше.",
+    specialization=["retail", "supermarkets"],
+    founded=1999,
+    website="www.dino.pl",
+    products={
+        "retail": {"name": "Розничная торговля", "type": "retail", "price": 0, "description": "Продукты"},
+        "supermarkets": {"name": "Супермаркеты", "type": "supermarkets", "price": 0, "description": "Сеть магазинов"}
+    }
+)
+
+Biedronka = CivilCorporation(
+    corp_id="civ_pl_002b",
+    name="Biedronka",
+    country="Польша",
+    city="Кошалин",
+    description="Крупнейшая сеть дискаунтеров в Польше, часть португальской группы Jerónimo Martins.",
+    specialization=["retail", "supermarkets"],
+    founded=1995,
+    website="www.biedronka.pl",
+    products={
+        "retail": {"name": "Дискаунтеры", "type": "retail", "price": 0, "description": "Низкие цены"},
+        "supermarkets": {"name": "Продукты", "type": "supermarkets", "price": 0, "description": "Продуктовые магазины"}
+    }
+)
+
+# IT
+CD_PROJEKT = CivilCorporation(
+    corp_id="civ_pl_003",
+    name="CD Projekt",
+    country="Польша",
+    city="Варшава",
+    description="Крупнейший разработчик видеоигр в Польше, создатель серии The Witcher и Cyberpunk 2077.",
+    specialization=["gaming", "software", "entertainment"],
+    founded=1994,
+    website="www.cdprojekt.com",
+    products={
+        "gaming": {"name": "Видеоигры", "type": "gaming", "price": 50, "description": "The Witcher, Cyberpunk"},
+        "software": {"name": "ПО", "type": "software", "price": 30, "description": "GOG Galaxy"},
+        "entertainment": {"name": "Развлечения", "type": "entertainment", "price": 40, "description": "Цифровая дистрибуция"}
+    }
+)
+
+# Производство мебели
+IKEA_POLAND = CivilCorporation(
+    corp_id="civ_pl_004",
+    name="IKEA Poland",
+    country="Польша",
+    city="Варшава",
+    description="Крупнейший производитель мебели в Польше, часть шведской группы IKEA.",
+    specialization=["furniture", "household_goods"],
+    founded=1961,
+    website="www.ikea.pl",
+    products={
+        "furniture": {"name": "Мебель", "type": "furniture", "price": 200, "description": "Мебель для дома"},
+        "household_goods": {"name": "Товары для дома", "type": "household_goods", "price": 50, "description": "Аксессуары"}
+    }
+)
+
+# Банки
+PKO_BP = CivilCorporation(
+    corp_id="civ_pl_005",
+    name="PKO Bank Polski",
+    country="Польша",
+    city="Варшава",
+    description="Крупнейший банк Польши, системно значимый кредитор.",
+    specialization=["banking", "investments"],
+    founded=1919,
+    website="www.pkobp.pl",
+    products={
+        "banking": {"name": "Банковские услуги", "type": "banking", "price": 0, "description": "Счета, кредиты"},
+        "investments": {"name": "Инвестиции", "type": "investments", "price": 300, "description": "Управление активами"}
+    }
+)
+
+# Телекоммуникации
+ORANGE_POLAND = CivilCorporation(
+    corp_id="civ_pl_006",
+    name="Orange Polska",
+    country="Польша",
+    city="Варшава",
+    description="Крупнейший оператор мобильной и фиксированной связи в Польше.",
+    specialization=["mobile_services", "telecom_services", "internet_services"],
+    founded=1991,
+    website="www.orange.pl",
+    products={
+        "mobile_services": {"name": "Мобильная связь", "type": "mobile_services", "price": 30, "description": "Тарифы"},
+        "telecom_services": {"name": "Домашний интернет", "type": "telecom_services", "price": 35, "description": "Интернет и ТВ"},
+        "internet_services": {"name": "Корпоративные решения", "type": "internet_services", "price": 200, "description": "B2B услуги"}
+    }
+)
+
+PLAY = CivilCorporation(
+    corp_id="civ_pl_006b",
+    name="Play",
+    country="Польша",
+    city="Варшава",
+    description="Крупный оператор мобильной связи в Польше.",
+    specialization=["mobile_services"],
+    founded=2007,
+    website="www.play.pl",
+    products={
+        "mobile_services": {"name": "Мобильная связь", "type": "mobile_services", "price": 25, "description": "Тарифы"}
+    }
+)
+
+# ==================== КОРПОРАЦИИ ШВЕЦИИ ====================
+
+# Автомобилестроение
+VOLVO_CARS = CivilCorporation(
+    corp_id="civ_se_001",
+    name="Volvo Cars",
+    country="Швеция",
+    city="Гётеборг",
+    description="Легендарный производитель автомобилей, известный своей безопасностью.",
+    specialization=["cars"],
+    founded=1927,
+    website="www.volvocars.com",
+    products={
+        "cars": {"name": "Автомобили Volvo", "type": "cars", "price": 45000, "description": "Легковые автомобили"}
+    }
+)
+
+VOLVO_TRUCKS = CivilCorporation(
+    corp_id="civ_se_001b",
+    name="Volvo Trucks",
+    country="Швеция",
+    city="Гётеборг",
+    description="Крупнейший производитель грузовых автомобилей в мире.",
+    specialization=["trucks", "buses"],
+    founded=1928,
+    website="www.volvotrucks.com",
+    products={
+        "trucks": {"name": "Грузовики Volvo", "type": "trucks", "price": 100000, "description": "Тяжелые грузовики"},
+        "buses": {"name": "Автобусы Volvo", "type": "buses", "price": 250000, "description": "Городские и туристические автобусы"}
+    }
+)
+
+SCANIA = CivilCorporation(
+    corp_id="civ_se_001c",
+    name="Scania",
+    country="Швеция",
+    city="Сёдертелье",
+    description="Крупный производитель грузовиков и автобусов, входит в концерн Traton.",
+    specialization=["trucks", "buses"],
+    founded=1891,
+    website="www.scania.com",
+    products={
+        "trucks": {"name": "Грузовики Scania", "type": "trucks", "price": 95000, "description": "Тяжелые грузовики"},
+        "buses": {"name": "Автобусы Scania", "type": "buses", "price": 230000, "description": "Шасси для автобусов"}
+    }
+)
+
+# Телекоммуникации
+ERICSSON = CivilCorporation(
+    corp_id="civ_se_002",
+    name="Ericsson",
+    country="Швеция",
+    city="Стокгольм",
+    description="Мировой лидер в производстве телекоммуникационного оборудования.",
+    specialization=["telecom_equipment", "tech_equipment", "it_services"],
+    founded=1876,
+    website="www.ericsson.com",
+    products={
+        "telecom_equipment": {"name": "Оборудование 5G", "type": "telecom_equipment", "price": 50000, "description": "Базовые станции"},
+        "tech_equipment": {"name": "Сетевое оборудование", "type": "tech_equipment", "price": 20000, "description": "Маршрутизаторы"},
+        "it_services": {"name": "Услуги", "type": "it_services", "price": 400, "description": "Консалтинг и поддержка"}
+    }
+)
+
+# Банки
+SEB = CivilCorporation(
+    corp_id="civ_se_003",
+    name="Skandinaviska Enskilda Banken (SEB)",
+    country="Швеция",
+    city="Стокгольм",
+    description="Крупный банк Швеции, предоставляет полный спектр финансовых услуг.",
+    specialization=["banking", "investments"],
+    founded=1972,
+    website="www.seb.se",
+    products={
+        "banking": {"name": "Банковские услуги", "type": "banking", "price": 0, "description": "Счета, кредиты"},
+        "investments": {"name": "Инвестиции", "type": "investments", "price": 500, "description": "Управление активами"}
+    }
+)
+
+# Ритейл
+H_M = CivilCorporation(
+    corp_id="civ_se_004",
+    name="H&M",
+    country="Швеция",
+    city="Стокгольм",
+    description="Вторая по величине сеть магазинов одежды в мире.",
+    specialization=["clothing", "footwear"],
+    founded=1947,
+    website="www.hm.com",
+    products={
+        "clothing": {"name": "Одежда", "type": "clothing", "price": 30, "description": "Модная одежда"},
+        "footwear": {"name": "Обувь", "type": "footwear", "price": 40, "description": "Обувь"}
+    }
+)
+
+# Мебель
+IKEA = CivilCorporation(
+    corp_id="civ_se_005",
+    name="IKEA",
+    country="Швеция",
+    city="Эльмхульт",
+    description="Крупнейший в мире производитель мебели и товаров для дома.",
+    specialization=["furniture", "household_goods"],
+    founded=1943,
+    website="www.ikea.com",
+    products={
+        "furniture": {"name": "Мебель", "type": "furniture", "price": 150, "description": "Мебель для дома"},
+        "household_goods": {"name": "Товары для дома", "type": "household_goods", "price": 30, "description": "Аксессуары"}
+    }
+)
+
+# IT
+SPOTIFY = CivilCorporation(
+    corp_id="civ_se_006",
+    name="Spotify",
+    country="Швеция",
+    city="Стокгольм",
+    description="Крупнейший в мире стриминговый сервис для музыки и подкастов.",
+    specialization=["streaming", "entertainment", "software"],
+    founded=2006,
+    website="www.spotify.com",
+    products={
+        "streaming": {"name": "Музыкальный стриминг", "type": "streaming", "price": 10, "description": "Подписка"},
+        "entertainment": {"name": "Подкасты", "type": "entertainment", "price": 0, "description": "Бесплатный контент"},
+        "software": {"name": "ПО", "type": "software", "price": 0, "description": "Приложения"}
+    }
+)
+# Инжиниринг
+ATLAS_COPCO = CivilCorporation(
+    corp_id="civ_se_007",
+    name="Atlas Copco",
+    country="Швеция",
+    city="Нака",
+    description="Мировой лидер в производстве промышленного оборудования и компрессоров.",
+    specialization=["industrial_equipment", "construction_machinery"],
+    founded=1873,
+    website="www.atlascopco.com",
+    products={
+        "industrial_equipment": {"name": "Компрессоры", "type": "industrial_equipment", "price": 50000, "description": "Промышленные компрессоры"},
+        "construction_machinery": {"name": "Буровое оборудование", "type": "construction_machinery", "price": 200000, "description": "Оборудование для горных работ"}
+    }
+)
+
+SANDVIK = CivilCorporation(
+    corp_id="civ_se_007b",
+    name="Sandvik",
+    country="Швеция",
+    city="Стокгольм",
+    description="Крупный производитель горнодобывающего оборудования и твердосплавных материалов.",
+    specialization=["industrial_equipment", "machine_tools"],
+    founded=1862,
+    website="www.sandvik.com",
+    products={
+        "industrial_equipment": {"name": "Горное оборудование", "type": "industrial_equipment", "price": 150000, "description": "Оборудование для добычи"},
+        "machine_tools": {"name": "Металлообработка", "type": "machine_tools", "price": 30000, "description": "Инструменты и оснастка"}
+    }
+)
+
+# Фармацевтика
+ASTRAZENECA_SWEDEN = CivilCorporation(
+    corp_id="civ_se_008",
+    name="AstraZeneca Sweden",
+    country="Швеция",
+    city="Сёдертелье",
+    description="Шведское подразделение глобальной фармацевтической компании.",
+    specialization=["pharmaceuticals"],
+    founded=1913,
+    website="www.astrazeneca.se",
+    products={
+        "pharmaceuticals": {"name": "Лекарства", "type": "pharmaceuticals", "price": 800, "description": "Рецептурные препараты"}
+    }
+)
+
+
+# ==================== КОРПОРАЦИИ ФИНЛЯНДИИ ====================
+
+# Телекоммуникации
+NOKIA = CivilCorporation(
+    corp_id="civ_fi_001",
+    name="Nokia",
+    country="Финляндия",
+    city="Эспоо",
+    description="Мировой лидер в производстве телекоммуникационного оборудования и технологий 5G.",
+    specialization=["telecom_equipment", "tech_equipment", "it_services"],
+    founded=1865,
+    website="www.nokia.com",
+    products={
+        "telecom_equipment": {"name": "Оборудование 5G", "type": "telecom_equipment", "price": 60000, "description": "Базовые станции"},
+        "tech_equipment": {"name": "Сетевое оборудование", "type": "tech_equipment", "price": 25000, "description": "Маршрутизаторы"},
+        "it_services": {"name": "Услуги", "type": "it_services", "price": 500, "description": "Консалтинг и поддержка"}
+    }
+)
+
+# Судостроение
+MEYER_TURKU = CivilCorporation(
+    corp_id="civ_fi_002",
+    name="Meyer Turku",
+    country="Финляндия",
+    city="Турку",
+    description="Одна из крупнейших верфей в мире, специализируется на строительстве круизных лайнеров.",
+    specialization=["industrial_equipment"],
+    founded=1737,
+    website="www.meyerturku.fi",
+    products={
+        "industrial_equipment": {"name": "Круизные лайнеры", "type": "industrial_equipment", "price": 500000000, "description": "Пассажирские суда"}
+    }
+)
+
+# Лесная промышленность
+UPM = CivilCorporation(
+    corp_id="civ_fi_003",
+    name="UPM",
+    country="Финляндия",
+    city="Хельсинки",
+    description="Крупнейшая лесопромышленная компания Финляндии, производит бумагу, целлюлозу и биотопливо.",
+    specialization=["industrial_equipment", "chemicals"],
+    founded=1996,
+    website="www.upm.com",
+    products={
+        "industrial_equipment": {"name": "Бумага и целлюлоза", "type": "industrial_equipment", "price": 500, "description": "Офисная бумага"},
+        "chemicals": {"name": "Биотопливо", "type": "chemicals", "price": 600, "description": "Экологичное топливо"}
+    }
+)
+
+STORA_ENSO = CivilCorporation(
+    corp_id="civ_fi_003b",
+    name="Stora Enso",
+    country="Финляндия",
+    city="Хельсинки",
+    description="Один из крупнейших в мире производителей бумаги и упаковки.",
+    specialization=["industrial_equipment"],
+    founded=1998,
+    website="www.storaenso.com",
+    products={
+        "industrial_equipment": {"name": "Упаковка", "type": "industrial_equipment", "price": 300, "description": "Картон и упаковочные материалы"}
+    }
+)
+
+# Инжиниринг
+KONE = CivilCorporation(
+    corp_id="civ_fi_004",
+    name="KONE",
+    country="Финляндия",
+    city="Эспоо",
+    description="Мировой лидер в производстве лифтов, эскалаторов и подъемного оборудования.",
+    specialization=["industrial_equipment"],
+    founded=1910,
+    website="www.kone.com",
+    products={
+        "industrial_equipment": {"name": "Лифты", "type": "industrial_equipment", "price": 50000, "description": "Пассажирские лифты"}
+    }
+)
+
+WARTSILA = CivilCorporation(
+    corp_id="civ_fi_004b",
+    name="Wärtsilä",
+    country="Финляндия",
+    city="Хельсинки",
+    description="Крупный производитель двигателей и энергетического оборудования для морской отрасли.",
+    specialization=["energy_equipment", "industrial_equipment"],
+    founded=1834,
+    website="www.wartsila.com",
+    products={
+        "energy_equipment": {"name": "Судовые двигатели", "type": "energy_equipment", "price": 200000, "description": "Двигатели для кораблей"},
+        "industrial_equipment": {"name": "Энергоустановки", "type": "industrial_equipment", "price": 500000, "description": "Электростанции"}
+    }
+)
+
+# Банки
+NORDEA_FINLAND = CivilCorporation(
+    corp_id="civ_fi_005",
+    name="Nordea Finland",
+    country="Финляндия",
+    city="Хельсинки",
+    description="Крупнейший банк Финляндии, входит в группу Nordea.",
+    specialization=["banking", "investments"],
+    founded=1820,
+    website="www.nordea.fi",
+    products={
+        "banking": {"name": "Банковские услуги", "type": "banking", "price": 0, "description": "Счета, кредиты"},
+        "investments": {"name": "Инвестиции", "type": "investments", "price": 400, "description": "Управление активами"}
+    }
+)
+
+# Ритейл
+S_GROUP = CivilCorporation(
+    corp_id="civ_fi_006",
+    name="S-Group",
+    country="Финляндия",
+    city="Хельсинки",
+    description="Крупнейшая сеть розничной торговли в Финляндии, включает супермаркеты, заправки и отели.",
+    specialization=["retail", "supermarkets"],
+    founded=1904,
+    website="www.s-ryhma.fi",
+    products={
+        "retail": {"name": "Розничная торговля", "type": "retail", "price": 0, "description": "Продукты и товары"},
+        "supermarkets": {"name": "Супермаркеты", "type": "supermarkets", "price": 0, "description": "Сеть S-market, Prisma"}
+    }
+)
+
+
+# ==================== КОРПОРАЦИИ ШВЕЙЦАРИИ ====================
+
+# Банки
+UBS = CivilCorporation(
+    corp_id="civ_ch_001",
+    name="UBS",
+    country="Швейцария",
+    city="Цюрих",
+    description="Крупнейший банк Швейцарии, мировой лидер в управлении частным капиталом.",
+    specialization=["banking", "investments"],
+    founded=1862,
+    website="www.ubs.com",
+    products={
+        "banking": {"name": "Private banking", "type": "banking", "price": 1000, "description": "Обслуживание состоятельных клиентов"},
+        "investments": {"name": "Управление активами", "type": "investments", "price": 1500, "description": "Инвестиционные продукты"}
+    }
+)
+
+CREDIT_SUISSE = CivilCorporation(
+    corp_id="civ_ch_001b",
+    name="Credit Suisse",
+    country="Швейцария",
+    city="Цюрих",
+    description="Второй по величине банк Швейцарии, предоставляет полный спектр финансовых услуг.",
+    specialization=["banking", "investments"],
+    founded=1856,
+    website="www.credit-suisse.com",
+    products={
+        "banking": {"name": "Банковские услуги", "type": "banking", "price": 900, "description": "Private banking"},
+        "investments": {"name": "Инвестиционный банкинг", "type": "investments", "price": 1200, "description": "Управление капиталом"}
+    }
+)
+
+# Страхование
+ZURICH = CivilCorporation(
+    corp_id="civ_ch_002",
+    name="Zurich Insurance Group",
+    country="Швейцария",
+    city="Цюрих",
+    description="Одна из крупнейших страховых компаний в мире.",
+    specialization=["insurance", "investments"],
+    founded=1872,
+    website="www.zurich.com",
+    products={
+        "insurance": {"name": "Страхование", "type": "insurance", "price": 800, "description": "Страхование жизни и имущества"},
+        "investments": {"name": "Инвестиции", "type": "investments", "price": 500, "description": "Управление активами"}
+    }
+)
+
+SWISS_RE = CivilCorporation(
+    corp_id="civ_ch_002b",
+    name="Swiss Re",
+    country="Швейцария",
+    city="Цюрих",
+    description="Один из крупнейших в мире перестраховочных компаний.",
+    specialization=["insurance"],
+    founded=1863,
+    website="www.swissre.com",
+    products={
+        "insurance": {"name": "Перестрахование", "type": "insurance", "price": 2000, "description": "Страхование рисков страховых компаний"}
+    }
+)
+
+# Фармацевтика
+NOVARTIS = CivilCorporation(
+    corp_id="civ_ch_003",
+    name="Novartis",
+    country="Швейцария",
+    city="Базель",
+    description="Одна из крупнейших фармацевтических компаний в мире.",
+    specialization=["pharmaceuticals"],
+    founded=1996,
+    website="www.novartis.com",
+    products={
+        "pharmaceuticals": {"name": "Лекарства", "type": "pharmaceuticals", "price": 1000, "description": "Рецептурные препараты"}
+    }
+)
+
+ROCHE = CivilCorporation(
+    corp_id="civ_ch_003b",
+    name="Roche",
+    country="Швейцария",
+    city="Базель",
+    description="Глобальная фармацевтическая компания, лидер в онкологии и диагностике.",
+    specialization=["pharmaceuticals", "medical_equipment"],
+    founded=1896,
+    website="www.roche.com",
+    products={
+        "pharmaceuticals": {"name": "Лекарства", "type": "pharmaceuticals", "price": 1200, "description": "Онкологические препараты"},
+        "medical_equipment": {"name": "Диагностика", "type": "medical_equipment", "price": 20000, "description": "Оборудование для диагностики"}
+    }
+)
+
+# Продукты питания
+NESTLE = CivilCorporation(
+    corp_id="civ_ch_004",
+    name="Nestlé",
+    country="Швейцария",
+    city="Веве",
+    description="Крупнейший в мире производитель продуктов питания и напитков.",
+    specialization=["food_products", "beverages"],
+    founded=1866,
+    website="www.nestle.com",
+    products={
+        "food_products": {"name": "Продукты питания", "type": "food_products", "price": 50, "description": "Кофе, шоколад, детское питание"},
+        "beverages": {"name": "Напитки", "type": "beverages", "price": 30, "description": "Вода, соки"}
+    }
+)
+
+# Часы
+ROLEX = CivilCorporation(
+    corp_id="civ_ch_005",
+    name="Rolex",
+    country="Швейцария",
+    city="Женева",
+    description="Легендарный производитель часов класса люкс.",
+    specialization=["consumer_electronics"],
+    founded=1905,
+    website="www.rolex.com",
+    products={
+        "consumer_electronics": {"name": "Часы Rolex", "type": "consumer_electronics", "price": 8000, "description": "Престижные наручные часы"}
+    }
+)
+
+OMEGA = CivilCorporation(
+    corp_id="civ_ch_005b",
+    name="Omega",
+    country="Швейцария",
+    city="Биль",
+    description="Известный производитель часов, официальный хронометрист Олимпийских игр.",
+    specialization=["consumer_electronics"],
+    founded=1848,
+    website="www.omegawatches.com",
+    products={
+        "consumer_electronics": {"name": "Часы Omega", "type": "consumer_electronics", "price": 5000, "description": "Наручные часы"}
+    }
+)
+
+# Логистика
+KUEHNE_NAGEL = CivilCorporation(
+    corp_id="civ_ch_006",
+    name="Kuehne + Nagel",
+    country="Швейцария",
+    city="Шиндельеги",
+    description="Один из крупнейших в мире логистических операторов.",
+    specialization=["logistics", "freight"],
+    founded=1890,
+    website="www.kuehne-nagel.com",
+    products={
+        "logistics": {"name": "Логистика", "type": "logistics", "price": 500, "description": "Транспортные услуги"},
+        "freight": {"name": "Грузоперевозки", "type": "freight", "price": 600, "description": "Морские и авиаперевозки"}
+    }
+)
+
+
+# ==================== КОРПОРАЦИИ ЕГИПТА ====================
+
+# Телекоммуникации
+ORANGE_EGYPT = CivilCorporation(
+    corp_id="civ_eg_001",
+    name="Orange Egypt",
+    country="Египет",
+    city="Каир",
+    description="Крупный оператор мобильной и фиксированной связи в Египте.",
+    specialization=["mobile_services", "telecom_services", "internet_services"],
+    founded=1998,
+    website="www.orange.eg",
+    products={
+        "mobile_services": {"name": "Мобильная связь", "type": "mobile_services", "price": 10, "description": "Тарифы"},
+        "telecom_services": {"name": "Домашний интернет", "type": "telecom_services", "price": 15, "description": "Интернет"},
+        "internet_services": {"name": "Корпоративные решения", "type": "internet_services", "price": 100, "description": "B2B услуги"}
+    }
+)
+
+VODAFONE_EGYPT = CivilCorporation(
+    corp_id="civ_eg_001b",
+    name="Vodafone Egypt",
+    country="Египет",
+    city="Каир",
+    description="Крупнейший оператор мобильной связи в Египте.",
+    specialization=["mobile_services", "internet_services"],
+    founded=1998,
+    website="www.vodafone.com.eg",
+    products={
+        "mobile_services": {"name": "Мобильная связь", "type": "mobile_services", "price": 12, "description": "Тарифы"},
+        "internet_services": {"name": "Домашний интернет", "type": "internet_services", "price": 14, "description": "Интернет и ТВ"}
+    }
+)
+
+# Банки
+NATIONAL_BANK_EGYPT = CivilCorporation(
+    corp_id="civ_eg_002",
+    name="National Bank of Egypt",
+    country="Египет",
+    city="Каир",
+    description="Крупнейший банк Египта, предоставляет полный спектр финансовых услуг.",
+    specialization=["banking", "investments"],
+    founded=1898,
+    website="www.nbe.com.eg",
+    products={
+        "banking": {"name": "Банковские услуги", "type": "banking", "price": 0, "description": "Счета, кредиты"},
+        "investments": {"name": "Инвестиции", "type": "investments", "price": 200, "description": "Управление активами"}
+    }
+)
+
+BANQUE_MISR = CivilCorporation(
+    corp_id="civ_eg_002b",
+    name="Banque Misr",
+    country="Египет",
+    city="Каир",
+    description="Второй по величине банк Египта, системно значимый кредитор.",
+    specialization=["banking"],
+    founded=1920,
+    website="www.banquemisr.com",
+    products={
+        "banking": {"name": "Банковские услуги", "type": "banking", "price": 0, "description": "Розничный банкинг"}
+    }
+)
+
+# Строительство
+ORASCOM = CivilCorporation(
+    corp_id="civ_eg_003",
+    name="Orascom Construction",
+    country="Египет",
+    city="Каир",
+    description="Одна из крупнейших строительных компаний на Ближнем Востоке.",
+    specialization=["construction", "real_estate"],
+    founded=1950,
+    website="www.orascom.com",
+    products={
+        "construction": {"name": "Строительные услуги", "type": "construction", "price": 500000, "description": "Инфраструктурные проекты"},
+        "real_estate": {"name": "Недвижимость", "type": "real_estate", "price": 300000, "description": "Жилая и коммерческая"}
+    }
+)
+
+# Цемент
+SUEZ_CEMENT = CivilCorporation(
+    corp_id="civ_eg_004",
+    name="Suez Cement",
+    country="Египет",
+    city="Суэц",
+    description="Крупный производитель цемента и строительных материалов в Египте.",
+    specialization=["construction"],
+    founded=1911,
+    website="www.suezcement.com.eg",
+    products={
+        "construction": {"name": "Цемент", "type": "construction", "price": 80, "description": "Строительный цемент"}
+    }
+)
+
+# Продукты питания
+JUHANYNA = CivilCorporation(
+    corp_id="civ_eg_005",
+    name="Juhayna",
+    country="Египет",
+    city="Каир",
+    description="Крупнейший производитель молочной продукции и соков в Египте.",
+    specialization=["food_products", "beverages"],
+    founded=1983,
+    website="www.juhayna.com",
+    products={
+        "food_products": {"name": "Молочные продукты", "type": "food_products", "price": 20, "description": "Йогурты, молоко"},
+        "beverages": {"name": "Соки", "type": "beverages", "price": 15, "description": "Фруктовые соки"}
+    }
+)
+
+# Ритейл
+CARREFOUR_EGYPT = CivilCorporation(
+    corp_id="civ_eg_006",
+    name="Carrefour Egypt",
+    country="Египет",
+    city="Каир",
+    description="Сеть гипермаркетов и супермаркетов в Египте, часть международной сети Carrefour.",
+    specialization=["retail", "supermarkets"],
+    founded=2000,
+    website="www.carrefouregypt.com",
+    products={
+        "retail": {"name": "Розничная торговля", "type": "retail", "price": 0, "description": "Продукты и товары"},
+        "supermarkets": {"name": "Гипермаркеты", "type": "supermarkets", "price": 0, "description": "Сеть магазинов"}
+    }
+)
+
+# Энергетика
+EGAS = CivilCorporation(
+    corp_id="civ_eg_007",
+    name="Egyptian Natural Gas Holding Company (EGAS)",
+    country="Египет",
+    city="Каир",
+    description="Государственная компания по добыче и распределению природного газа.",
+    specialization=["gas_supply", "energy_equipment"],
+    founded=2001,
+    website="www.egas.com.eg",
+    products={
+        "gas_supply": {"name": "Природный газ", "type": "gas_supply", "price": 250, "description": "Газ для экспорта"},
+        "energy_equipment": {"name": "Оборудование", "type": "energy_equipment", "price": 30000, "description": "Газовое оборудование"}
+    }
+)
+
+
+# ==================== КОРПОРАЦИИ БРАЗИЛИИ ====================
+
+# Авиастроение
+EMBRAER = CivilCorporation(
+    corp_id="civ_br_001",
+    name="Embraer",
+    country="Бразилия",
+    city="Сан-Жозе-дус-Кампус",
+    description="Третий по величине производитель гражданских самолетов в мире.",
+    specialization=["aerospace_equipment"],
+    founded=1969,
+    website="www.embraer.com",
+    products={
+        "aerospace_equipment": {"name": "Региональные самолеты", "type": "aerospace_equipment", "price": 50000000, "description": "E-Jets"}
+    }
+)
+
+# Горнодобывающая промышленность
+VALE = CivilCorporation(
+    corp_id="civ_br_002",
+    name="Vale",
+    country="Бразилия",
+    city="Рио-де-Жанейро",
+    description="Крупнейшая горнодобывающая компания в мире, лидер по добыче железной руды.",
+    specialization=["industrial_equipment"],
+    founded=1942,
+    website="www.vale.com",
+    products={
+        "industrial_equipment": {"name": "Железная руда", "type": "industrial_equipment", "price": 100, "description": "Руда для металлургии"}
+    }
+)
+
+# Нефтегазовая промышленность
+PETROBRAS = CivilCorporation(
+    corp_id="civ_br_003",
+    name="Petrobras",
+    country="Бразилия",
+    city="Рио-де-Жанейро",
+    description="Крупнейшая государственная нефтегазовая компания Бразилии.",
+    specialization=["oil", "gas_supply", "energy_equipment"],
+    founded=1953,
+    website="www.petrobras.com.br",
+    products={
+        "oil": {"name": "Нефть", "type": "oil", "price": 450, "description": "Сырая нефть"},
+        "gas_supply": {"name": "Природный газ", "type": "gas_supply", "price": 380, "description": "Газ"},
+        "energy_equipment": {"name": "Оборудование", "type": "energy_equipment", "price": 40000, "description": "Нефтегазовое оборудование"}
+    }
+)
+
+# Пищевая промышленность
+JBS = CivilCorporation(
+    corp_id="civ_br_004",
+    name="JBS",
+    country="Бразилия",
+    city="Сан-Паулу",
+    description="Крупнейший в мире производитель мяса.",
+    specialization=["food_products"],
+    founded=1953,
+    website="www.jbs.com.br",
+    products={
+        "food_products": {"name": "Мясная продукция", "type": "food_products", "price": 80, "description": "Говядина, свинина, птица"}
+    }
+)
+
+BRF = CivilCorporation(
+    corp_id="civ_br_004b",
+    name="BRF",
+    country="Бразилия",
+    city="Куритиба",
+    description="Крупный производитель продуктов питания, владеет брендами Sadia, Perdigão.",
+    specialization=["food_products"],
+    founded=1934,
+    website="www.brf-global.com",
+    products={
+        "food_products": {"name": "Замороженные продукты", "type": "food_products", "price": 60, "description": "Полуфабрикаты"}
+    }
+)
+
+# Банки
+ITAU = CivilCorporation(
+    corp_id="civ_br_005",
+    name="Itaú Unibanco",
+    country="Бразилия",
+    city="Сан-Паулу",
+    description="Крупнейший банк Бразилии и Латинской Америки.",
+    specialization=["banking", "investments", "insurance"],
+    founded=2008,
+    website="www.itau.com.br",
+    products={
+        "banking": {"name": "Банковские услуги", "type": "banking", "price": 0, "description": "Счета, кредиты"},
+        "investments": {"name": "Инвестиции", "type": "investments", "price": 400, "description": "Управление активами"},
+        "insurance": {"name": "Страхование", "type": "insurance", "price": 300, "description": "Страховые продукты"}
+    }
+)
+
+BRADESCO = CivilCorporation(
+    corp_id="civ_br_005b",
+    name="Bradesco",
+    country="Бразилия",
+    city="Озаску",
+    description="Один из крупнейших банков Бразилии.",
+    specialization=["banking", "investments"],
+    founded=1943,
+    website="www.bradesco.com.br",
+    products={
+        "banking": {"name": "Банковские услуги", "type": "banking", "price": 0, "description": "Розничный банкинг"},
+        "investments": {"name": "Инвестиции", "type": "investments", "price": 350, "description": "Брокерские услуги"}
+    }
+)
+
+# Ритейл
+MAGAZINE_LUIZA = CivilCorporation(
+    corp_id="civ_br_006",
+    name="Magazine Luiza",
+    country="Бразилия",
+    city="Франка",
+    description="Крупная сеть магазинов электроники и бытовой техники.",
+    specialization=["retail", "ecommerce", "consumer_electronics"],
+    founded=1957,
+    website="www.magazineluiza.com.br",
+    products={
+        "retail": {"name": "Розничная торговля", "type": "retail", "price": 0, "description": "Электроника и техника"},
+        "ecommerce": {"name": "Интернет-магазин", "type": "ecommerce", "price": 0, "description": "Онлайн-продажи"},
+        "consumer_electronics": {"name": "Электроника", "type": "consumer_electronics", "price": 500, "description": "Товары"}
+    }
+)
+
+# Телекоммуникации
+VIVO = CivilCorporation(
+    corp_id="civ_br_007",
+    name="Vivo (Telefônica Brasil)",
+    country="Бразилия",
+    city="Сан-Паулу",
+    description="Крупнейший оператор мобильной связи в Бразилии.",
+    specialization=["mobile_services", "telecom_services", "internet_services"],
+    founded=2003,
+    website="www.vivo.com.br",
+    products={
+        "mobile_services": {"name": "Мобильная связь", "type": "mobile_services", "price": 25, "description": "Тарифы"},
+        "telecom_services": {"name": "Домашний интернет", "type": "telecom_services", "price": 30, "description": "Интернет и ТВ"},
+        "internet_services": {"name": "Корпоративные решения", "type": "internet_services", "price": 200, "description": "B2B услуги"}
+    }
+)
 
 # ==================== СВОДНАЯ БАЗА ДАННЫХ ====================
 
@@ -3567,6 +5322,137 @@ ALL_CIVIL_CORPORATIONS = {
         "meli_bank": MELI_BANK,
         "refaah": REFAAH,
         "kayson": KAYSON
+    },
+    # ============ НОВЫЕ СТРАНЫ ============
+    "Беларусь": {
+        "belaz": BELAZ,
+        "maz": MAZ,
+        "mtz": MTZ,
+        "gomselmash": GOMMELMASH,
+        "savushkin": SAVUSHKIN,
+        "santa_bremor": SANTA_BREMOR,
+        "spartak": SPARTAK,
+        "epam_by": EPAM_BELARUS,
+        "iba": IBA,
+        "velcom": VELCOM,
+        "mts_by": MTS_BELARUS,
+        "beltelecom": BELTELECOM,
+        "belarusbank": BELARUSBANK,
+        "belagroprombank": BELAGROPROMBANK,
+        "euroopt": EUROOPT,
+        "green": GREEN,
+        "belneftekhim": BELNEFTEKHIM
+    },
+    "Норвегия": {
+        "equinor": EQUINOR,
+        "marine_harvest": MARINE_HARVEST,
+        "aker": AKER,
+        "telenor": TELENOR,
+        "dnb": DNB,
+        "wilhelmsen": WILHELMSEN,
+        "rema_1000": REMA_1000,
+        "kongsberg_digital": KONGSBERG_DIGITAL
+    },
+    "Турция": {
+        "tofas": TOFAS,
+        "ford_otosan": FORD_OTOSAN,
+        "arcelik": ARCELIK,
+        "vestel": VESTEL,
+        "lcwaikiki": LCWAIKIKI,
+        "mavi": MAVI,
+        "ronesans": RENAISSANCE,
+        "enka": ENKA,
+        "ulker": ULKER,
+        "eti": ETI,
+        "isbank": ISBANK,
+        "garanti": GARANTI,
+        "bim": BIM,
+        "turkish_airlines": TURKISH_AIRLINES
+    },
+    "Сирия": {
+        "lattakia_cement": LATTAKIA_CEMENT,
+        "syrian_food": SYRIAN_ARAB_COMPANY,
+        "syrian_textile": SYRIAN_TEXTILE,
+        "syrian_pharm": SYRIAN_PHARM
+    },
+    "Канада": {
+        "bombardier": BOMBARDIER,
+        "barrick_gold": BARRICK_GOLD,
+        "opentext": OPEN_TEXT,
+        "shopify": SHOPIFY,
+        "rbc": RBC,
+        "td_bank": TD_BANK,
+        "enbridge": ENBRIDGE,
+        "loblaw": LOBLAW,
+        "rogers": ROGERS,
+        "bell": BELL
+    },
+    "Польша": {
+        "pkn_orlen": PKN_ORLEN,
+        "pgnig": PGNIG,
+        "dino": DINO,
+        "biedronka": Biedronka,
+        "cd_projekt": CD_PROJEKT,
+        "ikea_poland": IKEA_POLAND,
+        "pko_bp": PKO_BP,
+        "orange_poland": ORANGE_POLAND,
+        "play": PLAY
+    },
+    "Бразилия": {
+        "embraer": EMBRAER,
+        "vale": VALE,
+        "petrobras": PETROBRAS,
+        "jbs": JBS,
+        "brf": BRF,
+        "itau": ITAU,
+        "bradesco": BRADESCO,
+        "magazine_luiza": MAGAZINE_LUIZA,
+        "vivo": VIVO
+    },
+    "Швеция": {
+        "volvo_trucks": VOLVO_TRUCKS,
+        "scania": SCANIA,
+        "ericsson": ERICSSON,
+        "seb": SEB,
+        "hm": H_M,
+        "ikea": IKEA,
+        "spotify": SPOTIFY,
+        "atlas_copco": ATLAS_COPCO,
+        "sandvik": SANDVIK,
+        "astrazeneca_sweden": ASTRAZENECA_SWEDEN
+    },
+    "Финляндия": {
+        "nokia": NOKIA,
+        "meyer_turku": MEYER_TURKU,
+        "upm": UPM,
+        "stora_enso": STORA_ENSO,
+        "kone": KONE,
+        "wartsila": WARTSILA,
+        "nordea_finland": NORDEA_FINLAND,
+        "s_group": S_GROUP
+    },
+    "Швейцария": {
+        "ubs": UBS,
+        "credit_suisse": CREDIT_SUISSE,
+        "zurich": ZURICH,
+        "swiss_re": SWISS_RE,
+        "novartis": NOVARTIS,
+        "roche": ROCHE,
+        "nestle": NESTLE,
+        "rolex": ROLEX,
+        "omega": OMEGA,
+        "kuehne_nagel": KUEHNE_NAGEL
+    },
+    "Египет": {
+        "orange_egypt": ORANGE_EGYPT,
+        "vodafone_egypt": VODAFONE_EGYPT,
+        "nbe": NATIONAL_BANK_EGYPT,
+        "banque_misr": BANQUE_MISR,
+        "orascom": ORASCOM,
+        "suez_cement": SUEZ_CEMENT,
+        "juhayna": JUHANYNA,
+        "carrefour_egypt": CARREFOUR_EGYPT,
+        "egas": EGAS
     }
 }
 

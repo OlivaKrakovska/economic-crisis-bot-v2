@@ -1,0 +1,44 @@
+{
+    "active_conversions": [
+        {
+            "id": 1,
+            "user_id": 1056458599045541890,
+            "country": "США",
+            "category": "missiles",
+            "subcategory": "cruise_missiles",
+            "quantity": 100,
+            "cost": 18135200,
+            "start_time": "2026-03-28 00:11:32.997382",
+            "completion_time": "2026-03-29 22:56:32.997352",
+            "status": "in_progress",
+            "notified": false
+        },
+        {
+            "id": 2,
+            "user_id": 1056458599045541890,
+            "country": "США",
+            "category": "equipment",
+            "subcategory": "atgms",
+            "quantity": 1,
+            "cost": 14341,
+            "start_time": "2026-03-28 00:11:55.351640",
+            "completion_time": "2026-03-28 00:41:38.351607",
+            "status": "in_progress",
+            "notified": false
+        },
+        {
+            "id": 3,
+            "user_id": 1056458599045541890,
+            "country": "США",
+            "category": "ground",
+            "subcategory": "tanks",
+            "quantity": 2,
+            "cost": 3183390,
+            "start_time": "2026-03-28 00:25:57.953505",
+            "completion_time": "2026-03-28 01:03:15.953477",
+            "status": "in_progress",
+            "notified": false
+        }
+    ],
+    "completed_conversions": []
+}

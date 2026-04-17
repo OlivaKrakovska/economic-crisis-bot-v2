@@ -1,0 +1,254 @@
+{
+    "activated": {
+        "США": {
+            "ground": {
+                "mlrs": 10
+            }
+        }
+    },
+    "remaining_reserves": {
+        "США": {
+            "ground": {
+                "tanks": 2500,
+                "btr": 5000,
+                "bmp": 3000,
+                "armored_vehicles": 8000,
+                "self_propelled_artillery": 800,
+                "towed_artillery": 1000,
+                "mlrs": 390,
+                "atgm_complexes": 1500,
+                "short_range_air_defense": 600,
+                "long_range_air_defense": 200
+            },
+            "equipment": {
+                "small_arms": 500000,
+                "grenade_launchers": 30000,
+                "atgms": 8000,
+                "manpads": 6000,
+                "fpv_drones": 50000
+            },
+            "air": {
+                "fighters": 400,
+                "attack_aircraft": 150,
+                "bombers": 80,
+                "transport_aircraft": 120,
+                "attack_helicopters": 200,
+                "transport_helicopters": 150,
+                "recon_uav": 100,
+                "attack_uav": 50
+            },
+            "navy": {
+                "boats": 100,
+                "corvettes": 10,
+                "destroyers": 15,
+                "cruisers": 5,
+                "submarines": 10,
+                "usv_attack": 50
+            },
+            "missiles": {
+                "cruise_missiles": 800,
+                "ballistic_missiles": 300
+            }
+        },
+        "Россия": {
+            "ground": {
+                "tanks": 5000,
+                "btr": 8000,
+                "bmp": 6000,
+                "armored_vehicles": 7000,
+                "self_propelled_artillery": 1000,
+                "towed_artillery": 2000,
+                "mlrs": 600,
+                "atgm_complexes": 2000,
+                "short_range_air_defense": 800,
+                "long_range_air_defense": 300,
+                "zdprk": 400,
+                "zas": 500
+            },
+            "equipment": {
+                "small_arms": 800000,
+                "grenade_launchers": 50000,
+                "atgms": 12000,
+                "manpads": 8000,
+                "fpv_drones": 100000
+            },
+            "air": {
+                "fighters": 600,
+                "attack_aircraft": 250,
+                "bombers": 100,
+                "transport_aircraft": 150,
+                "attack_helicopters": 300,
+                "transport_helicopters": 200,
+                "recon_uav": 150,
+                "attack_uav": 80
+            },
+            "navy": {
+                "boats": 150,
+                "corvettes": 20,
+                "destroyers": 15,
+                "cruisers": 8,
+                "submarines": 25,
+                "usv_attack": 80
+            },
+            "missiles": {
+                "cruise_missiles": 1000,
+                "ballistic_missiles": 400,
+                "hypersonic_missiles": 30
+            }
+        },
+        "Китай": {
+            "ground": {
+                "tanks": 3000,
+                "btr": 6000,
+                "bmp": 4000,
+                "armored_vehicles": 5000,
+                "self_propelled_artillery": 800,
+                "towed_artillery": 1200,
+                "mlrs": 500,
+                "atgm_complexes": 1500,
+                "short_range_air_defense": 600,
+                "long_range_air_defense": 200
+            },
+            "equipment": {
+                "small_arms": 600000,
+                "grenade_launchers": 40000,
+                "atgms": 10000,
+                "manpads": 7000,
+                "fpv_drones": 80000
+            },
+            "air": {
+                "fighters": 500,
+                "attack_aircraft": 200,
+                "bombers": 80,
+                "transport_aircraft": 100,
+                "attack_helicopters": 200,
+                "transport_helicopters": 150
+            },
+            "navy": {
+                "boats": 120,
+                "corvettes": 15,
+                "destroyers": 12,
+                "cruisers": 5,
+                "submarines": 20,
+                "usv_attack": 60
+            },
+            "missiles": {
+                "cruise_missiles": 800,
+                "ballistic_missiles": 300
+            }
+        },
+        "Украина": {
+            "ground": {
+                "tanks": 800,
+                "btr": 2000,
+                "bmp": 1500,
+                "armored_vehicles": 1500,
+                "self_propelled_artillery": 300,
+                "towed_artillery": 500,
+                "mlrs": 200,
+                "atgm_complexes": 800
+            },
+            "equipment": {
+                "small_arms": 200000,
+                "grenade_launchers": 15000,
+                "atgms": 4000,
+                "manpads": 3000,
+                "fpv_drones": 50000
+            },
+            "air": {
+                "fighters": 80,
+                "attack_aircraft": 30,
+                "transport_aircraft": 20,
+                "attack_helicopters": 40
+            },
+            "navy": {
+                "boats": 30,
+                "corvettes": 1,
+                "destroyers": 0,
+                "cruisers": 0,
+                "submarines": 0,
+                "usv_attack": 100
+            }
+        },
+        "Германия": {
+            "navy": {
+                "usv_attack": 20
+            }
+        },
+        "Великобритания": {
+            "navy": {
+                "usv_attack": 20
+            }
+        },
+        "Франция": {
+            "navy": {
+                "usv_attack": 20
+            }
+        },
+        "Япония": {
+            "navy": {
+                "usv_attack": 20
+            }
+        },
+        "Израиль": {
+            "navy": {
+                "usv_attack": 20
+            }
+        },
+        "Турция": {
+            "navy": {
+                "usv_attack": 20
+            }
+        },
+        "Иран": {
+            "navy": {
+                "usv_attack": 20
+            }
+        },
+        "Норвегия": {
+            "navy": {
+                "usv_attack": 20
+            }
+        },
+        "Швеция": {
+            "navy": {
+                "usv_attack": 20
+            }
+        },
+        "Финляндия": {
+            "navy": {
+                "usv_attack": 20
+            }
+        },
+        "Польша": {
+            "navy": {
+                "usv_attack": 20
+            }
+        },
+        "Канада": {
+            "navy": {
+                "usv_attack": 20
+            }
+        },
+        "Бразилия": {
+            "navy": {
+                "usv_attack": 20
+            }
+        },
+        "Египет": {
+            "navy": {
+                "usv_attack": 20
+            }
+        },
+        "КНДР": {
+            "navy": {
+                "usv_attack": 20
+            }
+        },
+        "Сирия": {
+            "navy": {
+                "usv_attack": 20
+            }
+        }
+    }
+}

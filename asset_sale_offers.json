@@ -1,0 +1,96 @@
+{
+    "active_offers": [
+        {
+            "id": 1,
+            "seller_id": "1056458599045541890",
+            "seller_country": "Китай",
+            "region_name": "Гуйчжоу",
+            "asset_type": "civilian_factories",
+            "asset_name": "Гражданская фабрика",
+            "quantity": 1,
+            "price_per_unit_usd": 2000000,
+            "total_price_usd": 2000000,
+            "status": "pending",
+            "created_at": "2026-04-15 15:46:33.251563"
+        },
+        {
+            "id": 3,
+            "seller_id": "1056458599045541890",
+            "seller_country": "Россия",
+            "econ_region": "Южный экономический район",
+            "region_name": "Республика Адыгея",
+            "asset_type": "internet_infrastructure",
+            "asset_name": "ЦОД",
+            "quantity": 1,
+            "currency": "UAH",
+            "price_per_unit": 2000000,
+            "total_price": 2000000,
+            "lot_type": "public",
+            "allowed_countries": [],
+            "status": "pending",
+            "created_at": "2026-04-16 18:09:16.652318",
+            "expires_at": "2026-04-17 18:09:16.652266"
+        },
+        {
+            "id": 4,
+            "seller_id": "1056458599045541890",
+            "seller_country": "Россия",
+            "econ_region": "Восточно-Сибирский экономический район",
+            "region_name": "Республика Хакасия",
+            "asset_type": "civilian_factories",
+            "asset_name": "Гражданская фабрика",
+            "quantity": 1,
+            "currency": "RUB",
+            "price_per_unit": 10000000,
+            "total_price": 10000000,
+            "lot_type": "public",
+            "allowed_countries": [],
+            "status": "pending",
+            "created_at": "2026-04-16 19:12:02.631122",
+            "expires_at": "2026-04-17 19:12:02.631080"
+        }
+    ],
+    "completed_offers": [
+        {
+            "id": 2,
+            "seller_id": "1056458599045541890",
+            "seller_country": "Китай",
+            "econ_region": "Северо-Западный Китай",
+            "region_name": "Шэньси",
+            "asset_type": "civilian_factories",
+            "asset_name": "Гражданская фабрика",
+            "quantity": 2,
+            "currency": "CNY",
+            "price_per_unit": 1000000,
+            "total_price": 2000000,
+            "lot_type": "private",
+            "allowed_countries": [
+                "Россия",
+                "США"
+            ],
+            "status": "completed",
+            "created_at": "2026-04-15 19:13:30.491177",
+            "buyer_country": "Россия",
+            "completed_at": "2026-04-15 19:15:04.656288"
+        },
+        {
+            "id": 2,
+            "seller_id": "1056458599045541890",
+            "seller_country": "Россия",
+            "econ_region": "Центральный экономический район",
+            "region_name": "г. Москва",
+            "asset_type": "internet_infrastructure",
+            "asset_name": "ЦОД",
+            "quantity": 2,
+            "currency": "RUB",
+            "price_per_unit": 8000000000,
+            "total_price": 16000000000,
+            "lot_type": "public",
+            "allowed_countries": [],
+            "status": "expired",
+            "created_at": "2026-04-15 20:44:54.138559",
+            "expires_at": "2026-04-16 20:44:54.138512",
+            "expired_at": "2026-04-16 20:53:10.763702"
+        }
+    ]
+}

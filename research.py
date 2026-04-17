@@ -1,4 +1,5 @@
 # research.py - Модуль для реалистичной системы технологий и исследований
+# АДАПТИРОВАНО: сбалансированное время исследований (1-7 дней)
 
 import discord
 from discord.ui import Button, View, Select, Modal, TextInput
@@ -6,15 +7,101 @@ import json
 import os
 import math
 import asyncio
+import random
 from datetime import datetime, timedelta
 from typing import Dict, List, Optional, Tuple, Any
 
 # Импорты из других модулей
-from utils import format_number, format_billion, load_states, save_states, send_response
+from utils import format_number, format_billion, load_states, save_states, send_response, DARK_THEME_COLOR
 
 # Файлы для хранения данных
 RESEARCH_FILE = 'research_data.json'
 TECHNOLOGIES_FILE = 'technologies.json'
+
+# ==================== КОНСТАНТЫ ВРЕМЕНИ ИССЛЕДОВАНИЙ ====================
+
+# Базовая длительность исследований в днях (в зависимости от сложности)
+# Эти значения будут использоваться как основа, модифицируемая учёными и финансированием
+BASE_RESEARCH_DAYS = {
+    # Лёгкие технологии (1-2 дня)
+    "легкая": 2,
+    # Средние технологии (3-4 дня)
+    "средняя": 4,
+    # Сложные технологии (5-7 дней)
+    "сложная": 6,
+    # Очень сложные (8-10 дней)
+    "очень_сложная": 9,
+    # Эпохальные (10-14 дней)
+    "эпохальная": 12
+}
+
+# Привязка технологий к уровням сложности на основе их ID или названий
+TECH_COMPLEXITY = {
+    # Аграрные технологии (лёгкие)
+    "agri_gene_editing_1": "легкая",
+    "agri_vertical_farming": "средняя",
+    "agri_cellular_agriculture": "сложная",
+    
+    # Нефтегазовые (средние)
+    "oil_enhanced_recovery": "средняя",
+    "oil_arctic_drilling": "сложная",
+    "oil_gas_to_liquids": "сложная",
+    
+    # Металлургия (средние)
+    "metal_alloys_1": "средняя",
+    "metal_nanostructured": "сложная",
+    
+    # Станкостроение (средние)
+    "eng_advanced_cnc": "средняя",
+    "eng_multi_axis": "средняя",
+    
+    # Химия (средние)
+    "chemical_catalysts_1": "средняя",
+    "chemical_polymers": "средняя",
+    
+    # Лёгкая промышленность (лёгкая)
+    "light_smart_textiles": "легкая",
+    
+    # Энергетика (сложная)
+    "energy_solar_advanced": "средняя",
+    "energy_battery_1": "сложная",
+    "energy_fusion": "эпохальная",
+    
+    # Строительство (лёгкая)
+    "construction_3d_printing": "легкая",
+    
+    # Электроника (сложная)
+    "electronics_2nm": "сложная",
+    "electronics_quantum": "очень_сложная",
+    
+    # Авиакосмос (сложная)
+    "aerospace_hypersonic": "сложная",
+    
+    # Военные (средние-сложные)
+    "military_directed_energy": "сложная",
+    
+    # Медицина (средняя)
+    "medical_gene_therapy": "средняя",
+    
+    # Судостроение (средняя)
+    "shipbuilding_autonomous": "средняя",
+    
+    # Автомобилестроение (средняя)
+    "automotive_solid_state_battery": "средняя",
+    
+    # БПЛА (средняя)
+    "uav_swarm_intelligence": "средняя"
+}
+
+# Минимальное и максимальное время исследований в днях
+MIN_RESEARCH_DAYS = 1
+MAX_RESEARCH_DAYS = 14
+
+# Модификаторы скорости от обеспеченности ресурсами
+SCIENTIST_MODIFIER_MAX = 2.0  # Максимум x2 скорость при избытке учёных
+SCIENTIST_MODIFIER_MIN = 0.3  # Минимум x0.3 скорость при недостатке учёных
+FUNDING_MODIFIER_MAX = 2.0     # Максимум x2 скорость при избытке финансирования
+FUNDING_MODIFIER_MIN = 0.3     # Минимум x0.3 скорость при недостатке финансирования
 
 # ==================== СТАРТОВЫЕ ДАННЫЕ ДЛЯ ИССЛЕДОВАНИЙ ПО СТРАНАМ ====================
 
@@ -60,6 +147,75 @@ STARTING_RESEARCH_FUNDING = {
         "oil_gas": 600, "engineering": 300, "metallurgy": 250, "chemical": 300,
         "medical": 200, "electronics": 250, "automotive": 200, "agriculture": 200,
         "construction": 150, "machine_tools": 150, "light_industry": 100, "shipbuilding": 150
+    },
+    "Беларусь": {
+        "military": 200, "engineering": 150, "machine_tools": 100,
+        "electronics": 80, "chemical": 120, "agriculture": 150,
+        "energy": 100, "uav": 50, "automotive": 80, "metallurgy": 150
+    },
+    "Норвегия": {
+        "oil_gas": 800, "shipbuilding": 300, "energy": 400,
+        "military": 200, "aerospace": 150, "engineering": 200,
+        "electronics": 150, "medical": 180, "uav": 100
+    },
+    "Великобритания": {
+        "aerospace": 800, "military": 900, "electronics": 700,
+        "medical": 650, "energy": 400, "automotive": 500,
+        "chemical": 400, "uav": 300, "shipbuilding": 600
+    },
+    "Франция": {
+        "aerospace": 700, "military": 800, "electronics": 600,
+        "medical": 550, "energy": 350, "automotive": 450,
+        "chemical": 350, "uav": 250, "shipbuilding": 500
+    },
+    "Япония": {
+        "electronics": 1200, "automotive": 1000, "robotics": 800,
+        "aerospace": 600, "military": 400, "energy": 500,
+        "medical": 450, "uav": 300, "shipbuilding": 700
+    },
+    "КНДР": {
+        "military": 500, "missiles": 400, "uav": 200,
+        "nuclear": 300, "electronics": 50, "automotive": 30
+    },
+    "Турция": {
+        "military": 400, "uav": 350, "aerospace": 300,
+        "automotive": 250, "electronics": 200, "shipbuilding": 150,
+        "energy": 180, "chemical": 150
+    },
+    "Сирия": {
+        "military": 100, "uav": 80, "chemical": 50,
+        "oil_gas": 60, "electronics": 30
+    },
+    "Канада": {
+        "aerospace": 400, "military": 350, "electronics": 300,
+        "energy": 350, "oil_gas": 400, "medical": 250,
+        "uav": 150, "shipbuilding": 200
+    },
+    "Польша": {
+        "military": 250, "automotive": 200, "electronics": 150,
+        "engineering": 180, "chemical": 120, "shipbuilding": 100
+    },
+    "Бразилия": {
+        "aerospace": 250, "military": 200, "automotive": 300,
+        "oil_gas": 350, "agriculture": 400, "energy": 250,
+        "electronics": 150, "shipbuilding": 200
+    },
+    "Швеция": {
+        "military": 350, "aerospace": 300, "automotive": 250,
+        "electronics": 400, "medical": 300, "uav": 200,
+        "shipbuilding": 250
+    },
+    "Финляндия": {
+        "engineering": 300, "electronics": 250, "military": 200,
+        "shipbuilding": 200, "energy": 180, "forestry": 150
+    },
+    "Швейцария": {
+        "medical": 500, "pharmaceuticals": 600, "electronics": 300,
+        "engineering": 250, "precision": 400, "uav": 100
+    },
+    "Египет": {
+        "military": 250, "aerospace": 150, "oil_gas": 200,
+        "electronics": 100, "agriculture": 150, "uav": 120
     }
 }
 
@@ -160,6 +316,100 @@ def save_player_research(user_id: str, player_data: Dict):
     save_research_data(research_data)
 
 
+# ==================== НОВЫЕ ФУНКЦИИ ДЛЯ РАСЧЁТА ВРЕМЕНИ ====================
+
+def get_tech_complexity(tech_id: str) -> str:
+    """Определяет сложность технологии по её ID"""
+    return TECH_COMPLEXITY.get(tech_id, "средняя")  # По умолчанию средняя
+
+def get_base_research_days(tech_id: str) -> int:
+    """Возвращает базовое время исследования в днях для технологии"""
+    complexity = get_tech_complexity(tech_id)
+    base_days = BASE_RESEARCH_DAYS.get(complexity, 4)
+    
+    # Добавляем небольшую вариативность (±10%)
+    variation = random.uniform(0.9, 1.1)
+    return max(MIN_RESEARCH_DAYS, min(MAX_RESEARCH_DAYS, int(base_days * variation)))
+
+def calculate_research_speed_modifier(scientists_assigned: int, required_scientists: int, 
+                                      funding_per_month: float, required_funding: float) -> float:
+    """
+    Рассчитывает множитель скорости исследования на основе обеспеченности ресурсами
+    """
+    if required_scientists <= 0 or required_funding <= 0:
+        return 1.0
+    
+    # Модификатор от учёных
+    scientist_ratio = scientists_assigned / required_scientists
+    scientist_modifier = SCIENTIST_MODIFIER_MIN + (scientist_ratio * (SCIENTIST_MODIFIER_MAX - SCIENTIST_MODIFIER_MIN))
+    scientist_modifier = max(SCIENTIST_MODIFIER_MIN, min(SCIENTIST_MODIFIER_MAX, scientist_modifier))
+    
+    # Модификатор от финансирования (пересчитываем на весь период)
+    # required_funding - общая стоимость, funding_per_month - ежемесячные траты
+    # Нам нужно понять, сколько месяцев потребуется при текущем финансировании
+    months_needed = required_funding / funding_per_month if funding_per_month > 0 else 999
+    funding_ratio = 1 / months_needed if months_needed > 0 else 0
+    
+    # Нормируем относительно базового времени (которое предполагает оптимальное финансирование)
+    # Базовое время рассчитано на funding_per_month = required_funding / base_months
+    # Но мы не знаем base_months, поэтому используем приближение
+    funding_modifier = FUNDING_MODIFIER_MIN + (funding_ratio * 3)  # Эмпирическая формула
+    funding_modifier = max(FUNDING_MODIFIER_MIN, min(FUNDING_MODIFIER_MAX, funding_modifier))
+    
+    # Общий модификатор
+    total_modifier = scientist_modifier * funding_modifier
+    
+    return total_modifier
+
+def calculate_research_time(tech_id: str, scientists_assigned: int, required_scientists: int,
+                           funding_per_month: float, required_funding: float) -> Tuple[datetime, int, float]:
+    """
+    Рассчитывает реальное время завершения исследования
+    Возвращает (дата_завершения, дней_нужно, множитель_скорости)
+    """
+    base_days = get_base_research_days(tech_id)
+    
+    # Рассчитываем модификатор скорости
+    speed_modifier = calculate_research_speed_modifier(
+        scientists_assigned, required_scientists,
+        funding_per_month, required_funding
+    )
+    
+    # Корректируем время
+    actual_days = base_days / speed_modifier
+    actual_days = max(MIN_RESEARCH_DAYS, min(MAX_RESEARCH_DAYS * 2, actual_days))
+    
+    # Добавляем небольшую случайность (±5%)
+    actual_days *= random.uniform(0.95, 1.05)
+    actual_days = int(actual_days)
+    
+    completion_time = datetime.now() + timedelta(days=actual_days)
+    
+    return completion_time, actual_days, speed_modifier
+
+def format_research_time_remaining(seconds: int) -> str:
+    """Форматирование оставшегося времени исследования"""
+    if seconds < 60:
+        return f"{seconds} сек"
+    elif seconds < 3600:
+        return f"{seconds // 60} мин"
+    elif seconds < 86400:
+        hours = seconds // 3600
+        minutes = (seconds % 3600) // 60
+        if minutes > 0:
+            return f"{hours} ч {minutes} мин"
+        return f"{hours} ч"
+    else:
+        days = seconds // 86400
+        hours = (seconds % 86400) // 3600
+        if days == 1:
+            return f"{days} день {hours} ч"
+        elif days in [2, 3, 4]:
+            return f"{days} дня {hours} ч"
+        else:
+            return f"{days} дней {hours} ч"
+
+
 # ==================== ФУНКЦИИ ДЛЯ РАСЧЕТА КОЛИЧЕСТВА УЧЕНЫХ ====================
 
 def get_scientists_by_sector(state_data: Dict, sector_id: str) -> int:
@@ -188,24 +438,6 @@ def get_scientists_by_sector(state_data: Dict, sector_id: str) -> int:
     scientist_share = sector_funding_amount / total_funding if total_funding > 0 else 0
     
     return int(total_scientists * scientist_share)
-
-
-def calculate_monthly_progress(tech: Dict, scientists_assigned: int, funding_per_month: int) -> float:
-    """
-    Рассчитывает ежемесячный прогресс исследования
-    """
-    required_scientists = tech.get("scientists_required", 1000)
-    required_funding = tech.get("research_cost", 1000000000)
-    duration_months = tech.get("duration_months", 24)
-    
-    # Базовый прогресс: 1/duration_months * (scientists_share) * (funding_share)
-    scientists_share = scientists_assigned / required_scientists if required_scientists > 0 else 0
-    funding_share = funding_per_month / (required_funding / duration_months) if required_funding > 0 else 0
-    
-    # Прогресс за месяц (в долях от 1)
-    monthly_progress = (1 / duration_months) * min(2.0, scientists_share) * min(2.0, funding_share)
-    
-    return min(2.0 / duration_months, monthly_progress)  # Максимум 200% скорости
 
 
 # ==================== ПРОВЕРКА ДОСТУПНОСТИ ТЕХНОЛОГИЙ ====================
@@ -246,26 +478,6 @@ def get_available_technologies(player_research: Dict, state_data: Dict) -> List[
 def get_tech_cost(tech: Dict, current_level: int = 0) -> int:
     """Получить стоимость технологии (для совместимости)"""
     return tech.get("research_cost", 1000000000)
-
-
-def format_research_time(seconds: int) -> str:
-    """Форматирование времени исследования"""
-    if seconds < 60:
-        return f"{seconds} сек"
-    elif seconds < 3600:
-        return f"{seconds // 60} мин"
-    elif seconds < 86400:
-        hours = seconds // 3600
-        minutes = (seconds % 3600) // 60
-        if minutes > 0:
-            return f"{hours} ч {minutes} мин"
-        return f"{hours} ч"
-    else:
-        days = seconds // 86400
-        hours = (seconds % 86400) // 3600
-        if hours > 0:
-            return f"{days} дн {hours} ч"
-        return f"{days} дн"
 
 
 # ==================== ПРИМЕНЕНИЕ ЭФФЕКТОВ ТЕХНОЛОГИЙ ====================
@@ -366,15 +578,15 @@ def create_research_status_embed(state_data: Dict, player_research: Dict) -> dis
     total_scientists = professions.get("scientists", 0)
     
     embed = discord.Embed(
-        title="Научно-исследовательский центр",
-        description=f"Государство: {state_name}",
-        color=0x3498db
+        title="🔬 Научно-исследовательский центр",
+        description=f"Государство: {state_name}\n⚡ Время исследований: 1-14 дней",
+        color=DARK_THEME_COLOR
     )
     
     # Общая статистика
     total_funding = sum(player_research.get("sector_funding", {}).values()) / 1000000
     embed.add_field(
-        name="Статистика",
+        name="📊 Статистика",
         value=f"Всего учёных: **{format_number(total_scientists)}**\n"
               f"Всего финансирование: **{total_funding:.0f} млн $/мес**\n"
               f"Завершено технологий: **{len(player_research.get('completed_techs', {}))}**\n"
@@ -394,7 +606,7 @@ def create_research_status_embed(state_data: Dict, player_research: Dict) -> dis
             scientists = get_scientists_by_sector(state_data, sector_id)
             amount_millions = amount / 1000000
             funding_text += f"• {sector_name}: {amount_millions:.0f} млн $/мес | 👥 {scientists} уч.\n"
-        embed.add_field(name="Финансирование секторов", value=funding_text or "Нет", inline=False)
+        embed.add_field(name="💰 Финансирование секторов", value=funding_text or "Нет", inline=False)
     
     # Активные проекты
     active_projects = player_research.get("research_projects", {})
@@ -405,17 +617,17 @@ def create_research_status_embed(state_data: Dict, player_research: Dict) -> dis
             tech = TECHNOLOGIES.get(tech_id)
             if tech:
                 completion = datetime.fromisoformat(project["completion_time"])
-                remaining = (completion - now).days
+                remaining = (completion - now).total_seconds()
                 
                 if remaining > 0:
-                    status = f"⏳ {remaining} дн"
+                    status = f"⏳ {format_research_time_remaining(int(remaining))}"
                 else:
                     status = "✅ Завершается"
                 
                 projects_text += f"• {tech['name']}: {status}\n"
-        embed.add_field(name="Активные проекты", value=projects_text or "Нет", inline=False)
+        embed.add_field(name="🔬 Активные проекты", value=projects_text or "Нет", inline=False)
     else:
-        embed.add_field(name="Активные проекты", value="Нет активных исследований", inline=False)
+        embed.add_field(name="🔬 Активные проекты", value="Нет активных исследований", inline=False)
     
     return embed
 
@@ -460,17 +672,17 @@ class SectorSelect(Select):
         sector = SECTORS.get(sector_id, {})
         
         embed = discord.Embed(
-            title=f"{sector.get('name', sector_id)}",
+            title=f"🔬 {sector.get('name', sector_id)}",
             description=sector.get("description", "Нет описания"),
-            color=0x3498db
+            color=DARK_THEME_COLOR
         )
         
         scientists = get_scientists_by_sector(self.state_data, sector_id)
         funding = self.player_research.get("sector_funding", {}).get(sector_id, 0)
         funding_millions = funding / 1000000
         
-        embed.add_field(name="Учёных в секторе", value=format_number(scientists), inline=True)
-        embed.add_field(name="Финансирование", value=f"{funding_millions:.0f} млн $/мес", inline=True)
+        embed.add_field(name="👥 Учёных в секторе", value=format_number(scientists), inline=True)
+        embed.add_field(name="💰 Финансирование", value=f"{funding_millions:.0f} млн $/мес", inline=True)
         
         # Доступные технологии в этом секторе
         available = get_available_technologies(self.player_research, self.state_data)
@@ -480,7 +692,7 @@ class SectorSelect(Select):
             tech_text = ""
             for tech in sector_techs[:5]:
                 tech_text += f"• {tech['name']} ({tech.get('year')})\n"
-            embed.add_field(name="Доступные технологии", value=tech_text, inline=False)
+            embed.add_field(name="📋 Доступные технологии", value=tech_text, inline=False)
         
         view = SectorManagementView(self.user_id, self.state_data, self.player_research, sector_id)
         await interaction.response.edit_message(embed=embed, view=view)
@@ -519,8 +731,8 @@ class SectorManagementView(View):
             return
         
         embed = discord.Embed(
-            title=f"Доступные технологии - {SECTORS.get(self.sector_id, {}).get('name', self.sector_id)}",
-            color=0x3498db
+            title=f"🔬 Доступные технологии - {SECTORS.get(self.sector_id, {}).get('name', self.sector_id)}",
+            color=DARK_THEME_COLOR
         )
         
         select = TechnologySelect(sector_techs, self.user_id, self.state_data, self.player_research, self.sector_id)
@@ -549,17 +761,17 @@ class SectorManagementView(View):
         sector = SECTORS.get(self.sector_id, {})
         
         embed = discord.Embed(
-            title=f"{sector.get('name', self.sector_id)}",
+            title=f"🔬 {sector.get('name', self.sector_id)}",
             description=sector.get("description", "Нет описания"),
-            color=0x3498db
+            color=DARK_THEME_COLOR
         )
         
         scientists = get_scientists_by_sector(self.state_data, self.sector_id)
         funding = self.player_research.get("sector_funding", {}).get(self.sector_id, 0)
         funding_millions = funding / 1000000
         
-        embed.add_field(name="Учёных в секторе", value=format_number(scientists), inline=True)
-        embed.add_field(name="Финансирование", value=f"{funding_millions:.0f} млн $/мес", inline=True)
+        embed.add_field(name="👥 Учёных в секторе", value=format_number(scientists), inline=True)
+        embed.add_field(name="💰 Финансирование", value=f"{funding_millions:.0f} млн $/мес", inline=True)
         
         await interaction.response.edit_message(embed=embed, view=self)
 
@@ -646,11 +858,13 @@ class TechnologySelect(Select):
         for tech in technologies[:25]:
             required_scientists = tech.get("scientists_required", 1000)
             cost_millions = tech.get("research_cost", 1000000000) / 1000000
+            complexity = get_tech_complexity(tech["id"])
+            base_days = BASE_RESEARCH_DAYS.get(complexity, 4)
             
             options.append(
                 discord.SelectOption(
                     label=tech["name"],
-                    description=f"{tech.get('year')} г. | 👥 {required_scientists} уч. | 💰 {cost_millions:.0f} млн $",
+                    description=f"{tech.get('year')} г. | 👥 {required_scientists} уч. | ⏱️ {base_days} дн",
                     value=tech["id"]
                 )
             )
@@ -683,9 +897,9 @@ class TechnologySelect(Select):
         scientists = get_scientists_by_sector(self.state_data, self.sector_id)
         required_scientists = tech.get("scientists_required", 1000)
         
-        if scientists < required_scientists * 0.5:  # Минимум 50% от требуемого количества
+        if scientists < required_scientists * 0.3:  # Минимум 30% от требуемого количества
             await interaction.response.send_message(
-                f"❌ Недостаточно учёных! Нужно минимум {int(required_scientists * 0.5)}, у вас {scientists}",
+                f"❌ Слишком мало учёных! Рекомендуется минимум {int(required_scientists * 0.3)}, у вас {scientists}",
                 ephemeral=True
             )
             return
@@ -699,25 +913,37 @@ class TechnologySelect(Select):
             )
             return
         
+        # Рассчитываем время завершения
+        completion_time, days_needed, speed_modifier = calculate_research_time(
+            tech_id, scientists, required_scientists,
+            funding, tech.get("research_cost", 1000000000)
+        )
+        
         # Показываем подтверждение
-        view = ResearchConfirmationView(self.user_id, self.state_data, self.player_research, tech, self.sector_id)
+        view = ResearchConfirmationView(
+            self.user_id, self.state_data, self.player_research, tech, self.sector_id,
+            scientists, funding, completion_time, days_needed, speed_modifier
+        )
         
         embed = discord.Embed(
             title=tech["name"],
             description=tech.get("description", "Нет описания"),
-            color=0x3498db
+            color=DARK_THEME_COLOR
         )
         
         required_scientists = tech.get("scientists_required", 0)
         cost_millions = tech.get("research_cost", 0) / 1000000
-        duration_months = tech.get("duration_months", 0)
         available_scientists = get_scientists_by_sector(self.state_data, self.sector_id)
+        complexity = get_tech_complexity(tech_id)
         
-        embed.add_field(name="Год", value=str(tech.get("year")), inline=True)
-        embed.add_field(name="Требуется учёных", value=format_number(required_scientists), inline=True)
-        embed.add_field(name="Доступно учёных", value=format_number(available_scientists), inline=True)
-        embed.add_field(name="Стоимость", value=f"{cost_millions:.0f} млн $", inline=True)
-        embed.add_field(name="Длительность", value=f"{duration_months} месяцев", inline=True)
+        embed.add_field(name="📅 Год", value=str(tech.get("year")), inline=True)
+        embed.add_field(name="📊 Сложность", value=complexity.capitalize(), inline=True)
+        embed.add_field(name="👥 Требуется учёных", value=format_number(required_scientists), inline=True)
+        embed.add_field(name="👥 Доступно учёных", value=format_number(available_scientists), inline=True)
+        embed.add_field(name="💰 Стоимость", value=f"{cost_millions:.0f} млн $", inline=True)
+        embed.add_field(name="⏱️ Базовое время", value=f"{BASE_RESEARCH_DAYS.get(complexity, 4)} дней", inline=True)
+        embed.add_field(name="⚡ Множитель скорости", value=f"x{speed_modifier:.2f}", inline=True)
+        embed.add_field(name="⌛ Реальное время", value=f"**{days_needed} дней**", inline=True)
         
         # Эффекты
         effects = tech.get("effects", {})
@@ -732,7 +958,7 @@ class TechnologySelect(Select):
                     effects_text += f"• {key.replace('_', ' ').title()}: снижение на {(1-value)*100:.0f}%\n"
                 else:
                     effects_text += f"• {key.replace('_', ' ').title()}: {value}\n"
-            embed.add_field(name="Эффекты", value=effects_text, inline=False)
+            embed.add_field(name="✨ Эффекты", value=effects_text, inline=False)
         
         await interaction.response.edit_message(embed=embed, view=view)
 
@@ -740,13 +966,20 @@ class TechnologySelect(Select):
 class ResearchConfirmationView(View):
     """Подтверждение начала исследования"""
     
-    def __init__(self, user_id: int, state_data: Dict, player_research: Dict, tech: Dict, sector_id: str):
+    def __init__(self, user_id: int, state_data: Dict, player_research: Dict, tech: Dict, 
+                 sector_id: str, scientists: int, funding: float, completion_time: datetime,
+                 days_needed: int, speed_modifier: float):
         super().__init__(timeout=60)
         self.user_id = user_id
         self.state_data = state_data
         self.player_research = player_research
         self.tech = tech
         self.sector_id = sector_id
+        self.scientists = scientists
+        self.funding = funding
+        self.completion_time = completion_time
+        self.days_needed = days_needed
+        self.speed_modifier = speed_modifier
     
     @discord.ui.button(label="✅ Начать исследование", style=discord.ButtonStyle.success)
     async def confirm_button(self, interaction: discord.Interaction, button: Button):
@@ -762,7 +995,7 @@ class ResearchConfirmationView(View):
         scientists = get_scientists_by_sector(self.state_data, self.sector_id)
         required_scientists = self.tech.get("scientists_required", 1000)
         
-        if scientists < required_scientists * 0.5:
+        if scientists < required_scientists * 0.3:
             await interaction.response.send_message(
                 f"❌ Недостаточно учёных!",
                 ephemeral=True
@@ -777,29 +1010,17 @@ class ResearchConfirmationView(View):
             )
             return
         
-        # Рассчитываем время завершения
-        monthly_progress = calculate_monthly_progress(
-            self.tech, 
-            scientists, 
-            funding
-        )
-        
-        duration_months = self.tech.get("duration_months", 24)
-        estimated_months = int(duration_months / monthly_progress) if monthly_progress > 0 else duration_months * 2
-        estimated_months = max(1, min(duration_months * 3, estimated_months))  # Ограничиваем
-        
-        completion_time = datetime.now() + timedelta(days=estimated_months * 30)
-        
         # Запускаем исследование
         if "research_projects" not in self.player_research:
             self.player_research["research_projects"] = {}
         
         self.player_research["research_projects"][self.tech["id"]] = {
             "start_time": str(datetime.now()),
-            "completion_time": str(completion_time),
+            "completion_time": str(self.completion_time),
             "scientists_assigned": scientists,
             "funding_per_month": funding,
-            "sector": self.sector_id
+            "sector": self.sector_id,
+            "base_days": self.days_needed
         }
         
         save_player_research(str(self.user_id), self.player_research)
@@ -813,10 +1034,12 @@ class ResearchConfirmationView(View):
         scientists = get_scientists_by_sector(self.state_data, self.sector_id)
         funding_millions = funding / 1000000
         
-        embed.add_field(name="Сектор", value=SECTORS.get(self.sector_id, {}).get("name", self.sector_id), inline=True)
-        embed.add_field(name="Учёных задействовано", value=format_number(scientists), inline=True)
-        embed.add_field(name="Финансирование", value=f"{funding_millions:.0f} млн $/мес", inline=True)
-        embed.add_field(name="Ожидаемое завершение", value=completion_time.strftime("%d.%m.%Y"), inline=True)
+        embed.add_field(name="🔬 Сектор", value=SECTORS.get(self.sector_id, {}).get("name", self.sector_id), inline=True)
+        embed.add_field(name="👥 Учёных", value=format_number(scientists), inline=True)
+        embed.add_field(name="💰 Финансирование", value=f"{funding_millions:.0f} млн $/мес", inline=True)
+        embed.add_field(name="⚡ Множитель", value=f"x{self.speed_modifier:.2f}", inline=True)
+        embed.add_field(name="⌛ Время", value=f"**{self.days_needed} дней**", inline=True)
+        embed.add_field(name="📅 Завершение", value=self.completion_time.strftime("%d.%m.%Y"), inline=True)
         
         # Для эфемерных сообщений нельзя использовать edit_message после response.send_modal
         # Поэтому отправляем новое сообщение
@@ -869,9 +1092,9 @@ class ResearchMainView(View):
             return
         
         embed = discord.Embed(
-            title="Секторы науки",
+            title="🔬 Секторы науки",
             description="Выберите сектор для управления финансированием и исследованиями",
-            color=0x3498db
+            color=DARK_THEME_COLOR
         )
         
         select = SectorSelect(self.user_id, self.state_data, self.player_research)
@@ -890,15 +1113,15 @@ class ResearchMainView(View):
         
         if not completed:
             embed = discord.Embed(
-                title="Завершённые технологии",
+                title="📋 Завершённые технологии",
                 description="У вас пока нет завершённых исследований",
-                color=0x3498db
+                color=DARK_THEME_COLOR
             )
             await interaction.response.edit_message(embed=embed, view=self)
             return
         
         embed = discord.Embed(
-            title="Завершённые технологии",
+            title="📋 Завершённые технологии",
             color=0x2ecc71
         )
         
@@ -936,73 +1159,81 @@ async def research_update_loop(bot_instance):
         try:
             now = datetime.now()
             
-            # Проверяем, прошел ли день (обновляем раз в 24 часа)
-            if last_update is None or (now - last_update).days >= 1:
-                research_data = load_research_data()
-                states = load_states()
+            # Проверяем каждый час
+            research_data = load_research_data()
+            states = load_states()
+            updated = False
+            
+            for user_id_str, player_research in research_data["players"].items():
+                # Находим данные государства игрока
+                state_data = None
+                for state_data_item in states["players"].values():
+                    if state_data_item.get("assigned_to") == user_id_str:
+                        state_data = state_data_item
+                        break
                 
-                for user_id_str, player_research in research_data["players"].items():
-                    # Находим данные государства игрока
-                    state_data = None
-                    for state_data_item in states["players"].values():
-                        if state_data_item.get("assigned_to") == user_id_str:
-                            state_data = state_data_item
-                            break
-                    
-                    if not state_data:
-                        continue
-                    
-                    # Списываем финансирование из бюджета
+                if not state_data:
+                    continue
+                
+                # Списываем финансирование из бюджета (раз в день)
+                if last_update is None or (now - last_update).days >= 1:
                     total_funding = sum(player_research.get("sector_funding", {}).values())
                     if total_funding > 0:
                         budget = state_data["economy"].get("budget", 0)
                         if budget >= total_funding:
                             state_data["economy"]["budget"] -= total_funding
                             player_research["total_spent"] = player_research.get("total_spent", 0) + total_funding
+                            updated = True
                         else:
                             # Если денег нет, финансирование обнуляется
                             player_research["sector_funding"] = {}
-                    
-                    # Обновляем прогресс исследований
-                    active_projects = player_research.get("research_projects", {})
-                    completed = []
-                    
-                    for tech_id, project in active_projects.items():
-                        tech = TECHNOLOGIES.get(tech_id)
-                        if not tech:
-                            continue
-                        
-                        completion = datetime.fromisoformat(project["completion_time"])
-                        if completion <= now:
-                            # Исследование завершено
-                            completed.append(tech_id)
-                            
-                            # Добавляем в завершённые
-                            player_research["completed_techs"][tech_id] = now.year
-                            
-                            # Применяем эффекты
-                            current_level = player_research.get("completed_techs", {}).get(tech_id, 0)
-                            await apply_technology_effects(state_data, tech, current_level + 1)
-                            
-                            # Отправляем уведомление
-                            try:
-                                user = await bot_instance.fetch_user(int(user_id_str))
-                                if user:
-                                    embed = discord.Embed(
-                                        title="✅ Исследование завершено!",
-                                        description=f"**{tech['name']}** разработана!",
-                                        color=0x2ecc71
-                                    )
-                                    await user.send(embed=embed)
-                            except:
-                                pass
-                    
-                    # Удаляем завершённые проекты
-                    for tech_id in completed:
-                        del player_research["research_projects"][tech_id]
+                            updated = True
                 
+                # Проверяем завершённые проекты (каждый час)
+                active_projects = player_research.get("research_projects", {})
+                completed = []
+                
+                for tech_id, project in list(active_projects.items()):
+                    tech = TECHNOLOGIES.get(tech_id)
+                    if not tech:
+                        continue
+                    
+                    completion = datetime.fromisoformat(project["completion_time"])
+                    if completion <= now:
+                        # Исследование завершено
+                        completed.append(tech_id)
+                        
+                        # Добавляем в завершённые
+                        player_research["completed_techs"][tech_id] = now.year
+                        
+                        # Применяем эффекты
+                        current_level = player_research.get("completed_techs", {}).get(tech_id, 0)
+                        await apply_technology_effects(state_data, tech, current_level + 1)
+                        
+                        # Отправляем уведомление
+                        try:
+                            user = await bot_instance.fetch_user(int(user_id_str))
+                            if user:
+                                embed = discord.Embed(
+                                    title="✅ Исследование завершено!",
+                                    description=f"**{tech['name']}** разработана!",
+                                    color=0x2ecc71
+                                )
+                                await user.send(embed=embed)
+                        except:
+                            pass
+                        
+                        updated = True
+                
+                # Удаляем завершённые проекты
+                for tech_id in completed:
+                    del player_research["research_projects"][tech_id]
+            
+            if updated:
                 save_research_data(research_data)
                 save_states(states)
+            
+            if last_update is None or (now - last_update).days >= 1:
                 last_update = now
                 print(f"✅ Исследования обновлены: {now.strftime('%Y-%m-%d %H:%M:%S')}")
             
@@ -1052,7 +1283,7 @@ __all__ = [
     'show_research_menu',
     'research_update_loop',
     'get_player_research',
-    'calculate_monthly_progress',
+    'calculate_research_time',
     'get_scientists_by_sector',
     'apply_technology_effects',
     'TECHNOLOGIES',

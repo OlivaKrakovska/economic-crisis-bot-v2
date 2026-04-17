@@ -1,0 +1,513 @@
+{
+  "fleets": [
+    {
+      "id": "fleet_001",
+      "country": "США",
+      "name": "2-й флот (Атлантика)",
+      "home_zone": "Северная Атлантика",
+      "current_zone": "Северная Атлантика",
+      "ships": {
+        "aircraft_carriers": 2,
+        "cruisers": 4,
+        "destroyers": 12,
+        "submarines": 8,
+        "frigates": 6
+      },
+      "status": "docked",
+      "operation": "docked",
+      "blockade_targets": [],
+      "destination_zone": null,
+      "departure_time": null,
+      "arrival_time": null
+    },
+    {
+      "id": "fleet_002",
+      "country": "США",
+      "name": "3-й флот (Тихий океан)",
+      "home_zone": "Тихий океан",
+      "current_zone": "Тихий океан",
+      "ships": {
+        "aircraft_carriers": 3,
+        "cruisers": 5,
+        "destroyers": 15,
+        "submarines": 10,
+        "frigates": 8
+      },
+      "status": "docked",
+      "operation": "docked",
+      "blockade_targets": [],
+      "destination_zone": null,
+      "departure_time": null,
+      "arrival_time": null
+    },
+    {
+      "id": "fleet_003",
+      "country": "США",
+      "name": "5-й флот (Персидский залив)",
+      "home_zone": "Персидский залив",
+      "current_zone": "Персидский залив",
+      "ships": {
+        "aircraft_carriers": 1,
+        "destroyers": 8,
+        "submarines": 4
+      },
+      "status": "docked",
+      "operation": "docked",
+      "blockade_targets": [],
+      "destination_zone": null,
+      "departure_time": null,
+      "arrival_time": null
+    },
+    {
+      "id": "fleet_004",
+      "country": "Россия",
+      "name": "Северный флот",
+      "home_zone": "Баренцево море",
+      "current_zone": "Баренцево море",
+      "ships": {
+        "aircraft_carriers": 1,
+        "cruisers": 2,
+        "destroyers": 5,
+        "submarines": 15,
+        "frigates": 8
+      },
+      "status": "docked",
+      "operation": "docked",
+      "blockade_targets": [],
+      "destination_zone": null,
+      "departure_time": null,
+      "arrival_time": null
+    },
+    {
+      "id": "fleet_005",
+      "country": "Россия",
+      "name": "Тихоокеанский флот",
+      "home_zone": "Японское море",
+      "current_zone": "Японское море",
+      "ships": {
+        "cruisers": 2,
+        "destroyers": 6,
+        "submarines": 12,
+        "frigates": 8
+      },
+      "status": "docked",
+      "operation": "docked",
+      "blockade_targets": [],
+      "destination_zone": null,
+      "departure_time": null,
+      "arrival_time": null
+    },
+    {
+      "id": "fleet_006",
+      "country": "Россия",
+      "name": "Черноморский флот",
+      "home_zone": "Чёрное море",
+      "current_zone": "Чёрное море",
+      "ships": {
+        "cruisers": 1,
+        "destroyers": 3,
+        "frigates": 6,
+        "submarines": 7,
+        "boats": 10
+      },
+      "status": "docked",
+      "operation": "docked",
+      "blockade_targets": [],
+      "destination_zone": null,
+      "departure_time": null,
+      "arrival_time": null
+    },
+    {
+      "id": "fleet_007",
+      "country": "Россия",
+      "name": "Балтийский флот",
+      "home_zone": "Балтийское море",
+      "current_zone": "Балтийское море",
+      "ships": {
+        "destroyers": 2,
+        "frigates": 4,
+        "corvettes": 6,
+        "boats": 8
+      },
+      "status": "docked",
+      "operation": "docked",
+      "blockade_targets": [],
+      "destination_zone": null,
+      "departure_time": null,
+      "arrival_time": null
+    },
+    {
+      "id": "fleet_008",
+      "country": "Китай",
+      "name": "Северный флот",
+      "home_zone": "Жёлтое море",
+      "current_zone": "Жёлтое море",
+      "ships": {
+        "aircraft_carriers": 1,
+        "destroyers": 8,
+        "submarines": 12,
+        "frigates": 10
+      },
+      "status": "docked",
+      "operation": "docked",
+      "blockade_targets": [],
+      "destination_zone": null,
+      "departure_time": null,
+      "arrival_time": null
+    },
+    {
+      "id": "fleet_009",
+      "country": "Китай",
+      "name": "Восточный флот",
+      "home_zone": "Восточно-Китайское море",
+      "current_zone": "Восточно-Китайское море",
+      "ships": {
+        "aircraft_carriers": 1,
+        "destroyers": 10,
+        "submarines": 15,
+        "frigates": 12
+      },
+      "status": "docked",
+      "operation": "docked",
+      "blockade_targets": [],
+      "destination_zone": null,
+      "departure_time": null,
+      "arrival_time": null
+    },
+    {
+      "id": "fleet_010",
+      "country": "Китай",
+      "name": "Южный флот",
+      "home_zone": "Южно-Китайское море",
+      "current_zone": "Южно-Китайское море",
+      "ships": {
+        "aircraft_carriers": 1,
+        "destroyers": 12,
+        "submarines": 18,
+        "frigates": 15
+      },
+      "status": "docked",
+      "operation": "docked",
+      "blockade_targets": [],
+      "destination_zone": null,
+      "departure_time": null,
+      "arrival_time": null
+    },
+    {
+      "id": "fleet_011",
+      "country": "Великобритания",
+      "name": "Домашний флот",
+      "home_zone": "Северное море",
+      "current_zone": "Северное море",
+      "ships": {
+        "aircraft_carriers": 2,
+        "destroyers": 6,
+        "submarines": 7,
+        "frigates": 8
+      },
+      "status": "docked",
+      "operation": "docked",
+      "blockade_targets": [],
+      "destination_zone": null,
+      "departure_time": null,
+      "arrival_time": null
+    },
+    {
+      "id": "fleet_012",
+      "country": "Франция",
+      "name": "Средиземноморский флот",
+      "home_zone": "Западное Средиземноморье",
+      "current_zone": "Западное Средиземноморье",
+      "ships": {
+        "aircraft_carriers": 1,
+        "destroyers": 3,
+        "frigates": 6,
+        "submarines": 5
+      },
+      "status": "docked",
+      "operation": "docked",
+      "blockade_targets": [],
+      "destination_zone": null,
+      "departure_time": null,
+      "arrival_time": null
+    },
+    {
+      "id": "fleet_013",
+      "country": "Германия",
+      "name": "1-я флотилия (Северное море)",
+      "home_zone": "Северное море",
+      "current_zone": "Северное море",
+      "ships": {
+        "frigates": 6,
+        "corvettes": 5,
+        "submarines": 4,
+        "boats": 8
+      },
+      "status": "docked",
+      "operation": "docked",
+      "blockade_targets": [],
+      "destination_zone": null,
+      "departure_time": null,
+      "arrival_time": null
+    },
+    {
+      "id": "fleet_014",
+      "country": "Германия",
+      "name": "2-я флотилия (Балтийское море)",
+      "home_zone": "Балтийское море",
+      "current_zone": "Балтийское море",
+      "ships": {
+        "frigates": 4,
+        "corvettes": 3,
+        "submarines": 2,
+        "boats": 6
+      },
+      "status": "docked",
+      "operation": "docked",
+      "blockade_targets": [],
+      "destination_zone": null,
+      "departure_time": null,
+      "arrival_time": null
+    },
+    {
+      "id": "fleet_015",
+      "country": "Япония",
+      "name": "Морские силы самообороны",
+      "home_zone": "Японское море",
+      "current_zone": "Японское море",
+      "ships": {
+        "destroyers": 8,
+        "submarines": 6,
+        "frigates": 10
+      },
+      "status": "docked",
+      "operation": "docked",
+      "blockade_targets": [],
+      "destination_zone": null,
+      "departure_time": null,
+      "arrival_time": null
+    },
+    {
+      "id": "fleet_016",
+      "country": "Турция",
+      "name": "Военно-морские силы",
+      "home_zone": "Чёрное море",
+      "current_zone": "Чёрное море",
+      "ships": {
+        "frigates": 8,
+        "corvettes": 6,
+        "submarines": 5,
+        "boats": 12
+      },
+      "status": "docked",
+      "operation": "docked",
+      "blockade_targets": [],
+      "destination_zone": null,
+      "departure_time": null,
+      "arrival_time": null
+    },
+    {
+      "id": "fleet_017",
+      "country": "Иран",
+      "name": "Военно-морские силы",
+      "home_zone": "Персидский залив",
+      "current_zone": "Персидский залив",
+      "ships": {
+        "frigates": 4,
+        "corvettes": 6,
+        "submarines": 3,
+        "boats": 20
+      },
+      "status": "docked",
+      "operation": "docked",
+      "blockade_targets": [],
+      "destination_zone": null,
+      "departure_time": null,
+      "arrival_time": null
+    },
+    {
+      "id": "fleet_018",
+      "country": "Израиль",
+      "name": "Военно-морские силы",
+      "home_zone": "Восточное Средиземноморье",
+      "current_zone": "Восточное Средиземноморье",
+      "ships": {
+        "corvettes": 4,
+        "submarines": 5,
+        "boats": 8
+      },
+      "status": "docked",
+      "operation": "docked",
+      "blockade_targets": [],
+      "destination_zone": null,
+      "departure_time": null,
+      "arrival_time": null
+    },
+    {
+      "id": "fleet_019",
+      "country": "Украина",
+      "name": "Военно-морские силы",
+      "home_zone": "Чёрное море",
+      "current_zone": "Чёрное море",
+      "ships": {
+        "frigates": 1,
+        "corvettes": 2,
+        "boats": 10
+      },
+      "status": "docked",
+      "operation": "docked",
+      "blockade_targets": [],
+      "destination_zone": null,
+      "departure_time": null,
+      "arrival_time": null
+    },
+    {
+      "id": "fleet_020",
+      "country": "Норвегия",
+      "name": "Королевский флот",
+      "home_zone": "Норвежское море",
+      "current_zone": "Норвежское море",
+      "ships": {
+        "frigates": 4,
+        "submarines": 6,
+        "corvettes": 6,
+        "boats": 12
+      },
+      "status": "docked",
+      "operation": "docked",
+      "blockade_targets": [],
+      "destination_zone": null,
+      "departure_time": null,
+      "arrival_time": null
+    },
+    {
+      "id": "fleet_021",
+      "country": "Швеция",
+      "name": "Королевский флот",
+      "home_zone": "Балтийское море",
+      "current_zone": "Балтийское море",
+      "ships": {
+        "corvettes": 7,
+        "submarines": 5,
+        "boats": 12
+      },
+      "status": "docked",
+      "operation": "docked",
+      "blockade_targets": [],
+      "destination_zone": null,
+      "departure_time": null,
+      "arrival_time": null
+    },
+    {
+      "id": "fleet_022",
+      "country": "Польша",
+      "name": "Военно-морские силы",
+      "home_zone": "Балтийское море",
+      "current_zone": "Балтийское море",
+      "ships": {
+        "frigates": 2,
+        "corvettes": 3,
+        "submarines": 3,
+        "boats": 5
+      },
+      "status": "docked",
+      "operation": "docked",
+      "blockade_targets": [],
+      "destination_zone": null,
+      "departure_time": null,
+      "arrival_time": null
+    },
+    {
+      "id": "fleet_023",
+      "country": "Канада",
+      "name": "Королевский флот",
+      "home_zone": "Северная Атлантика",
+      "current_zone": "Северная Атлантика",
+      "ships": {
+        "frigates": 6,
+        "submarines": 4
+      },
+      "status": "docked",
+      "operation": "docked",
+      "blockade_targets": [],
+      "destination_zone": null,
+      "departure_time": null,
+      "arrival_time": null
+    },
+    {
+      "id": "fleet_024",
+      "country": "Бразилия",
+      "name": "Бразильский флот",
+      "home_zone": "Южная Атлантика",
+      "current_zone": "Южная Атлантика",
+      "ships": {
+        "aircraft_carriers": 1,
+        "frigates": 6,
+        "corvettes": 5,
+        "submarines": 4
+      },
+      "status": "docked",
+      "operation": "docked",
+      "blockade_targets": [],
+      "destination_zone": null,
+      "departure_time": null,
+      "arrival_time": null
+    },
+    {
+      "id": "fleet_025",
+      "country": "Египет",
+      "name": "Военно-морские силы",
+      "home_zone": "Восточное Средиземноморье",
+      "current_zone": "Восточное Средиземноморье",
+      "ships": {
+        "frigates": 4,
+        "corvettes": 4,
+        "submarines": 4
+      },
+      "status": "docked",
+      "operation": "docked",
+      "blockade_targets": [],
+      "destination_zone": null,
+      "departure_time": null,
+      "arrival_time": null
+    },
+    {
+      "id": "fleet_026",
+      "country": "КНДР",
+      "name": "Военно-морские силы",
+      "home_zone": "Японское море",
+      "current_zone": "Японское море",
+      "ships": {
+        "frigates": 3,
+        "corvettes": 5,
+        "submarines": 8,
+        "boats": 30
+      },
+      "status": "docked",
+      "operation": "docked",
+      "blockade_targets": [],
+      "destination_zone": null,
+      "departure_time": null,
+      "arrival_time": null
+    },
+    {
+      "id": "fleet_027",
+      "country": "Сирия",
+      "name": "Военно-морские силы",
+      "home_zone": "Восточное Средиземноморье",
+      "current_zone": "Восточное Средиземноморье",
+      "ships": {
+        "corvettes": 2,
+        "boats": 8
+      },
+      "status": "docked",
+      "operation": "docked",
+      "blockade_targets": [],
+      "destination_zone": null,
+      "departure_time": null,
+      "arrival_time": null
+    }
+  ],
+  "last_update": "2026-03-26 07:16:35.372537",
+  "initialized_at": "2026-03-26 07:16:35.372929"
+}

@@ -1,0 +1,519 @@
+{
+    "США": [
+        {
+            "id": "democratic",
+            "name": "Демократическая партия",
+            "leader": "Джо Байден",
+            "ideology": "Либерализм, социал-либерализм",
+            "color": 3333,
+            "position": "center-left",
+            "popularity": 48.5,
+            "icon_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Democratic_Disc.svg/960px-Democratic_Disc.svg.png",
+            "leader_img": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Joe_Biden_presidential_portrait.jpg/500px-Joe_Biden_presidential_portrait.jpg"
+        },
+        {
+            "id": "republican",
+            "name": "Республиканская партия",
+            "leader": "Дональд Трамп",
+            "ideology": "Консерватизм, правый популизм",
+            "color": 16711680,
+            "position": "right",
+            "popularity": 46.2,
+            "icon_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/14/GOP_logo_positive.png/250px-GOP_logo_positive.png",
+            "leader_img": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/16/Official_Presidential_Portrait_of_President_Donald_J._Trump_%282025%29.jpg/500px-Official_Presidential_Portrait_of_President_Donald_J._Trump_%282025%29.jpg"
+        },
+        {
+            "id": "atomwaffen",
+            "name": "Atomwaffen Division",
+            "leader": "Джеймс Мейсон",
+            "ideology": "Неонацизм, милитаризм",
+            "color": 16711680,
+            "position": "right-wing",
+            "popularity": 0.9,
+            "icon_url": "https://www.counterextremism.com/sites/default/files/siege_image/Atomwaffen.jpg",
+            "leader_img": "https://avatars.mds.yandex.net/i?id=f9729e3b81a8873f9d536b1f9df4a66c_l-12473751-images-thumbs&n=13"
+        }
+    ],
+    "Россия": [
+        {
+            "id": "er",
+            "name": "Единая Россия",
+            "leader": "Владимир Путин",
+            "ideology": "Консерватизм, центризм",
+            "color": 26214,
+            "position": "center-right",
+            "popularity": 35.18075925752606,
+            "icon_url": "https://avatars.mds.yandex.net/i?id=e6fff32090d37264a00a9bdc97549625c87f60c8-8217704-images-thumbs&n=13",
+            "leader_img": "https://avatars.mds.yandex.net/i?id=43ed1b72c33df3cc6942cbd95bcd0625_l-5887964-images-thumbs&n=13"
+        },
+        {
+            "id": "kprf",
+            "name": "КПРФ",
+            "leader": "Геннадий Зюганов",
+            "ideology": "Коммунизм, социализм",
+            "color": 13369344,
+            "position": "left",
+            "popularity": 13.62489332607152,
+            "icon_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Logo_of_the_Communist_Party_of_the_Russian_Federation.svg/120px-Logo_of_the_Communist_Party_of_the_Russian_Federation.svg.png",
+            "leader_img": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/71/Gennady_Zyuganov_2022-09-20_%28cropped%29.jpg/500px-Gennady_Zyuganov_2022-09-20_%28cropped%29.jpg"
+        },
+        {
+            "id": "ldpr",
+            "name": "ЛДПР",
+            "leader": "Владимир Жириновский",
+            "ideology": "Национализм, панславизм",
+            "color": 16766720,
+            "position": "right-wing",
+            "popularity": 8.780759257526062,
+            "icon_url": "https://avatars.mds.yandex.net/i?id=6e791e5dc5fdc1090bf469e3dfe7fb0e64d1dc96-3727926-images-thumbs&n=13",
+            "leader_img": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Vladimir_Zhirinovsky_04_-_Ldpr.ru.png/500px-Vladimir_Zhirinovsky_04_-_Ldpr.ru.png"
+        },
+        {
+            "id": "rossya_budushego",
+            "name": "Россия Будущего",
+            "leader": "Алексей Навальный",
+            "ideology": "Либерализм, прогрессивизм",
+            "color": 65280,
+            "position": "center",
+            "popularity": 4.949670098891702,
+            "icon_url": "https://avatars.mds.yandex.net/i?id=37cb14b1370e92c60e67d38902bd778320f043c5-5384283-images-thumbs&n=13",
+            "leader_img": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Alexey_Navalny_2018_%28cropped%29.png/330px-Alexey_Navalny_2018_%28cropped%29.png"
+        }
+    ],
+    "Германия": [
+        {
+            "id": "cdu",
+            "name": "ХДС/ХСС",
+            "leader": "Ангела Меркель",
+            "ideology": "Христианская демократия",
+            "color": 0,
+            "position": "center-right",
+            "popularity": 26.5,
+            "icon_url": "https://static.tildacdn.com/tild3561-6266-4135-a263-303936643163/schwenninger_perspek.jpg",
+            "leader_img": "https://upload.wikimedia.org/wikipedia/commons/8/80/Merkel_CDU_Landtagswahlplakate_2005.jpg"
+        },
+        {
+            "id": "grand_coalition",
+            "name": "Коалиция (СДПГ, Зелёные, СвДП)",
+            "leader": "Олаф Шольц",
+            "ideology": "Социал-либеральная коалиция",
+            "color": 14876687,
+            "position": "center",
+            "popularity": 38.2,
+            "icon_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Flag_of_the_Social_Democratic_Party_of_Germany.svg/960px-Flag_of_the_Social_Democratic_Party_of_Germany.svg.png",
+            "leader_img": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cc/2021-08-21_Olaf_Scholz_0433.JPG/500px-2021-08-21_Olaf_Scholz_0433.JPG"
+        }
+    ],
+    "Великобритания": [
+        {
+            "id": "conservative",
+            "name": "Консервативная партия",
+            "leader": "Борис Джонсон",
+            "ideology": "Консерватизм",
+            "color": 34655,
+            "position": "center-right",
+            "popularity": 43.6,
+            "icon_url": "https://upload.wikimedia.org/wikipedia/commons/9/96/Conservativesworkmark_%28cropped%29.png",
+            "leader_img": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/Boris_Johnson_official_portrait_%28cropped%29.jpg/500px-Boris_Johnson_official_portrait_%28cropped%29.jpg"
+        },
+        {
+            "id": "labour",
+            "name": "Лейбористская партия",
+            "leader": "Джереми Корбин",
+            "ideology": "Социал-демократия",
+            "color": 14430495,
+            "position": "center-left",
+            "popularity": 32.1,
+            "icon_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Labour_Party_Wordmark.svg/1920px-Labour_Party_Wordmark.svg.png",
+            "leader_img": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Official_portrait_of_Jeremy_Corbyn_MP_crop_2%2C_2024.jpg/500px-Official_portrait_of_Jeremy_Corbyn_MP_crop_2%2C_2024.jpg"
+        },
+        {
+            "id": "libdem",
+            "name": "Либеральные демократы",
+            "leader": "Джо Суинсон",
+            "ideology": "Либерализм",
+            "color": 16766720,
+            "position": "center",
+            "popularity": 11.5,
+            "icon_url": "https://upload.wikimedia.org/wikipedia/ru/e/e6/Либеральные_демократы_%28Великобритания%29.png",
+            "leader_img": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Official_portrait_of_Jo_Swinson_crop_2.jpg/330px-Official_portrait_of_Jo_Swinson_crop_2.jpg"
+        }
+    ],
+    "Франция": [
+        {
+            "id": "lrem",
+            "name": "Возрождение",
+            "leader": "Эмманюэль Макрон",
+            "ideology": "Либерализм",
+            "color": 16766720,
+            "position": "center",
+            "popularity": 27.8,
+            "icon_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Renaissance-logotype-officiel.svg/960px-Renaissance-logotype-officiel.svg.png",
+            "leader_img": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Emmanuel_Macron_2025_%28cropped%29.jpg/250px-Emmanuel_Macron_2025_%28cropped%29.jpg"
+        },
+        {
+            "id": "rn",
+            "name": "Национальное объединение",
+            "leader": "Марин Ле Пен",
+            "ideology": "Национализм",
+            "color": 2894896,
+            "position": "right-wing",
+            "popularity": 23.3,
+            "icon_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Logo_Rassemblement_National.svg/250px-Logo_Rassemblement_National.svg.png",
+            "leader_img": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/81/Marine_Le_Pen_2025_%28cropped%29.jpg/250px-Marine_Le_Pen_2025_%28cropped%29.jpg"
+        },
+        {
+            "id": "lr",
+            "name": "Республиканцы",
+            "leader": "Лоран Вокье",
+            "ideology": "Консерватизм",
+            "color": 26214,
+            "position": "center-right",
+            "popularity": 13.4,
+            "icon_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Les_Républicains_-_logo_%28France%2C_2023%29.svg/960px-Les_Républicains_-_logo_%28France%2C_2023%29.svg.png",
+            "leader_img": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/L_Wauquiez13_%28cropped%29.jpg/250px-L_Wauquiez13_%28cropped%29.jpg"
+        }
+    ],
+    "Япония": [
+        {
+            "id": "ldp",
+            "name": "Либерально-демократическая партия",
+            "leader": "Синдзо Абэ",
+            "ideology": "Консерватизм",
+            "color": 52479,
+            "position": "center-right",
+            "popularity": 38.4,
+            "icon_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Liberal_Democratic_Party_of_Japan_logo.svg/1920px-Liberal_Democratic_Party_of_Japan_logo.svg.png",
+            "leader_img": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Shinzō_Abe_20120501.jpg/500px-Shinzō_Abe_20120501.jpg"
+        },
+        {
+            "id": "cdp",
+            "name": "Конституционно-демократическая партия",
+            "leader": "Юкио Эдано",
+            "ideology": "Социал-либерализм",
+            "color": 11599871,
+            "position": "center-left",
+            "popularity": 12.7,
+            "icon_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Logo_of_Constitutional_Democratic_Party_of_Japan.svg/250px-Logo_of_Constitutional_Democratic_Party_of_Japan.svg.png",
+            "leader_img": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Yukio_Edano_In_front_of_Tenjin_Twin_Building_%282020.10.18%29.jpg/330px-Yukio_Edano_In_front_of_Tenjin_Twin_Building_%282020.10.18%29.jpg"
+        }
+    ],
+    "Израиль": [
+        {
+            "id": "likud",
+            "name": "Ликуд",
+            "leader": "Биньямин Нетаньяху",
+            "ideology": "Национал-либерализм",
+            "color": 33023,
+            "position": "right-wing",
+            "popularity": 26.2,
+            "icon_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Flag_of_the_Likud.svg/960px-Flag_of_the_Likud.svg.png",
+            "leader_img": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Benjamin_Netanyahu%2C_February_2023.jpg/330px-Benjamin_Netanyahu%2C_February_2023.jpg"
+        },
+        {
+            "id": "blue_white",
+            "name": "Кахоль-лаван",
+            "leader": "Бени Ганц",
+            "ideology": "Либерализм",
+            "color": 16776960,
+            "position": "center",
+            "popularity": 24.8,
+            "icon_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Blue_and_White_logo_2021.svg/250px-Blue_and_White_logo_2021.svg.png",
+            "leader_img": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Israeli_Minister_Benny_Gantz_at_the_Department_of_State_in_Washington%2C_D.C._on_March_5%2C_2024_%28cropped%29.jpg/250px-Israeli_Minister_Benny_Gantz_at_the_Department_of_State_in_Washington%2C_D.C._on_March_5%2C_2024_%28cropped%29.jpg"
+        }
+    ],
+    "Украина": [
+        {
+            "id": "servant_of_people",
+            "name": "Слуга Народа",
+            "leader": "Владимир Зеленский",
+            "ideology": "Либерализм",
+            "color": 65481,
+            "position": "center",
+            "popularity": 42.3,
+            "icon_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b0/Servant_of_the_People_Party_Logo.svg/250px-Servant_of_the_People_Party_Logo.svg.png",
+            "leader_img": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Владимир_Зеленский_%2831-12-2023%29.jpg/500px-Владимир_Зеленский_%2831-12-2023%29.jpg"
+        },
+        {
+            "id": "opposition_platform",
+            "name": "Оппозиционная платформа — За жизнь",
+            "leader": "Юрий Бойко",
+            "ideology": "Пророссийская",
+            "color": 16711680,
+            "position": "right",
+            "popularity": 12.6,
+            "icon_url": "https://upload.wikimedia.org/wikipedia/ru/thumb/5/58/Логотип_Оппозиционной_платформы_-_За_жизнь.jpg/250px-Логотип_Оппозиционной_платформы_-_За_жизнь.jpg",
+            "leader_img": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Boiko_Yurii_Wiki_Vadim_Chuprina.jpg/500px-Boiko_Yurii_Wiki_Vadim_Chuprina.jpg"
+        },
+        {
+            "id": "right_area_ua",
+            "name": "Правый Сектор",
+            "leader": "Андрей Тарасенко",
+            "ideology": "Ультранационализм, антикоммунизм",
+            "color": 65481,
+            "position": "right-wing",
+            "popularity": 2.1,
+            "icon_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Logo_of_Right_Sector.svg/960px-Logo_of_Right_Sector.svg.png",
+            "leader_img": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Right_Sector%2C_Odessa.jpg/330px-Right_Sector%2C_Odessa.jpg"
+        }
+    ],
+    "Иран": [
+        {
+            "id": "principlists",
+            "name": "Консерваторы",
+            "leader": "Али Хаменеи",
+            "ideology": "Исламский консерватизм",
+            "color": 11382189,
+            "position": "right",
+            "popularity": 68.5,
+            "icon_url": "https://upload.wikimedia.org/wikipedia/commons/3/35/Logo_of_the_Islamic_Republican_Party.png",
+            "leader_img": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Ali_Khamenei_Nowruz_message_official_portrait_1397_02.jpg/330px-Ali_Khamenei_Nowruz_message_official_portrait_1397_02.jpg"
+        }
+    ],
+    "Турция": [
+        {
+            "id": "akp",
+            "name": "Партия справедливости и развития",
+            "leader": "Реджеп Тайип Эрдоган",
+            "ideology": "Консерватизм",
+            "color": 16744448,
+            "position": "right",
+            "popularity": 42.6,
+            "icon_url": "https://upload.wikimedia.org/wikipedia/ru/thumb/5/56/Justice_and_Development_Party_%28Turkey%29_logo.svg/250px-Justice_and_Development_Party_%28Turkey%29_logo.svg.png",
+            "leader_img": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Recep_Tayyip_Erdogan_in_Ukraine.jpg/500px-Recep_Tayyip_Erdogan_in_Ukraine.jpg"
+        },
+        {
+            "id": "chp",
+            "name": "Республиканская народная партия",
+            "leader": "Кемаль Кылычдароглу",
+            "ideology": "Социал-демократия",
+            "color": 16711680,
+            "position": "center-left",
+            "popularity": 22.3,
+            "icon_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/CHP_logo_%282024%2C_vertical_red%29.svg/120px-CHP_logo_%282024%2C_vertical_red%29.svg.png",
+            "leader_img": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Kilicdaroglu_in_the_commercial_of_his_party.jpg/500px-Kilicdaroglu_in_the_commercial_of_his_party.jpg"
+        }
+    ],
+    "Канада": [
+        {
+            "id": "liberal",
+            "name": "Либеральная партия",
+            "leader": "Джастин Трюдо",
+            "ideology": "Либерализм",
+            "color": 16711680,
+            "position": "center",
+            "popularity": 33.1,
+            "icon_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/48/Liberale_Partei_Kanadas_Logo.svg/500px-Liberale_Partei_Kanadas_Logo.svg.png",
+            "leader_img": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f3/Justin_Trudeau_at_the_European_Commission_-_2025.jpg/500px-Justin_Trudeau_at_the_European_Commission_-_2025.jpg"
+        },
+        {
+            "id": "conservative_canada",
+            "name": "Консервативная партия",
+            "leader": "Эндрю Шир",
+            "ideology": "Консерватизм",
+            "color": 26214,
+            "position": "center-right",
+            "popularity": 30.5,
+            "icon_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Logo_of_the_Conservative_Party_of_Canada_%282023–present%29.svg/960px-Logo_of_the_Conservative_Party_of_Canada_%282023–present%29.svg.png",
+            "leader_img": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Andrew-Scheer-June-2017.jpg/500px-Andrew-Scheer-June-2017.jpg"
+        }
+    ],
+    "Польша": [
+        {
+            "id": "pis",
+            "name": "Право и справедливость",
+            "leader": "Анджей Дуда",
+            "ideology": "Консерватизм",
+            "color": 26214,
+            "position": "right",
+            "popularity": 43.6,
+            "icon_url": "https://upload.wikimedia.org/wikipedia/ru/thumb/f/fa/Право_и_справедливость.svg/120px-Право_и_справедливость.svg.png",
+            "leader_img": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bd/President_of_Poland_Andrzej_Duda_Full_Resolution_%28cropped%29.jpg/500px-President_of_Poland_Andrzej_Duda_Full_Resolution_%28cropped%29.jpg"
+        },
+        {
+            "id": "po",
+            "name": "Гражданская коалиция",
+            "leader": "Гжегож Схетына",
+            "ideology": "Либерализм",
+            "color": 16761087,
+            "position": "center",
+            "popularity": 27.4,
+            "icon_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Logo_Koalicja_Obywatelska_2023.svg/250px-Logo_Koalicja_Obywatelska_2023.svg.png",
+            "leader_img": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Grzegorz_Schetyna_Kancelaria_Senatu_2023.jpg/500px-Grzegorz_Schetyna_Kancelaria_Senatu_2023.jpg"
+        }
+    ],
+    "Бразилия": [
+        {
+            "id": "psl",
+            "name": "Социально-либеральная партия",
+            "leader": "Жаир Болсонару",
+            "ideology": "Консерватизм",
+            "color": 33023,
+            "position": "right",
+            "popularity": 29.8,
+            "icon_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Partido_Social_Liberal_logo.svg/250px-Partido_Social_Liberal_logo.svg.png",
+            "leader_img": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Jair_Bolsonaro_2022_%28cropped%29.jpg/250px-Jair_Bolsonaro_2022_%28cropped%29.jpg"
+        },
+        {
+            "id": "pt",
+            "name": "Партия трудящихся",
+            "leader": "Луис Инасиу Лула да Силва",
+            "ideology": "Социализм",
+            "color": 16711680,
+            "position": "left",
+            "popularity": 24.1,
+            "icon_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/70/Bandeira_partido_dos_trabalhadores.svg/250px-Bandeira_partido_dos_trabalhadores.svg.png",
+            "leader_img": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Foto_oficial_de_Luiz_Inácio_Lula_da_Silva_%28ombros%29_denoise.jpg/500px-Foto_oficial_de_Luiz_Inácio_Lula_da_Silva_%28ombros%29_denoise.jpg"
+        }
+    ],
+    "Швеция": [
+        {
+            "id": "sap",
+            "name": "Социал-демократическая партия",
+            "leader": "Стефан Лёвен",
+            "ideology": "Социал-демократия",
+            "color": 16711680,
+            "position": "center-left",
+            "popularity": 28.3,
+            "icon_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/2022_Stockholm_City_Council_election_%28cropped%29.svg/250px-2022_Stockholm_City_Council_election_%28cropped%29.svg.png",
+            "leader_img": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Stefan_Löfven_efter_slutdebatten_i_SVT_2014_%28cropped%29.jpg/250px-Stefan_Löfven_efter_slutdebatten_i_SVT_2014_%28cropped%29.jpg"
+        },
+        {
+            "id": "moderaterna",
+            "name": "Умеренная партия",
+            "leader": "Ульф Кристерссон",
+            "ideology": "Консерватизм",
+            "color": 33023,
+            "position": "center-right",
+            "popularity": 19.8,
+            "icon_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/M_v1.svg/960px-M_v1.svg.png",
+            "leader_img": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Ulf_Kristersson_on_29_June_2023.jpg/330px-Ulf_Kristersson_on_29_June_2023.jpg"
+        }
+    ],
+    "Финляндия": [
+        {
+            "id": "sdp_finland",
+            "name": "Социал-демократическая партия",
+            "leader": "Антти Ринне",
+            "ideology": "Социал-демократия",
+            "color": 16711680,
+            "position": "center-left",
+            "popularity": 17.7,
+            "icon_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Sozialdemokratische_Partei_Finnlands_Logo.svg/960px-Sozialdemokratische_Partei_Finnlands_Logo.svg.png",
+            "leader_img": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Antti_Rinne.jpg/500px-Antti_Rinne.jpg"
+        },
+        {
+            "id": "kok",
+            "name": "Национальная коалиция",
+            "leader": "Петтери Орпо",
+            "ideology": "Консерватизм",
+            "color": 33023,
+            "position": "center-right",
+            "popularity": 16.5,
+            "icon_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Nationale_Sammlungspartei_%28Finnland%29_logo.svg/1920px-Nationale_Sammlungspartei_%28Finnland%29_logo.svg.png",
+            "leader_img": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Petteri-Orpo-01_%28cropped%29.jpg/500px-Petteri-Orpo-01_%28cropped%29.jpg"
+        }
+    ],
+    "Швейцария": [
+        {
+            "id": "svp",
+            "name": "Швейцарская народная партия",
+            "leader": "Ги Пармелен",
+            "ideology": "Национал-консерватизм",
+            "color": 33023,
+            "position": "right",
+            "popularity": 25.6,
+            "icon_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/SVP_UDC_Logo.svg/960px-SVP_UDC_Logo.svg.png",
+            "leader_img": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Guy_Parmelin_%282024%2C_cropped%29.jpg/500px-Guy_Parmelin_%282024%2C_cropped%29.jpg"
+        },
+        {
+            "id": "sp_switzerland",
+            "name": "Социал-демократическая партия",
+            "leader": "Кристиан Левра",
+            "ideology": "Социал-демократия",
+            "color": 16711680,
+            "position": "center-left",
+            "popularity": 16.8,
+            "icon_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/90/Logo_der_Sozialdemokratischen_Partei_der_Schweiz_2009%2C_single.svg/250px-Logo_der_Sozialdemokratischen_Partei_der_Schweiz_2009%2C_single.svg.png",
+            "leader_img": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ed/Christian_Levrat_%28Nationalrat%2C_2007%29.jpg/120px-Christian_Levrat_%28Nationalrat%2C_2007%29.jpg"
+        }
+    ],
+    "Египет": [
+        {
+            "id": "nation_future",
+            "name": "Партия будущего нации",
+            "leader": "Абдель Фаттах ас-Сиси",
+            "ideology": "Национализм",
+            "color": 33023,
+            "position": "center-right",
+            "popularity": 72.3,
+            "icon_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fe/Flag_of_Egypt.svg/960px-Flag_of_Egypt.svg.png",
+            "leader_img": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/AbdelFattah_Elsisi_%28cropped%29.jpg/500px-AbdelFattah_Elsisi_%28cropped%29.jpg"
+        }
+    ],
+    "Беларусь": [
+        {
+            "id": "belaya_rus",
+            "name": "Белая Русь",
+            "leader": "Александр Лукашенко",
+            "ideology": "Авторитаризм, государственничество",
+            "color": 26214,
+            "position": "right",
+            "popularity": 81.2,
+            "icon_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Лагатып_партыі_«Белая_Русь».svg/250px-Лагатып_партыі_«Белая_Русь».svg.png",
+            "leader_img": "https://upload.wikimedia.org/wikipedia/commons/8/83/Александр_Лукашенко_-_08_%2814-03-2025%29.jpg"
+        }
+    ],
+    "Сирия": [
+        {
+            "id": "baath",
+            "name": "Баас",
+            "leader": "Башар Асад",
+            "ideology": "Арабский социализм, панарабизм",
+            "color": 11382189,
+            "position": "left",
+            "popularity": 67.4,
+            "icon_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Flag_of_the_Ba%27ath_Party.svg/960px-Flag_of_the_Ba%27ath_Party.svg.png",
+            "leader_img": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Bashar_al-Assad_in_May_2024.jpg/250px-Bashar_al-Assad_in_May_2024.jpg"
+        }
+    ],
+    "КНДР": [
+        {
+            "id": "wprk",
+            "name": "Трудовая партия Кореи",
+            "leader": "Ким Чен Ын",
+            "ideology": "Чучхе, сонгун",
+            "color": 13369344,
+            "position": "left",
+            "popularity": 98.5,
+            "icon_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/WPK_symbol_red.svg/120px-WPK_symbol_red.svg.png",
+            "leader_img": "https://upload.wikimedia.org/wikipedia/commons/1/15/Kim_Jong-un_%282025%29_%28cropped%29.jpg"
+        }
+    ],
+    "Норвегия": [
+        {
+            "id": "hoyre",
+            "name": "Консервативная партия",
+            "leader": "Эрна Сульберг",
+            "ideology": "Консерватизм",
+            "color": 33023,
+            "position": "center-right",
+            "popularity": 25.0,
+            "icon_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/Høgre_logo_2020.svg/250px-Høgre_logo_2020.svg.png",
+            "leader_img": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d0/Erna_Solberg_%28Red_carpet%29_-_Global_Citizen_Festival_Hamburg_04.jpg/250px-Erna_Solberg_%28Red_carpet%29_-_Global_Citizen_Festival_Hamburg_04.jpg"
+        }
+    ],
+    "Китай": [
+        {
+            "id": "chicompar",
+            "name": "Коммунистическая Партия Китая",
+            "leader": "Си Цзиньпин",
+            "ideology": "Социализм",
+            "color": 13369344,
+            "position": "left",
+            "popularity": 95.6,
+            "icon_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Danghui.svg/120px-Danghui.svg.png",
+            "leader_img": "https://avatars.mds.yandex.net/i?id=0b84cd3a33d80b3cdb85eaac70b90c3e_l-5268869-images-thumbs&n=13"
+        }
+    ]
+}

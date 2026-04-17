@@ -1,5 +1,6 @@
 # resource_extraction.py - Модуль для периодической добычи ресурсов
 # ИСПРАВЛЕННАЯ ВЕРСИЯ - сохраняет время последней добычи
+# Версия с поддержкой новой структуры активов (total/ownership)
 
 import discord
 import asyncio
@@ -112,6 +113,81 @@ BASE_RESOURCES = {
         "electronics": 30,
         "rare_metals": 20,
         "food": 150
+    },
+    "Беларусь": {
+        "oil": 15, "gas": 10, "coal": 50, "uranium": 0,
+        "steel": 80, "aluminum": 20, "electronics": 30,
+        "rare_metals": 5, "food": 150
+    },
+    "Норвегия": {
+        "oil": 400, "gas": 500, "coal": 20, "uranium": 0,
+        "steel": 50, "aluminum": 80, "electronics": 60,
+        "rare_metals": 15, "food": 80
+    },
+    "Великобритания": {
+        "oil": 200, "gas": 150, "coal": 50, "uranium": 10,
+        "steel": 150, "aluminum": 60, "electronics": 200,
+        "rare_metals": 20, "food": 250
+    },
+    "Франция": {
+        "oil": 30, "gas": 20, "coal": 30, "uranium": 80,
+        "steel": 120, "aluminum": 50, "electronics": 180,
+        "rare_metals": 15, "food": 350
+    },
+    "Япония": {
+        "oil": 10, "gas": 10, "coal": 30, "uranium": 10,
+        "steel": 250, "aluminum": 80, "electronics": 500,
+        "rare_metals": 30, "food": 150
+    },
+    "КНДР": {
+        "oil": 0, "gas": 0, "coal": 100, "uranium": 20,
+        "steel": 50, "aluminum": 20, "electronics": 10,
+        "rare_metals": 30, "food": 50
+    },
+    "Турция": {
+        "oil": 30, "gas": 20, "coal": 150, "uranium": 10,
+        "steel": 200, "aluminum": 80, "electronics": 100,
+        "rare_metals": 30, "food": 300
+    },
+    "Сирия": {
+        "oil": 25, "gas": 15, "coal": 0, "uranium": 0,
+        "steel": 20, "aluminum": 10, "electronics": 5,
+        "rare_metals": 5, "food": 50
+    },
+    "Канада": {
+        "oil": 250, "gas": 200, "coal": 100, "uranium": 30,
+        "steel": 150, "aluminum": 200, "electronics": 150,
+        "rare_metals": 50, "food": 300
+    },
+    "Польша": {
+        "oil": 10, "gas": 15, "coal": 200, "uranium": 0,
+        "steel": 150, "aluminum": 40, "electronics": 80,
+        "rare_metals": 10, "food": 250
+    },
+    "Бразилия": {
+        "oil": 250, "gas": 100, "coal": 150, "uranium": 20,
+        "steel": 200, "aluminum": 150, "electronics": 100,
+        "rare_metals": 100, "food": 800
+    },
+    "Швеция": {
+        "oil": 0, "gas": 0, "coal": 0, "uranium": 10,
+        "steel": 80, "aluminum": 40, "electronics": 100,
+        "rare_metals": 20, "food": 80
+    },
+    "Финляндия": {
+        "oil": 0, "gas": 0, "coal": 0, "uranium": 10,
+        "steel": 60, "aluminum": 30, "electronics": 80,
+        "rare_metals": 15, "food": 60
+    },
+    "Швейцария": {
+        "oil": 0, "gas": 0, "coal": 0, "uranium": 0,
+        "steel": 40, "aluminum": 20, "electronics": 150,
+        "rare_metals": 5, "food": 40
+    },
+    "Египет": {
+        "oil": 150, "gas": 200, "coal": 10, "uranium": 0,
+        "steel": 80, "aluminum": 30, "electronics": 40,
+        "rare_metals": 10, "food": 400
     }
 }
 
@@ -164,8 +240,10 @@ def save_last_extraction_time(extraction_time: datetime):
 
 def count_infrastructure_by_country(infra_data: Dict, country_name: str) -> Dict:
     """
-    Подсчитывает всю инфраструктуру страны
+    Подсчитывает всю инфраструктуру страны с учётом новой структуры активов
     """
+    from infra_build import get_asset_total
+    
     result = {
         "civilian_factories": 0,
         "refineries": 0,
@@ -181,10 +259,13 @@ def count_infrastructure_by_country(infra_data: Dict, country_name: str) -> Dict
                 for region_name, region_data in econ_data.get("regions", {}).items():
                     result["regions_count"] += 1
                     
-                    result["civilian_factories"] += region_data.get("civilian_factories", 0)
-                    result["refineries"] += region_data.get("refineries", 0)
-                    result["oil_depots"] += region_data.get("oil_depots", 0)
-                    result["internet_infrastructure"] += region_data.get("internet_infrastructure", 0)
+                    # Используем get_asset_total для поддержки новой структуры
+                    result["civilian_factories"] += get_asset_total(region_data, "civilian_factories")
+                    result["refineries"] += get_asset_total(region_data, "refineries")
+                    result["oil_depots"] += get_asset_total(region_data, "oil_depots")
+                    result["internet_infrastructure"] += get_asset_total(region_data, "internet_infrastructure")
+                    
+                    # agriculture_level - это не актив, а обычное поле
                     result["agriculture_level"] += region_data.get("agriculture_level", 0)
             break
     
@@ -351,6 +432,8 @@ async def resource_extraction_loop(bot_instance):
             
         except Exception as e:
             print(f"❌ Ошибка в resource_extraction_loop: {e}")
+            import traceback
+            traceback.print_exc()
             await asyncio.sleep(3600)
 
 # ==================== КОМАНДА ДЛЯ ПРОВЕРКИ ====================

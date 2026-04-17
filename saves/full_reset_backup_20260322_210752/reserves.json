@@ -1,0 +1,528 @@
+{
+    "activated": {},
+    "remaining_reserves": {
+        "США": {
+            "ground": {
+                "tanks": 2500,
+                "btr": 5000,
+                "bmp": 3000,
+                "armored_vehicles": 8000,
+                "self_propelled_artillery": 800,
+                "towed_artillery": 1000,
+                "mlrs": 400,
+                "atgm_complexes": 1500,
+                "short_range_air_defense": 600,
+                "long_range_air_defense": 200
+            },
+            "equipment": {
+                "small_arms": 500000,
+                "grenade_launchers": 30000,
+                "atgms": 8000,
+                "manpads": 6000,
+                "fpv_drones": 50000
+            },
+            "air": {
+                "fighters": 400,
+                "attack_aircraft": 150,
+                "bombers": 80,
+                "transport_aircraft": 120,
+                "attack_helicopters": 200,
+                "transport_helicopters": 150,
+                "recon_uav": 100,
+                "attack_uav": 50
+            },
+            "navy": {
+                "boats": 100,
+                "corvettes": 10,
+                "destroyers": 15,
+                "cruisers": 5,
+                "submarines": 10
+            },
+            "missiles": {
+                "cruise_missiles": 800,
+                "ballistic_missiles": 300
+            }
+        },
+        "Россия": {
+            "ground": {
+                "tanks": 5000,
+                "btr": 8000,
+                "bmp": 6000,
+                "armored_vehicles": 7000,
+                "self_propelled_artillery": 1000,
+                "towed_artillery": 2000,
+                "mlrs": 600,
+                "atgm_complexes": 2000,
+                "short_range_air_defense": 800,
+                "long_range_air_defense": 300,
+                "zdprk": 400,
+                "zas": 500
+            },
+            "equipment": {
+                "small_arms": 800000,
+                "grenade_launchers": 50000,
+                "atgms": 12000,
+                "manpads": 8000,
+                "fpv_drones": 100000
+            },
+            "air": {
+                "fighters": 600,
+                "attack_aircraft": 250,
+                "bombers": 100,
+                "transport_aircraft": 150,
+                "attack_helicopters": 300,
+                "transport_helicopters": 200,
+                "recon_uav": 150,
+                "attack_uav": 80
+            },
+            "navy": {
+                "boats": 150,
+                "corvettes": 20,
+                "destroyers": 15,
+                "cruisers": 8,
+                "submarines": 25
+            },
+            "missiles": {
+                "cruise_missiles": 1000,
+                "ballistic_missiles": 400,
+                "hypersonic_missiles": 30
+            }
+        },
+        "Китай": {
+            "ground": {
+                "tanks": 3000,
+                "btr": 6000,
+                "bmp": 4000,
+                "armored_vehicles": 5000,
+                "self_propelled_artillery": 800,
+                "towed_artillery": 1200,
+                "mlrs": 500,
+                "atgm_complexes": 1500,
+                "short_range_air_defense": 600,
+                "long_range_air_defense": 200
+            },
+            "equipment": {
+                "small_arms": 600000,
+                "grenade_launchers": 40000,
+                "atgms": 10000,
+                "manpads": 7000,
+                "fpv_drones": 80000
+            },
+            "air": {
+                "fighters": 500,
+                "attack_aircraft": 200,
+                "bombers": 80,
+                "transport_aircraft": 100,
+                "attack_helicopters": 200,
+                "transport_helicopters": 150
+            },
+            "navy": {
+                "boats": 120,
+                "corvettes": 15,
+                "destroyers": 12,
+                "cruisers": 5,
+                "submarines": 20
+            },
+            "missiles": {
+                "cruise_missiles": 800,
+                "ballistic_missiles": 300
+            }
+        },
+        "Германия": {
+            "ground": {
+                "tanks": 150,
+                "btr": 1000,
+                "bmp": 800,
+                "armored_vehicles": 1000,
+                "self_propelled_artillery": 100,
+                "towed_artillery": 200,
+                "mlrs": 50
+            },
+            "equipment": {
+                "small_arms": 100000,
+                "grenade_launchers": 8000,
+                "atgms": 2000,
+                "manpads": 1500,
+                "fpv_drones": 15000
+            },
+            "air": {
+                "fighters": 80,
+                "attack_aircraft": 30,
+                "transport_aircraft": 40,
+                "attack_helicopters": 50,
+                "transport_helicopters": 40
+            }
+        },
+        "Великобритания": {
+            "ground": {
+                "tanks": 100,
+                "btr": 800,
+                "bmp": 600,
+                "armored_vehicles": 800,
+                "self_propelled_artillery": 80,
+                "towed_artillery": 150
+            },
+            "equipment": {
+                "small_arms": 80000,
+                "grenade_launchers": 6000,
+                "atgms": 1500,
+                "manpads": 1000,
+                "fpv_drones": 10000
+            },
+            "air": {
+                "fighters": 60,
+                "attack_aircraft": 20,
+                "transport_aircraft": 30,
+                "attack_helicopters": 40
+            }
+        },
+        "Франция": {
+            "ground": {
+                "tanks": 120,
+                "btr": 900,
+                "bmp": 700,
+                "armored_vehicles": 900,
+                "self_propelled_artillery": 90,
+                "towed_artillery": 180
+            },
+            "equipment": {
+                "small_arms": 90000,
+                "grenade_launchers": 7000,
+                "atgms": 1800,
+                "manpads": 1200,
+                "fpv_drones": 12000
+            },
+            "air": {
+                "fighters": 70,
+                "attack_aircraft": 25,
+                "transport_aircraft": 35,
+                "attack_helicopters": 45
+            }
+        },
+        "Япония": {
+            "ground": {
+                "tanks": 80,
+                "btr": 600,
+                "bmp": 400,
+                "armored_vehicles": 600,
+                "self_propelled_artillery": 60,
+                "towed_artillery": 100
+            },
+            "equipment": {
+                "small_arms": 60000,
+                "grenade_launchers": 5000,
+                "atgms": 1200,
+                "manpads": 800,
+                "fpv_drones": 8000
+            },
+            "air": {
+                "fighters": 50,
+                "attack_aircraft": 15,
+                "transport_aircraft": 25,
+                "attack_helicopters": 30
+            }
+        },
+        "Израиль": {
+            "ground": {
+                "tanks": 800,
+                "btr": 2000,
+                "bmp": 1500,
+                "armored_vehicles": 2000,
+                "self_propelled_artillery": 200,
+                "towed_artillery": 300,
+                "mlrs": 100
+            },
+            "equipment": {
+                "small_arms": 150000,
+                "grenade_launchers": 10000,
+                "atgms": 3000,
+                "manpads": 2000,
+                "fpv_drones": 30000
+            },
+            "air": {
+                "fighters": 100,
+                "attack_aircraft": 40,
+                "transport_aircraft": 30,
+                "attack_helicopters": 50
+            }
+        },
+        "Украина": {
+            "ground": {
+                "tanks": 800,
+                "btr": 2000,
+                "bmp": 1500,
+                "armored_vehicles": 1500,
+                "self_propelled_artillery": 300,
+                "towed_artillery": 500,
+                "mlrs": 200,
+                "atgm_complexes": 800
+            },
+            "equipment": {
+                "small_arms": 200000,
+                "grenade_launchers": 15000,
+                "atgms": 4000,
+                "manpads": 3000,
+                "fpv_drones": 50000
+            },
+            "air": {
+                "fighters": 80,
+                "attack_aircraft": 30,
+                "transport_aircraft": 20,
+                "attack_helicopters": 40
+            }
+        },
+        "Турция": {
+            "ground": {
+                "tanks": 500,
+                "btr": 1500,
+                "bmp": 1000,
+                "armored_vehicles": 1200,
+                "self_propelled_artillery": 150,
+                "towed_artillery": 300,
+                "mlrs": 100
+            },
+            "equipment": {
+                "small_arms": 120000,
+                "grenade_launchers": 8000,
+                "atgms": 2500,
+                "manpads": 1800,
+                "fpv_drones": 20000
+            },
+            "air": {
+                "fighters": 60,
+                "attack_aircraft": 25,
+                "transport_aircraft": 25,
+                "attack_helicopters": 35
+            }
+        },
+        "Иран": {
+            "ground": {
+                "tanks": 600,
+                "btr": 1500,
+                "bmp": 1000,
+                "armored_vehicles": 1200,
+                "self_propelled_artillery": 200,
+                "towed_artillery": 400,
+                "mlrs": 150
+            },
+            "equipment": {
+                "small_arms": 150000,
+                "grenade_launchers": 10000,
+                "atgms": 3000,
+                "manpads": 2000,
+                "fpv_drones": 25000
+            },
+            "air": {
+                "fighters": 70,
+                "attack_aircraft": 30,
+                "transport_aircraft": 20,
+                "attack_helicopters": 40
+            }
+        },
+        "Норвегия": {
+            "ground": {
+                "tanks": 20,
+                "btr": 200,
+                "bmp": 150,
+                "armored_vehicles": 200,
+                "towed_artillery": 50
+            },
+            "equipment": {
+                "small_arms": 20000,
+                "grenade_launchers": 1500,
+                "atgms": 500,
+                "manpads": 400,
+                "fpv_drones": 5000
+            },
+            "air": {
+                "fighters": 20,
+                "transport_aircraft": 10,
+                "attack_helicopters": 10
+            }
+        },
+        "Швеция": {
+            "ground": {
+                "tanks": 50,
+                "btr": 300,
+                "bmp": 200,
+                "armored_vehicles": 300,
+                "self_propelled_artillery": 30,
+                "towed_artillery": 80
+            },
+            "equipment": {
+                "small_arms": 30000,
+                "grenade_launchers": 2000,
+                "atgms": 800,
+                "manpads": 600,
+                "fpv_drones": 8000
+            },
+            "air": {
+                "fighters": 25,
+                "transport_aircraft": 15,
+                "attack_helicopters": 15
+            }
+        },
+        "Финляндия": {
+            "ground": {
+                "tanks": 40,
+                "btr": 250,
+                "bmp": 180,
+                "armored_vehicles": 250,
+                "towed_artillery": 100
+            },
+            "equipment": {
+                "small_arms": 25000,
+                "grenade_launchers": 1800,
+                "atgms": 600,
+                "manpads": 500,
+                "fpv_drones": 6000
+            },
+            "air": {
+                "fighters": 20,
+                "transport_aircraft": 10,
+                "attack_helicopters": 12
+            }
+        },
+        "Польша": {
+            "ground": {
+                "tanks": 200,
+                "btr": 800,
+                "bmp": 600,
+                "armored_vehicles": 700,
+                "self_propelled_artillery": 80,
+                "towed_artillery": 150,
+                "mlrs": 50
+            },
+            "equipment": {
+                "small_arms": 80000,
+                "grenade_launchers": 6000,
+                "atgms": 1500,
+                "manpads": 1000,
+                "fpv_drones": 12000
+            },
+            "air": {
+                "fighters": 40,
+                "attack_aircraft": 15,
+                "transport_aircraft": 15,
+                "attack_helicopters": 25
+            }
+        },
+        "Канада": {
+            "ground": {
+                "tanks": 30,
+                "btr": 300,
+                "bmp": 200,
+                "armored_vehicles": 300,
+                "towed_artillery": 80
+            },
+            "equipment": {
+                "small_arms": 40000,
+                "grenade_launchers": 3000,
+                "atgms": 800,
+                "manpads": 600,
+                "fpv_drones": 8000
+            },
+            "air": {
+                "fighters": 30,
+                "transport_aircraft": 20,
+                "attack_helicopters": 15
+            }
+        },
+        "Бразилия": {
+            "ground": {
+                "tanks": 100,
+                "btr": 500,
+                "bmp": 300,
+                "armored_vehicles": 500,
+                "towed_artillery": 200,
+                "self_propelled_artillery": 50
+            },
+            "equipment": {
+                "small_arms": 100000,
+                "grenade_launchers": 8000,
+                "atgms": 2000,
+                "manpads": 1500,
+                "fpv_drones": 15000
+            },
+            "air": {
+                "fighters": 40,
+                "attack_aircraft": 15,
+                "transport_aircraft": 20,
+                "attack_helicopters": 25
+            }
+        },
+        "Египет": {
+            "ground": {
+                "tanks": 800,
+                "btr": 1500,
+                "bmp": 1000,
+                "armored_vehicles": 1200,
+                "self_propelled_artillery": 150,
+                "towed_artillery": 300,
+                "mlrs": 100
+            },
+            "equipment": {
+                "small_arms": 150000,
+                "grenade_launchers": 10000,
+                "atgms": 3000,
+                "manpads": 2000,
+                "fpv_drones": 20000
+            },
+            "air": {
+                "fighters": 80,
+                "attack_aircraft": 30,
+                "transport_aircraft": 25,
+                "attack_helicopters": 40
+            }
+        },
+        "КНДР": {
+            "ground": {
+                "tanks": 2000,
+                "btr": 3000,
+                "bmp": 2000,
+                "armored_vehicles": 2500,
+                "self_propelled_artillery": 400,
+                "towed_artillery": 1000,
+                "mlrs": 300,
+                "atgm_complexes": 800
+            },
+            "equipment": {
+                "small_arms": 500000,
+                "grenade_launchers": 30000,
+                "atgms": 5000,
+                "manpads": 4000,
+                "fpv_drones": 50000
+            },
+            "air": {
+                "fighters": 200,
+                "attack_aircraft": 80,
+                "transport_aircraft": 20,
+                "attack_helicopters": 40
+            }
+        },
+        "Сирия": {
+            "ground": {
+                "tanks": 500,
+                "btr": 1000,
+                "bmp": 800,
+                "armored_vehicles": 800,
+                "self_propelled_artillery": 100,
+                "towed_artillery": 200,
+                "mlrs": 80
+            },
+            "equipment": {
+                "small_arms": 100000,
+                "grenade_launchers": 8000,
+                "atgms": 2000,
+                "manpads": 1500,
+                "fpv_drones": 10000
+            },
+            "air": {
+                "fighters": 50,
+                "attack_aircraft": 20,
+                "transport_aircraft": 10,
+                "attack_helicopters": 20
+            }
+        }
+    }
+}

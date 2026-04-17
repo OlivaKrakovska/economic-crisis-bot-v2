@@ -1,0 +1,4472 @@
+{
+    "metadata": {
+        "version": "1.1",
+        "last_updated": "2024-01-01",
+        "description": "Национальные фокусы для всех играбельных государств"
+    },
+    "focuses": {
+        "США": [
+            {
+                "id": "us_infrastructure_01",
+                "name": "Закон об инвестициях в инфраструктуру",
+                "description": "Модернизация дорог, мостов и интернет-соединения.",
+                "category": "infrastructure",
+                "prerequisites": [],
+                "cost": 10,
+                "duration_days": 2,
+                "effects": {
+                    "construction_speed": "+5%",
+                    "logistics_efficiency": "+8%",
+                    "budget_cost": "50 млн $"
+                }
+            },
+            {
+                "id": "us_economic_01",
+                "name": "Закон о снижении инфляции",
+                "description": "Инвестиции в зелёную энергетику и налоговая реформа.",
+                "category": "economic",
+                "prerequisites": [],
+                "cost": 12,
+                "duration_days": 2,
+                "effects": {
+                    "inflation": "-1%",
+                    "green_energy_production": "+10%",
+                    "budget_revenue": "+5 млн $/мес"
+                }
+            },
+            {
+                "id": "us_tech_01",
+                "name": "Закон о CHIPS и науке",
+                "description": "Развитие полупроводниковой промышленности.",
+                "category": "technology",
+                "prerequisites": ["us_economic_01"],
+                "cost": 15,
+                "duration_days": 2,
+                "effects": {
+                    "electronics_production": "+10%",
+                    "research_speed": "+5%",
+                    "budget_cost": "20 млн $"
+                }
+            },
+            {
+                "id": "us_military_01",
+                "name": "Модернизация ядерной триады",
+                "description": "Обновление стратегических ядерных сил.",
+                "category": "military",
+                "prerequisites": [],
+                "cost": 20,
+                "duration_days": 3,
+                "effects": {
+                    "nuclear_deterrence": "+10%",
+                    "military_prestige": "+5%",
+                    "budget_cost": "40 млн $"
+                }
+            },
+            {
+                "id": "us_military_02",
+                "name": "Программа Next Generation Air Dominance",
+                "description": "Разработка истребителя шестого поколения.",
+                "category": "military",
+                "prerequisites": ["us_military_01"],
+                "cost": 18,
+                "duration_days": 3,
+                "effects": {
+                    "air_force_technology": "+10%",
+                    "fighter_capability": "+12%",
+                    "budget_cost": "30 млн $"
+                }
+            },
+            {
+                "id": "us_military_03",
+                "name": "Космические силы",
+                "description": "Развитие космического командования.",
+                "category": "military",
+                "prerequisites": ["us_military_02"],
+                "cost": 16,
+                "duration_days": 2,
+                "effects": {
+                    "space_capabilities": "+15%",
+                    "satellite_defense": "+10%",
+                    "budget_cost": "25 млн $"
+                }
+            },
+            {
+                "id": "us_foreign_01",
+                "name": "Укрепление НАТО",
+                "description": "Усиление восточного фланга альянса.",
+                "category": "foreign",
+                "prerequisites": [],
+                "cost": 12,
+                "duration_days": 2,
+                "effects": {
+                    "nato_cohesion": "+10%",
+                    "relations_europe": "+10",
+                    "budget_cost": "15 млн $"
+                }
+            },
+            {
+                "id": "us_foreign_02",
+                "name": "AUKUS",
+                "description": "Военно-техническое сотрудничество с UK и Австралией.",
+                "category": "foreign",
+                "prerequisites": ["us_foreign_01"],
+                "cost": 14,
+                "duration_days": 2,
+                "effects": {
+                    "relations_uk": "+15",
+                    "relations_australia": "+15",
+                    "tech_sharing": "+10%"
+                }
+            },
+            {
+                "id": "us_foreign_03",
+                "name": "Четырёхсторонний диалог",
+                "description": "Укрепление сотрудничества с Японией, Индией, Австралией.",
+                "category": "foreign",
+                "prerequisites": ["us_foreign_02"],
+                "cost": 12,
+                "duration_days": 2,
+                "effects": {
+                    "relations_japan": "+12",
+                    "relations_india": "+12",
+                    "influence_asia": "+10%"
+                }
+            },
+            {
+                "id": "us_social_01",
+                "name": "Студенческие кредиты",
+                "description": "Программа прощения части студенческих долгов.",
+                "category": "social",
+                "prerequisites": [],
+                "cost": 14,
+                "duration_days": 2,
+                "effects": {
+                    "young_voters_approval": "+15%",
+                    "disposable_income": "+3%",
+                    "happiness": "+5%",
+                    "budget_cost": "30 млн $"
+                }
+            },
+            {
+                "id": "us_social_02",
+                "name": "Медицинская реформа",
+                "description": "Снижение цен на лекарства.",
+                "category": "social",
+                "prerequisites": ["us_social_01"],
+                "cost": 16,
+                "duration_days": 2,
+                "effects": {
+                    "healthcare_access": "+10%",
+                    "drug_prices": "-10%",
+                    "happiness": "+5%",
+                    "budget_cost": "25 млн $"
+                }
+            },
+            {
+                "id": "us_political_01",
+                "name": "Защита избирательных прав",
+                "description": "Защита выборов от иностранного вмешательства.",
+                "category": "political",
+                "prerequisites": [],
+                "cost": 8,
+                "duration_days": 1,
+                "effects": {
+                    "election_security": "+15%",
+                    "political_power_gain": "+0.3/день"
+                }
+            },
+            {
+                "id": "us_energy_01",
+                "name": "Энергетическая независимость",
+                "description": "Увеличение добычи нефти и газа.",
+                "category": "energy",
+                "prerequisites": [],
+                "cost": 10,
+                "duration_days": 2,
+                "effects": {
+                    "oil_production": "+10%",
+                    "gas_production": "+10%",
+                    "energy_exports": "+10%",
+                    "budget_revenue": "+3 млн $/мес",
+                    "budget_cost": "20 млн $"
+                }
+            },
+            {
+                "id": "us_trade_01",
+                "name": "Торговое соглашение с ЕС",
+                "description": "Снижение торговых барьеров с Европой.",
+                "category": "economic",
+                "prerequisites": [],
+                "cost": 12,
+                "duration_days": 2,
+                "effects": {
+                    "trade_with_eu": "+15%",
+                    "export_opportunities": "+10%"
+                }
+            },
+            {
+                "id": "us_trade_02",
+                "name": "Индо-Тихоокеанская торговая стратегия",
+                "description": "Развитие торговых связей с Азией.",
+                "category": "economic",
+                "prerequisites": ["us_trade_01"],
+                "cost": 14,
+                "duration_days": 2,
+                "effects": {
+                    "trade_with_asia": "+15%",
+                    "export_opportunities": "+10%",
+                    "budget_cost": "10 млн $"
+                }
+            }
+        ],
+        
+        "Россия": [
+            {
+                "id": "ru_military_01",
+                "name": "Модернизация армии",
+                "description": "Переоснащение сухопутных войск новой техникой.",
+                "category": "military",
+                "prerequisites": [],
+                "cost": 18,
+                "duration_days": 3,
+                "effects": {
+                    "ground_forces_technology": "+10%",
+                    "army_readiness": "+8%",
+                    "budget_cost": "30 млн $"
+                }
+            },
+            {
+                "id": "ru_military_02",
+                "name": "Развитие ВКС",
+                "description": "Закупка новых истребителей Су-57.",
+                "category": "military",
+                "prerequisites": ["ru_military_01"],
+                "cost": 16,
+                "duration_days": 2,
+                "effects": {
+                    "air_force_capability": "+12%",
+                    "fighter_technology": "+10%",
+                    "budget_cost": "25 млн $"
+                }
+            },
+            {
+                "id": "ru_military_03",
+                "name": "Модернизация ПВО",
+                "description": "Развёртывание новых систем С-400 и С-500.",
+                "category": "military",
+                "prerequisites": ["ru_military_02"],
+                "cost": 16,
+                "duration_days": 2,
+                "effects": {
+                    "air_defense": "+15%",
+                    "anti_missile_capability": "+12%",
+                    "budget_cost": "25 млн $"
+                }
+            },
+            {
+                "id": "ru_military_04",
+                "name": "Развитие флота",
+                "description": "Строительство новых подводных лодок.",
+                "category": "military",
+                "prerequisites": ["ru_military_03"],
+                "cost": 20,
+                "duration_days": 3,
+                "effects": {
+                    "navy_strength": "+12%",
+                    "submarine_capability": "+15%",
+                    "budget_cost": "35 млн $"
+                }
+            },
+            {
+                "id": "ru_military_05",
+                "name": "Гиперзвуковое оружие",
+                "description": "Развёртывание комплексов 'Кинжал' и 'Циркон'.",
+                "category": "military",
+                "prerequisites": ["ru_military_04"],
+                "cost": 22,
+                "duration_days": 3,
+                "effects": {
+                    "hypersonic_technology": "+20%",
+                    "strategic_deterrence": "+12%",
+                    "budget_cost": "30 млн $"
+                }
+            },
+            {
+                "id": "ru_economic_01",
+                "name": "Импортозамещение",
+                "description": "Развитие собственного производства.",
+                "category": "economic",
+                "prerequisites": [],
+                "cost": 15,
+                "duration_days": 2,
+                "effects": {
+                    "import_dependency": "-10%",
+                    "domestic_production": "+8%",
+                    "budget_cost": "15 млн $"
+                }
+            },
+            {
+                "id": "ru_economic_02",
+                "name": "Разворот на Восток",
+                "description": "Развитие торговли с Китаем и Индией.",
+                "category": "economic",
+                "prerequisites": ["ru_economic_01"],
+                "cost": 14,
+                "duration_days": 2,
+                "effects": {
+                    "trade_with_china": "+15%",
+                    "trade_with_india": "+12%",
+                    "budget_revenue": "+3 млн $/мес"
+                }
+            },
+            {
+                "id": "ru_economic_03",
+                "name": "Развитие СПГ",
+                "description": "Строительство новых заводов по сжижению газа.",
+                "category": "economic",
+                "prerequisites": ["ru_economic_02"],
+                "cost": 18,
+                "duration_days": 3,
+                "effects": {
+                    "lng_production": "+15%",
+                    "gas_exports": "+12%",
+                    "budget_revenue": "+4 млн $/мес",
+                    "budget_cost": "25 млн $"
+                }
+            },
+            {
+                "id": "ru_infrastructure_01",
+                "name": "Северный морской путь",
+                "description": "Развитие инфраструктуры в Арктике.",
+                "category": "infrastructure",
+                "prerequisites": [],
+                "cost": 16,
+                "duration_days": 2,
+                "effects": {
+                    "logistics_efficiency": "+10%",
+                    "arctic_presence": "+15%",
+                    "budget_cost": "20 млн $"
+                }
+            },
+            {
+                "id": "ru_social_01",
+                "name": "Демографическая политика",
+                "description": "Поддержка семей с детьми.",
+                "category": "social",
+                "prerequisites": [],
+                "cost": 12,
+                "duration_days": 1,
+                "effects": {
+                    "birth_rate": "+5%",
+                    "happiness": "+3%",
+                    "budget_cost": "10 млн $"
+                }
+            },
+            {
+                "id": "ru_social_02",
+                "name": "Здравоохранение",
+                "description": "Модернизация медицинских учреждений.",
+                "category": "social",
+                "prerequisites": ["ru_social_01"],
+                "cost": 14,
+                "duration_days": 2,
+                "effects": {
+                    "healthcare_quality": "+8%",
+                    "life_expectancy": "+1",
+                    "budget_cost": "15 млн $"
+                }
+            },
+            {
+                "id": "ru_political_01",
+                "name": "Укрепление вертикали власти",
+                "description": "Централизация управления.",
+                "category": "political",
+                "prerequisites": [],
+                "cost": 8,
+                "duration_days": 1,
+                "effects": {
+                    "government_efficiency": "+8%",
+                    "stability": "+5%",
+                    "political_power_gain": "+0.3/день"
+                }
+            },
+            {
+                "id": "ru_foreign_01",
+                "name": "Союзное государство",
+                "description": "Углубление интеграции с Беларусью.",
+                "category": "foreign",
+                "prerequisites": [],
+                "cost": 10,
+                "duration_days": 1,
+                "effects": {
+                    "relations_belarus": "+20",
+                    "economic_integration": "+15%"
+                }
+            },
+            {
+                "id": "ru_foreign_02",
+                "name": "ОДКБ",
+                "description": "Укрепление военного союза.",
+                "category": "foreign",
+                "prerequisites": ["ru_foreign_01"],
+                "cost": 12,
+                "duration_days": 2,
+                "effects": {
+                    "cst_cohesion": "+15%",
+                    "military_cooperation": "+12%"
+                }
+            },
+            {
+                "id": "ru_foreign_03",
+                "name": "Стратегическое партнёрство с Китаем",
+                "description": "Углубление отношений с КНР.",
+                "category": "foreign",
+                "prerequisites": [],
+                "cost": 14,
+                "duration_days": 2,
+                "effects": {
+                    "relations_china": "+20",
+                    "military_cooperation": "+10%"
+                }
+            }
+        ],
+        
+        "Китай": [
+            {
+                "id": "cn_economic_01",
+                "name": "Пояс и путь",
+                "description": "Инфраструктурные проекты в Евразии.",
+                "category": "economic",
+                "prerequisites": [],
+                "cost": 18,
+                "duration_days": 3,
+                "effects": {
+                    "influence_eurasia": "+15%",
+                    "trade_with_partners": "+12%",
+                    "budget_cost": "40 млн $"
+                }
+            },
+            {
+                "id": "cn_economic_02",
+                "name": "Сделано в Китае 2025",
+                "description": "Развитие высокотехнологичных производств.",
+                "category": "economic",
+                "prerequisites": ["cn_economic_01"],
+                "cost": 16,
+                "duration_days": 2,
+                "effects": {
+                    "high_tech_output": "+12%",
+                    "research_speed": "+5%",
+                    "budget_cost": "30 млн $"
+                }
+            },
+            {
+                "id": "cn_economic_03",
+                "name": "Двойная циркуляция",
+                "description": "Баланс внутреннего потребления и экспорта.",
+                "category": "economic",
+                "prerequisites": ["cn_economic_02"],
+                "cost": 14,
+                "duration_days": 2,
+                "effects": {
+                    "domestic_consumption": "+10%",
+                    "export_dependency": "-8%",
+                    "economic_resilience": "+10%"
+                }
+            },
+            {
+                "id": "cn_military_01",
+                "name": "Модернизация НОАК",
+                "description": "Реформа и перевооружение армии.",
+                "category": "military",
+                "prerequisites": [],
+                "cost": 20,
+                "duration_days": 3,
+                "effects": {
+                    "army_modernization": "+12%",
+                    "equipment_quality": "+10%",
+                    "budget_cost": "35 млн $"
+                }
+            },
+            {
+                "id": "cn_military_02",
+                "name": "Авианосный флот",
+                "description": "Строительство новых авианосцев.",
+                "category": "military",
+                "prerequisites": ["cn_military_01"],
+                "cost": 25,
+                "duration_days": 3,
+                "effects": {
+                    "navy_projection": "+15%",
+                    "carrier_capability": "+20%",
+                    "budget_cost": "45 млн $"
+                }
+            },
+            {
+                "id": "cn_military_03",
+                "name": "Противоспутниковое оружие",
+                "description": "Разработка систем для борьбы со спутниками.",
+                "category": "military",
+                "prerequisites": ["cn_military_02"],
+                "cost": 20,
+                "duration_days": 3,
+                "effects": {
+                    "anti_satellite_capability": "+15%",
+                    "space_dominance": "+12%",
+                    "budget_cost": "30 млн $"
+                }
+            },
+            {
+                "id": "cn_military_04",
+                "name": "Кибервойска",
+                "description": "Развитие наступательных кибервозможностей.",
+                "category": "military",
+                "prerequisites": ["cn_military_03"],
+                "cost": 18,
+                "duration_days": 2,
+                "effects": {
+                    "cyber_capability": "+15%",
+                    "information_warfare": "+12%",
+                    "budget_cost": "20 млн $"
+                }
+            },
+            {
+                "id": "cn_tech_01",
+                "name": "Полупроводниковый суверенитет",
+                "description": "Развитие собственного производства чипов.",
+                "category": "technology",
+                "prerequisites": ["cn_economic_02"],
+                "cost": 22,
+                "duration_days": 3,
+                "effects": {
+                    "semiconductor_production": "+15%",
+                    "import_dependency": "-10%",
+                    "budget_cost": "40 млн $"
+                }
+            },
+            {
+                "id": "cn_tech_02",
+                "name": "Искусственный интеллект",
+                "description": "Развитие технологий ИИ.",
+                "category": "technology",
+                "prerequisites": ["cn_tech_01"],
+                "cost": 18,
+                "duration_days": 2,
+                "effects": {
+                    "ai_technology": "+15%",
+                    "research_speed": "+5%",
+                    "budget_cost": "25 млн $"
+                }
+            },
+            {
+                "id": "cn_tech_03",
+                "name": "Квантовые технологии",
+                "description": "Развитие квантовых вычислений.",
+                "category": "technology",
+                "prerequisites": ["cn_tech_02"],
+                "cost": 20,
+                "duration_days": 3,
+                "effects": {
+                    "quantum_technology": "+15%",
+                    "cryptography": "+10%",
+                    "budget_cost": "30 млн $"
+                }
+            },
+            {
+                "id": "cn_social_01",
+                "name": "Политика трёх детей",
+                "description": "Стимулирование рождаемости.",
+                "category": "social",
+                "prerequisites": [],
+                "cost": 15,
+                "duration_days": 2,
+                "effects": {
+                    "birth_rate": "+8%",
+                    "population_growth": "+0.2%/год",
+                    "budget_cost": "20 млн $"
+                }
+            },
+            {
+                "id": "cn_social_02",
+                "name": "Всеобщее здравоохранение",
+                "description": "Расширение доступа к медицине.",
+                "category": "social",
+                "prerequisites": ["cn_social_01"],
+                "cost": 18,
+                "duration_days": 2,
+                "effects": {
+                    "healthcare_coverage": "+12%",
+                    "happiness": "+5%",
+                    "budget_cost": "25 млн $"
+                }
+            },
+            {
+                "id": "cn_foreign_01",
+                "name": "Отношения с Россией",
+                "description": "Углубление стратегического партнёрства.",
+                "category": "foreign",
+                "prerequisites": [],
+                "cost": 10,
+                "duration_days": 1,
+                "effects": {
+                    "relations_russia": "+20",
+                    "trade_with_russia": "+15%"
+                }
+            },
+            {
+                "id": "cn_foreign_02",
+                "name": "Влияние в Азии",
+                "description": "Укрепление позиций в Юго-Восточной Азии.",
+                "category": "foreign",
+                "prerequisites": ["cn_foreign_01"],
+                "cost": 14,
+                "duration_days": 2,
+                "effects": {
+                    "influence_asean": "+15%",
+                    "trade_with_asia": "+12%",
+                    "budget_cost": "15 млн $"
+                }
+            },
+            {
+                "id": "cn_foreign_03",
+                "name": "Африканская стратегия",
+                "description": "Развитие экономических связей с Африкой.",
+                "category": "foreign",
+                "prerequisites": ["cn_foreign_02"],
+                "cost": 16,
+                "duration_days": 2,
+                "effects": {
+                    "influence_africa": "+15%",
+                    "resource_imports": "+12%",
+                    "budget_cost": "20 млн $"
+                }
+            },
+            {
+                "id": "cn_environment_01",
+                "name": "Углеродная нейтральность",
+                "description": "Снижение выбросов CO2.",
+                "category": "environment",
+                "prerequisites": [],
+                "cost": 16,
+                "duration_days": 2,
+                "effects": {
+                    "renewable_energy": "+15%",
+                    "co2_emissions": "-8%",
+                    "green_technology": "+10%",
+                    "budget_cost": "30 млн $"
+                }
+            }
+        ],
+        
+        "Германия": [
+            {
+                "id": "de_energy_01",
+                "name": "Energiewende",
+                "description": "Развитие возобновляемой энергетики.",
+                "category": "energy",
+                "prerequisites": [],
+                "cost": 16,
+                "duration_days": 2,
+                "effects": {
+                    "renewable_energy": "+15%",
+                    "co2_emissions": "-8%",
+                    "budget_cost": "25 млн $"
+                }
+            },
+            {
+                "id": "de_energy_02",
+                "name": "Зелёный водород",
+                "description": "Инвестиции в производство водорода.",
+                "category": "energy",
+                "prerequisites": ["de_energy_01"],
+                "cost": 18,
+                "duration_days": 2,
+                "effects": {
+                    "hydrogen_technology": "+15%",
+                    "energy_storage": "+10%",
+                    "budget_cost": "30 млн $"
+                }
+            },
+            {
+                "id": "de_energy_03",
+                "name": "Отказ от угля",
+                "description": "Закрытие угольных электростанций.",
+                "category": "energy",
+                "prerequisites": ["de_energy_02"],
+                "cost": 20,
+                "duration_days": 3,
+                "effects": {
+                    "coal_power": "-20%",
+                    "co2_emissions": "-12%",
+                    "renewable_energy": "+10%",
+                    "budget_cost": "20 млн $"
+                }
+            },
+            {
+                "id": "de_economic_01",
+                "name": "Индустрия 4.0",
+                "description": "Цифровизация промышленности.",
+                "category": "economic",
+                "prerequisites": [],
+                "cost": 15,
+                "duration_days": 2,
+                "effects": {
+                    "industrial_efficiency": "+10%",
+                    "productivity": "+8%",
+                    "budget_cost": "20 млн $"
+                }
+            },
+            {
+                "id": "de_economic_02",
+                "name": "Поддержка Mittelstand",
+                "description": "Помощь малому и среднему бизнесу.",
+                "category": "economic",
+                "prerequisites": ["de_economic_01"],
+                "cost": 12,
+                "duration_days": 1,
+                "effects": {
+                    "small_business_growth": "+10%",
+                    "employment": "+2%",
+                    "budget_cost": "15 млн $"
+                }
+            },
+            {
+                "id": "de_military_01",
+                "name": "Zeitenwende",
+                "description": "Увеличение военных расходов.",
+                "category": "military",
+                "prerequisites": [],
+                "cost": 20,
+                "duration_days": 2,
+                "effects": {
+                    "military_budget": "+25%",
+                    "army_readiness": "+10%",
+                    "budget_cost": "30 млн $"
+                }
+            },
+            {
+                "id": "de_military_02",
+                "name": "Закупка F-35",
+                "description": "Приобретение новых истребителей.",
+                "category": "military",
+                "prerequisites": ["de_military_01"],
+                "cost": 16,
+                "duration_days": 2,
+                "effects": {
+                    "air_force_capability": "+12%",
+                    "nato_integration": "+8%",
+                    "budget_cost": "40 млн $"
+                }
+            },
+            {
+                "id": "de_military_03",
+                "name": "Киберкомандование",
+                "description": "Создание кибервойск.",
+                "category": "military",
+                "prerequisites": ["de_military_02"],
+                "cost": 14,
+                "duration_days": 2,
+                "effects": {
+                    "cyber_defense": "+15%",
+                    "cyber_offense": "+10%",
+                    "budget_cost": "15 млн $"
+                }
+            },
+            {
+                "id": "de_political_01",
+                "name": "Лидерство в ЕС",
+                "description": "Укрепление позиций в Евросоюзе.",
+                "category": "political",
+                "prerequisites": [],
+                "cost": 12,
+                "duration_days": 1,
+                "effects": {
+                    "eu_influence": "+12%",
+                    "political_power_gain": "+0.3/день"
+                }
+            },
+            {
+                "id": "de_political_02",
+                "name": "Франко-германский тандем",
+                "description": "Укрепление отношений с Францией.",
+                "category": "political",
+                "prerequisites": ["de_political_01"],
+                "cost": 10,
+                "duration_days": 1,
+                "effects": {
+                    "relations_france": "+15",
+                    "eu_cohesion": "+10%"
+                }
+            },
+            {
+                "id": "de_social_01",
+                "name": "Социальная защита",
+                "description": "Увеличение пособий и пенсий.",
+                "category": "social",
+                "prerequisites": [],
+                "cost": 14,
+                "duration_days": 2,
+                "effects": {
+                    "social_security": "+10%",
+                    "happiness": "+5%",
+                    "budget_cost": "25 млн $"
+                }
+            },
+            {
+                "id": "de_social_02",
+                "name": "Здравоохранение",
+                "description": "Инвестиции в медицину.",
+                "category": "social",
+                "prerequisites": ["de_social_01"],
+                "cost": 16,
+                "duration_days": 2,
+                "effects": {
+                    "healthcare_quality": "+10%",
+                    "hospital_capacity": "+8%",
+                    "budget_cost": "20 млн $"
+                }
+            },
+            {
+                "id": "de_infrastructure_01",
+                "name": "Модернизация автобанов",
+                "description": "Ремонт и расширение дорог.",
+                "category": "infrastructure",
+                "prerequisites": [],
+                "cost": 12,
+                "duration_days": 2,
+                "effects": {
+                    "transport_efficiency": "+10%",
+                    "logistics_speed": "+8%",
+                    "budget_cost": "15 млн $"
+                }
+            },
+            {
+                "id": "de_infrastructure_02",
+                "name": "Цифровая инфраструктура",
+                "description": "Развитие широкополосного интернета.",
+                "category": "infrastructure",
+                "prerequisites": ["de_infrastructure_01"],
+                "cost": 14,
+                "duration_days": 2,
+                "effects": {
+                    "internet_coverage": "+10%",
+                    "digitalization": "+8%",
+                    "budget_cost": "15 млн $"
+                }
+            }
+        ],
+        
+        "Великобритания": [
+            {
+                "id": "uk_economic_01",
+                "name": "Глобальная Британия",
+                "description": "Развитие торговых связей после Brexit.",
+                "category": "economic",
+                "prerequisites": [],
+                "cost": 14,
+                "duration_days": 2,
+                "effects": {
+                    "trade_agreements": "+10%",
+                    "export_opportunities": "+10%",
+                    "budget_cost": "15 млн $"
+                }
+            },
+            {
+                "id": "uk_economic_02",
+                "name": "Лондонский Сити",
+                "description": "Поддержка финансового сектора.",
+                "category": "economic",
+                "prerequisites": ["uk_economic_01"],
+                "cost": 12,
+                "duration_days": 1,
+                "effects": {
+                    "financial_services": "+12%",
+                    "foreign_investment": "+10%",
+                    "budget_revenue": "+3 млн $/мес"
+                }
+            },
+            {
+                "id": "uk_economic_03",
+                "name": "Северо-Английский разворот",
+                "description": "Развитие северных регионов.",
+                "category": "economic",
+                "prerequisites": ["uk_economic_02"],
+                "cost": 16,
+                "duration_days": 2,
+                "effects": {
+                    "regional_development": "+12%",
+                    "infrastructure_investment": "+10%",
+                    "budget_cost": "20 млн $"
+                }
+            },
+            {
+                "id": "uk_military_01",
+                "name": "Модернизация флота",
+                "description": "Строительство новых кораблей.",
+                "category": "military",
+                "prerequisites": [],
+                "cost": 22,
+                "duration_days": 3,
+                "effects": {
+                    "navy_strength": "+12%",
+                    "global_projection": "+10%",
+                    "budget_cost": "35 млн $"
+                }
+            },
+            {
+                "id": "uk_military_02",
+                "name": "Обновление ядерного арсенала",
+                "description": "Модернизация подводных лодок.",
+                "category": "military",
+                "prerequisites": ["uk_military_01"],
+                "cost": 25,
+                "duration_days": 3,
+                "effects": {
+                    "nuclear_deterrence": "+12%",
+                    "military_prestige": "+8%",
+                    "budget_cost": "45 млн $"
+                }
+            },
+            {
+                "id": "uk_military_03",
+                "name": "Интеграция с AUKUS",
+                "description": "Сотрудничество с США и Австралией.",
+                "category": "military",
+                "prerequisites": ["uk_military_02"],
+                "cost": 16,
+                "duration_days": 2,
+                "effects": {
+                    "relations_usa": "+12",
+                    "relations_australia": "+12",
+                    "tech_sharing": "+10%"
+                }
+            },
+            {
+                "id": "uk_social_01",
+                "name": "NHS",
+                "description": "Дополнительное финансирование здравоохранения.",
+                "category": "social",
+                "prerequisites": [],
+                "cost": 18,
+                "duration_days": 2,
+                "effects": {
+                    "healthcare_quality": "+12%",
+                    "happiness": "+8%",
+                    "budget_cost": "25 млн $"
+                }
+            },
+            {
+                "id": "uk_social_02",
+                "name": "Социальное жильё",
+                "description": "Программа строительства доступного жилья.",
+                "category": "social",
+                "prerequisites": ["uk_social_01"],
+                "cost": 16,
+                "duration_days": 2,
+                "effects": {
+                    "housing_availability": "+10%",
+                    "homelessness": "-10%",
+                    "budget_cost": "20 млн $"
+                }
+            },
+            {
+                "id": "uk_tech_01",
+                "name": "AI superpower",
+                "description": "Развитие искусственного интеллекта.",
+                "category": "technology",
+                "prerequisites": ["uk_economic_02"],
+                "cost": 16,
+                "duration_days": 2,
+                "effects": {
+                    "ai_technology": "+12%",
+                    "research_speed": "+5%",
+                    "budget_cost": "15 млн $"
+                }
+            },
+            {
+                "id": "uk_tech_02",
+                "name": "Квантовый хаб",
+                "description": "Развитие квантовых технологий.",
+                "category": "technology",
+                "prerequisites": ["uk_tech_01"],
+                "cost": 18,
+                "duration_days": 2,
+                "effects": {
+                    "quantum_technology": "+12%",
+                    "research_prestige": "+8%",
+                    "budget_cost": "20 млн $"
+                }
+            },
+            {
+                "id": "uk_energy_01",
+                "name": "Североморская нефть",
+                "description": "Поддержка добычи в Северном море.",
+                "category": "energy",
+                "prerequisites": [],
+                "cost": 14,
+                "duration_days": 2,
+                "effects": {
+                    "oil_production": "+10%",
+                    "gas_production": "+10%",
+                    "budget_revenue": "+3 млн $/мес",
+                    "budget_cost": "12 млн $"
+                }
+            },
+            {
+                "id": "uk_energy_02",
+                "name": "Офшорный ветер",
+                "description": "Развитие ветроэнергетики.",
+                "category": "energy",
+                "prerequisites": ["uk_energy_01"],
+                "cost": 16,
+                "duration_days": 2,
+                "effects": {
+                    "wind_energy": "+15%",
+                    "renewable_energy": "+10%",
+                    "budget_cost": "18 млн $"
+                }
+            },
+            {
+                "id": "uk_foreign_01",
+                "name": "Особые отношения с США",
+                "description": "Укрепление связей с Америкой.",
+                "category": "foreign",
+                "prerequisites": [],
+                "cost": 10,
+                "duration_days": 1,
+                "effects": {
+                    "relations_usa": "+15",
+                    "intel_sharing": "+10%"
+                }
+            },
+            {
+                "id": "uk_foreign_02",
+                "name": "Отношения с Содружеством",
+                "description": "Развитие связей со странами Британского Содружества.",
+                "category": "foreign",
+                "prerequisites": ["uk_foreign_01"],
+                "cost": 12,
+                "duration_days": 2,
+                "effects": {
+                    "relations_commonwealth": "+12",
+                    "trade_with_commonwealth": "+10%"
+                }
+            },
+            {
+                "id": "uk_political_01",
+                "name": "Управление Северной Ирландией",
+                "description": "Решение проблем с протоколом.",
+                "category": "political",
+                "prerequisites": [],
+                "cost": 12,
+                "duration_days": 1,
+                "effects": {
+                    "stability": "+8%",
+                    "relations_eu": "+5",
+                    "political_power_gain": "+0.2/день"
+                }
+            }
+        ],
+        
+        "Франция": [
+            {
+                "id": "fr_economic_01",
+                "name": "Возрождение промышленности",
+                "description": "Поддержка отечественного производства.",
+                "category": "economic",
+                "prerequisites": [],
+                "cost": 14,
+                "duration_days": 2,
+                "effects": {
+                    "industrial_output": "+10%",
+                    "export_capability": "+8%",
+                    "budget_cost": "20 млн $"
+                }
+            },
+            {
+                "id": "fr_economic_02",
+                "name": "Франция 2030",
+                "description": "Инвестиции в инновации и технологии.",
+                "category": "economic",
+                "prerequisites": ["fr_economic_01"],
+                "cost": 16,
+                "duration_days": 2,
+                "effects": {
+                    "research_speed": "+8%",
+                    "innovation_index": "+10%",
+                    "budget_cost": "25 млн $"
+                }
+            },
+            {
+                "id": "fr_energy_01",
+                "name": "Атомная энергетика",
+                "description": "Строительство новых реакторов.",
+                "category": "energy",
+                "prerequisites": [],
+                "cost": 20,
+                "duration_days": 3,
+                "effects": {
+                    "nuclear_capacity": "+12%",
+                    "energy_independence": "+10%",
+                    "budget_cost": "35 млн $"
+                }
+            },
+            {
+                "id": "fr_energy_02",
+                "name": "Энергопереход",
+                "description": "Развитие возобновляемой энергетики.",
+                "category": "energy",
+                "prerequisites": ["fr_energy_01"],
+                "cost": 16,
+                "duration_days": 2,
+                "effects": {
+                    "renewable_energy": "+12%",
+                    "co2_emissions": "-5%",
+                    "budget_cost": "20 млн $"
+                }
+            },
+            {
+                "id": "fr_military_01",
+                "name": "Независимая оборона",
+                "description": "Развитие собственных военных технологий.",
+                "category": "military",
+                "prerequisites": [],
+                "cost": 18,
+                "duration_days": 2,
+                "effects": {
+                    "defense_industry": "+12%",
+                    "military_autonomy": "+10%",
+                    "budget_cost": "25 млн $"
+                }
+            },
+            {
+                "id": "fr_military_02",
+                "name": "Ядерное сдерживание",
+                "description": "Модернизация ядерных сил.",
+                "category": "military",
+                "prerequisites": ["fr_military_01"],
+                "cost": 22,
+                "duration_days": 3,
+                "effects": {
+                    "nuclear_deterrence": "+12%",
+                    "strategic_capability": "+10%",
+                    "budget_cost": "40 млн $"
+                }
+            },
+            {
+                "id": "fr_military_03",
+                "name": "Экспедиционные силы",
+                "description": "Развитие сил быстрого реагирования.",
+                "category": "military",
+                "prerequisites": ["fr_military_02"],
+                "cost": 18,
+                "duration_days": 2,
+                "effects": {
+                    "rapid_response": "+12%",
+                    "africa_operations": "+10%",
+                    "budget_cost": "20 млн $"
+                }
+            },
+            {
+                "id": "fr_political_01",
+                "name": "Европейский суверенитет",
+                "description": "Укрепление позиций в ЕС.",
+                "category": "political",
+                "prerequisites": [],
+                "cost": 12,
+                "duration_days": 1,
+                "effects": {
+                    "eu_influence": "+12%",
+                    "political_power_gain": "+0.3/день"
+                }
+            },
+            {
+                "id": "fr_political_02",
+                "name": "Франко-германский тандем",
+                "description": "Укрепление отношений с Германией.",
+                "category": "political",
+                "prerequisites": ["fr_political_01"],
+                "cost": 10,
+                "duration_days": 1,
+                "effects": {
+                    "relations_germany": "+15",
+                    "eu_cohesion": "+10%"
+                }
+            },
+            {
+                "id": "fr_social_01",
+                "name": "Пенсионная реформа",
+                "description": "Реформа пенсионной системы.",
+                "category": "social",
+                "prerequisites": [],
+                "cost": 20,
+                "duration_days": 3,
+                "effects": {
+                    "budget_saving": "+5%",
+                    "stability": "-5%",
+                    "happiness": "-3%"
+                }
+            },
+            {
+                "id": "fr_social_02",
+                "name": "Здравоохранение",
+                "description": "Инвестиции в медицину.",
+                "category": "social",
+                "prerequisites": ["fr_social_01"],
+                "cost": 16,
+                "duration_days": 2,
+                "effects": {
+                    "healthcare_quality": "+10%",
+                    "hospital_capacity": "+8%",
+                    "budget_cost": "20 млн $"
+                }
+            },
+            {
+                "id": "fr_infrastructure_01",
+                "name": "Высокоскоростные поезда",
+                "description": "Развитие сети TGV.",
+                "category": "infrastructure",
+                "prerequisites": [],
+                "cost": 18,
+                "duration_days": 2,
+                "effects": {
+                    "transport_efficiency": "+12%",
+                    "passenger_capacity": "+10%",
+                    "budget_cost": "30 млн $"
+                }
+            },
+            {
+                "id": "fr_foreign_01",
+                "name": "Средиземноморский союз",
+                "description": "Укрепление связей со странами Средиземноморья.",
+                "category": "foreign",
+                "prerequisites": [],
+                "cost": 14,
+                "duration_days": 2,
+                "effects": {
+                    "influence_mediterranean": "+12%",
+                    "trade_with_south": "+10%",
+                    "budget_cost": "10 млн $"
+                }
+            },
+            {
+                "id": "fr_foreign_02",
+                "name": "Франсафрик",
+                "description": "Поддержание влияния в Африке.",
+                "category": "foreign",
+                "prerequisites": ["fr_foreign_01"],
+                "cost": 16,
+                "duration_days": 2,
+                "effects": {
+                    "influence_africa": "+15%",
+                    "resource_access": "+10%",
+                    "budget_cost": "15 млн $"
+                }
+            }
+        ],
+        
+        "Япония": [
+            {
+                "id": "jp_economic_01",
+                "name": "Новый капитализм",
+                "description": "Экономические реформы.",
+                "category": "economic",
+                "prerequisites": [],
+                "cost": 14,
+                "duration_days": 2,
+                "effects": {
+                    "gdp_growth": "+1%",
+                    "investment": "+8%",
+                    "budget_cost": "20 млн $"
+                }
+            },
+            {
+                "id": "jp_economic_02",
+                "name": "Курс Абэ",
+                "description": "Монетарная политика стимулирования.",
+                "category": "economic",
+                "prerequisites": ["jp_economic_01"],
+                "cost": 16,
+                "duration_days": 2,
+                "effects": {
+                    "inflation": "+1%",
+                    "export_competitiveness": "+8%",
+                    "budget_cost": "10 млн $"
+                }
+            },
+            {
+                "id": "jp_tech_01",
+                "name": "Общество 5.0",
+                "description": "Цифровизация и роботизация.",
+                "category": "technology",
+                "prerequisites": ["jp_economic_02"],
+                "cost": 16,
+                "duration_days": 2,
+                "effects": {
+                    "automation": "+10%",
+                    "research_speed": "+5%",
+                    "budget_cost": "15 млн $"
+                }
+            },
+            {
+                "id": "jp_tech_02",
+                "name": "Полупроводники",
+                "description": "Развитие производства чипов.",
+                "category": "technology",
+                "prerequisites": ["jp_tech_01"],
+                "cost": 18,
+                "duration_days": 2,
+                "effects": {
+                    "semiconductor_production": "+12%",
+                    "tech_exports": "+10%",
+                    "budget_cost": "25 млн $"
+                }
+            },
+            {
+                "id": "jp_military_01",
+                "name": "Пересмотр статьи 9",
+                "description": "Расширение возможностей Сил самообороны.",
+                "category": "military",
+                "prerequisites": [],
+                "cost": 20,
+                "duration_days": 3,
+                "effects": {
+                    "military_freedom": "+12%",
+                    "alliance_value": "+8%",
+                    "stability": "-2%"
+                }
+            },
+            {
+                "id": "jp_military_02",
+                "name": "Защита южных островов",
+                "description": "Усиление присутствия на островах Рюкю.",
+                "category": "military",
+                "prerequisites": ["jp_military_01"],
+                "cost": 15,
+                "duration_days": 2,
+                "effects": {
+                    "territorial_defense": "+12%",
+                    "relations_china": "-5",
+                    "budget_cost": "15 млн $"
+                }
+            },
+            {
+                "id": "jp_military_03",
+                "name": "Закупка истребителей",
+                "description": "Приобретение F-35.",
+                "category": "military",
+                "prerequisites": ["jp_military_02"],
+                "cost": 18,
+                "duration_days": 2,
+                "effects": {
+                    "air_force_capability": "+12%",
+                    "alliance_integration": "+8%",
+                    "budget_cost": "40 млн $"
+                }
+            },
+            {
+                "id": "jp_military_04",
+                "name": "Противоракетная оборона",
+                "description": "Развитие систем ПРО от угрозы КНДР.",
+                "category": "military",
+                "prerequisites": ["jp_military_03"],
+                "cost": 20,
+                "duration_days": 2,
+                "effects": {
+                    "missile_defense": "+15%",
+                    "civilian_protection": "+10%",
+                    "budget_cost": "25 млн $"
+                }
+            },
+            {
+                "id": "jp_social_01",
+                "name": "Поддержка рождаемости",
+                "description": "Меры по борьбе с демографическим кризисом.",
+                "category": "social",
+                "prerequisites": [],
+                "cost": 18,
+                "duration_days": 2,
+                "effects": {
+                    "birth_rate": "+6%",
+                    "childcare_support": "+10%",
+                    "budget_cost": "20 млн $"
+                }
+            },
+            {
+                "id": "jp_social_02",
+                "name": "Уход за пожилыми",
+                "description": "Развитие системы долговременного ухода.",
+                "category": "social",
+                "prerequisites": ["jp_social_01"],
+                "cost": 16,
+                "duration_days": 2,
+                "effects": {
+                    "elderly_care": "+12%",
+                    "healthcare_quality": "+8%",
+                    "budget_cost": "18 млн $"
+                }
+            },
+            {
+                "id": "jp_foreign_01",
+                "name": "Альянс с США",
+                "description": "Укрепление военного союза с Америкой.",
+                "category": "foreign",
+                "prerequisites": [],
+                "cost": 12,
+                "duration_days": 1,
+                "effects": {
+                    "relations_usa": "+15",
+                    "security_cooperation": "+12%"
+                }
+            },
+            {
+                "id": "jp_foreign_02",
+                "name": "Отношения с Южной Кореей",
+                "description": "Улучшение связей с соседом.",
+                "category": "foreign",
+                "prerequisites": ["jp_foreign_01"],
+                "cost": 14,
+                "duration_days": 2,
+                "effects": {
+                    "relations_korea": "+12",
+                    "trade_with_korea": "+10%"
+                }
+            },
+            {
+                "id": "jp_foreign_03",
+                "name": "Дипломатия в Азии",
+                "description": "Укрепление влияния в регионе.",
+                "category": "foreign",
+                "prerequisites": ["jp_foreign_02"],
+                "cost": 16,
+                "duration_days": 2,
+                "effects": {
+                    "influence_asia": "+12%",
+                    "trade_with_asia": "+10%",
+                    "budget_cost": "10 млн $"
+                }
+            },
+            {
+                "id": "jp_energy_01",
+                "name": "Перезапуск АЭС",
+                "description": "Возобновление работы атомных станций.",
+                "category": "energy",
+                "prerequisites": [],
+                "cost": 20,
+                "duration_days": 3,
+                "effects": {
+                    "nuclear_capacity": "+15%",
+                    "energy_independence": "+10%",
+                    "import_dependency": "-8%",
+                    "stability": "-3%"
+                }
+            },
+            {
+                "id": "jp_energy_02",
+                "name": "Зелёная энергетика",
+                "description": "Развитие солнечной и ветровой энергии.",
+                "category": "energy",
+                "prerequisites": ["jp_energy_01"],
+                "cost": 16,
+                "duration_days": 2,
+                "effects": {
+                    "renewable_energy": "+12%",
+                    "co2_emissions": "-5%",
+                    "budget_cost": "20 млн $"
+                }
+            }
+        ],
+        
+        "Израиль": [
+            {
+                "id": "il_tech_01",
+                "name": "Start-Up Nation",
+                "description": "Поддержка высокотехнологичного сектора.",
+                "category": "technology",
+                "prerequisites": [],
+                "cost": 14,
+                "duration_days": 1,
+                "effects": {
+                    "tech_sector_growth": "+12%",
+                    "research_speed": "+5%",
+                    "budget_cost": "10 млн $"
+                }
+            },
+            {
+                "id": "il_tech_02",
+                "name": "Кибертехнологии",
+                "description": "Развитие кибербезопасности.",
+                "category": "technology",
+                "prerequisites": ["il_tech_01"],
+                "cost": 16,
+                "duration_days": 2,
+                "effects": {
+                    "cyber_exports": "+15%",
+                    "cyber_defense": "+12%",
+                    "budget_revenue": "+2 млн $/мес",
+                    "budget_cost": "12 млн $"
+                }
+            },
+            {
+                "id": "il_tech_03",
+                "name": "Водные технологии",
+                "description": "Развитие опреснения и очистки воды.",
+                "category": "technology",
+                "prerequisites": ["il_tech_02"],
+                "cost": 14,
+                "duration_days": 2,
+                "effects": {
+                    "water_security": "+15%",
+                    "desalination_capacity": "+20%",
+                    "budget_cost": "15 млн $"
+                }
+            },
+            {
+                "id": "il_military_01",
+                "name": "Железный купол",
+                "description": "Расширение системы ПРО.",
+                "category": "military",
+                "prerequisites": [],
+                "cost": 18,
+                "duration_days": 2,
+                "effects": {
+                    "air_defense": "+12%",
+                    "civilian_protection": "+10%",
+                    "budget_cost": "20 млн $"
+                }
+            },
+            {
+                "id": "il_military_02",
+                "name": "Праща Давида",
+                "description": "Развитие системы ПРО среднего радиуса.",
+                "category": "military",
+                "prerequisites": ["il_military_01"],
+                "cost": 16,
+                "duration_days": 2,
+                "effects": {
+                    "air_defense": "+10%",
+                    "missile_intercept": "+12%",
+                    "budget_cost": "18 млн $"
+                }
+            },
+            {
+                "id": "il_military_03",
+                "name": "Стрела",
+                "description": "Развитие системы ПРО для баллистических ракет.",
+                "category": "military",
+                "prerequisites": ["il_military_02"],
+                "cost": 20,
+                "duration_days": 3,
+                "effects": {
+                    "ballistic_defense": "+15%",
+                    "strategic_protection": "+12%",
+                    "budget_cost": "25 млн $"
+                }
+            },
+            {
+                "id": "il_military_04",
+                "name": "Киберкомандование",
+                "description": "Развитие наступательных кибервозможностей.",
+                "category": "military",
+                "prerequisites": ["il_tech_02"],
+                "cost": 16,
+                "duration_days": 2,
+                "effects": {
+                    "cyber_offense": "+15%",
+                    "intel_gathering": "+10%",
+                    "budget_cost": "12 млн $"
+                }
+            },
+            {
+                "id": "il_military_05",
+                "name": "Модернизация ЦАХАЛ",
+                "description": "Обновление вооружений армии.",
+                "category": "military",
+                "prerequisites": ["il_military_03"],
+                "cost": 18,
+                "duration_days": 2,
+                "effects": {
+                    "army_readiness": "+12%",
+                    "equipment_quality": "+10%",
+                    "budget_cost": "22 млн $"
+                }
+            },
+            {
+                "id": "il_foreign_01",
+                "name": "Соглашения Авраама",
+                "description": "Нормализация отношений с арабскими странами.",
+                "category": "foreign",
+                "prerequisites": [],
+                "cost": 15,
+                "duration_days": 2,
+                "effects": {
+                    "relations_uae": "+20",
+                    "relations_bahrain": "+20",
+                    "relations_morocco": "+15",
+                    "trade_opportunities": "+12%"
+                }
+            },
+            {
+                "id": "il_foreign_02",
+                "name": "Отношения с Саудовской Аравией",
+                "description": "Улучшение связей с ключевой арабской страной.",
+                "category": "foreign",
+                "prerequisites": ["il_foreign_01"],
+                "cost": 18,
+                "duration_days": 2,
+                "effects": {
+                    "relations_saudi": "+15",
+                    "security_cooperation": "+10%"
+                }
+            },
+            {
+                "id": "il_foreign_03",
+                "name": "Стратегический альянс с США",
+                "description": "Укрепление связей с Америкой.",
+                "category": "foreign",
+                "prerequisites": [],
+                "cost": 12,
+                "duration_days": 1,
+                "effects": {
+                    "relations_usa": "+15",
+                    "aid_inflow": "+5%",
+                    "military_cooperation": "+10%"
+                }
+            },
+            {
+                "id": "il_foreign_04",
+                "name": "Отношения с Индией",
+                "description": "Развитие сотрудничества с Индией.",
+                "category": "foreign",
+                "prerequisites": ["il_foreign_03"],
+                "cost": 14,
+                "duration_days": 2,
+                "effects": {
+                    "relations_india": "+15",
+                    "trade_with_india": "+12%",
+                    "defense_exports": "+10%"
+                }
+            },
+            {
+                "id": "il_energy_01",
+                "name": "Газовые месторождения",
+                "description": "Развитие добычи газа на шельфе.",
+                "category": "energy",
+                "prerequisites": [],
+                "cost": 16,
+                "duration_days": 2,
+                "effects": {
+                    "gas_production": "+15%",
+                    "energy_independence": "+12%",
+                    "budget_revenue": "+3 млн $/мес",
+                    "budget_cost": "15 млн $"
+                }
+            },
+            {
+                "id": "il_energy_02",
+                "name": "Экспорт газа",
+                "description": "Развитие экспорта в Европу и Азию.",
+                "category": "energy",
+                "prerequisites": ["il_energy_01"],
+                "cost": 18,
+                "duration_days": 2,
+                "effects": {
+                    "gas_exports": "+20%",
+                    "budget_revenue": "+4 млн $/мес",
+                    "relations_europe": "+5",
+                    "budget_cost": "12 млн $"
+                }
+            },
+            {
+                "id": "il_political_01",
+                "name": "Политическая стабильность",
+                "description": "Укрепление коалиции и стабильности.",
+                "category": "political",
+                "prerequisites": [],
+                "cost": 10,
+                "duration_days": 1,
+                "effects": {
+                    "stability": "+8%",
+                    "political_power_gain": "+0.3/день"
+                }
+            }
+        ],
+        
+        "Украина": [
+            {
+                "id": "ua_political_01",
+                "name": "Кандидат в ЕС",
+                "description": "Выполнение требований для вступления.",
+                "category": "political",
+                "prerequisites": [],
+                "cost": 18,
+                "duration_days": 3,
+                "effects": {
+                    "eu_integration": "+15%",
+                    "relations_eu": "+12",
+                    "political_power_gain": "+0.4/день"
+                }
+            },
+            {
+                "id": "ua_political_02",
+                "name": "Антикоррупционный суд",
+                "description": "Создание независимого органа.",
+                "category": "political",
+                "prerequisites": ["ua_political_01"],
+                "cost": 16,
+                "duration_days": 2,
+                "effects": {
+                    "corruption": "-8%",
+                    "international_trust": "+10%",
+                    "budget_cost": "5 млн $"
+                }
+            },
+            {
+                "id": "ua_political_03",
+                "name": "Судебная реформа",
+                "description": "Очистка судебной системы.",
+                "category": "political",
+                "prerequisites": ["ua_political_02"],
+                "cost": 18,
+                "duration_days": 2,
+                "effects": {
+                    "rule_of_law": "+10%",
+                    "investment_climate": "+8%",
+                    "budget_cost": "5 млн $"
+                }
+            },
+            {
+                "id": "ua_military_01",
+                "name": "Реформа СБУ",
+                "description": "Очистка спецслужб от агентов влияния.",
+                "category": "military",
+                "prerequisites": [],
+                "cost": 16,
+                "duration_days": 2,
+                "effects": {
+                    "intel_security": "+15%",
+                    "counterintel": "+12%",
+                    "stability": "+5%"
+                }
+            },
+            {
+                "id": "ua_military_02",
+                "name": "Стандарты НАТО",
+                "description": "Переход армии на стандарты альянса.",
+                "category": "military",
+                "prerequisites": ["ua_military_01"],
+                "cost": 20,
+                "duration_days": 3,
+                "effects": {
+                    "army_readiness": "+12%",
+                    "nato_integration": "+15%",
+                    "budget_cost": "25 млн $"
+                }
+            },
+            {
+                "id": "ua_military_03",
+                "name": "Развитие беспилотных систем",
+                "description": "Создание производства дронов.",
+                "category": "military",
+                "prerequisites": ["ua_military_02"],
+                "cost": 18,
+                "duration_days": 2,
+                "effects": {
+                    "uav_capability": "+20%",
+                    "recon_ability": "+12%",
+                    "budget_cost": "15 млн $"
+                }
+            },
+            {
+                "id": "ua_military_04",
+                "name": "Модернизация ПВО",
+                "description": "Усиление противовоздушной обороны.",
+                "category": "military",
+                "prerequisites": ["ua_military_03"],
+                "cost": 20,
+                "duration_days": 2,
+                "effects": {
+                    "air_defense": "+15%",
+                    "civilian_protection": "+10%",
+                    "budget_cost": "20 млн $"
+                }
+            },
+            {
+                "id": "ua_military_05",
+                "name": "Ракетная программа",
+                "description": "Развитие собственных ракетных технологий.",
+                "category": "military",
+                "prerequisites": ["ua_military_04"],
+                "cost": 22,
+                "duration_days": 3,
+                "effects": {
+                    "missile_capability": "+15%",
+                    "deterrence": "+10%",
+                    "budget_cost": "25 млн $"
+                }
+            },
+            {
+                "id": "ua_economic_01",
+                "name": "Земельная реформа",
+                "description": "Открытие рынка земли.",
+                "category": "economic",
+                "prerequisites": [],
+                "cost": 15,
+                "duration_days": 2,
+                "effects": {
+                    "agricultural_output": "+10%",
+                    "investment_inflow": "+8%",
+                    "stability": "-2%"
+                }
+            },
+            {
+                "id": "ua_economic_02",
+                "name": "Дерегуляция",
+                "description": "Упрощение условий для бизнеса.",
+                "category": "economic",
+                "prerequisites": ["ua_economic_01"],
+                "cost": 14,
+                "duration_days": 2,
+                "effects": {
+                    "business_climate": "+10%",
+                    "small_business_growth": "+8%",
+                    "budget_cost": "5 млн $"
+                }
+            },
+            {
+                "id": "ua_economic_03",
+                "name": "IT-сектор",
+                "description": "Поддержка технологической индустрии.",
+                "category": "economic",
+                "prerequisites": ["ua_economic_02"],
+                "cost": 14,
+                "duration_days": 2,
+                "effects": {
+                    "it_exports": "+15%",
+                    "tech_jobs": "+10%",
+                    "budget_revenue": "+2 млн $/мес"
+                }
+            },
+            {
+                "id": "ua_energy_01",
+                "name": "Энергонезависимость",
+                "description": "Отключение от энергосистем РФ и РБ.",
+                "category": "energy",
+                "prerequisites": ["ua_political_01"],
+                "cost": 20,
+                "duration_days": 2,
+                "effects": {
+                    "energy_independence": "+20%",
+                    "eu_integration": "+8%",
+                    "budget_cost": "15 млн $"
+                }
+            },
+            {
+                "id": "ua_energy_02",
+                "name": "Зелёная энергетика",
+                "description": "Развитие возобновляемых источников.",
+                "category": "energy",
+                "prerequisites": ["ua_energy_01"],
+                "cost": 16,
+                "duration_days": 2,
+                "effects": {
+                    "renewable_energy": "+12%",
+                    "foreign_investment": "+8%",
+                    "budget_cost": "20 млн $"
+                }
+            },
+            {
+                "id": "ua_energy_03",
+                "name": "Газодобыча",
+                "description": "Увеличение собственной добычи газа.",
+                "category": "energy",
+                "prerequisites": ["ua_energy_02"],
+                "cost": 18,
+                "duration_days": 2,
+                "effects": {
+                    "gas_production": "+12%",
+                    "import_dependency": "-8%",
+                    "budget_revenue": "+2 млн $/мес",
+                    "budget_cost": "18 млн $"
+                }
+            },
+            {
+                "id": "ua_foreign_01",
+                "name": "Углубление сотрудничества с США",
+                "description": "Стратегическое партнёрство.",
+                "category": "foreign",
+                "prerequisites": [],
+                "cost": 14,
+                "duration_days": 2,
+                "effects": {
+                    "relations_usa": "+15",
+                    "aid_inflow": "+10%",
+                    "military_aid": "+5%"
+                }
+            },
+            {
+                "id": "ua_foreign_02",
+                "name": "Люблинский треугольник",
+                "description": "Сотрудничество с Польшей и Литвой.",
+                "category": "foreign",
+                "prerequisites": ["ua_foreign_01"],
+                "cost": 12,
+                "duration_days": 1,
+                "effects": {
+                    "relations_poland": "+15",
+                    "relations_lithuania": "+15",
+                    "regional_cooperation": "+10%"
+                }
+            }
+        ],
+        
+        "Иран": [
+            {
+                "id": "ir_economic_01",
+                "name": "Экономика сопротивления",
+                "description": "Развитие в условиях санкций.",
+                "category": "economic",
+                "prerequisites": [],
+                "cost": 15,
+                "duration_days": 2,
+                "effects": {
+                    "sanctions_resistance": "+12%",
+                    "domestic_production": "+8%",
+                    "budget_cost": "10 млн $"
+                }
+            },
+            {
+                "id": "ir_economic_02",
+                "name": "Поддержка малого бизнеса",
+                "description": "Льготы для предпринимателей.",
+                "category": "economic",
+                "prerequisites": ["ir_economic_01"],
+                "cost": 14,
+                "duration_days": 2,
+                "effects": {
+                    "small_business_growth": "+10%",
+                    "employment": "+2%",
+                    "budget_cost": "8 млн $"
+                }
+            },
+            {
+                "id": "ir_economic_03",
+                "name": "Торговля с соседями",
+                "description": "Развитие связей с Ираком, Турцией, Пакистаном.",
+                "category": "economic",
+                "prerequisites": ["ir_economic_02"],
+                "cost": 16,
+                "duration_days": 2,
+                "effects": {
+                    "trade_with_iraq": "+15%",
+                    "trade_with_turkey": "+12%",
+                    "trade_with_pakistan": "+12%",
+                    "budget_revenue": "+2 млн $/мес"
+                }
+            },
+            {
+                "id": "ir_military_01",
+                "name": "Ракетная программа",
+                "description": "Разработка баллистических ракет.",
+                "category": "military",
+                "prerequisites": [],
+                "cost": 22,
+                "duration_days": 3,
+                "effects": {
+                    "missile_capability": "+15%",
+                    "deterrence": "+12%",
+                    "relations_west": "-8",
+                    "budget_cost": "20 млн $"
+                }
+            },
+            {
+                "id": "ir_military_02",
+                "name": "Программа БПЛА",
+                "description": "Развитие ударных дронов.",
+                "category": "military",
+                "prerequisites": ["ir_military_01"],
+                "cost": 18,
+                "duration_days": 2,
+                "effects": {
+                    "uav_capability": "+15%",
+                    "intel_gathering": "+10%",
+                    "budget_cost": "12 млн $"
+                }
+            },
+            {
+                "id": "ir_military_03",
+                "name": "ПВО",
+                "description": "Развитие противовоздушной обороны.",
+                "category": "military",
+                "prerequisites": ["ir_military_02"],
+                "cost": 18,
+                "duration_days": 2,
+                "effects": {
+                    "air_defense": "+12%",
+                    "strategic_protection": "+10%",
+                    "budget_cost": "15 млн $"
+                }
+            },
+            {
+                "id": "ir_military_04",
+                "name": "Ось сопротивления",
+                "description": "Поддержка союзных группировок.",
+                "category": "military",
+                "prerequisites": ["ir_military_03"],
+                "cost": 16,
+                "duration_days": 2,
+                "effects": {
+                    "regional_influence": "+12%",
+                    "proxy_capability": "+12%",
+                    "budget_cost": "10 млн $"
+                }
+            },
+            {
+                "id": "ir_political_01",
+                "name": "Ядерная программа",
+                "description": "Развитие атомной энергетики.",
+                "category": "political",
+                "prerequisites": [],
+                "cost": 25,
+                "duration_days": 3,
+                "effects": {
+                    "nuclear_tech": "+10%",
+                    "international_tension": "+10",
+                    "sanctions": "+5%"
+                }
+            },
+            {
+                "id": "ir_political_02",
+                "name": "Переговоры с Западом",
+                "description": "Дипломатические усилия по снятию санкций.",
+                "category": "political",
+                "prerequisites": ["ir_political_01"],
+                "cost": 20,
+                "duration_days": 3,
+                "effects": {
+                    "relations_west": "+10",
+                    "sanctions": "-5%",
+                    "political_power_gain": "+0.3/день"
+                }
+            },
+            {
+                "id": "ir_political_03",
+                "name": "Влияние в регионе",
+                "description": "Укрепление позиций на Ближнем Востоке.",
+                "category": "political",
+                "prerequisites": ["ir_military_04"],
+                "cost": 18,
+                "duration_days": 2,
+                "effects": {
+                    "influence_middle_east": "+12%",
+                    "soft_power": "+8%"
+                }
+            },
+            {
+                "id": "ir_energy_01",
+                "name": "Нефтегазовый сектор",
+                "description": "Развитие добычи и переработки.",
+                "category": "energy",
+                "prerequisites": ["ir_economic_01"],
+                "cost": 18,
+                "duration_days": 2,
+                "effects": {
+                    "oil_production": "+12%",
+                    "gas_production": "+12%",
+                    "budget_revenue": "+3 млн $/мес",
+                    "budget_cost": "15 млн $"
+                }
+            },
+            {
+                "id": "ir_energy_02",
+                "name": "Нефтехимия",
+                "description": "Развитие нефтехимической промышленности.",
+                "category": "energy",
+                "prerequisites": ["ir_energy_01"],
+                "cost": 16,
+                "duration_days": 2,
+                "effects": {
+                    "petrochemicals": "+15%",
+                    "exports": "+12%",
+                    "budget_revenue": "+2 млн $/мес",
+                    "budget_cost": "12 млн $"
+                }
+            },
+            {
+                "id": "ir_social_01",
+                "name": "Социальная поддержка",
+                "description": "Помощь малоимущим слоям населения.",
+                "category": "social",
+                "prerequisites": [],
+                "cost": 14,
+                "duration_days": 2,
+                "effects": {
+                    "happiness": "+5%",
+                    "stability": "+3%",
+                    "budget_cost": "12 млн $"
+                }
+            }
+        ],
+        
+        "Беларусь": [
+            {
+                "id": "by_political_01",
+                "name": "Союзное государство",
+                "description": "Углубление интеграции с Россией.",
+                "category": "political",
+                "prerequisites": [],
+                "cost": 14,
+                "duration_days": 2,
+                "effects": {
+                    "relations_russia": "+20",
+                    "economic_integration": "+15%",
+                    "political_power_gain": "+0.2/день"
+                }
+            },
+            {
+                "id": "by_political_02",
+                "name": "Конституционная реформа",
+                "description": "Обновление основного закона.",
+                "category": "political",
+                "prerequisites": ["by_political_01"],
+                "cost": 12,
+                "duration_days": 2,
+                "effects": {
+                    "stability": "+8%",
+                    "government_control": "+10%"
+                }
+            },
+            {
+                "id": "by_political_03",
+                "name": "Борьба с оппозицией",
+                "description": "Усиление контроля над политическим полем.",
+                "category": "political",
+                "prerequisites": ["by_political_02"],
+                "cost": 16,
+                "duration_days": 2,
+                "effects": {
+                    "stability": "+10%",
+                    "relations_west": "-10",
+                    "happiness": "-3%"
+                }
+            },
+            {
+                "id": "by_economic_01",
+                "name": "Импортозамещение",
+                "description": "Развитие собственного производства.",
+                "category": "economic",
+                "prerequisites": [],
+                "cost": 12,
+                "duration_days": 2,
+                "effects": {
+                    "domestic_production": "+10%",
+                    "import_dependency": "-8%",
+                    "budget_cost": "5 млн $"
+                }
+            },
+            {
+                "id": "by_economic_02",
+                "name": "IT-сектор",
+                "description": "Поддержка Парка высоких технологий.",
+                "category": "economic",
+                "prerequisites": [],
+                "cost": 12,
+                "duration_days": 2,
+                "effects": {
+                    "it_exports": "+15%",
+                    "tech_sector_growth": "+12%",
+                    "budget_revenue": "+2 млн $/мес"
+                }
+            },
+            {
+                "id": "by_economic_03",
+                "name": "Сотрудничество с Китаем",
+                "description": "Привлечение китайских инвестиций.",
+                "category": "economic",
+                "prerequisites": ["by_economic_01"],
+                "cost": 14,
+                "duration_days": 2,
+                "effects": {
+                    "relations_china": "+12",
+                    "chinese_investment": "+10%",
+                    "budget_cost": "8 млн $"
+                }
+            },
+            {
+                "id": "by_military_01",
+                "name": "Российское ядерное оружие",
+                "description": "Размещение тактического ядерного оружия РФ.",
+                "category": "military",
+                "prerequisites": ["by_political_01"],
+                "cost": 20,
+                "duration_days": 2,
+                "effects": {
+                    "nuclear_deterrence": "+15%",
+                    "relations_west": "-12",
+                    "military_prestige": "+8%"
+                }
+            },
+            {
+                "id": "by_military_02",
+                "name": "Модернизация армии",
+                "description": "Обновление вооружений за счёт РФ.",
+                "category": "military",
+                "prerequisites": ["by_military_01"],
+                "cost": 16,
+                "duration_days": 2,
+                "effects": {
+                    "army_readiness": "+12%",
+                    "equipment_quality": "+10%",
+                    "budget_cost": "10 млн $"
+                }
+            },
+            {
+                "id": "by_military_03",
+                "name": "Совместные учения",
+                "description": "Проведение регулярных учений с Россией.",
+                "category": "military",
+                "prerequisites": ["by_military_02"],
+                "cost": 12,
+                "duration_days": 1,
+                "effects": {
+                    "military_cooperation": "+15%",
+                    "army_readiness": "+5%"
+                }
+            },
+            {
+                "id": "by_social_01",
+                "name": "Господдержка",
+                "description": "Социальные выплаты и льготы.",
+                "category": "social",
+                "prerequisites": [],
+                "cost": 14,
+                "duration_days": 2,
+                "effects": {
+                    "happiness": "+8%",
+                    "stability": "+5%",
+                    "budget_cost": "10 млн $"
+                }
+            },
+            {
+                "id": "by_foreign_01",
+                "name": "ОДКБ",
+                "description": "Участие в военном блоке.",
+                "category": "foreign",
+                "prerequisites": ["by_political_01"],
+                "cost": 10,
+                "duration_days": 1,
+                "effects": {
+                    "cst_cohesion": "+12%",
+                    "security_guarantees": "+10%"
+                }
+            },
+            {
+                "id": "by_foreign_02",
+                "name": "ЕАЭС",
+                "description": "Экономическая интеграция.",
+                "category": "foreign",
+                "prerequisites": ["by_political_01"],
+                "cost": 12,
+                "duration_days": 2,
+                "effects": {
+                    "eaeu_integration": "+12%",
+                    "trade_with_eaeu": "+10%"
+                }
+            },
+            {
+                "id": "by_energy_01",
+                "name": "Белорусская АЭС",
+                "description": "Запуск и эксплуатация атомной станции.",
+                "category": "energy",
+                "prerequisites": [],
+                "cost": 18,
+                "duration_days": 2,
+                "effects": {
+                    "energy_independence": "+20%",
+                    "electricity_exports": "+15%",
+                    "budget_revenue": "+2 млн $/мес",
+                    "budget_cost": "25 млн $"
+                }
+            }
+        ],
+        
+        "Норвегия": [
+            {
+                "id": "no_energy_01",
+                "name": "Нефтегазовый фонд",
+                "description": "Увеличение отчислений в суверенный фонд.",
+                "category": "economic",
+                "prerequisites": [],
+                "cost": 14,
+                "duration_days": 2,
+                "effects": {
+                    "sovereign_wealth_fund": "+10%",
+                    "budget_revenue": "+3 млн $/мес",
+                    "economic_stability": "+8%"
+                }
+            },
+            {
+                "id": "no_energy_02",
+                "name": "Северная нефть",
+                "description": "Освоение новых месторождений в Арктике.",
+                "category": "energy",
+                "prerequisites": ["no_energy_01"],
+                "cost": 18,
+                "duration_days": 2,
+                "effects": {
+                    "oil_production": "+12%",
+                    "gas_production": "+12%",
+                    "budget_revenue": "+3 млн $/мес",
+                    "budget_cost": "20 млн $"
+                }
+            },
+            {
+                "id": "no_energy_03",
+                "name": "Зелёная энергетика",
+                "description": "Развитие гидро- и ветроэнергетики.",
+                "category": "energy",
+                "prerequisites": ["no_energy_02"],
+                "cost": 16,
+                "duration_days": 2,
+                "effects": {
+                    "renewable_energy": "+15%",
+                    "hydro_power": "+10%",
+                    "co2_emissions": "-5%",
+                    "budget_cost": "18 млн $"
+                }
+            },
+            {
+                "id": "no_military_01",
+                "name": "Арктическое командование",
+                "description": "Усиление военного присутствия в Арктике.",
+                "category": "military",
+                "prerequisites": [],
+                "cost": 16,
+                "duration_days": 2,
+                "effects": {
+                    "arctic_defense": "+15%",
+                    "nato_integration": "+8%",
+                    "budget_cost": "15 млн $"
+                }
+            },
+            {
+                "id": "no_military_02",
+                "name": "Закупка F-35",
+                "description": "Приобретение новых истребителей.",
+                "category": "military",
+                "prerequisites": ["no_military_01"],
+                "cost": 20,
+                "duration_days": 2,
+                "effects": {
+                    "air_force_capability": "+15%",
+                    "nato_cohesion": "+8%",
+                    "budget_cost": "40 млн $"
+                }
+            },
+            {
+                "id": "no_military_03",
+                "name": "Береговая охрана",
+                "description": "Усиление контроля над территориальными водами.",
+                "category": "military",
+                "prerequisites": ["no_military_02"],
+                "cost": 14,
+                "duration_days": 2,
+                "effects": {
+                    "coastal_defense": "+12%",
+                    "fishery_protection": "+15%",
+                    "budget_cost": "10 млн $"
+                }
+            },
+            {
+                "id": "no_foreign_01",
+                "name": "Арктический совет",
+                "description": "Укрепление лидерства в Арктическом регионе.",
+                "category": "foreign",
+                "prerequisites": [],
+                "cost": 12,
+                "duration_days": 2,
+                "effects": {
+                    "arctic_influence": "+15%",
+                    "relations_nordic": "+12",
+                    "diplomatic_prestige": "+8%"
+                }
+            },
+            {
+                "id": "no_foreign_02",
+                "name": "НАТО",
+                "description": "Укрепление позиций в альянсе.",
+                "category": "foreign",
+                "prerequisites": ["no_foreign_01"],
+                "cost": 10,
+                "duration_days": 1,
+                "effects": {
+                    "nato_influence": "+10%",
+                    "alliance_cooperation": "+8%"
+                }
+            },
+            {
+                "id": "no_foreign_03",
+                "name": "Северное сотрудничество",
+                "description": "Развитие связей со скандинавскими странами.",
+                "category": "foreign",
+                "prerequisites": ["no_foreign_02"],
+                "cost": 12,
+                "duration_days": 1,
+                "effects": {
+                    "relations_sweden": "+12",
+                    "relations_denmark": "+12",
+                    "relations_finland": "+12",
+                    "nordic_cooperation": "+10%"
+                }
+            },
+            {
+                "id": "no_economic_01",
+                "name": "Морское хозяйство",
+                "description": "Развитие рыболовства и аквакультуры.",
+                "category": "economic",
+                "prerequisites": [],
+                "cost": 10,
+                "duration_days": 1,
+                "effects": {
+                    "fishing_industry": "+15%",
+                    "seafood_exports": "+12%",
+                    "budget_revenue": "+2 млн $/мес",
+                    "budget_cost": "5 млн $"
+                }
+            },
+            {
+                "id": "no_economic_02",
+                "name": "Судостроение",
+                "description": "Развитие строительства судов.",
+                "category": "economic",
+                "prerequisites": ["no_economic_01"],
+                "cost": 14,
+                "duration_days": 2,
+                "effects": {
+                    "shipbuilding": "+12%",
+                    "industrial_output": "+8%",
+                    "budget_cost": "12 млн $"
+                }
+            },
+            {
+                "id": "no_social_01",
+                "name": "Социальное государство",
+                "description": "Поддержка системы соцобеспечения.",
+                "category": "social",
+                "prerequisites": [],
+                "cost": 16,
+                "duration_days": 2,
+                "effects": {
+                    "happiness": "+10%",
+                    "social_security": "+8%",
+                    "budget_cost": "20 млн $"
+                }
+            },
+            {
+                "id": "no_infrastructure_01",
+                "name": "Транспортная инфраструктура",
+                "description": "Развитие дорог и тоннелей.",
+                "category": "infrastructure",
+                "prerequisites": [],
+                "cost": 14,
+                "duration_days": 2,
+                "effects": {
+                    "transport_efficiency": "+10%",
+                    "logistics_speed": "+8%",
+                    "budget_cost": "15 млн $"
+                }
+            },
+            {
+                "id": "no_environment_01",
+                "name": "Зелёный переход",
+                "description": "Стимулирование электромобилей.",
+                "category": "environment",
+                "prerequisites": ["no_energy_03"],
+                "cost": 14,
+                "duration_days": 2,
+                "effects": {
+                    "ev_adoption": "+15%",
+                    "co2_emissions": "-5%",
+                    "budget_cost": "8 млн $"
+                }
+            }
+        ],
+        
+        "КНДР": [
+            {
+                "id": "kp_military_01",
+                "name": "Ядерная программа",
+                "description": "Развитие ядерного сдерживания.",
+                "category": "military",
+                "prerequisites": [],
+                "cost": 25,
+                "duration_days": 3,
+                "effects": {
+                    "nuclear_deterrence": "+20%",
+                    "international_tension": "+15",
+                    "sanctions": "+10%"
+                }
+            },
+            {
+                "id": "kp_military_02",
+                "name": "Модернизация ракетных войск",
+                "description": "Разработка новых баллистических ракет.",
+                "category": "military",
+                "prerequisites": ["kp_military_01"],
+                "cost": 22,
+                "duration_days": 3,
+                "effects": {
+                    "missile_capability": "+15%",
+                    "icbm_range": "+10%",
+                    "budget_cost": "15 млн $"
+                }
+            },
+            {
+                "id": "kp_military_03",
+                "name": "Программа БПЛА",
+                "description": "Развитие разведывательных и ударных дронов.",
+                "category": "military",
+                "prerequisites": ["kp_military_02"],
+                "cost": 18,
+                "duration_days": 2,
+                "effects": {
+                    "uav_capability": "+15%",
+                    "recon_ability": "+12%",
+                    "budget_cost": "8 млн $"
+                }
+            },
+            {
+                "id": "kp_military_04",
+                "name": "Кибервойска",
+                "description": "Развитие наступательных кибервозможностей.",
+                "category": "military",
+                "prerequisites": ["kp_military_03"],
+                "cost": 16,
+                "duration_days": 2,
+                "effects": {
+                    "cyber_capability": "+15%",
+                    "information_warfare": "+12%",
+                    "budget_cost": "5 млн $"
+                }
+            },
+            {
+                "id": "kp_military_05",
+                "name": "Подводный флот",
+                "description": "Развитие подводных сил и БРПЛ.",
+                "category": "military",
+                "prerequisites": ["kp_military_02"],
+                "cost": 20,
+                "duration_days": 3,
+                "effects": {
+                    "navy_strength": "+12%",
+                    "submarine_capability": "+15%",
+                    "budget_cost": "12 млн $"
+                }
+            },
+            {
+                "id": "kp_political_01",
+                "name": "Идеология чучхе",
+                "description": "Укрепление идеологической основы режима.",
+                "category": "political",
+                "prerequisites": [],
+                "cost": 10,
+                "duration_days": 1,
+                "effects": {
+                    "stability": "+15%",
+                    "political_power_gain": "+0.5/день",
+                    "relations_west": "-5"
+                }
+            },
+            {
+                "id": "kp_political_02",
+                "name": "Культ личности",
+                "description": "Укрепление позиций руководства.",
+                "category": "political",
+                "prerequisites": ["kp_political_01"],
+                "cost": 12,
+                "duration_days": 2,
+                "effects": {
+                    "stability": "+10%",
+                    "government_control": "+15%",
+                    "happiness": "+5%"
+                }
+            },
+            {
+                "id": "kp_economic_01",
+                "name": "Военная экономика",
+                "description": "Приоритет военного производства.",
+                "category": "economic",
+                "prerequisites": [],
+                "cost": 16,
+                "duration_days": 2,
+                "effects": {
+                    "military_production": "+15%",
+                    "civilian_production": "-5%",
+                    "budget_cost": "8 млн $"
+                }
+            },
+            {
+                "id": "kp_economic_02",
+                "name": "Сотрудничество с Китаем",
+                "description": "Укрепление экономических связей с КНР.",
+                "category": "economic",
+                "prerequisites": [],
+                "cost": 14,
+                "duration_days": 2,
+                "effects": {
+                    "relations_china": "+15",
+                    "trade_with_china": "+20%",
+                    "aid_inflow": "+5%"
+                }
+            },
+            {
+                "id": "kp_economic_03",
+                "name": "Сотрудничество с Россией",
+                "description": "Укрепление экономических связей с РФ.",
+                "category": "economic",
+                "prerequisites": [],
+                "cost": 14,
+                "duration_days": 2,
+                "effects": {
+                    "relations_russia": "+15",
+                    "trade_with_russia": "+20%",
+                    "aid_inflow": "+5%"
+                }
+            },
+            {
+                "id": "kp_social_01",
+                "name": "Мобилизация населения",
+                "description": "Усиление трудовой мобилизации.",
+                "category": "social",
+                "prerequisites": ["kp_economic_01"],
+                "cost": 12,
+                "duration_days": 2,
+                "effects": {
+                    "labor_force": "+5%",
+                    "industrial_output": "+8%",
+                    "happiness": "-3%"
+                }
+            },
+            {
+                "id": "kp_agriculture_01",
+                "name": "Сельскохозяйственная реформа",
+                "description": "Внедрение новых методов хозяйствования.",
+                "category": "agriculture",
+                "prerequisites": [],
+                "cost": 16,
+                "duration_days": 2,
+                "effects": {
+                    "crop_yield": "+10%",
+                    "food_security": "+8%",
+                    "budget_cost": "5 млн $"
+                }
+            },
+            {
+                "id": "kp_foreign_01",
+                "name": "Дипломатическая изоляция",
+                "description": "Укрепление позиций в условиях санкций.",
+                "category": "foreign",
+                "prerequisites": [],
+                "cost": 12,
+                "duration_days": 1,
+                "effects": {
+                    "sanctions_resistance": "+10%",
+                    "relations_with_allies": "+8%"
+                }
+            }
+        ],
+        
+        "Турция": [
+            {
+                "id": "tr_political_01",
+                "name": "Президентская система",
+                "description": "Укрепление вертикали власти.",
+                "category": "political",
+                "prerequisites": [],
+                "cost": 12,
+                "duration_days": 2,
+                "effects": {
+                    "government_efficiency": "+10%",
+                    "stability": "+8%",
+                    "political_power_gain": "+0.3/день"
+                }
+            },
+            {
+                "id": "tr_political_02",
+                "name": "Судебная реформа",
+                "description": "Обновление судебной системы.",
+                "category": "political",
+                "prerequisites": ["tr_political_01"],
+                "cost": 14,
+                "duration_days": 2,
+                "effects": {
+                    "rule_of_law": "+8%",
+                    "stability": "+5%",
+                    "budget_cost": "10 млн $"
+                }
+            },
+            {
+                "id": "tr_economic_01",
+                "name": "Экономическая стабилизация",
+                "description": "Борьба с инфляцией и курсом лиры.",
+                "category": "economic",
+                "prerequisites": [],
+                "cost": 18,
+                "duration_days": 3,
+                "effects": {
+                    "inflation": "-3%",
+                    "currency_stability": "+10%",
+                    "budget_cost": "20 млн $"
+                }
+            },
+            {
+                "id": "tr_economic_02",
+                "name": "Развитие туризма",
+                "description": "Поддержка туристической отрасли.",
+                "category": "economic",
+                "prerequisites": ["tr_economic_01"],
+                "cost": 14,
+                "duration_days": 2,
+                "effects": {
+                    "tourism_revenue": "+15%",
+                    "budget_revenue": "+3 млн $/мес",
+                    "budget_cost": "8 млн $"
+                }
+            },
+            {
+                "id": "tr_economic_03",
+                "name": "Импортозамещение в промышленности",
+                "description": "Развитие собственного производства.",
+                "category": "economic",
+                "prerequisites": ["tr_economic_02"],
+                "cost": 16,
+                "duration_days": 2,
+                "effects": {
+                    "domestic_production": "+10%",
+                    "import_dependency": "-8%",
+                    "budget_cost": "15 млн $"
+                }
+            },
+            {
+                "id": "tr_military_01",
+                "name": "Модернизация армии",
+                "description": "Обновление вооружений и техники.",
+                "category": "military",
+                "prerequisites": [],
+                "cost": 18,
+                "duration_days": 2,
+                "effects": {
+                    "army_readiness": "+12%",
+                    "equipment_quality": "+10%",
+                    "budget_cost": "25 млн $"
+                }
+            },
+            {
+                "id": "tr_military_02",
+                "name": "Развитие ВПК",
+                "description": "Поддержка оборонной промышленности.",
+                "category": "military",
+                "prerequisites": ["tr_military_01"],
+                "cost": 20,
+                "duration_days": 3,
+                "effects": {
+                    "defense_industry": "+15%",
+                    "military_exports": "+12%",
+                    "budget_revenue": "+2 млн $/мес",
+                    "budget_cost": "20 млн $"
+                }
+            },
+            {
+                "id": "tr_military_03",
+                "name": "Программа БПЛА",
+                "description": "Развитие производства дронов Bayraktar.",
+                "category": "military",
+                "prerequisites": ["tr_military_02"],
+                "cost": 18,
+                "duration_days": 2,
+                "effects": {
+                    "uav_capability": "+20%",
+                    "uav_exports": "+15%",
+                    "budget_revenue": "+3 млн $/мес",
+                    "budget_cost": "15 млн $"
+                }
+            },
+            {
+                "id": "tr_foreign_01",
+                "name": "Региональное лидерство",
+                "description": "Укрепление позиций на Ближнем Востоке.",
+                "category": "foreign",
+                "prerequisites": [],
+                "cost": 14,
+                "duration_days": 2,
+                "effects": {
+                    "influence_middle_east": "+15%",
+                    "relations_arab": "+10",
+                    "budget_cost": "10 млн $"
+                }
+            },
+            {
+                "id": "tr_foreign_02",
+                "name": "Отношения с ЕС",
+                "description": "Поддержка диалога с Евросоюзом.",
+                "category": "foreign",
+                "prerequisites": ["tr_foreign_01"],
+                "cost": 12,
+                "duration_days": 1,
+                "effects": {
+                    "relations_eu": "+10",
+                    "trade_with_eu": "+8%"
+                }
+            },
+            {
+                "id": "tr_foreign_03",
+                "name": "Тюркский совет",
+                "description": "Укрепление связей с тюркскими государствами.",
+                "category": "foreign",
+                "prerequisites": ["tr_foreign_01"],
+                "cost": 14,
+                "duration_days": 2,
+                "effects": {
+                    "relations_azerbaijan": "+15",
+                    "relations_kazakhstan": "+15",
+                    "trade_with_turkic": "+12%"
+                }
+            },
+            {
+                "id": "tr_energy_01",
+                "name": "Газовый хаб",
+                "description": "Создание центра торговли газом.",
+                "category": "energy",
+                "prerequisites": [],
+                "cost": 18,
+                "duration_days": 3,
+                "effects": {
+                    "energy_security": "+15%",
+                    "budget_revenue": "+4 млн $/мес",
+                    "geopolitical_influence": "+10%",
+                    "budget_cost": "25 млн $"
+                }
+            },
+            {
+                "id": "tr_energy_02",
+                "name": "АЭС Аккую",
+                "description": "Запуск и эксплуатация атомной станции.",
+                "category": "energy",
+                "prerequisites": ["tr_energy_01"],
+                "cost": 20,
+                "duration_days": 3,
+                "effects": {
+                    "energy_independence": "+15%",
+                    "nuclear_capacity": "+20%",
+                    "budget_cost": "30 млн $"
+                }
+            },
+            {
+                "id": "tr_social_01",
+                "name": "Поддержка беженцев",
+                "description": "Программы интеграции сирийских беженцев.",
+                "category": "social",
+                "prerequisites": [],
+                "cost": 16,
+                "duration_days": 2,
+                "effects": {
+                    "stability": "-2%",
+                    "international_prestige": "+5%",
+                    "budget_cost": "15 млн $"
+                }
+            }
+        ],
+        
+        "Сирия": [
+            {
+                "id": "sy_political_01",
+                "name": "Консолидация власти",
+                "description": "Укрепление контроля над территорией страны.",
+                "category": "political",
+                "prerequisites": [],
+                "cost": 16,
+                "duration_days": 2,
+                "effects": {
+                    "stability": "+12%",
+                    "government_control": "+15%",
+                    "political_power_gain": "+0.4/день"
+                }
+            },
+            {
+                "id": "sy_political_02",
+                "name": "Примирение с оппозицией",
+                "description": "Программы национального примирения.",
+                "category": "political",
+                "prerequisites": ["sy_political_01"],
+                "cost": 18,
+                "duration_days": 3,
+                "effects": {
+                    "stability": "+10%",
+                    "happiness": "+8%",
+                    "international_trust": "+5%",
+                    "budget_cost": "10 млн $"
+                }
+            },
+            {
+                "id": "sy_political_03",
+                "name": "Борьба с терроризмом",
+                "description": "Зачистка остатков ИГИЛ и других группировок.",
+                "category": "political",
+                "prerequisites": ["sy_political_02"],
+                "cost": 20,
+                "duration_days": 3,
+                "effects": {
+                    "security": "+15%",
+                    "stability": "+8%",
+                    "budget_cost": "12 млн $"
+                }
+            },
+            {
+                "id": "sy_economic_01",
+                "name": "Восстановление экономики",
+                "description": "Базовые программы восстановления.",
+                "category": "economic",
+                "prerequisites": [],
+                "cost": 18,
+                "duration_days": 3,
+                "effects": {
+                    "gdp_growth": "+2%",
+                    "industrial_output": "+5%",
+                    "budget_cost": "15 млн $"
+                }
+            },
+            {
+                "id": "sy_economic_02",
+                "name": "Восстановление нефтяной промышленности",
+                "description": "Ремонт нефтяной инфраструктуры.",
+                "category": "economic",
+                "prerequisites": ["sy_economic_01"],
+                "cost": 20,
+                "duration_days": 3,
+                "effects": {
+                    "oil_production": "+20%",
+                    "budget_revenue": "+3 млн $/мес",
+                    "budget_cost": "20 млн $"
+                }
+            },
+            {
+                "id": "sy_economic_03",
+                "name": "Восстановление сельского хозяйства",
+                "description": "Поддержка аграрного сектора.",
+                "category": "economic",
+                "prerequisites": ["sy_economic_02"],
+                "cost": 16,
+                "duration_days": 2,
+                "effects": {
+                    "crop_yield": "+15%",
+                    "food_security": "+10%",
+                    "budget_cost": "12 млн $"
+                }
+            },
+            {
+                "id": "sy_military_01",
+                "name": "Российская военная помощь",
+                "description": "Укрепление сотрудничества с РФ.",
+                "category": "military",
+                "prerequisites": [],
+                "cost": 14,
+                "duration_days": 2,
+                "effects": {
+                    "relations_russia": "+20",
+                    "military_aid": "+10%",
+                    "army_readiness": "+8%"
+                }
+            },
+            {
+                "id": "sy_military_02",
+                "name": "Иранская поддержка",
+                "description": "Сотрудничество с Ираном.",
+                "category": "military",
+                "prerequisites": ["sy_military_01"],
+                "cost": 14,
+                "duration_days": 2,
+                "effects": {
+                    "relations_iran": "+20",
+                    "military_aid": "+10%",
+                    "proxy_capability": "+8%"
+                }
+            },
+            {
+                "id": "sy_military_03",
+                "name": "Восстановление ПВО",
+                "description": "Модернизация противовоздушной обороны.",
+                "category": "military",
+                "prerequisites": ["sy_military_02"],
+                "cost": 18,
+                "duration_days": 2,
+                "effects": {
+                    "air_defense": "+15%",
+                    "strategic_protection": "+10%",
+                    "budget_cost": "15 млн $"
+                }
+            },
+            {
+                "id": "sy_infrastructure_01",
+                "name": "Восстановление Алеппо",
+                "description": "Реконструкция крупнейшего города.",
+                "category": "infrastructure",
+                "prerequisites": ["sy_economic_01"],
+                "cost": 22,
+                "duration_days": 3,
+                "effects": {
+                    "urban_infrastructure": "+20%",
+                    "housing": "+15%",
+                    "happiness": "+10%",
+                    "budget_cost": "25 млн $"
+                }
+            },
+            {
+                "id": "sy_infrastructure_02",
+                "name": "Восстановление дорог",
+                "description": "Ремонт транспортной инфраструктуры.",
+                "category": "infrastructure",
+                "prerequisites": ["sy_infrastructure_01"],
+                "cost": 18,
+                "duration_days": 2,
+                "effects": {
+                    "logistics_efficiency": "+15%",
+                    "transport_speed": "+12%",
+                    "budget_cost": "15 млн $"
+                }
+            },
+            {
+                "id": "sy_foreign_01",
+                "name": "Возвращение в ЛАГ",
+                "description": "Нормализация отношений с арабскими странами.",
+                "category": "foreign",
+                "prerequisites": [],
+                "cost": 16,
+                "duration_days": 2,
+                "effects": {
+                    "relations_arab": "+15",
+                    "trade_with_arab": "+10%",
+                    "diplomatic_isolation": "-10%"
+                }
+            },
+            {
+                "id": "sy_social_01",
+                "name": "Возвращение беженцев",
+                "description": "Программы по возвращению сирийцев.",
+                "category": "social",
+                "prerequisites": ["sy_infrastructure_01"],
+                "cost": 20,
+                "duration_days": 3,
+                "effects": {
+                    "population_growth": "+2%",
+                    "labor_force": "+5%",
+                    "happiness": "+5%",
+                    "budget_cost": "18 млн $"
+                }
+            }
+        ],
+        
+        "Канада": [
+            {
+                "id": "ca_political_01",
+                "name": "Примирение с коренными народами",
+                "description": "Реализация рекомендаций комиссии по истине и примирению.",
+                "category": "political",
+                "prerequisites": [],
+                "cost": 16,
+                "duration_days": 2,
+                "effects": {
+                    "stability": "+8%",
+                    "international_prestige": "+5%",
+                    "budget_cost": "15 млн $"
+                }
+            },
+            {
+                "id": "ca_economic_01",
+                "name": "Развитие ресурсного сектора",
+                "description": "Поддержка нефтегазовой и горнодобывающей промышленности.",
+                "category": "economic",
+                "prerequisites": [],
+                "cost": 14,
+                "duration_days": 2,
+                "effects": {
+                    "oil_production": "+10%",
+                    "gas_production": "+10%",
+                    "mining_output": "+8%",
+                    "budget_revenue": "+3 млн $/мес",
+                    "budget_cost": "12 млн $"
+                }
+            },
+            {
+                "id": "ca_economic_02",
+                "name": "Зелёный переход",
+                "description": "Инвестиции в возобновляемую энергетику.",
+                "category": "economic",
+                "prerequisites": ["ca_economic_01"],
+                "cost": 16,
+                "duration_days": 2,
+                "effects": {
+                    "renewable_energy": "+15%",
+                    "co2_emissions": "-8%",
+                    "green_technology": "+10%",
+                    "budget_cost": "20 млн $"
+                }
+            },
+            {
+                "id": "ca_economic_03",
+                "name": "Транспортировка нефти",
+                "description": "Развитие трубопроводной инфраструктуры.",
+                "category": "economic",
+                "prerequisites": ["ca_economic_01"],
+                "cost": 18,
+                "duration_days": 2,
+                "effects": {
+                    "oil_exports": "+15%",
+                    "logistics_efficiency": "+10%",
+                    "budget_revenue": "+3 млн $/мес",
+                    "budget_cost": "25 млн $"
+                }
+            },
+            {
+                "id": "ca_military_01",
+                "name": "Модернизация NORAD",
+                "description": "Обновление систем ПВО совместно с США.",
+                "category": "military",
+                "prerequisites": [],
+                "cost": 20,
+                "duration_days": 3,
+                "effects": {
+                    "air_defense": "+15%",
+                    "relations_usa": "+10",
+                    "budget_cost": "30 млн $"
+                }
+            },
+            {
+                "id": "ca_military_02",
+                "name": "Закупка F-35",
+                "description": "Приобретение новых истребителей.",
+                "category": "military",
+                "prerequisites": ["ca_military_01"],
+                "cost": 22,
+                "duration_days": 3,
+                "effects": {
+                    "air_force_capability": "+15%",
+                    "nato_integration": "+8%",
+                    "budget_cost": "40 млн $"
+                }
+            },
+            {
+                "id": "ca_military_03",
+                "name": "Арктическая стратегия",
+                "description": "Усиление присутствия в Арктике.",
+                "category": "military",
+                "prerequisites": ["ca_military_02"],
+                "cost": 18,
+                "duration_days": 2,
+                "effects": {
+                    "arctic_defense": "+15%",
+                    "sovereignty": "+12%",
+                    "budget_cost": "20 млн $"
+                }
+            },
+            {
+                "id": "ca_social_01",
+                "name": "Здравоохранение",
+                "description": "Дополнительное финансирование медицины.",
+                "category": "social",
+                "prerequisites": [],
+                "cost": 18,
+                "duration_days": 2,
+                "effects": {
+                    "healthcare_quality": "+10%",
+                    "happiness": "+5%",
+                    "budget_cost": "20 млн $"
+                }
+            },
+            {
+                "id": "ca_social_02",
+                "name": "Доступное жильё",
+                "description": "Программа строительства доступного жилья.",
+                "category": "social",
+                "prerequisites": ["ca_social_01"],
+                "cost": 16,
+                "duration_days": 2,
+                "effects": {
+                    "housing_availability": "+10%",
+                    "homelessness": "-8%",
+                    "budget_cost": "18 млн $"
+                }
+            },
+            {
+                "id": "ca_immigration_01",
+                "name": "Иммиграционная политика",
+                "description": "Привлечение квалифицированных специалистов.",
+                "category": "social",
+                "prerequisites": [],
+                "cost": 12,
+                "duration_days": 2,
+                "effects": {
+                    "population_growth": "+0.5%/год",
+                    "labor_force": "+2%",
+                    "economic_growth": "+1%",
+                    "budget_cost": "10 млн $"
+                }
+            },
+            {
+                "id": "ca_foreign_01",
+                "name": "CUSMA",
+                "description": "Укрепление торговых отношений с США и Мексикой.",
+                "category": "foreign",
+                "prerequisites": [],
+                "cost": 12,
+                "duration_days": 1,
+                "effects": {
+                    "relations_usa": "+10",
+                    "relations_mexico": "+10",
+                    "trade_with_nafta": "+10%"
+                }
+            },
+            {
+                "id": "ca_foreign_02",
+                "name": "Индо-Тихоокеанская стратегия",
+                "description": "Развитие связей с Азией.",
+                "category": "foreign",
+                "prerequisites": ["ca_foreign_01"],
+                "cost": 14,
+                "duration_days": 2,
+                "effects": {
+                    "trade_with_asia": "+12%",
+                    "relations_japan": "+8",
+                    "relations_korea": "+8",
+                    "budget_cost": "8 млн $"
+                }
+            },
+            {
+                "id": "ca_environment_01",
+                "name": "Углеродная нейтральность",
+                "description": "Политика по снижению выбросов.",
+                "category": "environment",
+                "prerequisites": ["ca_economic_02"],
+                "cost": 16,
+                "duration_days": 2,
+                "effects": {
+                    "co2_emissions": "-10%",
+                    "green_technology": "+12%",
+                    "international_prestige": "+5%",
+                    "budget_cost": "15 млн $"
+                }
+            }
+        ],
+        
+        "Польша": [
+            {
+                "id": "pl_political_01",
+                "name": "Верховенство права",
+                "description": "Реформа судебной системы.",
+                "category": "political",
+                "prerequisites": [],
+                "cost": 16,
+                "duration_days": 2,
+                "effects": {
+                    "stability": "+5%",
+                    "relations_eu": "-5",
+                    "political_power_gain": "+0.2/день"
+                }
+            },
+            {
+                "id": "pl_political_02",
+                "name": "Диалог с ЕС",
+                "description": "Урегулирование споров с Евросоюзом.",
+                "category": "political",
+                "prerequisites": ["pl_political_01"],
+                "cost": 14,
+                "duration_days": 2,
+                "effects": {
+                    "relations_eu": "+12",
+                    "eu_funds": "+10%",
+                    "budget_revenue": "+3 млн $/мес"
+                }
+            },
+            {
+                "id": "pl_economic_01",
+                "name": "Экономическая стабильность",
+                "description": "Поддержка экономического роста.",
+                "category": "economic",
+                "prerequisites": [],
+                "cost": 14,
+                "duration_days": 2,
+                "effects": {
+                    "gdp_growth": "+1.5%",
+                    "investment": "+8%",
+                    "budget_cost": "10 млн $"
+                }
+            },
+            {
+                "id": "pl_economic_02",
+                "name": "Энергетическая независимость",
+                "description": "Снижение зависимости от российского газа.",
+                "category": "economic",
+                "prerequisites": ["pl_economic_01"],
+                "cost": 18,
+                "duration_days": 3,
+                "effects": {
+                    "energy_independence": "+15%",
+                    "lng_imports": "+20%",
+                    "budget_cost": "25 млн $"
+                }
+            },
+            {
+                "id": "pl_economic_03",
+                "name": "Развитие СПГ-терминала",
+                "description": "Расширение мощностей в Свиноуйсьце.",
+                "category": "economic",
+                "prerequisites": ["pl_economic_02"],
+                "cost": 16,
+                "duration_days": 2,
+                "effects": {
+                    "lng_capacity": "+25%",
+                    "energy_security": "+12%",
+                    "budget_cost": "20 млн $"
+                }
+            },
+            {
+                "id": "pl_military_01",
+                "name": "Модернизация армии",
+                "description": "Обновление вооружений и техники.",
+                "category": "military",
+                "prerequisites": [],
+                "cost": 20,
+                "duration_days": 3,
+                "effects": {
+                    "army_readiness": "+12%",
+                    "equipment_quality": "+10%",
+                    "budget_cost": "25 млн $"
+                }
+            },
+            {
+                "id": "pl_military_02",
+                "name": "Закупка K2 и K9",
+                "description": "Приобретение техники из Южной Кореи.",
+                "category": "military",
+                "prerequisites": ["pl_military_01"],
+                "cost": 22,
+                "duration_days": 3,
+                "effects": {
+                    "ground_forces": "+15%",
+                    "artillery_capability": "+20%",
+                    "budget_cost": "35 млн $"
+                }
+            },
+            {
+                "id": "pl_military_03",
+                "name": "Закупка Abrams и Apache",
+                "description": "Приобретение техники из США.",
+                "category": "military",
+                "prerequisites": ["pl_military_02"],
+                "cost": 24,
+                "duration_days": 3,
+                "effects": {
+                    "tank_capability": "+20%",
+                    "helicopter_capability": "+15%",
+                    "relations_usa": "+10",
+                    "budget_cost": "45 млн $"
+                }
+            },
+            {
+                "id": "pl_military_04",
+                "name": "Усиление восточного фланга",
+                "description": "Укрепление границы с Беларусью и РФ.",
+                "category": "military",
+                "prerequisites": ["pl_military_03"],
+                "cost": 18,
+                "duration_days": 2,
+                "effects": {
+                    "border_defense": "+15%",
+                    "nato_cohesion": "+8%",
+                    "budget_cost": "15 млн $"
+                }
+            },
+            {
+                "id": "pl_social_01",
+                "name": "Семейная политика",
+                "description": "Поддержка семей с детьми.",
+                "category": "social",
+                "prerequisites": [],
+                "cost": 16,
+                "duration_days": 2,
+                "effects": {
+                    "birth_rate": "+5%",
+                    "happiness": "+8%",
+                    "budget_cost": "15 млн $"
+                }
+            },
+            {
+                "id": "pl_social_02",
+                "name": "Здравоохранение",
+                "description": "Инвестиции в медицину.",
+                "category": "social",
+                "prerequisites": ["pl_social_01"],
+                "cost": 18,
+                "duration_days": 2,
+                "effects": {
+                    "healthcare_quality": "+10%",
+                    "hospital_capacity": "+8%",
+                    "budget_cost": "18 млн $"
+                }
+            },
+            {
+                "id": "pl_foreign_01",
+                "name": "Лидерство в Восточной Европе",
+                "description": "Укрепление позиций в регионе.",
+                "category": "foreign",
+                "prerequisites": [],
+                "cost": 14,
+                "duration_days": 2,
+                "effects": {
+                    "relations_ukraine": "+12",
+                    "relations_baltic": "+10",
+                    "influence_region": "+10%"
+                }
+            },
+            {
+                "id": "pl_foreign_02",
+                "name": "Бухарестская девятка",
+                "description": "Координация с восточноевропейскими странами НАТО.",
+                "category": "foreign",
+                "prerequisites": ["pl_foreign_01"],
+                "cost": 12,
+                "duration_days": 1,
+                "effects": {
+                    "nato_cohesion": "+10%",
+                    "regional_security": "+8%"
+                }
+            },
+            {
+                "id": "pl_foreign_03",
+                "name": "Триморье",
+                "description": "Развитие сотрудничества в Центральной Европе.",
+                "category": "foreign",
+                "prerequisites": ["pl_foreign_02"],
+                "cost": 14,
+                "duration_days": 2,
+                "effects": {
+                    "infrastructure_connectivity": "+12%",
+                    "trade_with_region": "+10%",
+                    "budget_cost": "10 млн $"
+                }
+            }
+        ],
+        
+        "Бразилия": [
+            {
+                "id": "br_political_01",
+                "name": "Стабильность демократии",
+                "description": "Укрепление демократических институтов.",
+                "category": "political",
+                "prerequisites": [],
+                "cost": 14,
+                "duration_days": 2,
+                "effects": {
+                    "stability": "+10%",
+                    "international_trust": "+8%",
+                    "political_power_gain": "+0.3/день"
+                }
+            },
+            {
+                "id": "br_economic_01",
+                "name": "Экономические реформы",
+                "description": "Либерализация и приватизация.",
+                "category": "economic",
+                "prerequisites": [],
+                "cost": 16,
+                "duration_days": 2,
+                "effects": {
+                    "gdp_growth": "+1.5%",
+                    "investment": "+10%",
+                    "budget_cost": "15 млн $"
+                }
+            },
+            {
+                "id": "br_economic_02",
+                "name": "Пенсионная реформа",
+                "description": "Реформа пенсионной системы.",
+                "category": "economic",
+                "prerequisites": ["br_economic_01"],
+                "cost": 20,
+                "duration_days": 3,
+                "effects": {
+                    "budget_saving": "+8%",
+                    "stability": "-3%",
+                    "happiness": "-3%"
+                }
+            },
+            {
+                "id": "br_economic_03",
+                "name": "Налоговая реформа",
+                "description": "Упрощение налоговой системы.",
+                "category": "economic",
+                "prerequisites": ["br_economic_02"],
+                "cost": 18,
+                "duration_days": 2,
+                "effects": {
+                    "business_climate": "+12%",
+                    "tax_efficiency": "+10%",
+                    "budget_cost": "10 млн $"
+                }
+            },
+            {
+                "id": "br_agriculture_01",
+                "name": "Развитие агробизнеса",
+                "description": "Поддержка сельскохозяйственного сектора.",
+                "category": "agriculture",
+                "prerequisites": [],
+                "cost": 14,
+                "duration_days": 2,
+                "effects": {
+                    "agricultural_output": "+15%",
+                    "agro_exports": "+12%",
+                    "budget_revenue": "+3 млн $/мес",
+                    "budget_cost": "12 млн $"
+                }
+            },
+            {
+                "id": "br_environment_01",
+                "name": "Защита Амазонии",
+                "description": "Борьба с вырубкой лесов.",
+                "category": "environment",
+                "prerequisites": [],
+                "cost": 18,
+                "duration_days": 2,
+                "effects": {
+                    "deforestation": "-15%",
+                    "international_prestige": "+10%",
+                    "relations_eu": "+8",
+                    "budget_cost": "20 млн $"
+                }
+            },
+            {
+                "id": "br_environment_02",
+                "name": "Зелёная энергетика",
+                "description": "Развитие гидро- и биоэнергетики.",
+                "category": "environment",
+                "prerequisites": ["br_environment_01"],
+                "cost": 16,
+                "duration_days": 2,
+                "effects": {
+                    "renewable_energy": "+15%",
+                    "co2_emissions": "-8%",
+                    "budget_cost": "15 млн $"
+                }
+            },
+            {
+                "id": "br_military_01",
+                "name": "Модернизация армии",
+                "description": "Обновление вооружений.",
+                "category": "military",
+                "prerequisites": [],
+                "cost": 18,
+                "duration_days": 2,
+                "effects": {
+                    "army_readiness": "+10%",
+                    "equipment_quality": "+8%",
+                    "budget_cost": "20 млн $"
+                }
+            },
+            {
+                "id": "br_military_02",
+                "name": "Развитие ВПК",
+                "description": "Поддержка оборонной промышленности.",
+                "category": "military",
+                "prerequisites": ["br_military_01"],
+                "cost": 16,
+                "duration_days": 2,
+                "effects": {
+                    "defense_industry": "+12%",
+                    "military_exports": "+10%",
+                    "budget_revenue": "+2 млн $/мес",
+                    "budget_cost": "15 млн $"
+                }
+            },
+            {
+                "id": "br_foreign_01",
+                "name": "Лидерство в Южной Америке",
+                "description": "Укрепление позиций в регионе.",
+                "category": "foreign",
+                "prerequisites": [],
+                "cost": 14,
+                "duration_days": 2,
+                "effects": {
+                    "influence_south_america": "+15%",
+                    "relations_mercosur": "+12",
+                    "trade_with_region": "+10%"
+                }
+            },
+            {
+                "id": "br_foreign_02",
+                "name": "Меркосур",
+                "description": "Укрепление торгового блока.",
+                "category": "foreign",
+                "prerequisites": ["br_foreign_01"],
+                "cost": 12,
+                "duration_days": 1,
+                "effects": {
+                    "mercosur_integration": "+12%",
+                    "trade_with_partners": "+10%"
+                }
+            },
+            {
+                "id": "br_foreign_03",
+                "name": "БРИКС",
+                "description": "Участие в объединении.",
+                "category": "foreign",
+                "prerequisites": [],
+                "cost": 12,
+                "duration_days": 1,
+                "effects": {
+                    "relations_brics": "+10",
+                    "trade_with_brics": "+8%",
+                    "budget_cost": "5 млн $"
+                }
+            },
+            {
+                "id": "br_social_01",
+                "name": "Борьба с бедностью",
+                "description": "Социальные программы.",
+                "category": "social",
+                "prerequisites": [],
+                "cost": 16,
+                "duration_days": 2,
+                "effects": {
+                    "happiness": "+10%",
+                    "inequality": "-8%",
+                    "budget_cost": "20 млн $"
+                }
+            },
+            {
+                "id": "br_social_02",
+                "name": "Здравоохранение",
+                "description": "Инвестиции в SUS.",
+                "category": "social",
+                "prerequisites": ["br_social_01"],
+                "cost": 18,
+                "duration_days": 2,
+                "effects": {
+                    "healthcare_quality": "+12%",
+                    "life_expectancy": "+1",
+                    "budget_cost": "22 млн $"
+                }
+            },
+            {
+                "id": "br_tech_01",
+                "name": "Цифровизация госуслуг",
+                "description": "Внедрение цифровых технологий.",
+                "category": "technology",
+                "prerequisites": [],
+                "cost": 14,
+                "duration_days": 2,
+                "effects": {
+                    "government_efficiency": "+10%",
+                    "budget_saving": "+5%",
+                    "budget_cost": "10 млн $"
+                }
+            }
+        ],
+        
+        "Швеция": [
+            {
+                "id": "se_political_01",
+                "name": "Вступление в НАТО",
+                "description": "Интеграция в военный альянс.",
+                "category": "political",
+                "prerequisites": [],
+                "cost": 20,
+                "duration_days": 3,
+                "effects": {
+                    "security_guarantees": "+20%",
+                    "relations_nato": "+25",
+                    "relations_russia": "-15"
+                }
+            },
+            {
+                "id": "se_political_02",
+                "name": "Двусторонние соглашения с США",
+                "description": "Укрепление военного сотрудничества.",
+                "category": "political",
+                "prerequisites": ["se_political_01"],
+                "cost": 16,
+                "duration_days": 2,
+                "effects": {
+                    "relations_usa": "+15",
+                    "military_cooperation": "+12%",
+                    "budget_cost": "8 млн $"
+                }
+            },
+            {
+                "id": "se_economic_01",
+                "name": "Инновационная экономика",
+                "description": "Поддержка исследований и разработок.",
+                "category": "economic",
+                "prerequisites": [],
+                "cost": 16,
+                "duration_days": 2,
+                "effects": {
+                    "research_speed": "+8%",
+                    "tech_sector_growth": "+12%",
+                    "budget_cost": "15 млн $"
+                }
+            },
+            {
+                "id": "se_economic_02",
+                "name": "Зелёная экономика",
+                "description": "Инвестиции в устойчивое развитие.",
+                "category": "economic",
+                "prerequisites": ["se_economic_01"],
+                "cost": 16,
+                "duration_days": 2,
+                "effects": {
+                    "renewable_energy": "+15%",
+                    "green_technology": "+12%",
+                    "budget_cost": "18 млн $"
+                }
+            },
+            {
+                "id": "se_social_01",
+                "name": "Шведская модель",
+                "description": "Поддержка социального государства.",
+                "category": "social",
+                "prerequisites": [],
+                "cost": 16,
+                "duration_days": 2,
+                "effects": {
+                    "happiness": "+10%",
+                    "social_security": "+8%",
+                    "budget_cost": "20 млн $"
+                }
+            },
+            {
+                "id": "se_social_02",
+                "name": "Интеграция мигрантов",
+                "description": "Программы адаптации.",
+                "category": "social",
+                "prerequisites": ["se_social_01"],
+                "cost": 18,
+                "duration_days": 2,
+                "effects": {
+                    "stability": "+5%",
+                    "labor_force": "+2%",
+                    "budget_cost": "15 млн $"
+                }
+            },
+            {
+                "id": "se_military_01",
+                "name": "Увеличение оборонного бюджета",
+                "description": "Достижение 2% ВВП.",
+                "category": "military",
+                "prerequisites": ["se_political_01"],
+                "cost": 18,
+                "duration_days": 2,
+                "effects": {
+                    "military_budget": "+25%",
+                    "army_readiness": "+12%",
+                    "budget_cost": "20 млн $"
+                }
+            },
+            {
+                "id": "se_military_02",
+                "name": "Закупка Patriot",
+                "description": "Приобретение систем ПВО.",
+                "category": "military",
+                "prerequisites": ["se_military_01"],
+                "cost": 20,
+                "duration_days": 2,
+                "effects": {
+                    "air_defense": "+15%",
+                    "nato_integration": "+8%",
+                    "budget_cost": "35 млн $"
+                }
+            },
+            {
+                "id": "se_military_03",
+                "name": "Усиление Готланда",
+                "description": "Милитаризация стратегического острова.",
+                "category": "military",
+                "prerequisites": ["se_military_02"],
+                "cost": 18,
+                "duration_days": 2,
+                "effects": {
+                    "naval_defense": "+12%",
+                    "deterrence": "+10%",
+                    "budget_cost": "15 млн $"
+                }
+            },
+            {
+                "id": "se_environment_01",
+                "name": "Углеродная нейтральность",
+                "description": "Достижение целей по климату.",
+                "category": "environment",
+                "prerequisites": ["se_economic_02"],
+                "cost": 16,
+                "duration_days": 2,
+                "effects": {
+                    "co2_emissions": "-15%",
+                    "green_technology": "+10%",
+                    "international_prestige": "+5%",
+                    "budget_cost": "12 млн $"
+                }
+            },
+            {
+                "id": "se_foreign_01",
+                "name": "Северное сотрудничество",
+                "description": "Укрепление связей со скандинавами.",
+                "category": "foreign",
+                "prerequisites": [],
+                "cost": 12,
+                "duration_days": 1,
+                "effects": {
+                    "relations_norway": "+10",
+                    "relations_denmark": "+10",
+                    "relations_finland": "+10",
+                    "nordic_cooperation": "+10%"
+                }
+            },
+            {
+                "id": "se_foreign_02",
+                "name": "Сотрудничество с Финляндией",
+                "description": "Углубление оборонного сотрудничества.",
+                "category": "foreign",
+                "prerequisites": ["se_foreign_01", "se_political_01"],
+                "cost": 14,
+                "duration_days": 2,
+                "effects": {
+                    "relations_finland": "+15",
+                    "military_cooperation": "+15%"
+                }
+            }
+        ],
+        
+        "Финляндия": [
+            {
+                "id": "fi_political_01",
+                "name": "Вступление в НАТО",
+                "description": "Интеграция в военный альянс.",
+                "category": "political",
+                "prerequisites": [],
+                "cost": 20,
+                "duration_days": 3,
+                "effects": {
+                    "security_guarantees": "+20%",
+                    "relations_nato": "+25",
+                    "relations_russia": "-20"
+                }
+            },
+            {
+                "id": "fi_political_02",
+                "name": "Двусторонние соглашения с США",
+                "description": "Укрепление военного сотрудничества.",
+                "category": "political",
+                "prerequisites": ["fi_political_01"],
+                "cost": 16,
+                "duration_days": 2,
+                "effects": {
+                    "relations_usa": "+15",
+                    "military_cooperation": "+12%",
+                    "budget_cost": "8 млн $"
+                }
+            },
+            {
+                "id": "fi_economic_01",
+                "name": "Технологическое развитие",
+                "description": "Поддержка высокотехнологичного сектора.",
+                "category": "economic",
+                "prerequisites": [],
+                "cost": 16,
+                "duration_days": 2,
+                "effects": {
+                    "research_speed": "+8%",
+                    "tech_sector_growth": "+12%",
+                    "budget_cost": "15 млн $"
+                }
+            },
+            {
+                "id": "fi_economic_02",
+                "name": "Лесопромышленный комплекс",
+                "description": "Развитие лесной промышленности.",
+                "category": "economic",
+                "prerequisites": [],
+                "cost": 14,
+                "duration_days": 2,
+                "effects": {
+                    "forestry_output": "+12%",
+                    "exports": "+10%",
+                    "budget_revenue": "+2 млн $/мес",
+                    "budget_cost": "10 млн $"
+                }
+            },
+            {
+                "id": "fi_social_01",
+                "name": "Северное благосостояние",
+                "description": "Поддержка социальной системы.",
+                "category": "social",
+                "prerequisites": [],
+                "cost": 16,
+                "duration_days": 2,
+                "effects": {
+                    "happiness": "+10%",
+                    "social_security": "+8%",
+                    "budget_cost": "20 млн $"
+                }
+            },
+            {
+                "id": "fi_military_01",
+                "name": "Увеличение оборонного бюджета",
+                "description": "Усиление обороноспособности.",
+                "category": "military",
+                "prerequisites": ["fi_political_01"],
+                "cost": 18,
+                "duration_days": 2,
+                "effects": {
+                    "military_budget": "+25%",
+                    "army_readiness": "+12%",
+                    "budget_cost": "20 млн $"
+                }
+            },
+            {
+                "id": "fi_military_02",
+                "name": "Закупка F-35",
+                "description": "Приобретение новых истребителей.",
+                "category": "military",
+                "prerequisites": ["fi_military_01"],
+                "cost": 22,
+                "duration_days": 3,
+                "effects": {
+                    "air_force_capability": "+15%",
+                    "nato_integration": "+8%",
+                    "budget_cost": "40 млн $"
+                }
+            },
+            {
+                "id": "fi_military_03",
+                "name": "Артиллерийская модернизация",
+                "description": "Обновление артиллерийских систем.",
+                "category": "military",
+                "prerequisites": ["fi_military_02"],
+                "cost": 18,
+                "duration_days": 2,
+                "effects": {
+                    "artillery_capability": "+15%",
+                    "budget_cost": "20 млн $"
+                }
+            },
+            {
+                "id": "fi_energy_01",
+                "name": "Атомная энергетика",
+                "description": "Развитие ядерной энергетики.",
+                "category": "energy",
+                "prerequisites": [],
+                "cost": 20,
+                "duration_days": 3,
+                "effects": {
+                    "nuclear_capacity": "+20%",
+                    "energy_independence": "+15%",
+                    "budget_cost": "30 млн $"
+                }
+            },
+            {
+                "id": "fi_energy_02",
+                "name": "Зелёная энергетика",
+                "description": "Развитие возобновляемых источников.",
+                "category": "energy",
+                "prerequisites": ["fi_energy_01"],
+                "cost": 16,
+                "duration_days": 2,
+                "effects": {
+                    "renewable_energy": "+15%",
+                    "co2_emissions": "-8%",
+                    "budget_cost": "15 млн $"
+                }
+            },
+            {
+                "id": "fi_foreign_01",
+                "name": "Северное сотрудничество",
+                "description": "Укрепление связей со скандинавами.",
+                "category": "foreign",
+                "prerequisites": [],
+                "cost": 12,
+                "duration_days": 1,
+                "effects": {
+                    "relations_sweden": "+15",
+                    "relations_norway": "+10",
+                    "nordic_cooperation": "+10%"
+                }
+            },
+            {
+                "id": "fi_foreign_02",
+                "name": "Сотрудничество с Швецией",
+                "description": "Углубление оборонного сотрудничества.",
+                "category": "foreign",
+                "prerequisites": ["fi_foreign_01", "fi_political_01"],
+                "cost": 14,
+                "duration_days": 2,
+                "effects": {
+                    "relations_sweden": "+15",
+                    "military_cooperation": "+15%"
+                }
+            }
+        ],
+        
+        "Швейцария": [
+            {
+                "id": "ch_political_01",
+                "name": "Нейтралитет",
+                "description": "Поддержание нейтрального статуса.",
+                "category": "political",
+                "prerequisites": [],
+                "cost": 10,
+                "duration_days": 1,
+                "effects": {
+                    "relations_all": "+5",
+                    "diplomatic_prestige": "+10%",
+                    "political_power_gain": "+0.2/день"
+                }
+            },
+            {
+                "id": "ch_political_02",
+                "name": "Прямая демократия",
+                "description": "Развитие институтов народовластия.",
+                "category": "political",
+                "prerequisites": [],
+                "cost": 12,
+                "duration_days": 2,
+                "effects": {
+                    "stability": "+10%",
+                    "happiness": "+5%",
+                    "political_power_gain": "+0.3/день"
+                }
+            },
+            {
+                "id": "ch_economic_01",
+                "name": "Финансовый центр",
+                "description": "Поддержка банковского сектора.",
+                "category": "economic",
+                "prerequisites": [],
+                "cost": 16,
+                "duration_days": 2,
+                "effects": {
+                    "financial_services": "+15%",
+                    "budget_revenue": "+4 млн $/мес",
+                    "budget_cost": "10 млн $"
+                }
+            },
+            {
+                "id": "ch_economic_02",
+                "name": "Фармацевтическая индустрия",
+                "description": "Поддержка фармацевтики.",
+                "category": "economic",
+                "prerequisites": ["ch_economic_01"],
+                "cost": 16,
+                "duration_days": 2,
+                "effects": {
+                    "pharmaceutical_output": "+15%",
+                    "research_speed": "+5%",
+                    "budget_revenue": "+3 млн $/мес",
+                    "budget_cost": "12 млн $"
+                }
+            },
+            {
+                "id": "ch_economic_03",
+                "name": "Часовое дело",
+                "description": "Поддержка часовой промышленности.",
+                "category": "economic",
+                "prerequisites": ["ch_economic_02"],
+                "cost": 14,
+                "duration_days": 2,
+                "effects": {
+                    "luxury_exports": "+15%",
+                    "budget_revenue": "+2 млн $/мес",
+                    "budget_cost": "8 млн $"
+                }
+            },
+            {
+                "id": "ch_military_01",
+                "name": "Милиционная армия",
+                "description": "Поддержка системы ополчения.",
+                "category": "military",
+                "prerequisites": [],
+                "cost": 14,
+                "duration_days": 2,
+                "effects": {
+                    "army_readiness": "+10%",
+                    "mobilization_capacity": "+15%",
+                    "budget_cost": "12 млн $"
+                }
+            },
+            {
+                "id": "ch_military_02",
+                "name": "Модернизация ВВС",
+                "description": "Закупка новых истребителей.",
+                "category": "military",
+                "prerequisites": ["ch_military_01"],
+                "cost": 20,
+                "duration_days": 3,
+                "effects": {
+                    "air_force_capability": "+15%",
+                    "budget_cost": "35 млн $"
+                }
+            },
+            {
+                "id": "ch_military_03",
+                "name": "Киберзащита",
+                "description": "Развитие кибербезопасности.",
+                "category": "military",
+                "prerequisites": ["ch_military_02"],
+                "cost": 16,
+                "duration_days": 2,
+                "effects": {
+                    "cyber_defense": "+15%",
+                    "budget_cost": "10 млн $"
+                }
+            },
+            {
+                "id": "ch_foreign_01",
+                "name": "Гуманитарная дипломатия",
+                "description": "Укрепление роли в международной гуманитарной сфере.",
+                "category": "foreign",
+                "prerequisites": [],
+                "cost": 12,
+                "duration_days": 1,
+                "effects": {
+                    "international_prestige": "+10%",
+                    "soft_power": "+8%",
+                    "budget_cost": "5 млн $"
+                }
+            },
+            {
+                "id": "ch_foreign_02",
+                "name": "Добрые услуги",
+                "description": "Предоставление площадок для переговоров.",
+                "category": "foreign",
+                "prerequisites": ["ch_foreign_01"],
+                "cost": 14,
+                "duration_days": 2,
+                "effects": {
+                    "relations_all": "+5",
+                    "diplomatic_influence": "+10%",
+                    "budget_revenue": "+1 млн $/мес"
+                }
+            },
+            {
+                "id": "ch_foreign_03",
+                "name": "Отношения с ЕС",
+                "description": "Урегулирование отношений с Евросоюзом.",
+                "category": "foreign",
+                "prerequisites": ["ch_foreign_02"],
+                "cost": 16,
+                "duration_days": 2,
+                "effects": {
+                    "relations_eu": "+12",
+                    "trade_with_eu": "+10%",
+                    "budget_cost": "8 млн $"
+                }
+            },
+            {
+                "id": "ch_education_01",
+                "name": "Образование и наука",
+                "description": "Инвестиции в университеты и исследования.",
+                "category": "technology",
+                "prerequisites": [],
+                "cost": 16,
+                "duration_days": 2,
+                "effects": {
+                    "research_speed": "+10%",
+                    "education_quality": "+8%",
+                    "budget_cost": "15 млн $"
+                }
+            },
+            {
+                "id": "ch_tech_01",
+                "name": "CERN",
+                "description": "Поддержка научных исследований.",
+                "category": "technology",
+                "prerequisites": ["ch_education_01"],
+                "cost": 14,
+                "duration_days": 2,
+                "effects": {
+                    "research_prestige": "+10%",
+                    "tech_discoveries": "+5%",
+                    "budget_cost": "12 млн $"
+                }
+            },
+            {
+                "id": "ch_infrastructure_01",
+                "name": "Транспортная инфраструктура",
+                "description": "Развитие дорог и тоннелей.",
+                "category": "infrastructure",
+                "prerequisites": [],
+                "cost": 16,
+                "duration_days": 2,
+                "effects": {
+                    "transport_efficiency": "+12%",
+                    "logistics_speed": "+10%",
+                    "budget_cost": "18 млн $"
+                }
+            }
+        ],
+        
+        "Египет": [
+            {
+                "id": "eg_political_01",
+                "name": "Политическая стабильность",
+                "description": "Укрепление государственных институтов.",
+                "category": "political",
+                "prerequisites": [],
+                "cost": 14,
+                "duration_days": 2,
+                "effects": {
+                    "stability": "+12%",
+                    "government_efficiency": "+8%",
+                    "political_power_gain": "+0.3/день"
+                }
+            },
+            {
+                "id": "eg_economic_01",
+                "name": "Экономические реформы",
+                "description": "Программа МВФ по стабилизации экономики.",
+                "category": "economic",
+                "prerequisites": [],
+                "cost": 18,
+                "duration_days": 3,
+                "effects": {
+                    "budget_deficit": "-5%",
+                    "foreign_investment": "+10%",
+                    "inflation": "-2%",
+                    "stability": "-2%"
+                }
+            },
+            {
+                "id": "eg_economic_02",
+                "name": "Развитие Суэцкого канала",
+                "description": "Расширение и модернизация канала.",
+                "category": "economic",
+                "prerequisites": ["eg_economic_01"],
+                "cost": 20,
+                "duration_days": 3,
+                "effects": {
+                    "suez_revenue": "+20%",
+                    "logistics_efficiency": "+15%",
+                    "budget_revenue": "+5 млн $/мес",
+                    "budget_cost": "30 млн $"
+                }
+            },
+            {
+                "id": "eg_economic_03",
+                "name": "Новая столица",
+                "description": "Строительство новой административной столицы.",
+                "category": "economic",
+                "prerequisites": ["eg_economic_02"],
+                "cost": 25,
+                "duration_days": 4,
+                "effects": {
+                    "government_efficiency": "+15%",
+                    "construction_industry": "+20%",
+                    "budget_cost": "50 млн $"
+                }
+            },
+            {
+                "id": "eg_energy_01",
+                "name": "Газовый хаб",
+                "description": "Развитие газовой инфраструктуры.",
+                "category": "energy",
+                "prerequisites": [],
+                "cost": 18,
+                "duration_days": 2,
+                "effects": {
+                    "gas_production": "+15%",
+                    "gas_exports": "+20%",
+                    "budget_revenue": "+4 млн $/мес",
+                    "budget_cost": "20 млн $"
+                }
+            },
+            {
+                "id": "eg_energy_02",
+                "name": "Зухр",
+                "description": "Разработка крупнейшего газового месторождения.",
+                "category": "energy",
+                "prerequisites": ["eg_energy_01"],
+                "cost": 22,
+                "duration_days": 3,
+                "effects": {
+                    "gas_production": "+25%",
+                    "energy_independence": "+20%",
+                    "budget_revenue": "+5 млн $/мес",
+                    "budget_cost": "25 млн $"
+                }
+            },
+            {
+                "id": "eg_energy_03",
+                "name": "Возобновляемая энергетика",
+                "description": "Развитие солнечной энергетики.",
+                "category": "energy",
+                "prerequisites": ["eg_energy_02"],
+                "cost": 16,
+                "duration_days": 2,
+                "effects": {
+                    "solar_capacity": "+20%",
+                    "renewable_energy": "+15%",
+                    "budget_cost": "15 млн $"
+                }
+            },
+            {
+                "id": "eg_military_01",
+                "name": "Модернизация армии",
+                "description": "Обновление вооружений.",
+                "category": "military",
+                "prerequisites": [],
+                "cost": 20,
+                "duration_days": 3,
+                "effects": {
+                    "army_readiness": "+12%",
+                    "equipment_quality": "+10%",
+                    "budget_cost": "25 млн $"
+                }
+            },
+            {
+                "id": "eg_military_02",
+                "name": "Закупка Rafale",
+                "description": "Приобретение французских истребителей.",
+                "category": "military",
+                "prerequisites": ["eg_military_01"],
+                "cost": 22,
+                "duration_days": 3,
+                "effects": {
+                    "air_force_capability": "+15%",
+                    "relations_france": "+10",
+                    "budget_cost": "40 млн $"
+                }
+            },
+            {
+                "id": "eg_military_03",
+                "name": "Закупка Су-35",
+                "description": "Приобретение российских истребителей.",
+                "category": "military",
+                "prerequisites": ["eg_military_02"],
+                "cost": 22,
+                "duration_days": 3,
+                "effects": {
+                    "air_force_capability": "+15%",
+                    "relations_russia": "+10",
+                    "budget_cost": "35 млн $"
+                }
+            },
+            {
+                "id": "eg_military_04",
+                "name": "Военно-морская программа",
+                "description": "Развитие флота.",
+                "category": "military",
+                "prerequisites": ["eg_military_03"],
+                "cost": 20,
+                "duration_days": 3,
+                "effects": {
+                    "navy_strength": "+15%",
+                    "mediterranean_presence": "+10%",
+                    "budget_cost": "30 млн $"
+                }
+            },
+            {
+                "id": "eg_foreign_01",
+                "name": "Лидерство в арабском мире",
+                "description": "Укрепление позиций в регионе.",
+                "category": "foreign",
+                "prerequisites": [],
+                "cost": 14,
+                "duration_days": 2,
+                "effects": {
+                    "influence_middle_east": "+15%",
+                    "relations_arab": "+10",
+                    "budget_cost": "8 млн $"
+                }
+            },
+            {
+                "id": "eg_foreign_02",
+                "name": "Отношения с Саудовской Аравией",
+                "description": "Укрепление связей с КСА.",
+                "category": "foreign",
+                "prerequisites": ["eg_foreign_01"],
+                "cost": 12,
+                "duration_days": 1,
+                "effects": {
+                    "relations_saudi": "+15",
+                    "aid_inflow": "+5%",
+                    "investment_inflow": "+10%"
+                }
+            },
+            {
+                "id": "eg_foreign_03",
+                "name": "Отношения с ОАЭ",
+                "description": "Укрепление связей с Эмиратами.",
+                "category": "foreign",
+                "prerequisites": ["eg_foreign_02"],
+                "cost": 12,
+                "duration_days": 1,
+                "effects": {
+                    "relations_uae": "+15",
+                    "investment_inflow": "+10%"
+                }
+            },
+            {
+                "id": "eg_foreign_04",
+                "name": "Эфиопская плотина",
+                "description": "Дипломатическое урегулирование спора о водах Нила.",
+                "category": "foreign",
+                "prerequisites": [],
+                "cost": 18,
+                "duration_days": 3,
+                "effects": {
+                    "relations_ethiopia": "+5",
+                    "water_security": "+5%",
+                    "budget_cost": "10 млн $"
+                }
+            },
+            {
+                "id": "eg_social_01",
+                "name": "Демографическая политика",
+                "description": "Программы контроля рождаемости.",
+                "category": "social",
+                "prerequisites": [],
+                "cost": 16,
+                "duration_days": 2,
+                "effects": {
+                    "population_growth": "-0.3%/год",
+                    "social_spending": "-5%",
+                    "budget_cost": "15 млн $"
+                }
+            },
+            {
+                "id": "eg_social_02",
+                "name": "Продовольственная безопасность",
+                "description": "Субсидии на хлеб и продукты.",
+                "category": "social",
+                "prerequisites": ["eg_social_01"],
+                "cost": 16,
+                "duration_days": 2,
+                "effects": {
+                    "happiness": "+8%",
+                    "stability": "+5%",
+                    "budget_cost": "20 млн $"
+                }
+            },
+            {
+                "id": "eg_infrastructure_01",
+                "name": "Развитие транспортной сети",
+                "description": "Строительство дорог и мостов.",
+                "category": "infrastructure",
+                "prerequisites": [],
+                "cost": 16,
+                "duration_days": 2,
+                "effects": {
+                    "logistics_efficiency": "+12%",
+                    "transport_speed": "+10%",
+                    "budget_cost": "18 млн $"
+                }
+            }
+        ]
+    }
+}
